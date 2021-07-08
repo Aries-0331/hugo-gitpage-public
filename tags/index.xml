@@ -2,170 +2,170 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on urchinzhou</title>
-    <link>https://urchinzhou.github.io/hugo-gitpage-source/tags/</link>
+    <link>/tags/</link>
     <description>Recent content in Tags on urchinzhou</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 06 Jul 2021 22:30:30 +0800</lastBuildDate><atom:link href="https://urchinzhou.github.io/hugo-gitpage-source/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 06 Jul 2021 22:30:30 +0800</lastBuildDate><atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>android</title>
-      <link>https://urchinzhou.github.io/hugo-gitpage-source/tags/android/</link>
+      <link>/tags/android/</link>
       <pubDate>Tue, 06 Jul 2021 22:30:30 +0800</pubDate>
       
-      <guid>https://urchinzhou.github.io/hugo-gitpage-source/tags/android/</guid>
+      <guid>/tags/android/</guid>
       <description></description>
     </item>
     
     <item>
       <title>logcat</title>
-      <link>https://urchinzhou.github.io/hugo-gitpage-source/tags/logcat/</link>
+      <link>/tags/logcat/</link>
       <pubDate>Tue, 06 Jul 2021 22:30:30 +0800</pubDate>
       
-      <guid>https://urchinzhou.github.io/hugo-gitpage-source/tags/logcat/</guid>
+      <guid>/tags/logcat/</guid>
       <description></description>
     </item>
     
     <item>
       <title>C</title>
-      <link>https://urchinzhou.github.io/hugo-gitpage-source/tags/c/</link>
+      <link>/tags/c/</link>
       <pubDate>Tue, 06 Jul 2021 22:29:13 +0800</pubDate>
       
-      <guid>https://urchinzhou.github.io/hugo-gitpage-source/tags/c/</guid>
+      <guid>/tags/c/</guid>
       <description></description>
     </item>
     
     <item>
       <title>指针</title>
-      <link>https://urchinzhou.github.io/hugo-gitpage-source/tags/%E6%8C%87%E9%92%88/</link>
+      <link>/tags/%E6%8C%87%E9%92%88/</link>
       <pubDate>Tue, 06 Jul 2021 22:29:13 +0800</pubDate>
       
-      <guid>https://urchinzhou.github.io/hugo-gitpage-source/tags/%E6%8C%87%E9%92%88/</guid>
+      <guid>/tags/%E6%8C%87%E9%92%88/</guid>
       <description></description>
     </item>
     
     <item>
       <title>crypto</title>
-      <link>https://urchinzhou.github.io/hugo-gitpage-source/tags/crypto/</link>
+      <link>/tags/crypto/</link>
       <pubDate>Tue, 06 Jul 2021 22:28:23 +0800</pubDate>
       
-      <guid>https://urchinzhou.github.io/hugo-gitpage-source/tags/crypto/</guid>
+      <guid>/tags/crypto/</guid>
       <description></description>
     </item>
     
     <item>
       <title>http</title>
-      <link>https://urchinzhou.github.io/hugo-gitpage-source/tags/http/</link>
+      <link>/tags/http/</link>
       <pubDate>Tue, 06 Jul 2021 22:28:02 +0800</pubDate>
       
-      <guid>https://urchinzhou.github.io/hugo-gitpage-source/tags/http/</guid>
+      <guid>/tags/http/</guid>
       <description></description>
     </item>
     
     <item>
       <title>https</title>
-      <link>https://urchinzhou.github.io/hugo-gitpage-source/tags/https/</link>
+      <link>/tags/https/</link>
       <pubDate>Tue, 06 Jul 2021 22:28:02 +0800</pubDate>
       
-      <guid>https://urchinzhou.github.io/hugo-gitpage-source/tags/https/</guid>
+      <guid>/tags/https/</guid>
       <description></description>
     </item>
     
     <item>
       <title>protocol</title>
-      <link>https://urchinzhou.github.io/hugo-gitpage-source/tags/protocol/</link>
+      <link>/tags/protocol/</link>
       <pubDate>Tue, 06 Jul 2021 22:28:02 +0800</pubDate>
       
-      <guid>https://urchinzhou.github.io/hugo-gitpage-source/tags/protocol/</guid>
+      <guid>/tags/protocol/</guid>
       <description></description>
     </item>
     
     <item>
       <title>tls</title>
-      <link>https://urchinzhou.github.io/hugo-gitpage-source/tags/tls/</link>
+      <link>/tags/tls/</link>
       <pubDate>Tue, 06 Jul 2021 22:28:02 +0800</pubDate>
       
-      <guid>https://urchinzhou.github.io/hugo-gitpage-source/tags/tls/</guid>
+      <guid>/tags/tls/</guid>
       <description></description>
     </item>
     
     <item>
       <title>sqlcipher</title>
-      <link>https://urchinzhou.github.io/hugo-gitpage-source/tags/sqlcipher/</link>
+      <link>/tags/sqlcipher/</link>
       <pubDate>Tue, 06 Jul 2021 22:27:48 +0800</pubDate>
       
-      <guid>https://urchinzhou.github.io/hugo-gitpage-source/tags/sqlcipher/</guid>
+      <guid>/tags/sqlcipher/</guid>
       <description></description>
     </item>
     
     <item>
       <title>sqlite</title>
-      <link>https://urchinzhou.github.io/hugo-gitpage-source/tags/sqlite/</link>
+      <link>/tags/sqlite/</link>
       <pubDate>Tue, 06 Jul 2021 22:27:48 +0800</pubDate>
       
-      <guid>https://urchinzhou.github.io/hugo-gitpage-source/tags/sqlite/</guid>
+      <guid>/tags/sqlite/</guid>
       <description></description>
     </item>
     
     <item>
       <title>tcp</title>
-      <link>https://urchinzhou.github.io/hugo-gitpage-source/tags/tcp/</link>
+      <link>/tags/tcp/</link>
       <pubDate>Tue, 06 Jul 2021 22:26:31 +0800</pubDate>
       
-      <guid>https://urchinzhou.github.io/hugo-gitpage-source/tags/tcp/</guid>
+      <guid>/tags/tcp/</guid>
       <description></description>
     </item>
     
     <item>
       <title>gcc</title>
-      <link>https://urchinzhou.github.io/hugo-gitpage-source/tags/gcc/</link>
+      <link>/tags/gcc/</link>
       <pubDate>Tue, 06 Jul 2021 22:26:17 +0800</pubDate>
       
-      <guid>https://urchinzhou.github.io/hugo-gitpage-source/tags/gcc/</guid>
+      <guid>/tags/gcc/</guid>
       <description></description>
     </item>
     
     <item>
       <title>xlog</title>
-      <link>https://urchinzhou.github.io/hugo-gitpage-source/tags/xlog/</link>
+      <link>/tags/xlog/</link>
       <pubDate>Tue, 06 Jul 2021 22:25:57 +0800</pubDate>
       
-      <guid>https://urchinzhou.github.io/hugo-gitpage-source/tags/xlog/</guid>
+      <guid>/tags/xlog/</guid>
       <description></description>
     </item>
     
     <item>
       <title>检视阅读</title>
-      <link>https://urchinzhou.github.io/hugo-gitpage-source/tags/%E6%A3%80%E8%A7%86%E9%98%85%E8%AF%BB/</link>
+      <link>/tags/%E6%A3%80%E8%A7%86%E9%98%85%E8%AF%BB/</link>
       <pubDate>Tue, 06 Jul 2021 22:24:19 +0800</pubDate>
       
-      <guid>https://urchinzhou.github.io/hugo-gitpage-source/tags/%E6%A3%80%E8%A7%86%E9%98%85%E8%AF%BB/</guid>
+      <guid>/tags/%E6%A3%80%E8%A7%86%E9%98%85%E8%AF%BB/</guid>
       <description></description>
     </item>
     
     <item>
       <title>阅读技巧</title>
-      <link>https://urchinzhou.github.io/hugo-gitpage-source/tags/%E9%98%85%E8%AF%BB%E6%8A%80%E5%B7%A7/</link>
+      <link>/tags/%E9%98%85%E8%AF%BB%E6%8A%80%E5%B7%A7/</link>
       <pubDate>Tue, 06 Jul 2021 22:24:19 +0800</pubDate>
       
-      <guid>https://urchinzhou.github.io/hugo-gitpage-source/tags/%E9%98%85%E8%AF%BB%E6%8A%80%E5%B7%A7/</guid>
+      <guid>/tags/%E9%98%85%E8%AF%BB%E6%8A%80%E5%B7%A7/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Linux</title>
-      <link>https://urchinzhou.github.io/hugo-gitpage-source/tags/linux/</link>
+      <link>/tags/linux/</link>
       <pubDate>Tue, 06 Jul 2021 22:05:40 +0800</pubDate>
       
-      <guid>https://urchinzhou.github.io/hugo-gitpage-source/tags/linux/</guid>
+      <guid>/tags/linux/</guid>
       <description></description>
     </item>
     
     <item>
       <title>性能优化</title>
-      <link>https://urchinzhou.github.io/hugo-gitpage-source/tags/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/</link>
+      <link>/tags/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/</link>
       <pubDate>Tue, 06 Jul 2021 22:05:40 +0800</pubDate>
       
-      <guid>https://urchinzhou.github.io/hugo-gitpage-source/tags/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/</guid>
+      <guid>/tags/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/</guid>
       <description></description>
     </item>
     

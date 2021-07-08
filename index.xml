@@ -1,10 +1,168 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Even - A super concise theme for Hugo</title>
+    <title>urchinzhou</title>
     <link>http://urchinzhou.github.io/hugo-gitpage-public/</link>
-    <description>Recent content on Even - A super concise theme for Hugo</description>
+    <description>Recent content on urchinzhou</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en</language><atom:link href="http://urchinzhou.github.io/hugo-gitpage-public/index.xml" rel="self" type="application/rss+xml" />
+    <language>en</language>
+    <lastBuildDate>Tue, 06 Jul 2021 22:30:30 +0800</lastBuildDate><atom:link href="http://urchinzhou.github.io/hugo-gitpage-public/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>logcat日志读取流程分析</title>
+      <link>http://urchinzhou.github.io/hugo-gitpage-public/post/logcat%E6%97%A5%E5%BF%97%E8%AF%BB%E5%8F%96%E6%B5%81%E7%A8%8B%E5%88%86%E6%9E%90/</link>
+      <pubDate>Tue, 06 Jul 2021 22:30:30 +0800</pubDate>
+      
+      <guid>http://urchinzhou.github.io/hugo-gitpage-public/post/logcat%E6%97%A5%E5%BF%97%E8%AF%BB%E5%8F%96%E6%B5%81%E7%A8%8B%E5%88%86%E6%9E%90/</guid>
+      <description>&lt;p&gt;logcat 通过读 &lt;strong&gt;/dev/socket/logd&lt;/strong&gt; 套接字节点，以从 &lt;strong&gt;logd&lt;/strong&gt; 进程中获取信息。&lt;/p&gt;
+&lt;p&gt;在 &lt;code&gt;/logcat/logcat.cpp&lt;/code&gt; 的 &lt;code&gt;__logcat&lt;/code&gt; 方法中调用 &lt;code&gt;android_logger_list_read&lt;/code&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>指针</title>
+      <link>http://urchinzhou.github.io/hugo-gitpage-public/post/%E6%8C%87%E9%92%88/</link>
+      <pubDate>Tue, 06 Jul 2021 22:29:13 +0800</pubDate>
+      
+      <guid>http://urchinzhou.github.io/hugo-gitpage-public/post/%E6%8C%87%E9%92%88/</guid>
+      <description>未初始化和非法的指针 1 2 3 //常见错误 int *a; *a = 12; 该代码段，声明了一个名为 a 的指针变量，之后将 12 存储在 a 所指向的空间中。 声明了变量 a，但未对其</description>
+    </item>
+    
+    <item>
+      <title>EncryptedSharedPreferences分析</title>
+      <link>http://urchinzhou.github.io/hugo-gitpage-public/post/encryptedsharedpreferences%E5%88%86%E6%9E%90/</link>
+      <pubDate>Tue, 06 Jul 2021 22:28:23 +0800</pubDate>
+      
+      <guid>http://urchinzhou.github.io/hugo-gitpage-public/post/encryptedsharedpreferences%E5%88%86%E6%9E%90/</guid>
+      <description>EncryptedSharedPreferenes 是 androidx 下安全组件中的加密类，实现SharedPreferences的键值对加密。 对它的分析，主要涉及以下几点： 密钥管理 加密算法 工程实现 源码分</description>
+    </item>
+    
+    <item>
+      <title>HTTPS与HTTP</title>
+      <link>http://urchinzhou.github.io/hugo-gitpage-public/post/https%E4%B8%8Ehttp/</link>
+      <pubDate>Tue, 06 Jul 2021 22:28:02 +0800</pubDate>
+      
+      <guid>http://urchinzhou.github.io/hugo-gitpage-public/post/https%E4%B8%8Ehttp/</guid>
+      <description>概念上理清 HTTPS 与 HTTP 的区别。 在互联网协议套件中，将网络协议分为四层，从下至上依次为链路层-网络层-传输层-应用层，HTTP 属于应用层协议。中文名</description>
+    </item>
+    
+    <item>
+      <title>SQLCipher替代SQLite</title>
+      <link>http://urchinzhou.github.io/hugo-gitpage-public/post/sqlcipher%E6%9B%BF%E4%BB%A3sqlite/</link>
+      <pubDate>Tue, 06 Jul 2021 22:27:48 +0800</pubDate>
+      
+      <guid>http://urchinzhou.github.io/hugo-gitpage-public/post/sqlcipher%E6%9B%BF%E4%BB%A3sqlite/</guid>
+      <description>&lt;p&gt;SQLCipher 是基于 SQLite 的安全扩展，加解密行为对应用层透明，可使用标准 SQLite API 执行数据库操作，移植简单，以页为单位进行加解密操作，效率高，开销比 SQLite 多 5% 左右。&lt;/p&gt;
+&lt;h3 id=&#34;安全特性&#34;&gt;安全特性&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;加密算法使用 AES-256 CBC模式；&lt;/li&gt;
+&lt;li&gt;使用口令初始化数据库，实际加密密钥根据口令派生产生，相同口令派生出的密钥不同；&lt;/li&gt;
+&lt;li&gt;以页为单位加解密，默认页大小 4096 Bytes，可调整优化；&lt;/li&gt;
+&lt;li&gt;对每一页写的时候，文末会附带消息验证码，用于读取时校验；&lt;/li&gt;
+&lt;li&gt;加密算法由 OpenSSL libcrypto 等开源库支持；&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+    
+    <item>
+      <title>TCP与粘包问题</title>
+      <link>http://urchinzhou.github.io/hugo-gitpage-public/post/tcp%E4%B8%8E%E7%B2%98%E5%8C%85%E9%97%AE%E9%A2%98/</link>
+      <pubDate>Tue, 06 Jul 2021 22:26:31 +0800</pubDate>
+      
+      <guid>http://urchinzhou.github.io/hugo-gitpage-public/post/tcp%E4%B8%8E%E7%B2%98%E5%8C%85%E9%97%AE%E9%A2%98/</guid>
+      <description>TCP 没有粘包问题。搜索引擎中列出的各种关于“TCP 粘包问题”的文章，所讲的其实是采用 TCP 传输数据的应用层协议设计不合理导致的粘包问题，并不是 TCP 的</description>
+    </item>
+    
+    <item>
+      <title>关于gcc编译时函数符号导出的问题</title>
+      <link>http://urchinzhou.github.io/hugo-gitpage-public/post/%E5%85%B3%E4%BA%8Egcc%E7%BC%96%E8%AF%91%E6%97%B6%E5%87%BD%E6%95%B0%E7%AC%A6%E5%8F%B7%E5%AF%BC%E5%87%BA%E7%9A%84%E9%97%AE%E9%A2%98/</link>
+      <pubDate>Tue, 06 Jul 2021 22:26:17 +0800</pubDate>
+      
+      <guid>http://urchinzhou.github.io/hugo-gitpage-public/post/%E5%85%B3%E4%BA%8Egcc%E7%BC%96%E8%AF%91%E6%97%B6%E5%87%BD%E6%95%B0%E7%AC%A6%E5%8F%B7%E5%AF%BC%E5%87%BA%E7%9A%84%E9%97%AE%E9%A2%98/</guid>
+      <description>背景：在 Android P liblog 模块中增加一个功能，涉及外部函数调用。如在 A.c 中定义函数 fun，在 A.h 中声明函数 fun，在 B.c 中包含 A.h 后调用 fun，文件名、路径等均</description>
+    </item>
+    
+    <item>
+      <title>关于xlog加密处理分析</title>
+      <link>http://urchinzhou.github.io/hugo-gitpage-public/post/%E5%85%B3%E4%BA%8Exlog%E5%8A%A0%E5%AF%86%E5%A4%84%E7%90%86%E5%88%86%E6%9E%90/</link>
+      <pubDate>Tue, 06 Jul 2021 22:25:57 +0800</pubDate>
+      
+      <guid>http://urchinzhou.github.io/hugo-gitpage-public/post/%E5%85%B3%E4%BA%8Exlog%E5%8A%A0%E5%AF%86%E5%A4%84%E7%90%86%E5%88%86%E6%9E%90/</guid>
+      <description>xlog 使用微型加密算法（TEA，Tiny Encryption Algorithm）对日志数据进行加密，使用 ECDH 密钥交换算法进行对称密钥的协商，对称密钥以数组形式存储在</description>
+    </item>
+    
+    <item>
+      <title>关于数据分片与分段</title>
+      <link>http://urchinzhou.github.io/hugo-gitpage-public/post/%E5%85%B3%E4%BA%8E%E6%95%B0%E6%8D%AE%E5%88%86%E7%89%87%E4%B8%8E%E5%88%86%E6%AE%B5/</link>
+      <pubDate>Tue, 06 Jul 2021 22:25:41 +0800</pubDate>
+      
+      <guid>http://urchinzhou.github.io/hugo-gitpage-public/post/%E5%85%B3%E4%BA%8E%E6%95%B0%E6%8D%AE%E5%88%86%E7%89%87%E4%B8%8E%E5%88%86%E6%AE%B5/</guid>
+      <description>链路层要求数据帧的长度最大值为 1500 字节，该特性被称为 MTU，即最大传输单元。当 IP 层的数据报大于 MTU 时，IP 层就需要进行分片，就是把数据报分成若干</description>
+    </item>
+    
+    <item>
+      <title>密码应用基础知识</title>
+      <link>http://urchinzhou.github.io/hugo-gitpage-public/post/%E5%AF%86%E7%A0%81%E5%BA%94%E7%94%A8%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</link>
+      <pubDate>Tue, 06 Jul 2021 22:25:17 +0800</pubDate>
+      
+      <guid>http://urchinzhou.github.io/hugo-gitpage-public/post/%E5%AF%86%E7%A0%81%E5%BA%94%E7%94%A8%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</guid>
+      <description>&lt;h1 id=&#34;对称算法&#34;&gt;对称算法&lt;/h1&gt;
+&lt;p&gt;加密密钥能够从解密密钥中推算出来，反过来也成立。在大多数对称算法中，加密解密&lt;strong&gt;密钥是相同的&lt;/strong&gt;。这些算法也叫&lt;strong&gt;秘密密钥算法&lt;/strong&gt;或&lt;strong&gt;单密钥算法&lt;/strong&gt;，它要求发送者和接受者在安全通信之前，商定一个密钥。&lt;/p&gt;
+&lt;p&gt;对称算法的安全性依赖于密钥，泄露密钥就意味着任何人都能对消息进行加密解密。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;分组算法&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;对数据块运算，如果数据长度不够一块，则需要填充；加密之后数据长度可能会变长，某些场景下不适用；需要对数据进行缓存，某些场景下不适用。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;分组算法的工作模式&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;ECB 模式，最简单，加密长数据有风险；&lt;/li&gt;
+&lt;li&gt;CBC 模式，&lt;strong&gt;最常用的工作模式&lt;/strong&gt;，但本身并没有什么优势，单纯因为过去用的人多，属于历史遗留问题；&lt;/li&gt;
+&lt;li&gt;OFB 模式，效果类似于流密码，适合处理音视频数据；&lt;/li&gt;
+&lt;li&gt;CFB 模式，效果类似于流密码，几乎没人用；&lt;/li&gt;
+&lt;li&gt;CTR 模式，可并行加速，只要有条件就推荐使用，广泛应用于 ATM 网络安全和 IPSec 应用中；&lt;/li&gt;
+&lt;li&gt;GCM、CCM 认证加密模式，既能加密又能防篡改防重放；&lt;/li&gt;
+&lt;li&gt;XTS 存储加密模式，适合随机读写模式；&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+    
+    <item>
+      <title>TLS协议</title>
+      <link>http://urchinzhou.github.io/hugo-gitpage-public/post/tls%E5%8D%8F%E8%AE%AE/</link>
+      <pubDate>Tue, 06 Jul 2021 22:24:45 +0800</pubDate>
+      
+      <guid>http://urchinzhou.github.io/hugo-gitpage-public/post/tls%E5%8D%8F%E8%AE%AE/</guid>
+      <description>TLS 协议的设计目标 构建一个安全传输层（Transport Layer Security），在基于连接的传输层（如 TCP）之上提供密码学安全，包括 机密性，信</description>
+    </item>
+    
+    <item>
+      <title>善用阅读技巧 检视阅读</title>
+      <link>http://urchinzhou.github.io/hugo-gitpage-public/post/%E5%96%84%E7%94%A8%E9%98%85%E8%AF%BB%E6%8A%80%E5%B7%A7-%E6%A3%80%E8%A7%86%E9%98%85%E8%AF%BB/</link>
+      <pubDate>Tue, 06 Jul 2021 22:24:19 +0800</pubDate>
+      
+      <guid>http://urchinzhou.github.io/hugo-gitpage-public/post/%E5%96%84%E7%94%A8%E9%98%85%E8%AF%BB%E6%8A%80%E5%B7%A7-%E6%A3%80%E8%A7%86%E9%98%85%E8%AF%BB/</guid>
+      <description>检视阅读（inspectional reading），强调在有限的时间内完成阅读。 初次接触这一概念，是在莫提默·艾德勒所写的《如何阅读一本书》</description>
+    </item>
+    
+    <item>
+      <title>如何理解平均负载</title>
+      <link>http://urchinzhou.github.io/hugo-gitpage-public/post/%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3%E5%B9%B3%E5%9D%87%E8%B4%9F%E8%BD%BD/</link>
+      <pubDate>Tue, 06 Jul 2021 22:05:40 +0800</pubDate>
+      
+      <guid>http://urchinzhou.github.io/hugo-gitpage-public/post/%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3%E5%B9%B3%E5%9D%87%E8%B4%9F%E8%BD%BD/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;平均负载不仅包括&lt;strong&gt;正在使用 CPU&lt;/strong&gt; 的进程，还包括&lt;strong&gt;等待 CPU&lt;/strong&gt; 和&lt;strong&gt;等待 I/O&lt;/strong&gt; 的进程。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;什么是平均负载&#34;&gt;什么是平均负载&lt;/h3&gt;
+&lt;p&gt;通常我们使用 top 或 uptime 命令，来查看系统负载情况时，都会关注 load average 这一参数，但实际上你真的理解这一参数后三个数字的含义吗？相当一部分人将平均负载简单理解为单位时间内的 CPU 使用率，其实不然。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;root@zwx-virtual-machine:/# uptime
+ 11:06:40 up 1 day, 12 min,  1 user,  load average: 0.09, 0.04, 0.01
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;图中 load average 后的三个数字，依次是过去1分钟、5分钟、15分钟的平均负载（Load Average）。简单来说，它代表的是单位时间内，系统处于&lt;strong&gt;可运行状态&lt;/strong&gt;和&lt;strong&gt;不可中断状态&lt;/strong&gt;的平均进程数，也就是&lt;strong&gt;平均活跃进程数&lt;/strong&gt;，和 CPU 使用率并没有直接关系。&lt;/p&gt;
+&lt;p&gt;所谓可运行状态的进程，是指正在使用 CPU 或正在等待 CPU 的进程，也就是使用 ps 命令看到的处于 R/Running/Runnable 状态的进程。&lt;/p&gt;
+&lt;p&gt;不可中断的进程，是指正处于内核态关键流程中的进程，且这些流程是不可打断的，比如等待硬件设备的 I/O 响应，也就是我们在 ps 命令中看到的 D 状态进程。&lt;/p&gt;</description>
+    </item>
+    
   </channel>
 </rss>

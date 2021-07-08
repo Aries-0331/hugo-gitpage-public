@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>EncryptedSharedPreferences分析 - urchinzhou</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="urchinzhou" /><meta name="description" content="EncryptedSharedPreferenes 是 androidx 下安全组件中的加密类，实现SharedPreferences的键值对加密。 对它的分析，主要涉及以下几点： 密钥管理 加密算法 工程实现 源码分" /><meta name="keywords" content="urchinzhou, blog, hugo" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.85.0 with theme even" />
+
+
+<link rel="canonical" href="http://urchinzhou.github.io/hugo-gitpage-public/post/encryptedsharedpreferences%E5%88%86%E6%9E%90/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/hugo-gitpage-public/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/hugo-gitpage-public/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/hugo-gitpage-public/favicon-16x16.png">
+<link rel="manifest" href="/hugo-gitpage-public/manifest.json">
+<link rel="mask-icon" href="/hugo-gitpage-public/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/hugo-gitpage-public/sass/main.min.2e81bbed97b8b282c1aeb57488cc71c8d8c8ec559f3931531bd396bf31e0d4dd.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="EncryptedSharedPreferences分析" />
+<meta property="og:description" content="EncryptedSharedPreferenes 是 androidx 下安全组件中的加密类，实现SharedPreferences的键值对加密。 对它的分析，主要涉及以下几点： 密钥管理 加密算法 工程实现 源码分" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://urchinzhou.github.io/hugo-gitpage-public/post/encryptedsharedpreferences%E5%88%86%E6%9E%90/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2021-07-06T22:28:23+08:00" />
+<meta property="article:modified_time" content="2021-07-06T22:28:23+08:00" />
+
+<meta itemprop="name" content="EncryptedSharedPreferences分析">
+<meta itemprop="description" content="EncryptedSharedPreferenes 是 androidx 下安全组件中的加密类，实现SharedPreferences的键值对加密。 对它的分析，主要涉及以下几点： 密钥管理 加密算法 工程实现 源码分"><meta itemprop="datePublished" content="2021-07-06T22:28:23+08:00" />
+<meta itemprop="dateModified" content="2021-07-06T22:28:23+08:00" />
+<meta itemprop="wordCount" content="1043">
+<meta itemprop="keywords" content="android,crypto," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="EncryptedSharedPreferences分析"/>
+<meta name="twitter:description" content="EncryptedSharedPreferenes 是 androidx 下安全组件中的加密类，实现SharedPreferences的键值对加密。 对它的分析，主要涉及以下几点： 密钥管理 加密算法 工程实现 源码分"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/hugo-gitpage-public/" class="logo">urchinzhou</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/hugo-gitpage-public/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/hugo-gitpage-public/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/hugo-gitpage-public/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/hugo-gitpage-public/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
+
+  
+
+
+</nav>
+
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/hugo-gitpage-public/" class="logo">urchinzhou</a>
+</div>
+
+
+
+
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/hugo-gitpage-public/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/hugo-gitpage-public/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/hugo-gitpage-public/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/hugo-gitpage-public/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">EncryptedSharedPreferences分析</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2021-07-06 </span>
+        <div class="post-category">
+            <a href="/hugo-gitpage-public/categories/%E5%8A%A0%E5%AF%86/"> 加密 </a>
+            <a href="/hugo-gitpage-public/categories/android/"> Android </a>
+            </div>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li>
+          <ul>
+            <li><a href="#密钥管理">密钥管理</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p>EncryptedSharedPreferenes 是 androidx 下安全组件中的加密类，实现<code>SharedPreferences</code>的键值对加密。</p>
+<p>对它的分析，主要涉及以下几点：</p>
+<ul>
+<li>密钥管理</li>
+<li>加密算法</li>
+<li>工程实现</li>
+<li>源码分析</li>
+</ul>
+<p>开发者文档中提供了<code>SharedPreferences</code>加密键值对的实例代码，其中使用<code>MasterKeys</code>来进行密钥管理，而在 <a href="https://developer.android.com/reference/androidx/security/crypto/MasterKeys?hl=zh-cn">MasterKeys</a> 的文档中提示该类已废弃，应使用<code>MasterKey.Builder</code>来管理主密钥（版本说明：基于 Jetpack Security 1.1.0-alpha01），示例如下</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"> <span class="c1">// this is equivalent to using deprecated MasterKeys.AES256_GCM_SPEC
+</span><span class="c1"></span> <span class="n">KeyGenParameterSpec</span> <span class="n">spec</span> <span class="o">=</span> <span class="k">new</span> <span class="n">KeyGenParameterSpec</span><span class="o">.</span><span class="na">Builder</span><span class="o">(</span>
+         <span class="n">MASTER_KEY_ALIAS</span><span class="o">,</span>
+         <span class="n">KeyProperties</span><span class="o">.</span><span class="na">PURPOSE_ENCRYPT</span> <span class="o">|</span> <span class="n">KeyProperties</span><span class="o">.</span><span class="na">PURPOSE_DECRYPT</span><span class="o">)</span>
+         <span class="o">.</span><span class="na">setBlockModes</span><span class="o">(</span><span class="n">KeyProperties</span><span class="o">.</span><span class="na">BLOCK_MODE_GCM</span><span class="o">)</span>
+         <span class="o">.</span><span class="na">setEncryptionPaddings</span><span class="o">(</span><span class="n">KeyProperties</span><span class="o">.</span><span class="na">ENCRYPTION_PADDING_NONE</span><span class="o">)</span>
+         <span class="o">.</span><span class="na">setKeySize</span><span class="o">(</span><span class="n">KEY_SIZE</span><span class="o">)</span>
+         <span class="o">.</span><span class="na">build</span><span class="o">();</span>
+ <span class="n">MasterKey</span> <span class="n">masterKey</span> <span class="o">=</span> <span class="k">new</span> <span class="n">MasterKey</span><span class="o">.</span><span class="na">Builder</span><span class="o">(</span><span class="n">MainActivity</span><span class="o">.</span><span class="na">this</span><span class="o">)</span>
+         <span class="o">.</span><span class="na">setKeyGenParameterSpec</span><span class="o">(</span><span class="n">spec</span><span class="o">)</span>
+         <span class="o">.</span><span class="na">build</span><span class="o">();</span>
+ <span class="n">EncryptedSharedPreferences</span><span class="o">.</span><span class="na">create</span><span class="o">(</span>
+         <span class="n">MainActivity</span><span class="o">.</span><span class="na">this</span><span class="o">,</span>
+         <span class="s">&#34;your-app-preferences-name&#34;</span><span class="o">,</span>
+         <span class="n">masterKey</span><span class="o">,</span> <span class="c1">// masterKey created above
+</span><span class="c1"></span>         <span class="n">EncryptedSharedPreferences</span><span class="o">.</span><span class="na">PrefKeyEncryptionScheme</span><span class="o">.</span><span class="na">AES256_SIV</span><span class="o">,</span>
+         <span class="n">EncryptedSharedPreferences</span><span class="o">.</span><span class="na">PrefValueEncryptionScheme</span><span class="o">.</span><span class="na">AES256_GCM</span><span class="o">);</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="密钥管理">密钥管理</h3>
+<p><code>KeyGenParameterSpec</code>是<code>android.security.keystore</code>中的类，用于指定密钥的参数，相当于先制定一个规范，规范中指明密钥别名、密钥用途、加密模式等密钥属性，然后在生成密钥的时候直接使用指定的规范。我们重点需要关注的是，主密钥的生成和存储，也就是下面调用的<code>MasterKey.Builder</code>方法。</p>
+<p><code>MasterKey.Builder</code>就是用于生成<code>MasterKey</code>的构建器，最终生成密钥的方法是构建器里的<code>build()</code>，那么在<code>build()</code>里面做了什么事情，需要深入到<a href="https://github.com/androidx/androidx/blob/androidx-master-dev/security/crypto/src/main/java/androidx/security/crypto/MasterKey.java">源码</a>里面去看看。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="cm">/**
+</span><span class="cm">* Builds a {@link MasterKey} from this builder.
+</span><span class="cm">* @return The master key.
+</span><span class="cm">*/</span>
+<span class="nd">@NonNull</span>
+<span class="kd">public</span> <span class="n">MasterKey</span> <span class="nf">build</span><span class="o">()</span> <span class="kd">throws</span> <span class="n">GeneralSecurityException</span><span class="o">,</span> <span class="n">IOException</span> <span class="o">{</span>
+	<span class="k">if</span> <span class="o">(</span><span class="n">Build</span><span class="o">.</span><span class="na">VERSION</span><span class="o">.</span><span class="na">SDK_INT</span> <span class="o">&gt;=</span> <span class="n">Build</span><span class="o">.</span><span class="na">VERSION_CODES</span><span class="o">.</span><span class="na">M</span><span class="o">)</span> <span class="o">{</span>
+		<span class="k">return</span> <span class="n">buildOnM</span><span class="o">();</span>
+	<span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+		<span class="k">return</span> <span class="k">new</span> <span class="n">MasterKey</span><span class="o">(</span><span class="n">mKeyAlias</span><span class="o">,</span> <span class="kc">null</span><span class="o">);</span>
+	<span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">private</span> <span class="n">MasterKey</span> <span class="nf">buildOnM</span><span class="o">()</span> <span class="kd">throws</span> <span class="n">GeneralSecurityException</span><span class="o">,</span> <span class="n">IOException</span> <span class="o">{</span>
+  <span class="o">...</span>
+  <span class="k">if</span> <span class="o">(</span><span class="n">Build</span><span class="o">.</span><span class="na">VERSION</span><span class="o">.</span><span class="na">SDK_INT</span> <span class="o">&gt;=</span> <span class="n">Build</span><span class="o">.</span><span class="na">VERSION_CODES</span><span class="o">.</span><span class="na">P</span> <span class="o">&amp;&amp;</span> <span class="n">mRequestStrongBoxBacked</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">mContext</span><span class="o">.</span><span class="na">getPackageManager</span><span class="o">().</span><span class="na">hasSystemFeature</span><span class="o">(</span>
+      <span class="n">PackageManager</span><span class="o">.</span><span class="na">FEATURE_STRONGBOX_KEYSTORE</span><span class="o">))</span> <span class="o">{</span>
+      <span class="n">builder</span><span class="o">.</span><span class="na">setIsStrongBoxBacked</span><span class="o">(</span><span class="kc">true</span><span class="o">);</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+  <span class="n">mKeyGenParameterSpec</span> <span class="o">=</span> <span class="n">builder</span><span class="o">.</span><span class="na">build</span><span class="o">();</span><span class="c1">//完成KeyGenParameterSpec的构建
+</span><span class="c1"></span>  <span class="o">...</span>
+  <span class="nd">@SuppressWarnings</span><span class="o">(</span><span class="s">&#34;deprecation&#34;</span><span class="o">)</span>
+    <span class="n">String</span> <span class="n">keyAlias</span> <span class="o">=</span> <span class="n">MasterKeys</span><span class="o">.</span><span class="na">getOrCreate</span><span class="o">(</span><span class="n">mKeyGenParameterSpec</span><span class="o">);</span><span class="c1">//按照Spec指定的参数创建密钥
+</span><span class="c1"></span>  <span class="k">return</span> <span class="k">new</span> <span class="n">MasterKey</span><span class="o">(</span><span class="n">keyAlias</span><span class="o">,</span> <span class="n">mKeyGenParameterSpec</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>我们以 Android 9.0 为参考，<code>build</code>中调用的是 <code>buildOnM()</code>，而在<code>buildOnM()</code>中会检查系统是否支持基于硬件的 StrongBox Keystore，如果支持，则调用<code>setIsStrongBoxBacked(true)</code>以设置该密钥由 StrongBox 安全芯片保护，至此密钥参数设置的最后一步完成，并返回一个<code>KeyGenParameterSpec</code>的实例，<code>build()</code>内容很简单，直接返回一个<code>KeyGenParameterSpec</code>实例，如下</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">public KeyGenParameterSpec build() {
+	return new KeyGenParameterSpec(
+    mKeystoreAlias,
+    mNamespace,
+    mKeySize,
+    ......
+    mIsStrongBoxBacked,
+    mUserConfirmationRequired,
+    mUnlockedDeviceRequired,
+    mCriticalToDeviceEncryption);
+  }
+}
+</code></pre></td></tr></table>
+</div>
+</div><p>而后返回到<code>buildOnM()</code>中，调用<code>MasterKeys.getOrCreate(mKeyGenParameterSpec)</code>创建主密钥并返回密钥别名字符串，然后逐级返回上层调用方法。</p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">urchinzhou</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2021-07-06
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/hugo-gitpage-public/tags/android/">android</a>
+          <a href="/hugo-gitpage-public/tags/crypto/">crypto</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/hugo-gitpage-public/post/%E6%8C%87%E9%92%88/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">指针</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        <a class="next" href="/hugo-gitpage-public/post/https%E4%B8%8Ehttp/">
+            <span class="next-text nav-default">HTTPS与HTTP</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:your@email.com" class="iconfont icon-email" title="email"></a>
+      <a href="http://localhost:1313" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="http://localhost:1313" class="iconfont icon-twitter" title="twitter"></a>
+      <a href="http://localhost:1313" class="iconfont icon-facebook" title="facebook"></a>
+      <a href="http://localhost:1313" class="iconfont icon-linkedin" title="linkedin"></a>
+      <a href="http://localhost:1313" class="iconfont icon-google" title="google"></a>
+      <a href="http://localhost:1313" class="iconfont icon-github" title="github"></a>
+      <a href="http://localhost:1313" class="iconfont icon-weibo" title="weibo"></a>
+      <a href="http://localhost:1313" class="iconfont icon-zhihu" title="zhihu"></a>
+      <a href="http://localhost:1313" class="iconfont icon-douban" title="douban"></a>
+      <a href="http://localhost:1313" class="iconfont icon-pocket" title="pocket"></a>
+      <a href="http://localhost:1313" class="iconfont icon-tumblr" title="tumblr"></a>
+      <a href="http://localhost:1313" class="iconfont icon-instagram" title="instagram"></a>
+      <a href="http://localhost:1313" class="iconfont icon-gitlab" title="gitlab"></a>
+      <a href="http://localhost:1313" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="http://urchinzhou.github.io/hugo-gitpage-public/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2019 - 
+    2021<span class="heart"><i class="iconfont icon-heart"></i></span><span>urchinzhou</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/hugo-gitpage-public/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

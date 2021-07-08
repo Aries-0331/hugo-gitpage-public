@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>如何理解平均负载 - urchinzhou</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="urchinzhou" /><meta name="description" content=" 平均负载不仅包括正在使用 CPU 的进程，还包括等待 CPU 和等待 I/O 的进程。
+ 什么是平均负载 通常我们使用 top 或 uptime 命令，来查看系统负载情况时，都会关注 load average 这一参数，但实际上你真的理解这一参数后三个数字的含义吗？相当一部分人将平均负载简单理解为单位时间内的 CPU 使用率，其实不然。
+1 2  root@zwx-virtual-machine:/# uptime 11:06:40 up 1 day, 12 min, 1 user, load average: 0.09, 0.04, 0.01   图中 load average 后的三个数字，依次是过去1分钟、5分钟、15分钟的平均负载（Load Average）。简单来说，它代表的是单位时间内，系统处于可运行状态和不可中断状态的平均进程数，也就是平均活跃进程数，和 CPU 使用率并没有直接关系。
+所谓可运行状态的进程，是指正在使用 CPU 或正在等待 CPU 的进程，也就是使用 ps 命令看到的处于 R/Running/Runnable 状态的进程。
+不可中断的进程，是指正处于内核态关键流程中的进程，且这些流程是不可打断的，比如等待硬件设备的 I/O 响应，也就是我们在 ps 命令中看到的 D 状态进程。
+" /><meta name="keywords" content="urchinzhou, blog, hugo" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.85.0 with theme even" />
+
+
+<link rel="canonical" href="http://urchinzhou.github.io/hugo-gitpage-public/post/%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3%E5%B9%B3%E5%9D%87%E8%B4%9F%E8%BD%BD/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/hugo-gitpage-public/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/hugo-gitpage-public/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/hugo-gitpage-public/favicon-16x16.png">
+<link rel="manifest" href="/hugo-gitpage-public/manifest.json">
+<link rel="mask-icon" href="/hugo-gitpage-public/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/hugo-gitpage-public/sass/main.min.2e81bbed97b8b282c1aeb57488cc71c8d8c8ec559f3931531bd396bf31e0d4dd.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="如何理解平均负载" />
+<meta property="og:description" content="
+平均负载不仅包括正在使用 CPU 的进程，还包括等待 CPU 和等待 I/O 的进程。
+
+什么是平均负载
+通常我们使用 top 或 uptime 命令，来查看系统负载情况时，都会关注 load average 这一参数，但实际上你真的理解这一参数后三个数字的含义吗？相当一部分人将平均负载简单理解为单位时间内的 CPU 使用率，其实不然。
+
+
+1
+2
+
+
+root@zwx-virtual-machine:/# uptime
+ 11:06:40 up 1 day, 12 min,  1 user,  load average: 0.09, 0.04, 0.01
+
+
+图中 load average 后的三个数字，依次是过去1分钟、5分钟、15分钟的平均负载（Load Average）。简单来说，它代表的是单位时间内，系统处于可运行状态和不可中断状态的平均进程数，也就是平均活跃进程数，和 CPU 使用率并没有直接关系。
+所谓可运行状态的进程，是指正在使用 CPU 或正在等待 CPU 的进程，也就是使用 ps 命令看到的处于 R/Running/Runnable 状态的进程。
+不可中断的进程，是指正处于内核态关键流程中的进程，且这些流程是不可打断的，比如等待硬件设备的 I/O 响应，也就是我们在 ps 命令中看到的 D 状态进程。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://urchinzhou.github.io/hugo-gitpage-public/post/%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3%E5%B9%B3%E5%9D%87%E8%B4%9F%E8%BD%BD/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2021-07-06T22:05:40+08:00" />
+<meta property="article:modified_time" content="2021-07-06T22:05:40+08:00" />
+
+<meta itemprop="name" content="如何理解平均负载">
+<meta itemprop="description" content="
+平均负载不仅包括正在使用 CPU 的进程，还包括等待 CPU 和等待 I/O 的进程。
+
+什么是平均负载
+通常我们使用 top 或 uptime 命令，来查看系统负载情况时，都会关注 load average 这一参数，但实际上你真的理解这一参数后三个数字的含义吗？相当一部分人将平均负载简单理解为单位时间内的 CPU 使用率，其实不然。
+
+
+1
+2
+
+
+root@zwx-virtual-machine:/# uptime
+ 11:06:40 up 1 day, 12 min,  1 user,  load average: 0.09, 0.04, 0.01
+
+
+图中 load average 后的三个数字，依次是过去1分钟、5分钟、15分钟的平均负载（Load Average）。简单来说，它代表的是单位时间内，系统处于可运行状态和不可中断状态的平均进程数，也就是平均活跃进程数，和 CPU 使用率并没有直接关系。
+所谓可运行状态的进程，是指正在使用 CPU 或正在等待 CPU 的进程，也就是使用 ps 命令看到的处于 R/Running/Runnable 状态的进程。
+不可中断的进程，是指正处于内核态关键流程中的进程，且这些流程是不可打断的，比如等待硬件设备的 I/O 响应，也就是我们在 ps 命令中看到的 D 状态进程。"><meta itemprop="datePublished" content="2021-07-06T22:05:40+08:00" />
+<meta itemprop="dateModified" content="2021-07-06T22:05:40+08:00" />
+<meta itemprop="wordCount" content="1177">
+<meta itemprop="keywords" content="Linux,性能优化," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="如何理解平均负载"/>
+<meta name="twitter:description" content="
+平均负载不仅包括正在使用 CPU 的进程，还包括等待 CPU 和等待 I/O 的进程。
+
+什么是平均负载
+通常我们使用 top 或 uptime 命令，来查看系统负载情况时，都会关注 load average 这一参数，但实际上你真的理解这一参数后三个数字的含义吗？相当一部分人将平均负载简单理解为单位时间内的 CPU 使用率，其实不然。
+
+
+1
+2
+
+
+root@zwx-virtual-machine:/# uptime
+ 11:06:40 up 1 day, 12 min,  1 user,  load average: 0.09, 0.04, 0.01
+
+
+图中 load average 后的三个数字，依次是过去1分钟、5分钟、15分钟的平均负载（Load Average）。简单来说，它代表的是单位时间内，系统处于可运行状态和不可中断状态的平均进程数，也就是平均活跃进程数，和 CPU 使用率并没有直接关系。
+所谓可运行状态的进程，是指正在使用 CPU 或正在等待 CPU 的进程，也就是使用 ps 命令看到的处于 R/Running/Runnable 状态的进程。
+不可中断的进程，是指正处于内核态关键流程中的进程，且这些流程是不可打断的，比如等待硬件设备的 I/O 响应，也就是我们在 ps 命令中看到的 D 状态进程。"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/hugo-gitpage-public/" class="logo">urchinzhou</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/hugo-gitpage-public/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/hugo-gitpage-public/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/hugo-gitpage-public/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/hugo-gitpage-public/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
+
+  
+
+
+</nav>
+
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/hugo-gitpage-public/" class="logo">urchinzhou</a>
+</div>
+
+
+
+
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/hugo-gitpage-public/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/hugo-gitpage-public/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/hugo-gitpage-public/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/hugo-gitpage-public/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">如何理解平均负载</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2021-07-06 </span>
+        <div class="post-category">
+            <a href="/hugo-gitpage-public/categories/linux/"> Linux </a>
+            </div>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li>
+          <ul>
+            <li><a href="#什么是平均负载">什么是平均负载</a></li>
+            <li><a href="#平均负载多少算高">平均负载多少算高</a></li>
+            <li><a href="#举个例子">举个例子</a></li>
+            <li><a href="#小结">小结</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <blockquote>
+<p>平均负载不仅包括<strong>正在使用 CPU</strong> 的进程，还包括<strong>等待 CPU</strong> 和<strong>等待 I/O</strong> 的进程。</p>
+</blockquote>
+<h3 id="什么是平均负载">什么是平均负载</h3>
+<p>通常我们使用 top 或 uptime 命令，来查看系统负载情况时，都会关注 load average 这一参数，但实际上你真的理解这一参数后三个数字的含义吗？相当一部分人将平均负载简单理解为单位时间内的 CPU 使用率，其实不然。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">root@zwx-virtual-machine:/# uptime
+ 11:06:40 up 1 day, 12 min,  1 user,  load average: 0.09, 0.04, 0.01
+</code></pre></td></tr></table>
+</div>
+</div><p>图中 load average 后的三个数字，依次是过去1分钟、5分钟、15分钟的平均负载（Load Average）。简单来说，它代表的是单位时间内，系统处于<strong>可运行状态</strong>和<strong>不可中断状态</strong>的平均进程数，也就是<strong>平均活跃进程数</strong>，和 CPU 使用率并没有直接关系。</p>
+<p>所谓可运行状态的进程，是指正在使用 CPU 或正在等待 CPU 的进程，也就是使用 ps 命令看到的处于 R/Running/Runnable 状态的进程。</p>
+<p>不可中断的进程，是指正处于内核态关键流程中的进程，且这些流程是不可打断的，比如等待硬件设备的 I/O 响应，也就是我们在 ps 命令中看到的 D 状态进程。</p>
+<h3 id="平均负载多少算高">平均负载多少算高</h3>
+<p>我们说平均负载是平均活跃进程数，显然平均的是活跃进程数，那么平均给谁呢？显然是指 CPU，所以评价平均负载需要参考 CPU 的数量。当平均负载值与 CPU 数量相等，就是最理想的负载状态。,比如平均负载为 4 时，意味着在有 4 个 CPU 的系统上，所有 CPU 都刚好被完全占用，在有 8 个 CPU 的系统上，50% 的 CPU 处于空闲状态，在有 2 个 CPU 的系统上，一半的进程没有竞争到 CPU。</p>
+<p>此时，我们就可以初步判断，当平均负载比 CPU 个数大时，系统就已经出现过载。不过这还不够，平均负载有三个值，只参考某一个显然是不行的，就好比评估你一天的伙食，要综合早中晚三顿饭的质量才算客观，评估平均负载也要综合考虑三个值。</p>
+<ul>
+<li>这三个值分别代表 1 分钟、5 分钟、15 分钟的平均负载，如果三者基本相同，则说明系统负载较为平稳；</li>
+<li>如果 1 分钟的值远小于 15 分钟的值，则说明近 15 分钟内系统有较大负载但呈下降趋势；</li>
+<li>如果 1 分钟的值远大于 15 分钟的值，则说明最近 1 分钟内系统负载在增加，但这种增加可能临时的也可能是持续性的，因此对于这种情况需要持续观察。</li>
+</ul>
+<h3 id="举个例子">举个例子</h3>
+<p>在一个单 CPU 系统上，通过 uptime 看到 load average：0.53，1.25，5.47，那么说明在过去 1 分钟内，系统有 47% 的空闲状态，5 分钟内有 25% 的过载，15 分钟内，系统有 447% 的过载，整体上来看系统的平均负载在降低。</p>
+<p>我们都知道，负载过高，会导致进程响应变慢，进而影响服务的正常功能。那么，当平均负载达到什么程度时需要采取有效手段使其降低呢？参考大佬的经验，<strong>当平均负载高于 CPU 数量的 70% 时</strong>，就应该分析排查负载高的问题了。</p>
+<h3 id="小结">小结</h3>
+<p>平均负载提供了一个快速查看系统整体性能的手段，反映了整体的负载情况。但只看平均负载本身，并不能直接发现瓶颈源头，因此，在理解平均负载时，也要注意一下几点：</p>
+<ul>
+<li>平均负载高，有可能是 CPU 密集型进程导致的；</li>
+<li>平均负载高，并不一定代表 CPU 使用率高，还可有能是 I/O 繁忙；</li>
+<li>当发现平均负载高时，可以使用 mpstat、pidstat 等工具，辅助分析负载来源。</li>
+</ul>
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">urchinzhou</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2021-07-06
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/hugo-gitpage-public/tags/linux/">Linux</a>
+          <a href="/hugo-gitpage-public/tags/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/">性能优化</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/hugo-gitpage-public/post/%E5%96%84%E7%94%A8%E9%98%85%E8%AF%BB%E6%8A%80%E5%B7%A7-%E6%A3%80%E8%A7%86%E9%98%85%E8%AF%BB/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">善用阅读技巧 检视阅读</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:your@email.com" class="iconfont icon-email" title="email"></a>
+      <a href="http://localhost:1313" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="http://localhost:1313" class="iconfont icon-twitter" title="twitter"></a>
+      <a href="http://localhost:1313" class="iconfont icon-facebook" title="facebook"></a>
+      <a href="http://localhost:1313" class="iconfont icon-linkedin" title="linkedin"></a>
+      <a href="http://localhost:1313" class="iconfont icon-google" title="google"></a>
+      <a href="http://localhost:1313" class="iconfont icon-github" title="github"></a>
+      <a href="http://localhost:1313" class="iconfont icon-weibo" title="weibo"></a>
+      <a href="http://localhost:1313" class="iconfont icon-zhihu" title="zhihu"></a>
+      <a href="http://localhost:1313" class="iconfont icon-douban" title="douban"></a>
+      <a href="http://localhost:1313" class="iconfont icon-pocket" title="pocket"></a>
+      <a href="http://localhost:1313" class="iconfont icon-tumblr" title="tumblr"></a>
+      <a href="http://localhost:1313" class="iconfont icon-instagram" title="instagram"></a>
+      <a href="http://localhost:1313" class="iconfont icon-gitlab" title="gitlab"></a>
+      <a href="http://localhost:1313" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="http://urchinzhou.github.io/hugo-gitpage-public/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2019 - 
+    2021<span class="heart"><i class="iconfont icon-heart"></i></span><span>urchinzhou</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/hugo-gitpage-public/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

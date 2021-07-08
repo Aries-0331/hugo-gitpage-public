@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>xlog on urchinzhou</title>
-    <link>https://urchinzhou.github.io/hugo-gitpage-public/tags/xlog/</link>
+    <link>/hugo-gitpage-source/tags/xlog/</link>
     <description>Recent content in xlog on urchinzhou</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 06 Jul 2021 22:25:57 +0800</lastBuildDate><atom:link href="https://urchinzhou.github.io/hugo-gitpage-public/tags/xlog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 06 Jul 2021 22:25:57 +0800</lastBuildDate><atom:link href="/hugo-gitpage-source/tags/xlog/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>关于xlog加密处理分析</title>
-      <link>https://urchinzhou.github.io/hugo-gitpage-public/post/%E5%85%B3%E4%BA%8Exlog%E5%8A%A0%E5%AF%86%E5%A4%84%E7%90%86%E5%88%86%E6%9E%90/</link>
+      <link>/hugo-gitpage-source/post/%E5%85%B3%E4%BA%8Exlog%E5%8A%A0%E5%AF%86%E5%A4%84%E7%90%86%E5%88%86%E6%9E%90/</link>
       <pubDate>Tue, 06 Jul 2021 22:25:57 +0800</pubDate>
       
-      <guid>https://urchinzhou.github.io/hugo-gitpage-public/post/%E5%85%B3%E4%BA%8Exlog%E5%8A%A0%E5%AF%86%E5%A4%84%E7%90%86%E5%88%86%E6%9E%90/</guid>
+      <guid>/hugo-gitpage-source/post/%E5%85%B3%E4%BA%8Exlog%E5%8A%A0%E5%AF%86%E5%A4%84%E7%90%86%E5%88%86%E6%9E%90/</guid>
       <description>xlog 使用微型加密算法（TEA，Tiny Encryption Algorithm）对日志数据进行加密，使用 ECDH 密钥交换算法进行对称密钥的协商，对称密钥以数组形式存储在</description>
     </item>
     

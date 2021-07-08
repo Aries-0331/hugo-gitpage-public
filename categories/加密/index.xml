@@ -2,26 +2,26 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>加密 on urchinzhou</title>
-    <link>https://urchinzhou.github.io/hugo-gitpage-public/categories/%E5%8A%A0%E5%AF%86/</link>
+    <link>/hugo-gitpage-source/categories/%E5%8A%A0%E5%AF%86/</link>
     <description>Recent content in 加密 on urchinzhou</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 06 Jul 2021 22:28:23 +0800</lastBuildDate><atom:link href="https://urchinzhou.github.io/hugo-gitpage-public/categories/%E5%8A%A0%E5%AF%86/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 06 Jul 2021 22:28:23 +0800</lastBuildDate><atom:link href="/hugo-gitpage-source/categories/%E5%8A%A0%E5%AF%86/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>EncryptedSharedPreferences分析</title>
-      <link>https://urchinzhou.github.io/hugo-gitpage-public/post/encryptedsharedpreferences%E5%88%86%E6%9E%90/</link>
+      <link>/hugo-gitpage-source/post/encryptedsharedpreferences%E5%88%86%E6%9E%90/</link>
       <pubDate>Tue, 06 Jul 2021 22:28:23 +0800</pubDate>
       
-      <guid>https://urchinzhou.github.io/hugo-gitpage-public/post/encryptedsharedpreferences%E5%88%86%E6%9E%90/</guid>
+      <guid>/hugo-gitpage-source/post/encryptedsharedpreferences%E5%88%86%E6%9E%90/</guid>
       <description>EncryptedSharedPreferenes 是 androidx 下安全组件中的加密类，实现SharedPreferences的键值对加密。 对它的分析，主要涉及以下几点： 密钥管理 加密算法 工程实现 源码分</description>
     </item>
     
     <item>
       <title>SQLCipher替代SQLite</title>
-      <link>https://urchinzhou.github.io/hugo-gitpage-public/post/sqlcipher%E6%9B%BF%E4%BB%A3sqlite/</link>
+      <link>/hugo-gitpage-source/post/sqlcipher%E6%9B%BF%E4%BB%A3sqlite/</link>
       <pubDate>Tue, 06 Jul 2021 22:27:48 +0800</pubDate>
       
-      <guid>https://urchinzhou.github.io/hugo-gitpage-public/post/sqlcipher%E6%9B%BF%E4%BB%A3sqlite/</guid>
+      <guid>/hugo-gitpage-source/post/sqlcipher%E6%9B%BF%E4%BB%A3sqlite/</guid>
       <description>&lt;p&gt;SQLCipher 是基于 SQLite 的安全扩展，加解密行为对应用层透明，可使用标准 SQLite API 执行数据库操作，移植简单，以页为单位进行加解密操作，效率高，开销比 SQLite 多 5% 左右。&lt;/p&gt;
 &lt;h3 id=&#34;安全特性&#34;&gt;安全特性&lt;/h3&gt;
 &lt;ul&gt;
@@ -35,10 +35,10 @@
     
     <item>
       <title>TLS协议</title>
-      <link>https://urchinzhou.github.io/hugo-gitpage-public/post/tls%E5%8D%8F%E8%AE%AE/</link>
+      <link>/hugo-gitpage-source/post/tls%E5%8D%8F%E8%AE%AE/</link>
       <pubDate>Tue, 06 Jul 2021 22:24:45 +0800</pubDate>
       
-      <guid>https://urchinzhou.github.io/hugo-gitpage-public/post/tls%E5%8D%8F%E8%AE%AE/</guid>
+      <guid>/hugo-gitpage-source/post/tls%E5%8D%8F%E8%AE%AE/</guid>
       <description>TLS 协议的设计目标 构建一个安全传输层（Transport Layer Security），在基于连接的传输层（如 TCP）之上提供密码学安全，包括 机密性，信</description>
     </item>
     

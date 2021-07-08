@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>指针 on urchinzhou</title>
-    <link>https://urchinzhou.github.io/hugo-gitpage-public/tags/%E6%8C%87%E9%92%88/</link>
+    <link>/hugo-gitpage-source/tags/%E6%8C%87%E9%92%88/</link>
     <description>Recent content in 指针 on urchinzhou</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 06 Jul 2021 22:29:13 +0800</lastBuildDate><atom:link href="https://urchinzhou.github.io/hugo-gitpage-public/tags/%E6%8C%87%E9%92%88/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 06 Jul 2021 22:29:13 +0800</lastBuildDate><atom:link href="/hugo-gitpage-source/tags/%E6%8C%87%E9%92%88/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>指针</title>
-      <link>https://urchinzhou.github.io/hugo-gitpage-public/post/%E6%8C%87%E9%92%88/</link>
+      <link>/hugo-gitpage-source/post/%E6%8C%87%E9%92%88/</link>
       <pubDate>Tue, 06 Jul 2021 22:29:13 +0800</pubDate>
       
-      <guid>https://urchinzhou.github.io/hugo-gitpage-public/post/%E6%8C%87%E9%92%88/</guid>
+      <guid>/hugo-gitpage-source/post/%E6%8C%87%E9%92%88/</guid>
       <description>未初始化和非法的指针 1 2 3 //常见错误 int *a; *a = 12; 该代码段，声明了一个名为 a 的指针变量，之后将 12 存储在 a 所指向的空间中。 声明了变量 a，但未对其</description>
     </item>
     

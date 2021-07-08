@@ -1,2 +1,2 @@
 User-agent: *
-Sitemap: https://urchinzhou.github.io/hugo-gitpage-public/sitemap.xml
+Sitemap: /hugo-gitpage-source/sitemap.xml

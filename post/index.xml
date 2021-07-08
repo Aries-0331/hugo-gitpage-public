@@ -2,54 +2,54 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on urchinzhou</title>
-    <link>https://urchinzhou.github.io/hugo-gitpage-public/post/</link>
+    <link>/hugo-gitpage-source/post/</link>
     <description>Recent content in Posts on urchinzhou</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 06 Jul 2021 22:30:30 +0800</lastBuildDate><atom:link href="https://urchinzhou.github.io/hugo-gitpage-public/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 06 Jul 2021 22:30:30 +0800</lastBuildDate><atom:link href="/hugo-gitpage-source/post/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>logcat日志读取流程分析</title>
-      <link>https://urchinzhou.github.io/hugo-gitpage-public/post/logcat%E6%97%A5%E5%BF%97%E8%AF%BB%E5%8F%96%E6%B5%81%E7%A8%8B%E5%88%86%E6%9E%90/</link>
+      <link>/hugo-gitpage-source/post/logcat%E6%97%A5%E5%BF%97%E8%AF%BB%E5%8F%96%E6%B5%81%E7%A8%8B%E5%88%86%E6%9E%90/</link>
       <pubDate>Tue, 06 Jul 2021 22:30:30 +0800</pubDate>
       
-      <guid>https://urchinzhou.github.io/hugo-gitpage-public/post/logcat%E6%97%A5%E5%BF%97%E8%AF%BB%E5%8F%96%E6%B5%81%E7%A8%8B%E5%88%86%E6%9E%90/</guid>
+      <guid>/hugo-gitpage-source/post/logcat%E6%97%A5%E5%BF%97%E8%AF%BB%E5%8F%96%E6%B5%81%E7%A8%8B%E5%88%86%E6%9E%90/</guid>
       <description>&lt;p&gt;logcat 通过读 &lt;strong&gt;/dev/socket/logd&lt;/strong&gt; 套接字节点，以从 &lt;strong&gt;logd&lt;/strong&gt; 进程中获取信息。&lt;/p&gt;
 &lt;p&gt;在 &lt;code&gt;/logcat/logcat.cpp&lt;/code&gt; 的 &lt;code&gt;__logcat&lt;/code&gt; 方法中调用 &lt;code&gt;android_logger_list_read&lt;/code&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>指针</title>
-      <link>https://urchinzhou.github.io/hugo-gitpage-public/post/%E6%8C%87%E9%92%88/</link>
+      <link>/hugo-gitpage-source/post/%E6%8C%87%E9%92%88/</link>
       <pubDate>Tue, 06 Jul 2021 22:29:13 +0800</pubDate>
       
-      <guid>https://urchinzhou.github.io/hugo-gitpage-public/post/%E6%8C%87%E9%92%88/</guid>
+      <guid>/hugo-gitpage-source/post/%E6%8C%87%E9%92%88/</guid>
       <description>未初始化和非法的指针 1 2 3 //常见错误 int *a; *a = 12; 该代码段，声明了一个名为 a 的指针变量，之后将 12 存储在 a 所指向的空间中。 声明了变量 a，但未对其</description>
     </item>
     
     <item>
       <title>EncryptedSharedPreferences分析</title>
-      <link>https://urchinzhou.github.io/hugo-gitpage-public/post/encryptedsharedpreferences%E5%88%86%E6%9E%90/</link>
+      <link>/hugo-gitpage-source/post/encryptedsharedpreferences%E5%88%86%E6%9E%90/</link>
       <pubDate>Tue, 06 Jul 2021 22:28:23 +0800</pubDate>
       
-      <guid>https://urchinzhou.github.io/hugo-gitpage-public/post/encryptedsharedpreferences%E5%88%86%E6%9E%90/</guid>
+      <guid>/hugo-gitpage-source/post/encryptedsharedpreferences%E5%88%86%E6%9E%90/</guid>
       <description>EncryptedSharedPreferenes 是 androidx 下安全组件中的加密类，实现SharedPreferences的键值对加密。 对它的分析，主要涉及以下几点： 密钥管理 加密算法 工程实现 源码分</description>
     </item>
     
     <item>
       <title>HTTPS与HTTP</title>
-      <link>https://urchinzhou.github.io/hugo-gitpage-public/post/https%E4%B8%8Ehttp/</link>
+      <link>/hugo-gitpage-source/post/https%E4%B8%8Ehttp/</link>
       <pubDate>Tue, 06 Jul 2021 22:28:02 +0800</pubDate>
       
-      <guid>https://urchinzhou.github.io/hugo-gitpage-public/post/https%E4%B8%8Ehttp/</guid>
+      <guid>/hugo-gitpage-source/post/https%E4%B8%8Ehttp/</guid>
       <description>概念上理清 HTTPS 与 HTTP 的区别。 在互联网协议套件中，将网络协议分为四层，从下至上依次为链路层-网络层-传输层-应用层，HTTP 属于应用层协议。中文名</description>
     </item>
     
     <item>
       <title>SQLCipher替代SQLite</title>
-      <link>https://urchinzhou.github.io/hugo-gitpage-public/post/sqlcipher%E6%9B%BF%E4%BB%A3sqlite/</link>
+      <link>/hugo-gitpage-source/post/sqlcipher%E6%9B%BF%E4%BB%A3sqlite/</link>
       <pubDate>Tue, 06 Jul 2021 22:27:48 +0800</pubDate>
       
-      <guid>https://urchinzhou.github.io/hugo-gitpage-public/post/sqlcipher%E6%9B%BF%E4%BB%A3sqlite/</guid>
+      <guid>/hugo-gitpage-source/post/sqlcipher%E6%9B%BF%E4%BB%A3sqlite/</guid>
       <description>&lt;p&gt;SQLCipher 是基于 SQLite 的安全扩展，加解密行为对应用层透明，可使用标准 SQLite API 执行数据库操作，移植简单，以页为单位进行加解密操作，效率高，开销比 SQLite 多 5% 左右。&lt;/p&gt;
 &lt;h3 id=&#34;安全特性&#34;&gt;安全特性&lt;/h3&gt;
 &lt;ul&gt;
@@ -63,46 +63,46 @@
     
     <item>
       <title>TCP与粘包问题</title>
-      <link>https://urchinzhou.github.io/hugo-gitpage-public/post/tcp%E4%B8%8E%E7%B2%98%E5%8C%85%E9%97%AE%E9%A2%98/</link>
+      <link>/hugo-gitpage-source/post/tcp%E4%B8%8E%E7%B2%98%E5%8C%85%E9%97%AE%E9%A2%98/</link>
       <pubDate>Tue, 06 Jul 2021 22:26:31 +0800</pubDate>
       
-      <guid>https://urchinzhou.github.io/hugo-gitpage-public/post/tcp%E4%B8%8E%E7%B2%98%E5%8C%85%E9%97%AE%E9%A2%98/</guid>
+      <guid>/hugo-gitpage-source/post/tcp%E4%B8%8E%E7%B2%98%E5%8C%85%E9%97%AE%E9%A2%98/</guid>
       <description>TCP 没有粘包问题。搜索引擎中列出的各种关于“TCP 粘包问题”的文章，所讲的其实是采用 TCP 传输数据的应用层协议设计不合理导致的粘包问题，并不是 TCP 的</description>
     </item>
     
     <item>
       <title>关于gcc编译时函数符号导出的问题</title>
-      <link>https://urchinzhou.github.io/hugo-gitpage-public/post/%E5%85%B3%E4%BA%8Egcc%E7%BC%96%E8%AF%91%E6%97%B6%E5%87%BD%E6%95%B0%E7%AC%A6%E5%8F%B7%E5%AF%BC%E5%87%BA%E7%9A%84%E9%97%AE%E9%A2%98/</link>
+      <link>/hugo-gitpage-source/post/%E5%85%B3%E4%BA%8Egcc%E7%BC%96%E8%AF%91%E6%97%B6%E5%87%BD%E6%95%B0%E7%AC%A6%E5%8F%B7%E5%AF%BC%E5%87%BA%E7%9A%84%E9%97%AE%E9%A2%98/</link>
       <pubDate>Tue, 06 Jul 2021 22:26:17 +0800</pubDate>
       
-      <guid>https://urchinzhou.github.io/hugo-gitpage-public/post/%E5%85%B3%E4%BA%8Egcc%E7%BC%96%E8%AF%91%E6%97%B6%E5%87%BD%E6%95%B0%E7%AC%A6%E5%8F%B7%E5%AF%BC%E5%87%BA%E7%9A%84%E9%97%AE%E9%A2%98/</guid>
+      <guid>/hugo-gitpage-source/post/%E5%85%B3%E4%BA%8Egcc%E7%BC%96%E8%AF%91%E6%97%B6%E5%87%BD%E6%95%B0%E7%AC%A6%E5%8F%B7%E5%AF%BC%E5%87%BA%E7%9A%84%E9%97%AE%E9%A2%98/</guid>
       <description>背景：在 Android P liblog 模块中增加一个功能，涉及外部函数调用。如在 A.c 中定义函数 fun，在 A.h 中声明函数 fun，在 B.c 中包含 A.h 后调用 fun，文件名、路径等均</description>
     </item>
     
     <item>
       <title>关于xlog加密处理分析</title>
-      <link>https://urchinzhou.github.io/hugo-gitpage-public/post/%E5%85%B3%E4%BA%8Exlog%E5%8A%A0%E5%AF%86%E5%A4%84%E7%90%86%E5%88%86%E6%9E%90/</link>
+      <link>/hugo-gitpage-source/post/%E5%85%B3%E4%BA%8Exlog%E5%8A%A0%E5%AF%86%E5%A4%84%E7%90%86%E5%88%86%E6%9E%90/</link>
       <pubDate>Tue, 06 Jul 2021 22:25:57 +0800</pubDate>
       
-      <guid>https://urchinzhou.github.io/hugo-gitpage-public/post/%E5%85%B3%E4%BA%8Exlog%E5%8A%A0%E5%AF%86%E5%A4%84%E7%90%86%E5%88%86%E6%9E%90/</guid>
+      <guid>/hugo-gitpage-source/post/%E5%85%B3%E4%BA%8Exlog%E5%8A%A0%E5%AF%86%E5%A4%84%E7%90%86%E5%88%86%E6%9E%90/</guid>
       <description>xlog 使用微型加密算法（TEA，Tiny Encryption Algorithm）对日志数据进行加密，使用 ECDH 密钥交换算法进行对称密钥的协商，对称密钥以数组形式存储在</description>
     </item>
     
     <item>
       <title>关于数据分片与分段</title>
-      <link>https://urchinzhou.github.io/hugo-gitpage-public/post/%E5%85%B3%E4%BA%8E%E6%95%B0%E6%8D%AE%E5%88%86%E7%89%87%E4%B8%8E%E5%88%86%E6%AE%B5/</link>
+      <link>/hugo-gitpage-source/post/%E5%85%B3%E4%BA%8E%E6%95%B0%E6%8D%AE%E5%88%86%E7%89%87%E4%B8%8E%E5%88%86%E6%AE%B5/</link>
       <pubDate>Tue, 06 Jul 2021 22:25:41 +0800</pubDate>
       
-      <guid>https://urchinzhou.github.io/hugo-gitpage-public/post/%E5%85%B3%E4%BA%8E%E6%95%B0%E6%8D%AE%E5%88%86%E7%89%87%E4%B8%8E%E5%88%86%E6%AE%B5/</guid>
+      <guid>/hugo-gitpage-source/post/%E5%85%B3%E4%BA%8E%E6%95%B0%E6%8D%AE%E5%88%86%E7%89%87%E4%B8%8E%E5%88%86%E6%AE%B5/</guid>
       <description>链路层要求数据帧的长度最大值为 1500 字节，该特性被称为 MTU，即最大传输单元。当 IP 层的数据报大于 MTU 时，IP 层就需要进行分片，就是把数据报分成若干</description>
     </item>
     
     <item>
       <title>密码应用基础知识</title>
-      <link>https://urchinzhou.github.io/hugo-gitpage-public/post/%E5%AF%86%E7%A0%81%E5%BA%94%E7%94%A8%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</link>
+      <link>/hugo-gitpage-source/post/%E5%AF%86%E7%A0%81%E5%BA%94%E7%94%A8%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</link>
       <pubDate>Tue, 06 Jul 2021 22:25:17 +0800</pubDate>
       
-      <guid>https://urchinzhou.github.io/hugo-gitpage-public/post/%E5%AF%86%E7%A0%81%E5%BA%94%E7%94%A8%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</guid>
+      <guid>/hugo-gitpage-source/post/%E5%AF%86%E7%A0%81%E5%BA%94%E7%94%A8%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</guid>
       <description>&lt;h1 id=&#34;对称算法&#34;&gt;对称算法&lt;/h1&gt;
 &lt;p&gt;加密密钥能够从解密密钥中推算出来，反过来也成立。在大多数对称算法中，加密解密&lt;strong&gt;密钥是相同的&lt;/strong&gt;。这些算法也叫&lt;strong&gt;秘密密钥算法&lt;/strong&gt;或&lt;strong&gt;单密钥算法&lt;/strong&gt;，它要求发送者和接受者在安全通信之前，商定一个密钥。&lt;/p&gt;
 &lt;p&gt;对称算法的安全性依赖于密钥，泄露密钥就意味着任何人都能对消息进行加密解密。&lt;/p&gt;
@@ -122,28 +122,28 @@
     
     <item>
       <title>TLS协议</title>
-      <link>https://urchinzhou.github.io/hugo-gitpage-public/post/tls%E5%8D%8F%E8%AE%AE/</link>
+      <link>/hugo-gitpage-source/post/tls%E5%8D%8F%E8%AE%AE/</link>
       <pubDate>Tue, 06 Jul 2021 22:24:45 +0800</pubDate>
       
-      <guid>https://urchinzhou.github.io/hugo-gitpage-public/post/tls%E5%8D%8F%E8%AE%AE/</guid>
+      <guid>/hugo-gitpage-source/post/tls%E5%8D%8F%E8%AE%AE/</guid>
       <description>TLS 协议的设计目标 构建一个安全传输层（Transport Layer Security），在基于连接的传输层（如 TCP）之上提供密码学安全，包括 机密性，信</description>
     </item>
     
     <item>
       <title>善用阅读技巧 检视阅读</title>
-      <link>https://urchinzhou.github.io/hugo-gitpage-public/post/%E5%96%84%E7%94%A8%E9%98%85%E8%AF%BB%E6%8A%80%E5%B7%A7-%E6%A3%80%E8%A7%86%E9%98%85%E8%AF%BB/</link>
+      <link>/hugo-gitpage-source/post/%E5%96%84%E7%94%A8%E9%98%85%E8%AF%BB%E6%8A%80%E5%B7%A7-%E6%A3%80%E8%A7%86%E9%98%85%E8%AF%BB/</link>
       <pubDate>Tue, 06 Jul 2021 22:24:19 +0800</pubDate>
       
-      <guid>https://urchinzhou.github.io/hugo-gitpage-public/post/%E5%96%84%E7%94%A8%E9%98%85%E8%AF%BB%E6%8A%80%E5%B7%A7-%E6%A3%80%E8%A7%86%E9%98%85%E8%AF%BB/</guid>
+      <guid>/hugo-gitpage-source/post/%E5%96%84%E7%94%A8%E9%98%85%E8%AF%BB%E6%8A%80%E5%B7%A7-%E6%A3%80%E8%A7%86%E9%98%85%E8%AF%BB/</guid>
       <description>检视阅读（inspectional reading），强调在有限的时间内完成阅读。 初次接触这一概念，是在莫提默·艾德勒所写的《如何阅读一本书》</description>
     </item>
     
     <item>
       <title>如何理解平均负载</title>
-      <link>https://urchinzhou.github.io/hugo-gitpage-public/post/%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3%E5%B9%B3%E5%9D%87%E8%B4%9F%E8%BD%BD/</link>
+      <link>/hugo-gitpage-source/post/%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3%E5%B9%B3%E5%9D%87%E8%B4%9F%E8%BD%BD/</link>
       <pubDate>Tue, 06 Jul 2021 22:05:40 +0800</pubDate>
       
-      <guid>https://urchinzhou.github.io/hugo-gitpage-public/post/%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3%E5%B9%B3%E5%9D%87%E8%B4%9F%E8%BD%BD/</guid>
+      <guid>/hugo-gitpage-source/post/%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3%E5%B9%B3%E5%9D%87%E8%B4%9F%E8%BD%BD/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;平均负载不仅包括&lt;strong&gt;正在使用 CPU&lt;/strong&gt; 的进程，还包括&lt;strong&gt;等待 CPU&lt;/strong&gt; 和&lt;strong&gt;等待 I/O&lt;/strong&gt; 的进程。&lt;/p&gt;
 &lt;/blockquote&gt;

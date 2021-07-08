@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Linux on urchinzhou</title>
-    <link>https://urchinzhou.github.io/hugo-gitpage-public/tags/linux/</link>
+    <link>/hugo-gitpage-source/tags/linux/</link>
     <description>Recent content in Linux on urchinzhou</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 06 Jul 2021 22:05:40 +0800</lastBuildDate><atom:link href="https://urchinzhou.github.io/hugo-gitpage-public/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 06 Jul 2021 22:05:40 +0800</lastBuildDate><atom:link href="/hugo-gitpage-source/tags/linux/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>如何理解平均负载</title>
-      <link>https://urchinzhou.github.io/hugo-gitpage-public/post/%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3%E5%B9%B3%E5%9D%87%E8%B4%9F%E8%BD%BD/</link>
+      <link>/hugo-gitpage-source/post/%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3%E5%B9%B3%E5%9D%87%E8%B4%9F%E8%BD%BD/</link>
       <pubDate>Tue, 06 Jul 2021 22:05:40 +0800</pubDate>
       
-      <guid>https://urchinzhou.github.io/hugo-gitpage-public/post/%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3%E5%B9%B3%E5%9D%87%E8%B4%9F%E8%BD%BD/</guid>
+      <guid>/hugo-gitpage-source/post/%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3%E5%B9%B3%E5%9D%87%E8%B4%9F%E8%BD%BD/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;平均负载不仅包括&lt;strong&gt;正在使用 CPU&lt;/strong&gt; 的进程，还包括&lt;strong&gt;等待 CPU&lt;/strong&gt; 和&lt;strong&gt;等待 I/O&lt;/strong&gt; 的进程。&lt;/p&gt;
 &lt;/blockquote&gt;

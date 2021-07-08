@@ -2,80 +2,80 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on urchinzhou</title>
-    <link>https://urchinzhou.github.io/hugo-gitpage-public/categories/</link>
+    <link>/hugo-gitpage-source/categories/</link>
     <description>Recent content in Categories on urchinzhou</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 06 Jul 2021 22:30:30 +0800</lastBuildDate><atom:link href="https://urchinzhou.github.io/hugo-gitpage-public/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 06 Jul 2021 22:30:30 +0800</lastBuildDate><atom:link href="/hugo-gitpage-source/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Android</title>
-      <link>https://urchinzhou.github.io/hugo-gitpage-public/categories/android/</link>
+      <link>/hugo-gitpage-source/categories/android/</link>
       <pubDate>Tue, 06 Jul 2021 22:30:30 +0800</pubDate>
       
-      <guid>https://urchinzhou.github.io/hugo-gitpage-public/categories/android/</guid>
+      <guid>/hugo-gitpage-source/categories/android/</guid>
       <description></description>
     </item>
     
     <item>
       <title>语言</title>
-      <link>https://urchinzhou.github.io/hugo-gitpage-public/categories/%E8%AF%AD%E8%A8%80/</link>
+      <link>/hugo-gitpage-source/categories/%E8%AF%AD%E8%A8%80/</link>
       <pubDate>Tue, 06 Jul 2021 22:29:13 +0800</pubDate>
       
-      <guid>https://urchinzhou.github.io/hugo-gitpage-public/categories/%E8%AF%AD%E8%A8%80/</guid>
+      <guid>/hugo-gitpage-source/categories/%E8%AF%AD%E8%A8%80/</guid>
       <description></description>
     </item>
     
     <item>
       <title>加密</title>
-      <link>https://urchinzhou.github.io/hugo-gitpage-public/categories/%E5%8A%A0%E5%AF%86/</link>
+      <link>/hugo-gitpage-source/categories/%E5%8A%A0%E5%AF%86/</link>
       <pubDate>Tue, 06 Jul 2021 22:28:23 +0800</pubDate>
       
-      <guid>https://urchinzhou.github.io/hugo-gitpage-public/categories/%E5%8A%A0%E5%AF%86/</guid>
+      <guid>/hugo-gitpage-source/categories/%E5%8A%A0%E5%AF%86/</guid>
       <description></description>
     </item>
     
     <item>
       <title>密码</title>
-      <link>https://urchinzhou.github.io/hugo-gitpage-public/categories/%E5%AF%86%E7%A0%81/</link>
+      <link>/hugo-gitpage-source/categories/%E5%AF%86%E7%A0%81/</link>
       <pubDate>Tue, 06 Jul 2021 22:28:02 +0800</pubDate>
       
-      <guid>https://urchinzhou.github.io/hugo-gitpage-public/categories/%E5%AF%86%E7%A0%81/</guid>
+      <guid>/hugo-gitpage-source/categories/%E5%AF%86%E7%A0%81/</guid>
       <description></description>
     </item>
     
     <item>
       <title>计算机网络</title>
-      <link>https://urchinzhou.github.io/hugo-gitpage-public/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/</link>
+      <link>/hugo-gitpage-source/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/</link>
       <pubDate>Tue, 06 Jul 2021 22:28:02 +0800</pubDate>
       
-      <guid>https://urchinzhou.github.io/hugo-gitpage-public/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/</guid>
+      <guid>/hugo-gitpage-source/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/</guid>
       <description></description>
     </item>
     
     <item>
       <title>编译原理</title>
-      <link>https://urchinzhou.github.io/hugo-gitpage-public/categories/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/</link>
+      <link>/hugo-gitpage-source/categories/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/</link>
       <pubDate>Tue, 06 Jul 2021 22:26:17 +0800</pubDate>
       
-      <guid>https://urchinzhou.github.io/hugo-gitpage-public/categories/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/</guid>
+      <guid>/hugo-gitpage-source/categories/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/</guid>
       <description></description>
     </item>
     
     <item>
       <title>阅读</title>
-      <link>https://urchinzhou.github.io/hugo-gitpage-public/categories/%E9%98%85%E8%AF%BB/</link>
+      <link>/hugo-gitpage-source/categories/%E9%98%85%E8%AF%BB/</link>
       <pubDate>Tue, 06 Jul 2021 22:24:19 +0800</pubDate>
       
-      <guid>https://urchinzhou.github.io/hugo-gitpage-public/categories/%E9%98%85%E8%AF%BB/</guid>
+      <guid>/hugo-gitpage-source/categories/%E9%98%85%E8%AF%BB/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Linux</title>
-      <link>https://urchinzhou.github.io/hugo-gitpage-public/categories/linux/</link>
+      <link>/hugo-gitpage-source/categories/linux/</link>
       <pubDate>Tue, 06 Jul 2021 22:05:40 +0800</pubDate>
       
-      <guid>https://urchinzhou.github.io/hugo-gitpage-public/categories/linux/</guid>
+      <guid>/hugo-gitpage-source/categories/linux/</guid>
       <description></description>
     </item>
     

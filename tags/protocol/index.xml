@@ -2,44 +2,44 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>protocol on urchinzhou</title>
-    <link>/hugo-gitpage-source/tags/protocol/</link>
+    <link>/tags/protocol/</link>
     <description>Recent content in protocol on urchinzhou</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 06 Jul 2021 22:28:02 +0800</lastBuildDate><atom:link href="/hugo-gitpage-source/tags/protocol/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 06 Jul 2021 22:28:02 +0800</lastBuildDate><atom:link href="/tags/protocol/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>HTTPS与HTTP</title>
-      <link>/hugo-gitpage-source/post/https%E4%B8%8Ehttp/</link>
+      <link>/post/https%E4%B8%8Ehttp/</link>
       <pubDate>Tue, 06 Jul 2021 22:28:02 +0800</pubDate>
       
-      <guid>/hugo-gitpage-source/post/https%E4%B8%8Ehttp/</guid>
+      <guid>/post/https%E4%B8%8Ehttp/</guid>
       <description>概念上理清 HTTPS 与 HTTP 的区别。 在互联网协议套件中，将网络协议分为四层，从下至上依次为链路层-网络层-传输层-应用层，HTTP 属于应用层协议。中文名</description>
     </item>
     
     <item>
       <title>TCP与粘包问题</title>
-      <link>/hugo-gitpage-source/post/tcp%E4%B8%8E%E7%B2%98%E5%8C%85%E9%97%AE%E9%A2%98/</link>
+      <link>/post/tcp%E4%B8%8E%E7%B2%98%E5%8C%85%E9%97%AE%E9%A2%98/</link>
       <pubDate>Tue, 06 Jul 2021 22:26:31 +0800</pubDate>
       
-      <guid>/hugo-gitpage-source/post/tcp%E4%B8%8E%E7%B2%98%E5%8C%85%E9%97%AE%E9%A2%98/</guid>
+      <guid>/post/tcp%E4%B8%8E%E7%B2%98%E5%8C%85%E9%97%AE%E9%A2%98/</guid>
       <description>TCP 没有粘包问题。搜索引擎中列出的各种关于“TCP 粘包问题”的文章，所讲的其实是采用 TCP 传输数据的应用层协议设计不合理导致的粘包问题，并不是 TCP 的</description>
     </item>
     
     <item>
       <title>关于数据分片与分段</title>
-      <link>/hugo-gitpage-source/post/%E5%85%B3%E4%BA%8E%E6%95%B0%E6%8D%AE%E5%88%86%E7%89%87%E4%B8%8E%E5%88%86%E6%AE%B5/</link>
+      <link>/post/%E5%85%B3%E4%BA%8E%E6%95%B0%E6%8D%AE%E5%88%86%E7%89%87%E4%B8%8E%E5%88%86%E6%AE%B5/</link>
       <pubDate>Tue, 06 Jul 2021 22:25:41 +0800</pubDate>
       
-      <guid>/hugo-gitpage-source/post/%E5%85%B3%E4%BA%8E%E6%95%B0%E6%8D%AE%E5%88%86%E7%89%87%E4%B8%8E%E5%88%86%E6%AE%B5/</guid>
+      <guid>/post/%E5%85%B3%E4%BA%8E%E6%95%B0%E6%8D%AE%E5%88%86%E7%89%87%E4%B8%8E%E5%88%86%E6%AE%B5/</guid>
       <description>链路层要求数据帧的长度最大值为 1500 字节，该特性被称为 MTU，即最大传输单元。当 IP 层的数据报大于 MTU 时，IP 层就需要进行分片，就是把数据报分成若干</description>
     </item>
     
     <item>
       <title>TLS协议</title>
-      <link>/hugo-gitpage-source/post/tls%E5%8D%8F%E8%AE%AE/</link>
+      <link>/post/tls%E5%8D%8F%E8%AE%AE/</link>
       <pubDate>Tue, 06 Jul 2021 22:24:45 +0800</pubDate>
       
-      <guid>/hugo-gitpage-source/post/tls%E5%8D%8F%E8%AE%AE/</guid>
+      <guid>/post/tls%E5%8D%8F%E8%AE%AE/</guid>
       <description>TLS 协议的设计目标 构建一个安全传输层（Transport Layer Security），在基于连接的传输层（如 TCP）之上提供密码学安全，包括 机密性，信</description>
     </item>
     

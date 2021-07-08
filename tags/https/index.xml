@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>https on urchinzhou</title>
-    <link>/hugo-gitpage-source/tags/https/</link>
+    <link>/tags/https/</link>
     <description>Recent content in https on urchinzhou</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 06 Jul 2021 22:28:02 +0800</lastBuildDate><atom:link href="/hugo-gitpage-source/tags/https/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 06 Jul 2021 22:28:02 +0800</lastBuildDate><atom:link href="/tags/https/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>HTTPS与HTTP</title>
-      <link>/hugo-gitpage-source/post/https%E4%B8%8Ehttp/</link>
+      <link>/post/https%E4%B8%8Ehttp/</link>
       <pubDate>Tue, 06 Jul 2021 22:28:02 +0800</pubDate>
       
-      <guid>/hugo-gitpage-source/post/https%E4%B8%8Ehttp/</guid>
+      <guid>/post/https%E4%B8%8Ehttp/</guid>
       <description>概念上理清 HTTPS 与 HTTP 的区别。 在互联网协议套件中，将网络协议分为四层，从下至上依次为链路层-网络层-传输层-应用层，HTTP 属于应用层协议。中文名</description>
     </item>
     

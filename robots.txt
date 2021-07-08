@@ -1,2 +1,2 @@
 User-agent: *
-Sitemap: /hugo-gitpage-source/sitemap.xml
+Sitemap: /sitemap.xml

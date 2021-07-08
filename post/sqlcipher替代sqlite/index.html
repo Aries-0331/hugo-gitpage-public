@@ -24,19 +24,19 @@
 
 
 
-<meta name="generator" content="Hugo 0.77.0 with theme even" />
+<meta name="generator" content="Hugo 0.85.0 with theme even" />
 
 
-<link rel="canonical" href="/hugo-gitpage-source/post/sqlcipher%E6%9B%BF%E4%BB%A3sqlite/" />
-<link rel="apple-touch-icon" sizes="180x180" href="/hugo-gitpage-source/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/hugo-gitpage-source/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/hugo-gitpage-source/favicon-16x16.png">
-<link rel="manifest" href="/hugo-gitpage-source/manifest.json">
-<link rel="mask-icon" href="/hugo-gitpage-source/safari-pinned-tab.svg" color="#5bbad5">
+<link rel="canonical" href="/post/sqlcipher%E6%9B%BF%E4%BB%A3sqlite/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
 
 
 
-<link href="/hugo-gitpage-source/sass/main.min.2e81bbed97b8b282c1aeb57488cc71c8d8c8ec559f3931531bd396bf31e0d4dd.css" rel="stylesheet">
+<link href="/sass/main.min.2e81bbed97b8b282c1aeb57488cc71c8d8c8ec559f3931531bd396bf31e0d4dd.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
@@ -51,9 +51,10 @@
 加密算法由 OpenSSL libcrypto 等开源库支持；
 " />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="/hugo-gitpage-source/post/sqlcipher%E6%9B%BF%E4%BB%A3sqlite/" />
+<meta property="og:url" content="/post/sqlcipher%E6%9B%BF%E4%BB%A3sqlite/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2021-07-06T22:27:48+08:00" />
 <meta property="article:modified_time" content="2021-07-06T22:27:48+08:00" />
+
 <meta itemprop="name" content="SQLCipher替代SQLite">
 <meta itemprop="description" content="SQLCipher 是基于 SQLite 的安全扩展，加解密行为对应用层透明，可使用标准 SQLite API 执行数据库操作，移植简单，以页为单位进行加解密操作，效率高，开销比 SQLite 多 5% 左右。
 安全特性
@@ -63,15 +64,10 @@
 以页为单位加解密，默认页大小 4096 Bytes，可调整优化；
 对每一页写的时候，文末会附带消息验证码，用于读取时校验；
 加密算法由 OpenSSL libcrypto 等开源库支持；
-">
-<meta itemprop="datePublished" content="2021-07-06T22:27:48+08:00" />
+"><meta itemprop="datePublished" content="2021-07-06T22:27:48+08:00" />
 <meta itemprop="dateModified" content="2021-07-06T22:27:48+08:00" />
 <meta itemprop="wordCount" content="250">
-
-
-
-<meta itemprop="keywords" content="sqlcipher,sqlite,crypto," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="sqlcipher,sqlite,crypto," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="SQLCipher替代SQLite"/>
 <meta name="twitter:description" content="SQLCipher 是基于 SQLite 的安全扩展，加解密行为对应用层透明，可使用标准 SQLite API 执行数据库操作，移植简单，以页为单位进行加解密操作，效率高，开销比 SQLite 多 5% 左右。
 安全特性
@@ -96,7 +92,7 @@
 <body>
   <div id="mobile-navbar" class="mobile-navbar">
   <div class="mobile-header-logo">
-    <a href="/hugo-gitpage-source/" class="logo">urchinzhou</a>
+    <a href="/" class="logo">urchinzhou</a>
   </div>
   <div class="mobile-navbar-icon">
     <span></span>
@@ -106,13 +102,13 @@
 </div>
 <nav id="mobile-menu" class="mobile-menu slideout-menu">
   <ul class="mobile-menu-list">
-    <a href="/hugo-gitpage-source/">
+    <a href="/">
         <li class="mobile-menu-item">Home</li>
-      </a><a href="/hugo-gitpage-source/post/">
+      </a><a href="/post/">
         <li class="mobile-menu-item">Archives</li>
-      </a><a href="/hugo-gitpage-source/tags/">
+      </a><a href="/tags/">
         <li class="mobile-menu-item">Tags</li>
-      </a><a href="/hugo-gitpage-source/categories/">
+      </a><a href="/categories/">
         <li class="mobile-menu-item">Categories</li>
       </a>
   </ul>
@@ -125,7 +121,7 @@
   <div class="container" id="mobile-panel">
     <header id="header" class="header">
         <div class="logo-wrapper">
-  <a href="/hugo-gitpage-source/" class="logo">urchinzhou</a>
+  <a href="/" class="logo">urchinzhou</a>
 </div>
 
 
@@ -135,13 +131,13 @@
 <nav class="site-navbar">
   <ul id="menu" class="menu">
     <li class="menu-item">
-        <a class="menu-item-link" href="/hugo-gitpage-source/">Home</a>
+        <a class="menu-item-link" href="/">Home</a>
       </li><li class="menu-item">
-        <a class="menu-item-link" href="/hugo-gitpage-source/post/">Archives</a>
+        <a class="menu-item-link" href="/post/">Archives</a>
       </li><li class="menu-item">
-        <a class="menu-item-link" href="/hugo-gitpage-source/tags/">Tags</a>
+        <a class="menu-item-link" href="/tags/">Tags</a>
       </li><li class="menu-item">
-        <a class="menu-item-link" href="/hugo-gitpage-source/categories/">Categories</a>
+        <a class="menu-item-link" href="/categories/">Categories</a>
       </li>
   </ul>
 </nav>
@@ -159,8 +155,8 @@
       <div class="post-meta">
         <span class="post-time"> 2021-07-06 </span>
         <div class="post-category">
-            <a href="/hugo-gitpage-source/categories/%E5%8A%A0%E5%AF%86/"> 加密 </a>
-            <a href="/hugo-gitpage-source/categories/android/"> Android </a>
+            <a href="/categories/%E5%8A%A0%E5%AF%86/"> 加密 </a>
+            <a href="/categories/android/"> Android </a>
             </div>
         
       </div>
@@ -236,17 +232,17 @@
 </div>
 <footer class="post-footer">
       <div class="post-tags">
-          <a href="/hugo-gitpage-source/tags/sqlcipher/">sqlcipher</a>
-          <a href="/hugo-gitpage-source/tags/sqlite/">sqlite</a>
-          <a href="/hugo-gitpage-source/tags/crypto/">crypto</a>
+          <a href="/tags/sqlcipher/">sqlcipher</a>
+          <a href="/tags/sqlite/">sqlite</a>
+          <a href="/tags/crypto/">crypto</a>
           </div>
       <nav class="post-nav">
-        <a class="prev" href="/hugo-gitpage-source/post/https%E4%B8%8Ehttp/">
+        <a class="prev" href="/post/https%E4%B8%8Ehttp/">
             <i class="iconfont icon-left"></i>
             <span class="prev-text nav-default">HTTPS与HTTP</span>
             <span class="prev-text nav-mobile">Prev</span>
           </a>
-        <a class="next" href="/hugo-gitpage-source/post/tcp%E4%B8%8E%E7%B2%98%E5%8C%85%E9%97%AE%E9%A2%98/">
+        <a class="next" href="/post/tcp%E4%B8%8E%E7%B2%98%E5%8C%85%E9%97%AE%E9%A2%98/">
             <span class="next-text nav-default">TCP与粘包问题</span>
             <span class="next-text nav-mobile">Next</span>
             <i class="iconfont icon-right"></i>
@@ -271,7 +267,7 @@
       <a href="https://twitter.com/urchinzhou" class="iconfont icon-twitter" title="twitter"></a>
       <a href="https://github.com/Urchinzhou" class="iconfont icon-github" title="github"></a>
       <a href="https://space.bilibili.com/223678135" class="iconfont icon-bilibili" title="bilibili"></a>
-  <a href="/hugo-gitpage-source/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+  <a href="/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
 </div>
 
 <div class="copyright">
@@ -306,7 +302,7 @@
 
 
 
-<script type="text/javascript" src="/hugo-gitpage-source/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
+<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
 
 
 

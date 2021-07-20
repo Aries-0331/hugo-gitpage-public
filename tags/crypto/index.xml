@@ -2,26 +2,26 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>crypto on urchinzhou</title>
-    <link>/tags/crypto/</link>
+    <link>https://urchinzhou.com/tags/crypto/</link>
     <description>Recent content in crypto on urchinzhou</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 06 Jul 2021 22:28:23 +0800</lastBuildDate><atom:link href="/tags/crypto/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 06 Jul 2021 22:28:23 +0800</lastBuildDate><atom:link href="https://urchinzhou.com/tags/crypto/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>EncryptedSharedPreferences分析</title>
-      <link>/post/encryptedsharedpreferences%E5%88%86%E6%9E%90/</link>
+      <link>https://urchinzhou.com/post/encryptedsharedpreferences%E5%88%86%E6%9E%90/</link>
       <pubDate>Tue, 06 Jul 2021 22:28:23 +0800</pubDate>
       
-      <guid>/post/encryptedsharedpreferences%E5%88%86%E6%9E%90/</guid>
+      <guid>https://urchinzhou.com/post/encryptedsharedpreferences%E5%88%86%E6%9E%90/</guid>
       <description>EncryptedSharedPreferenes 是 androidx 下安全组件中的加密类，实现SharedPreferences的键值对加密。 对它的分析，主要涉及以下几点： 密钥管理 加密算法 工程实现 源码分</description>
     </item>
     
     <item>
       <title>SQLCipher替代SQLite</title>
-      <link>/post/sqlcipher%E6%9B%BF%E4%BB%A3sqlite/</link>
+      <link>https://urchinzhou.com/post/sqlcipher%E6%9B%BF%E4%BB%A3sqlite/</link>
       <pubDate>Tue, 06 Jul 2021 22:27:48 +0800</pubDate>
       
-      <guid>/post/sqlcipher%E6%9B%BF%E4%BB%A3sqlite/</guid>
+      <guid>https://urchinzhou.com/post/sqlcipher%E6%9B%BF%E4%BB%A3sqlite/</guid>
       <description>&lt;p&gt;SQLCipher 是基于 SQLite 的安全扩展，加解密行为对应用层透明，可使用标准 SQLite API 执行数据库操作，移植简单，以页为单位进行加解密操作，效率高，开销比 SQLite 多 5% 左右。&lt;/p&gt;
 &lt;h3 id=&#34;安全特性&#34;&gt;安全特性&lt;/h3&gt;
 &lt;ul&gt;
@@ -35,19 +35,19 @@
     
     <item>
       <title>关于xlog加密处理分析</title>
-      <link>/post/%E5%85%B3%E4%BA%8Exlog%E5%8A%A0%E5%AF%86%E5%A4%84%E7%90%86%E5%88%86%E6%9E%90/</link>
+      <link>https://urchinzhou.com/post/%E5%85%B3%E4%BA%8Exlog%E5%8A%A0%E5%AF%86%E5%A4%84%E7%90%86%E5%88%86%E6%9E%90/</link>
       <pubDate>Tue, 06 Jul 2021 22:25:57 +0800</pubDate>
       
-      <guid>/post/%E5%85%B3%E4%BA%8Exlog%E5%8A%A0%E5%AF%86%E5%A4%84%E7%90%86%E5%88%86%E6%9E%90/</guid>
+      <guid>https://urchinzhou.com/post/%E5%85%B3%E4%BA%8Exlog%E5%8A%A0%E5%AF%86%E5%A4%84%E7%90%86%E5%88%86%E6%9E%90/</guid>
       <description>xlog 使用微型加密算法（TEA，Tiny Encryption Algorithm）对日志数据进行加密，使用 ECDH 密钥交换算法进行对称密钥的协商，对称密钥以数组形式存储在</description>
     </item>
     
     <item>
       <title>密码应用基础知识</title>
-      <link>/post/%E5%AF%86%E7%A0%81%E5%BA%94%E7%94%A8%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</link>
+      <link>https://urchinzhou.com/post/%E5%AF%86%E7%A0%81%E5%BA%94%E7%94%A8%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</link>
       <pubDate>Tue, 06 Jul 2021 22:25:17 +0800</pubDate>
       
-      <guid>/post/%E5%AF%86%E7%A0%81%E5%BA%94%E7%94%A8%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</guid>
+      <guid>https://urchinzhou.com/post/%E5%AF%86%E7%A0%81%E5%BA%94%E7%94%A8%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</guid>
       <description>&lt;h1 id=&#34;对称算法&#34;&gt;对称算法&lt;/h1&gt;
 &lt;p&gt;加密密钥能够从解密密钥中推算出来，反过来也成立。在大多数对称算法中，加密解密&lt;strong&gt;密钥是相同的&lt;/strong&gt;。这些算法也叫&lt;strong&gt;秘密密钥算法&lt;/strong&gt;或&lt;strong&gt;单密钥算法&lt;/strong&gt;，它要求发送者和接受者在安全通信之前，商定一个密钥。&lt;/p&gt;
 &lt;p&gt;对称算法的安全性依赖于密钥，泄露密钥就意味着任何人都能对消息进行加密解密。&lt;/p&gt;

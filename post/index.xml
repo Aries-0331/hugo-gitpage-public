@@ -6,7 +6,16 @@
     <description>Recent content in Posts on urchinzhou</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 20 Jul 2021 15:19:14 +0800</lastBuildDate><atom:link href="https://urchinzhou.com/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 21 Dec 2021 15:25:18 +0800</lastBuildDate><atom:link href="https://urchinzhou.com/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>关于加密和密码学的经验教训和误解</title>
+      <link>https://urchinzhou.com/post/%E5%85%B3%E4%BA%8E%E5%8A%A0%E5%AF%86%E5%92%8C%E5%AF%86%E7%A0%81%E5%AD%A6%E7%9A%84%E7%BB%8F%E9%AA%8C%E6%95%99%E8%AE%AD%E5%92%8C%E8%AF%AF%E8%A7%A3/</link>
+      <pubDate>Tue, 21 Dec 2021 15:25:18 +0800</pubDate>
+      
+      <guid>https://urchinzhou.com/post/%E5%85%B3%E4%BA%8E%E5%8A%A0%E5%AF%86%E5%92%8C%E5%AF%86%E7%A0%81%E5%AD%A6%E7%9A%84%E7%BB%8F%E9%AA%8C%E6%95%99%E8%AE%AD%E5%92%8C%E8%AF%AF%E8%A7%A3/</guid>
+      <description>本文翻译自stackexchange 密码学是一个广泛复杂的主题，即使经验丰富的工程师在初步应用密码技术时也会犯错，而加密又是一个重要的行为，</description>
+    </item>
+    
     <item>
       <title>Git修改commit信息</title>
       <link>https://urchinzhou.com/post/git%E4%BF%AE%E6%94%B9commit%E4%BF%A1%E6%81%AF/</link>

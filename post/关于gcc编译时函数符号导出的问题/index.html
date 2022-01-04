@@ -91,8 +91,6 @@
         <li class="mobile-menu-item">Home</li>
       </a><a href="/post/">
         <li class="mobile-menu-item">Archives</li>
-      </a><a href="/tags/">
-        <li class="mobile-menu-item">Tags</li>
       </a><a href="/categories/">
         <li class="mobile-menu-item">Categories</li>
       </a>
@@ -119,8 +117,6 @@
         <a class="menu-item-link" href="/">Home</a>
       </li><li class="menu-item">
         <a class="menu-item-link" href="/post/">Archives</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/tags/">Tags</a>
       </li><li class="menu-item">
         <a class="menu-item-link" href="/categories/">Categories</a>
       </li>
@@ -152,6 +148,11 @@
     <nav id="TableOfContents"></nav>
   </div>
 </div>
+  <div class="post-outdated">
+    <div class="hint">
+      <p>[NOTE] Updated <span class="timeago" datetime="2021-07-06T22:26:17" title="July 6, 2021">July 6, 2021</span>. This article may have outdated content or subject matter.</p>
+    </div>
+  </div>
     <div class="post-content">
       <p>背景：在 Android P liblog 模块中增加一个功能，涉及外部函数调用。如在 <code>A.c</code> 中定义函数 <code>fun</code>，在 <code>A.h</code> 中声明函数 <code>fun</code>，在 <code>B.c</code> 中包含 <code>A.h</code> 后调用 <code>fun</code>，文件名、路径等均没有问题，但编译时会触发 <code>error:undefined reference to </code>。</p>
 <p>分析：函数显然是定义了的，提示未定义应该是出于某种原因未找到。后发现 <code>logprint.c</code> 文件中部分函数带有前缀 <code>LIBLOG_ABI_PUBLIC</code>，该宏定义为 <code>#define LIBLOG_ABI_PUBLIC __attribute__((visibility(&quot;default&quot;)))</code>，作用是设置符号的可见性属性，查看 liblog 的 Android.bp 文件，发现编译选项设置为</p>
@@ -243,7 +244,7 @@
   <span class="copyright-year">
     &copy; 
     2019 - 
-    2021<span class="heart"><i class="iconfont icon-heart"></i></span><span>urchinzhou</span>
+    2022<span class="heart"><i class="iconfont icon-heart"></i></span><span>urchinzhou</span>
   </span>
 </div>
 

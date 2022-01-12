@@ -16,7 +16,8 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="urchinzhou" /><meta name="description" content="TLS 协议的设计目标 构建一个安全传输层（Transport Layer Security），在基于连接的传输层（如 TCP）之上提供密码学安全，包括 机密性，信" /><meta name="keywords" content="urchinzhou, blog, hugo" />
+<meta name="author" content="urchinzhou" /><meta name="description" content="TLS 协议的设计目标 构建一个安全传输层（Transport Layer Security），在基于连接的传输层（如 TCP）之上提供密码学安全，包括
+ 机密性，信息加密传输，无法被窃听 完整性，信息一旦被篡改，通信双方可感知 认证，通信双方防止身份被冒充 " /><meta name="keywords" content="urchinzhou, blog, hugo" />
 
 
 
@@ -40,19 +41,37 @@
 
 
 <meta property="og:title" content="TLS协议" />
-<meta property="og:description" content="TLS 协议的设计目标 构建一个安全传输层（Transport Layer Security），在基于连接的传输层（如 TCP）之上提供密码学安全，包括 机密性，信" />
+<meta property="og:description" content="TLS 协议的设计目标
+构建一个安全传输层（Transport Layer Security），在基于连接的传输层（如 TCP）之上提供密码学安全，包括
+
+机密性，信息加密传输，无法被窃听
+完整性，信息一旦被篡改，通信双方可感知
+认证，通信双方防止身份被冒充
+" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://urchinzhou.com/post/tls%E5%8D%8F%E8%AE%AE/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2021-07-06T22:24:45+08:00" />
 <meta property="article:modified_time" content="2021-07-06T22:24:45+08:00" />
 
 <meta itemprop="name" content="TLS协议">
-<meta itemprop="description" content="TLS 协议的设计目标 构建一个安全传输层（Transport Layer Security），在基于连接的传输层（如 TCP）之上提供密码学安全，包括 机密性，信"><meta itemprop="datePublished" content="2021-07-06T22:24:45+08:00" />
+<meta itemprop="description" content="TLS 协议的设计目标
+构建一个安全传输层（Transport Layer Security），在基于连接的传输层（如 TCP）之上提供密码学安全，包括
+
+机密性，信息加密传输，无法被窃听
+完整性，信息一旦被篡改，通信双方可感知
+认证，通信双方防止身份被冒充
+"><meta itemprop="datePublished" content="2021-07-06T22:24:45+08:00" />
 <meta itemprop="dateModified" content="2021-07-06T22:24:45+08:00" />
 <meta itemprop="wordCount" content="1966">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="TLS协议"/>
-<meta name="twitter:description" content="TLS 协议的设计目标 构建一个安全传输层（Transport Layer Security），在基于连接的传输层（如 TCP）之上提供密码学安全，包括 机密性，信"/>
+<meta name="twitter:description" content="TLS 协议的设计目标
+构建一个安全传输层（Transport Layer Security），在基于连接的传输层（如 TCP）之上提供密码学安全，包括
+
+机密性，信息加密传输，无法被窃听
+完整性，信息一旦被篡改，通信双方可感知
+认证，通信双方防止身份被冒充
+"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -353,7 +372,6 @@
 <li>SHA-1 哈希函数 —— 建议使用 SHA-2</li>
 <li>各种自定义 DH 组件 —— 被证实存在漏洞，易受攻击</li>
 </ul>
-
     </div>
 
     <div class="post-copyright">

@@ -8,12 +8,35 @@
     <language>en</language>
     <lastBuildDate>Tue, 06 Jul 2021 22:29:13 +0800</lastBuildDate><atom:link href="https://urchinzhou.com/categories/c/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>指针</title>
+      <title>一个野指针</title>
       <link>https://urchinzhou.com/post/%E6%8C%87%E9%92%88/</link>
       <pubDate>Tue, 06 Jul 2021 22:29:13 +0800</pubDate>
       
       <guid>https://urchinzhou.com/post/%E6%8C%87%E9%92%88/</guid>
-      <description>未初始化和非法的指针 1 2 3 //常见错误 int *a; *a = 12; 该代码段，声明了一个名为 a 的指针变量，之后将 12 存储在 a 所指向的空间中。 声明了变量 a，但未对其</description>
+      <description>&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-c&#34; data-lang=&#34;c&#34;&gt;&lt;span class=&#34;c1&#34;&gt;//常见错误
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;a&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;a&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;12&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;该代码段，声明了一个名为 a 的指针变量，之后将 12 存储在 a 所指向的空间中。&lt;/p&gt;
+&lt;p&gt;声明了变量 a，但未对其初始化，所以并不知道 a 所指向的具体位置，即数据 12 将存储于什么地方尚未可知。&lt;/p&gt;
+&lt;p&gt;声明一个指向整型的指针，不会创建用于存储整型值的内存空间。&lt;/p&gt;
+&lt;p&gt;对于该代码段可能造成的结果：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;报错&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;若 a 的初始值是非法地址，则赋值语句将会报错，从而终止程序。在 UNIX 系统上，这种错误通常为“段错误（segmentation fault）”、“段违例（segmentation violation）”或“内存错误（memory fault）”。&lt;strong&gt;提示程序在试图访问一个并未分配给程序的内存位置。&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;不报错&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;若 a 的初始值刚好是一个合法的地址，则该地址的原值被新的赋值语句所覆盖，虽然你并无意修改该地址的值。这种情况下导致的错误很难发现，因为引发错误的代码大概率与原本用于操作被修改值的代码毫不相干。因此，&lt;strong&gt;在对指针进行间接访问之前，务必确保指针变量已被初始化。&lt;/strong&gt;&lt;/p&gt;</description>
     </item>
     
   </channel>

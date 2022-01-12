@@ -16,7 +16,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="urchinzhou" /><meta name="description" content="修改用户名/邮箱 1 2 3 4 5 6 7 8 9 1. git rebase -i &amp;#34;commit id&amp;#34; //commit id 选择目标 commit 上一次的 commit ID 2. 修改 pick 为 edit 后，保存退出 3. git commit --amend --author=&amp;#34;username &amp;lt;useremail&amp;gt;&amp;#34;//eg: git commit --amend --author=&amp;#34;hahaha &amp;lt;hahaha@gmail.com&amp;gt;&amp;#34; 4. git rebase --continue ps:如果想修" /><meta name="keywords" content="urchinzhou, blog, hugo" />
+<meta name="author" content="urchinzhou" /><meta name="description" content=" 修改用户名/邮箱  1 2 3 4 5 6 7 8 9  1. git rebase -i &amp;#34;commit id&amp;#34; //commit id 选择目标 commit 上一次的 commit ID 2. 修改 pick 为 edit 后，保存退出 3. git commit --amend --author=&amp;#34;username &amp;lt;useremail&amp;gt;&amp;#34;//eg: git commit --amend --author=&amp;#34;hahaha &amp;lt;hahaha@gmail.com&amp;gt;&amp;#34; 4. git rebase --continue ps:如果想修改第一次commit的信息，则步骤1中参数 commit id 改为 --root，即 git rebase -i --root   " /><meta name="keywords" content="urchinzhou, blog, hugo" />
 
 
 
@@ -40,19 +40,100 @@
 
 
 <meta property="og:title" content="Git修改commit信息" />
-<meta property="og:description" content="修改用户名/邮箱 1 2 3 4 5 6 7 8 9 1. git rebase -i &#34;commit id&#34; //commit id 选择目标 commit 上一次的 commit ID 2. 修改 pick 为 edit 后，保存退出 3. git commit --amend --author=&#34;username &lt;useremail&gt;&#34;//eg: git commit --amend --author=&#34;hahaha &lt;hahaha@gmail.com&gt;&#34; 4. git rebase --continue ps:如果想修" />
+<meta property="og:description" content="
+修改用户名/邮箱
+
+
+
+1
+2
+3
+4
+5
+6
+7
+8
+9
+
+
+1. git rebase -i &#34;commit id&#34; //commit id 选择目标 commit 上一次的 commit ID
+
+2. 修改 pick 为 edit 后，保存退出
+
+3. git commit --amend --author=&#34;username &lt;useremail&gt;&#34;//eg: git commit --amend --author=&#34;hahaha &lt;hahaha@gmail.com&gt;&#34;
+
+4. git rebase --continue
+
+ps:如果想修改第一次commit的信息，则步骤1中参数 commit id 改为 --root，即 git rebase -i --root
+
+
+" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://urchinzhou.com/post/git%E4%BF%AE%E6%94%B9commit%E4%BF%A1%E6%81%AF/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2021-07-20T15:19:14+08:00" />
 <meta property="article:modified_time" content="2021-07-20T15:19:14+08:00" />
 
 <meta itemprop="name" content="Git修改commit信息">
-<meta itemprop="description" content="修改用户名/邮箱 1 2 3 4 5 6 7 8 9 1. git rebase -i &#34;commit id&#34; //commit id 选择目标 commit 上一次的 commit ID 2. 修改 pick 为 edit 后，保存退出 3. git commit --amend --author=&#34;username &lt;useremail&gt;&#34;//eg: git commit --amend --author=&#34;hahaha &lt;hahaha@gmail.com&gt;&#34; 4. git rebase --continue ps:如果想修"><meta itemprop="datePublished" content="2021-07-20T15:19:14+08:00" />
+<meta itemprop="description" content="
+修改用户名/邮箱
+
+
+
+1
+2
+3
+4
+5
+6
+7
+8
+9
+
+
+1. git rebase -i &#34;commit id&#34; //commit id 选择目标 commit 上一次的 commit ID
+
+2. 修改 pick 为 edit 后，保存退出
+
+3. git commit --amend --author=&#34;username &lt;useremail&gt;&#34;//eg: git commit --amend --author=&#34;hahaha &lt;hahaha@gmail.com&gt;&#34;
+
+4. git rebase --continue
+
+ps:如果想修改第一次commit的信息，则步骤1中参数 commit id 改为 --root，即 git rebase -i --root
+
+
+"><meta itemprop="datePublished" content="2021-07-20T15:19:14+08:00" />
 <meta itemprop="dateModified" content="2021-07-20T15:19:14+08:00" />
 <meta itemprop="wordCount" content="107">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Git修改commit信息"/>
-<meta name="twitter:description" content="修改用户名/邮箱 1 2 3 4 5 6 7 8 9 1. git rebase -i &#34;commit id&#34; //commit id 选择目标 commit 上一次的 commit ID 2. 修改 pick 为 edit 后，保存退出 3. git commit --amend --author=&#34;username &lt;useremail&gt;&#34;//eg: git commit --amend --author=&#34;hahaha &lt;hahaha@gmail.com&gt;&#34; 4. git rebase --continue ps:如果想修"/>
+<meta name="twitter:description" content="
+修改用户名/邮箱
+
+
+
+1
+2
+3
+4
+5
+6
+7
+8
+9
+
+
+1. git rebase -i &#34;commit id&#34; //commit id 选择目标 commit 上一次的 commit ID
+
+2. 修改 pick 为 edit 后，保存退出
+
+3. git commit --amend --author=&#34;username &lt;useremail&gt;&#34;//eg: git commit --amend --author=&#34;hahaha &lt;hahaha@gmail.com&gt;&#34;
+
+4. git rebase --continue
+
+ps:如果想修改第一次commit的信息，则步骤1中参数 commit id 改为 --root，即 git rebase -i --root
+
+
+"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>

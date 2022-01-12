@@ -128,7 +128,7 @@
           <section id="posts" class="posts">
     <article class="post">
   <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/%E6%8C%87%E9%92%88/">指针</a></h1>
+    <h1 class="post-title"><a class="post-link" href="/post/%E6%8C%87%E9%92%88/">一个野指针</a></h1>
     <div class="post-meta">
       <span class="post-time"> 2021-07-06 </span>
       <div class="post-category">
@@ -139,7 +139,30 @@
   
   <div class="post-content">
     <div class="post-summary">
-      未初始化和非法的指针 1 2 3 //常见错误 int *a; *a = 12; 该代码段，声明了一个名为 a 的指针变量，之后将 12 存储在 a 所指向的空间中。 声明了变量 a，但未对其
+      <div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="c1">//常见错误
+</span><span class="c1"></span><span class="kt">int</span> <span class="o">*</span><span class="n">a</span><span class="p">;</span>
+<span class="o">*</span><span class="n">a</span> <span class="o">=</span> <span class="mi">12</span><span class="p">;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>该代码段，声明了一个名为 a 的指针变量，之后将 12 存储在 a 所指向的空间中。</p>
+<p>声明了变量 a，但未对其初始化，所以并不知道 a 所指向的具体位置，即数据 12 将存储于什么地方尚未可知。</p>
+<p>声明一个指向整型的指针，不会创建用于存储整型值的内存空间。</p>
+<p>对于该代码段可能造成的结果：</p>
+<ul>
+<li>报错</li>
+</ul>
+<p>若 a 的初始值是非法地址，则赋值语句将会报错，从而终止程序。在 UNIX 系统上，这种错误通常为“段错误（segmentation fault）”、“段违例（segmentation violation）”或“内存错误（memory fault）”。<strong>提示程序在试图访问一个并未分配给程序的内存位置。</strong></p>
+<ul>
+<li>不报错</li>
+</ul>
+<p>若 a 的初始值刚好是一个合法的地址，则该地址的原值被新的赋值语句所覆盖，虽然你并无意修改该地址的值。这种情况下导致的错误很难发现，因为引发错误的代码大概率与原本用于操作被修改值的代码毫不相干。因此，<strong>在对指针进行间接访问之前，务必确保指针变量已被初始化。</strong></p>
     </div>
     <div class="read-more">
       <a href="/post/%E6%8C%87%E9%92%88/" class="read-more-link">Read more...</a>
@@ -161,7 +184,49 @@
   
   <div class="post-content">
     <div class="post-summary">
-      EncryptedSharedPreferenes 是 androidx 下安全组件中的加密类，实现SharedPreferences的键值对加密。 对它的分析，主要涉及以下几点： 密钥管理 加密算法 工程实现 源码分
+      <p>EncryptedSharedPreferenes 是 androidx 下安全组件中的加密类，实现<code>SharedPreferences</code>的键值对加密。</p>
+<p>开发者文档中提供了<code>SharedPreferences</code>加密键值对的实例代码，其中使用<code>MasterKeys</code>来进行密钥管理，而在 <a href="https://developer.android.com/reference/androidx/security/crypto/MasterKeys?hl=zh-cn">MasterKeys</a> 的文档中提示该类已废弃，应使用<code>MasterKey.Builder</code>来管理主密钥（版本说明：基于 Jetpack Security 1.1.0-alpha01），示例如下</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"> <span class="c1">// this is equivalent to using deprecated MasterKeys.AES256_GCM_SPEC
+</span><span class="c1"></span> <span class="n">KeyGenParameterSpec</span> <span class="n">spec</span> <span class="o">=</span> <span class="k">new</span> <span class="n">KeyGenParameterSpec</span><span class="o">.</span><span class="na">Builder</span><span class="o">(</span>
+         <span class="n">MASTER_KEY_ALIAS</span><span class="o">,</span>
+         <span class="n">KeyProperties</span><span class="o">.</span><span class="na">PURPOSE_ENCRYPT</span> <span class="o">|</span> <span class="n">KeyProperties</span><span class="o">.</span><span class="na">PURPOSE_DECRYPT</span><span class="o">)</span>
+         <span class="o">.</span><span class="na">setBlockModes</span><span class="o">(</span><span class="n">KeyProperties</span><span class="o">.</span><span class="na">BLOCK_MODE_GCM</span><span class="o">)</span>
+         <span class="o">.</span><span class="na">setEncryptionPaddings</span><span class="o">(</span><span class="n">KeyProperties</span><span class="o">.</span><span class="na">ENCRYPTION_PADDING_NONE</span><span class="o">)</span>
+         <span class="o">.</span><span class="na">setKeySize</span><span class="o">(</span><span class="n">KEY_SIZE</span><span class="o">)</span>
+         <span class="o">.</span><span class="na">build</span><span class="o">();</span>
+ <span class="n">MasterKey</span> <span class="n">masterKey</span> <span class="o">=</span> <span class="k">new</span> <span class="n">MasterKey</span><span class="o">.</span><span class="na">Builder</span><span class="o">(</span><span class="n">MainActivity</span><span class="o">.</span><span class="na">this</span><span class="o">)</span>
+         <span class="o">.</span><span class="na">setKeyGenParameterSpec</span><span class="o">(</span><span class="n">spec</span><span class="o">)</span>
+         <span class="o">.</span><span class="na">build</span><span class="o">();</span>
+ <span class="n">EncryptedSharedPreferences</span><span class="o">.</span><span class="na">create</span><span class="o">(</span>
+         <span class="n">MainActivity</span><span class="o">.</span><span class="na">this</span><span class="o">,</span>
+         <span class="s">&#34;your-app-preferences-name&#34;</span><span class="o">,</span>
+         <span class="n">masterKey</span><span class="o">,</span> <span class="c1">// masterKey created above
+</span><span class="c1"></span>         <span class="n">EncryptedSharedPreferences</span><span class="o">.</span><span class="na">PrefKeyEncryptionScheme</span><span class="o">.</span><span class="na">AES256_SIV</span><span class="o">,</span>
+         <span class="n">EncryptedSharedPreferences</span><span class="o">.</span><span class="na">PrefValueEncryptionScheme</span><span class="o">.</span><span class="na">AES256_GCM</span><span class="o">);</span>
+</code></pre></td></tr></table>
+</div>
+</div>
     </div>
     <div class="read-more">
       <a href="/post/encryptedsharedpreferences%E5%88%86%E6%9E%90/" class="read-more-link">Read more...</a>
@@ -182,7 +247,19 @@
   
   <div class="post-content">
     <div class="post-summary">
-      概念上理清 HTTPS 与 HTTP 的区别。 在互联网协议套件中，将网络协议分为四层，从下至上依次为链路层-网络层-传输层-应用层，HTTP 属于应用层协议。中文名
+      <blockquote>
+<p>概念上理清 HTTPS 与 HTTP 的区别。</p>
+</blockquote>
+<p>在<a href="https://zh.wikipedia.org/wiki/TCP/IP%E5%8D%8F%E8%AE%AE%E6%97%8F">互联网协议套件</a>中，将网络协议分为四层，从下至上依次为<strong>链路层-网络层-传输层-应用层</strong>，HTTP 属于应用层协议。中文名为超文本传输协议，其设计初衷是为了传输 HTML 页面。</p>
+<p>HTTP 主要规定了客户端和服务器之间的通信格式，并不涉及数据包的传输，传输依赖于 TCP/IP 协议。</p>
+<p>简单理解就是，将需要传递的数据按照 HTTP 的要求格式化（<em>挖坑，数据格式</em>），然后剩下的交给协议栈中的 TCP/IP 层。</p>
+<p>因此基于 HTTP 协议的数据传输，其发送阶段的数据处理流程为，应用层格式化，TCP 封装，IP 封装，过程中不涉及数据的加解密，数据为明文形式传输。</p>
+<p>而 HTTPS 就是在这一流程基础上增加了安全性功能。通常可以这么理解 HTTPS， HTTPS = HTTP over TLS。（<em>由于安全问题，普遍已经抛弃SSL，因此这里就直接按 TLS 写了</em>）</p>
+<p>TLS 表示传输层安全，从 SSL 演进而来，属于应用层与 TCP 层之间的一个协议，其目的是为互联网通信提供安全及数据完整性保障（挖坑，数据完整性），说白了就是确保数据加密传输，以及确保如果数据被篡改了，接收方能察觉到。</p>
+<p>那么 TLS 做了什么？</p>
+<p>由于要实现数据加解密，因此 TLS 要实现数据的对称加密，不用非对称加密主要是考虑到性能问题。</p>
+<p>通信双方进行数据的对称加密传输前，需要验证对端的身份，即身份认证，这一点 TLS 通过数字证书来实现（<em>挖坑，实现原理</em>）。</p>
+<p>因此基于 HTTPS 协议的数据传输，其发送阶段的数据处理流程为，应用层格式化，TLS 封装，TCP 封装，IP 封装，相较于 HTTP，流程中增加了 TLS 的处理，包括身份认证、数据加解密等。</p>
     </div>
     <div class="read-more">
       <a href="/post/https%E4%B8%8Ehttp/" class="read-more-link">Read more...</a>
@@ -232,7 +309,11 @@
   
   <div class="post-content">
     <div class="post-summary">
-      TCP 没有粘包问题。搜索引擎中列出的各种关于“TCP 粘包问题”的文章，所讲的其实是采用 TCP 传输数据的应用层协议设计不合理导致的粘包问题，并不是 TCP 的
+      <p><strong>TCP 没有粘包问题</strong>。搜索引擎中列出的各种关于“TCP 粘包问题”的文章，所讲的其实是采用 TCP 传输数据的应用层协议设计不合理导致的粘包问题，并不是 TCP 的锅。</p>
+<p>TCP 是流协议，没有粘包这个概念。</p>
+<p>所谓粘包问题，是指发送方的多条消息在传输到接收方时，由于被拼接在一起而导致无法解析的情况。要解决这一问题，需要合理设计应用层协议，约定好消息边界，以便即使多条消息被拼接在一起，也能够按照协议找到消息边界从而正确解析。</p>
+<p>之所以很多人将粘包问题看作是 TCP 造成的，是因为“拼接”这一行为发生在 TCP 层。通过 TCP 发送和接收的数据，均为数据流格式。当应用层协议使用 TCP 协议传输数据时，TCP 协议很可能将应用层发送的消息分成多个包依次发送或将多条消息组合后发送，这就会出现接收方收到的一个数据段可能由多条消息组成，即粘包。</p>
+<p>而实际情况是，TCP 本就是基于字节流而不是消息包的协议，它保证的是字节流的次序到达，对于字节流的解析应该是由应用层协议来完成的，所以<strong>粘包问题，实际上描述的是“如何设计应用层协议”的问题</strong>。</p>
     </div>
     <div class="read-more">
       <a href="/post/tcp%E4%B8%8E%E7%B2%98%E5%8C%85%E9%97%AE%E9%A2%98/" class="read-more-link">Read more...</a>

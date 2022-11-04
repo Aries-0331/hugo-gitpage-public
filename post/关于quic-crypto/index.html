@@ -82,6 +82,9 @@ The Illustrated TLS 1.3 Connection
 QUIC（Quick UDP Internet Connections）是一种默认加密的互联网传输协议，旨在提供安全、快速的 HTTP 传输，以替代 TCP 和 TLS。Google QUIC 的默认加密协议是自家的 QUIC Crypto。
 QUIC 与 TCP 的根本不同在于默认提供安全传输的设计原则。最初的 QUIC 结合了 TCP 的三次握手以及 TLS 1.3 的握手，并将 TLS的记录层数据帧格式替换为 QUIC 自己的，同时保留了 TLS 的握手消息。这种做法既保证了连接总是经过认证和加密的，同时使得初始连接建立速度更快。TCP 和 TLS1.3 完成握手需要两轮交互，而 QUIC 握手仅需一轮，如果客户端缓存了服务端的配置信息，那么甚至无需握手。
 
+
+
+
 协商成本对比
 QUIC
 QUIC 的服务端有一个使用私钥签名的server config参数列表，包含常规参数、 DH 公钥、有效期等信息，由于这些数据都是静态的，所以一次签名后可以长期使用，不需要每次建立连接时都签名。
@@ -123,6 +126,8 @@ server config是一个包含服务端临时密钥的参数集，大概每几天�
 初次建立连接时的 client hello 其实就是个空的消息，目的就是从 server 获取包含最新 server config 的REJ(ect)消息，获取到后会重新发起正式的 client hello；
 server hello 是包含临时密钥的加密消息；
 
+
+  
 
 
 首次连接
@@ -179,6 +184,9 @@ The Illustrated TLS 1.3 Connection" />
 QUIC（Quick UDP Internet Connections）是一种默认加密的互联网传输协议，旨在提供安全、快速的 HTTP 传输，以替代 TCP 和 TLS。Google QUIC 的默认加密协议是自家的 QUIC Crypto。
 QUIC 与 TCP 的根本不同在于默认提供安全传输的设计原则。最初的 QUIC 结合了 TCP 的三次握手以及 TLS 1.3 的握手，并将 TLS的记录层数据帧格式替换为 QUIC 自己的，同时保留了 TLS 的握手消息。这种做法既保证了连接总是经过认证和加密的，同时使得初始连接建立速度更快。TCP 和 TLS1.3 完成握手需要两轮交互，而 QUIC 握手仅需一轮，如果客户端缓存了服务端的配置信息，那么甚至无需握手。
 
+
+
+
 协商成本对比
 QUIC
 QUIC 的服务端有一个使用私钥签名的server config参数列表，包含常规参数、 DH 公钥、有效期等信息，由于这些数据都是静态的，所以一次签名后可以长期使用，不需要每次建立连接时都签名。
@@ -220,6 +228,8 @@ server config是一个包含服务端临时密钥的参数集，大概每几天�
 初次建立连接时的 client hello 其实就是个空的消息，目的就是从 server 获取包含最新 server config 的REJ(ect)消息，获取到后会重新发起正式的 client hello；
 server hello 是包含临时密钥的加密消息；
 
+
+  
 
 
 首次连接
@@ -274,6 +284,9 @@ The Illustrated TLS 1.3 Connection"><meta itemprop="datePublished" content="2022
 QUIC（Quick UDP Internet Connections）是一种默认加密的互联网传输协议，旨在提供安全、快速的 HTTP 传输，以替代 TCP 和 TLS。Google QUIC 的默认加密协议是自家的 QUIC Crypto。
 QUIC 与 TCP 的根本不同在于默认提供安全传输的设计原则。最初的 QUIC 结合了 TCP 的三次握手以及 TLS 1.3 的握手，并将 TLS的记录层数据帧格式替换为 QUIC 自己的，同时保留了 TLS 的握手消息。这种做法既保证了连接总是经过认证和加密的，同时使得初始连接建立速度更快。TCP 和 TLS1.3 完成握手需要两轮交互，而 QUIC 握手仅需一轮，如果客户端缓存了服务端的配置信息，那么甚至无需握手。
 
+
+
+
 协商成本对比
 QUIC
 QUIC 的服务端有一个使用私钥签名的server config参数列表，包含常规参数、 DH 公钥、有效期等信息，由于这些数据都是静态的，所以一次签名后可以长期使用，不需要每次建立连接时都签名。
@@ -315,6 +328,8 @@ server config是一个包含服务端临时密钥的参数集，大概每几天�
 初次建立连接时的 client hello 其实就是个空的消息，目的就是从 server 获取包含最新 server config 的REJ(ect)消息，获取到后会重新发起正式的 client hello；
 server hello 是包含临时密钥的加密消息；
 
+
+  
 
 
 首次连接
@@ -477,7 +492,10 @@ The Illustrated TLS 1.3 Connection"/>
       <h1 id="简要介绍">简要介绍</h1>
 <p>QUIC（Quick UDP Internet Connections）是一种默认加密的互联网传输协议，旨在提供安全、快速的 HTTP 传输，以替代 TCP 和 TLS。Google QUIC 的默认加密协议是自家的 QUIC Crypto。</p>
 <p>QUIC 与 TCP 的根本不同在于默认提供安全传输的设计原则。最初的 QUIC 结合了 TCP 的三次握手以及 TLS 1.3 的握手，并将 TLS的记录层数据帧格式替换为 QUIC 自己的，同时保留了 TLS 的握手消息。这种做法既保证了连接总是经过认证和加密的，同时使得初始连接建立速度更快。TCP 和 TLS1.3 完成握手需要两轮交互，而 QUIC 握手仅需一轮，如果客户端缓存了服务端的配置信息，那么甚至无需握手。</p>
-<div align=center><img src="https://blog.cloudflare.com/content/images/2018/07/http-request-over-tcp-tls@2x.png" width="600"><img src="https://blog.cloudflare.com/content/images/2018/07/http-request-over-quic@2x.png" width="600">
+<div align=center>
+<img src="https://blog.cloudflare.com/content/images/2018/07/http-request-over-tcp-tls@2x.png" width="600">
+<img src="https://blog.cloudflare.com/content/images/2018/07/http-request-over-quic@2x.png" width="600">
+</div>
 <h1 id="协商成本对比">协商成本对比</h1>
 <h2 id="quic">QUIC</h2>
 <p>QUIC 的服务端有一个使用私钥签名的<code>server config</code>参数列表，包含常规参数、 DH 公钥、有效期等信息，由于这些数据都是静态的，所以一次签名后可以长期使用，不需要每次建立连接时都签名。</p>
@@ -519,7 +537,9 @@ The Illustrated TLS 1.3 Connection"/>
 <li>初次建立连接时的 client hello 其实就是个空的消息，目的就是从 server 获取包含最新 <code>server config</code> 的REJ(ect)消息，获取到后会重新发起正式的 client hello；</li>
 <li>server hello 是包含临时密钥的加密消息；</li>
 </ul>
-<div align=center><img src="https://lh4.googleusercontent.com/DLKsceJfawl4pkbWeaTx69tgW97gG4TQ3BNWBPF3YgtqbkKhHmzgSyL7iajoAibBW9qRx7DcJiCwF2dGZngMFRI3pylhbttoRKZ6LLvQEJuvRepn8gOeya9FrfYd_PvVGRswL6uQCexAimZZdBuUwI5ttPH_mo-i2bVKQFxu9jMosswjo2e4FQvn0YHq" width=500>
+<div align=center>
+  <img src="https://lh4.googleusercontent.com/DLKsceJfawl4pkbWeaTx69tgW97gG4TQ3BNWBPF3YgtqbkKhHmzgSyL7iajoAibBW9qRx7DcJiCwF2dGZngMFRI3pylhbttoRKZ6LLvQEJuvRepn8gOeya9FrfYd_PvVGRswL6uQCexAimZZdBuUwI5ttPH_mo-i2bVKQFxu9jMosswjo2e4FQvn0YHq" width=500>
+</div>
 <ul>
 <li>首次连接</li>
 </ul>
@@ -534,7 +554,7 @@ The Illustrated TLS 1.3 Connection"/>
 </ul>
 <p>客户端在首次连接后，会把<code>server config</code>存下来，之后再发起连接时，可直接发送业务数据，以此来实现 0-RTT。</p>
 <h1 id="tls13状态机">TLS1.3状态机</h1>
-<div align=center><img src="https://cryptologie.net/upload/sm1.png" width=800>
+<div align=center><img src="https://cryptologie.net/upload/sm1.png" width=800></div>
 <p>从握手的状态图可以很快做出判断，TLS 比 QUIC 复杂好多。TLS 是一个相对可靠、完善的协议，但同时由于版本迭代较多，大量历史遗留问题导致其架构、接口、用例非常复杂，如果不考虑历史包袱等兼容性问题，应该可以设计出更优雅的“TLS”。</p>
 <h1 id="密钥派生">密钥派生</h1>
 <p>QUIC 的密钥材料通过 HMAC-SHA256 密钥派生函数（HKDF）生成，HKDF 采用先提取再扩展的设计方式，先将输入的字符转换为固定长度的伪随机数，然后将其扩展成若干个伪随机密钥。在 QUIC 的实现中，密钥协商阶段生成的 DH 密钥便是 HKDF 的输入。</p>

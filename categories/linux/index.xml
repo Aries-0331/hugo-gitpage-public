@@ -24,9 +24,9 @@
 &lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
 &lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;root@zwx-virtual-machine:/# uptime
- 11:06:40 up 1 day, 12 min,  1 user,  load average: 0.09, 0.04, 0.01
-&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;root@zwx-virtual-machine:/# uptime
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; 11:06:40 up 1 day, 12 min,  1 user,  load average: 0.09, 0.04, 0.01
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;图中 load average 后的三个数字，依次是过去1分钟、5分钟、15分钟的平均负载（Load Average）。简单来说，它代表的是单位时间内，系统处于&lt;strong&gt;可运行状态&lt;/strong&gt;和&lt;strong&gt;不可中断状态&lt;/strong&gt;的平均进程数，也就是&lt;strong&gt;平均活跃进程数&lt;/strong&gt;，和 CPU 使用率并没有直接关系。&lt;/p&gt;
 &lt;p&gt;所谓可运行状态的进程，是指正在使用 CPU 或正在等待 CPU 的进程，也就是使用 ps 命令看到的处于 R/Running/Runnable 状态的进程。&lt;/p&gt;

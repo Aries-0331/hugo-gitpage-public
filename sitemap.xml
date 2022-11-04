@@ -219,6 +219,12 @@
   </url>
   
   <url>
+    <loc>https://urchinzhou.com/post/%E5%85%B3%E4%BA%8E-quic-crypto/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://urchinzhou.com/tags/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>

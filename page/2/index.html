@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.91.2 with theme even" />
+<meta name="generator" content="Hugo 0.105.0 with theme even" />
 
 
 <link rel="canonical" href="https://urchinzhou.com/" />
@@ -146,10 +146,10 @@
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="c1">//常见错误
-</span><span class="c1"></span><span class="kt">int</span> <span class="o">*</span><span class="n">a</span><span class="p">;</span>
-<span class="o">*</span><span class="n">a</span> <span class="o">=</span> <span class="mi">12</span><span class="p">;</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="c1">//常见错误
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">int</span> <span class="o">*</span><span class="n">a</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="o">*</span><span class="n">a</span> <span class="o">=</span> <span class="mi">12</span><span class="p">;</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>该代码段，声明了一个名为 a 的指针变量，之后将 12 存储在 a 所指向的空间中。</p>
 <p>声明了变量 a，但未对其初始化，所以并不知道 a 所指向的具体位置，即数据 12 将存储于什么地方尚未可知。</p>
@@ -207,24 +207,24 @@
 </span><span class="lnt">17
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"> <span class="c1">// this is equivalent to using deprecated MasterKeys.AES256_GCM_SPEC
-</span><span class="c1"></span> <span class="n">KeyGenParameterSpec</span> <span class="n">spec</span> <span class="o">=</span> <span class="k">new</span> <span class="n">KeyGenParameterSpec</span><span class="o">.</span><span class="na">Builder</span><span class="o">(</span>
-         <span class="n">MASTER_KEY_ALIAS</span><span class="o">,</span>
-         <span class="n">KeyProperties</span><span class="o">.</span><span class="na">PURPOSE_ENCRYPT</span> <span class="o">|</span> <span class="n">KeyProperties</span><span class="o">.</span><span class="na">PURPOSE_DECRYPT</span><span class="o">)</span>
-         <span class="o">.</span><span class="na">setBlockModes</span><span class="o">(</span><span class="n">KeyProperties</span><span class="o">.</span><span class="na">BLOCK_MODE_GCM</span><span class="o">)</span>
-         <span class="o">.</span><span class="na">setEncryptionPaddings</span><span class="o">(</span><span class="n">KeyProperties</span><span class="o">.</span><span class="na">ENCRYPTION_PADDING_NONE</span><span class="o">)</span>
-         <span class="o">.</span><span class="na">setKeySize</span><span class="o">(</span><span class="n">KEY_SIZE</span><span class="o">)</span>
-         <span class="o">.</span><span class="na">build</span><span class="o">();</span>
- <span class="n">MasterKey</span> <span class="n">masterKey</span> <span class="o">=</span> <span class="k">new</span> <span class="n">MasterKey</span><span class="o">.</span><span class="na">Builder</span><span class="o">(</span><span class="n">MainActivity</span><span class="o">.</span><span class="na">this</span><span class="o">)</span>
-         <span class="o">.</span><span class="na">setKeyGenParameterSpec</span><span class="o">(</span><span class="n">spec</span><span class="o">)</span>
-         <span class="o">.</span><span class="na">build</span><span class="o">();</span>
- <span class="n">EncryptedSharedPreferences</span><span class="o">.</span><span class="na">create</span><span class="o">(</span>
-         <span class="n">MainActivity</span><span class="o">.</span><span class="na">this</span><span class="o">,</span>
-         <span class="s">&#34;your-app-preferences-name&#34;</span><span class="o">,</span>
-         <span class="n">masterKey</span><span class="o">,</span> <span class="c1">// masterKey created above
-</span><span class="c1"></span>         <span class="n">EncryptedSharedPreferences</span><span class="o">.</span><span class="na">PrefKeyEncryptionScheme</span><span class="o">.</span><span class="na">AES256_SIV</span><span class="o">,</span>
-         <span class="n">EncryptedSharedPreferences</span><span class="o">.</span><span class="na">PrefValueEncryptionScheme</span><span class="o">.</span><span class="na">AES256_GCM</span><span class="o">);</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"> <span class="c1">// this is equivalent to using deprecated MasterKeys.AES256_GCM_SPEC
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span> <span class="n">KeyGenParameterSpec</span> <span class="n">spec</span> <span class="o">=</span> <span class="k">new</span> <span class="n">KeyGenParameterSpec</span><span class="o">.</span><span class="na">Builder</span><span class="o">(</span>
+</span></span><span class="line"><span class="cl">         <span class="n">MASTER_KEY_ALIAS</span><span class="o">,</span>
+</span></span><span class="line"><span class="cl">         <span class="n">KeyProperties</span><span class="o">.</span><span class="na">PURPOSE_ENCRYPT</span> <span class="o">|</span> <span class="n">KeyProperties</span><span class="o">.</span><span class="na">PURPOSE_DECRYPT</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">         <span class="o">.</span><span class="na">setBlockModes</span><span class="o">(</span><span class="n">KeyProperties</span><span class="o">.</span><span class="na">BLOCK_MODE_GCM</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">         <span class="o">.</span><span class="na">setEncryptionPaddings</span><span class="o">(</span><span class="n">KeyProperties</span><span class="o">.</span><span class="na">ENCRYPTION_PADDING_NONE</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">         <span class="o">.</span><span class="na">setKeySize</span><span class="o">(</span><span class="n">KEY_SIZE</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">         <span class="o">.</span><span class="na">build</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl"> <span class="n">MasterKey</span> <span class="n">masterKey</span> <span class="o">=</span> <span class="k">new</span> <span class="n">MasterKey</span><span class="o">.</span><span class="na">Builder</span><span class="o">(</span><span class="n">MainActivity</span><span class="o">.</span><span class="na">this</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">         <span class="o">.</span><span class="na">setKeyGenParameterSpec</span><span class="o">(</span><span class="n">spec</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">         <span class="o">.</span><span class="na">build</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl"> <span class="n">EncryptedSharedPreferences</span><span class="o">.</span><span class="na">create</span><span class="o">(</span>
+</span></span><span class="line"><span class="cl">         <span class="n">MainActivity</span><span class="o">.</span><span class="na">this</span><span class="o">,</span>
+</span></span><span class="line"><span class="cl">         <span class="s">&#34;your-app-preferences-name&#34;</span><span class="o">,</span>
+</span></span><span class="line"><span class="cl">         <span class="n">masterKey</span><span class="o">,</span> <span class="c1">// masterKey created above
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>         <span class="n">EncryptedSharedPreferences</span><span class="o">.</span><span class="na">PrefKeyEncryptionScheme</span><span class="o">.</span><span class="na">AES256_SIV</span><span class="o">,</span>
+</span></span><span class="line"><span class="cl">         <span class="n">EncryptedSharedPreferences</span><span class="o">.</span><span class="na">PrefValueEncryptionScheme</span><span class="o">.</span><span class="na">AES256_GCM</span><span class="o">);</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div>
     </div>
@@ -386,7 +386,7 @@
 
 
 
-<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+<script type="text/javascript" src="/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js"></script>
 
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-XXXXXXXXX-X"></script>
 <script>

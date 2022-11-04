@@ -17,14 +17,14 @@
 
 
 <meta name="author" content="urchinzhou" /><meta name="description" content="SQLCipher 是基于 SQLite 的安全扩展，加解密行为对应用层透明，可使用标准 SQLite API 执行数据库操作，移植简单，以页为单位进行加解密操作，效率高，开销比 SQLite 多 5% 左右。
-安全特性  加密算法使用 AES-256 CBC模式； 使用口令初始化数据库，实际加密密钥根据口令派生产生，相同口令派生出的密钥不同； 以页为单位加解密，默认页大小 4096 Bytes，可调整优化； 对每一页写的时候，文末会附带消息验证码，用于读取时校验； 加密算法由 OpenSSL libcrypto 等开源库支持； " /><meta name="keywords" content="urchinzhou, blog, hugo" />
+安全特性 加密算法使用 AES-256 CBC模式； 使用口令初始化数据库，实际加密密钥根据口令派生产生，相同口令派生出的密钥不同； 以页为单位加解密，默认页大小 4096 Bytes，可调整优化； 对每一页写的时候，文末会附带消息验证码，用于读取时校验； 加密算法由 OpenSSL libcrypto 等开源库支持； " /><meta name="keywords" content="urchinzhou, blog, hugo" />
 
 
 
 
 
 
-<meta name="generator" content="Hugo 0.91.2 with theme even" />
+<meta name="generator" content="Hugo 0.105.0 with theme even" />
 
 
 <link rel="canonical" href="https://urchinzhou.com/post/sqlcipher%E6%9B%BF%E4%BB%A3sqlite/" />
@@ -190,7 +190,7 @@
   </div>
 </div>
   <div class="post-outdated">
-    <div class="hint">
+    <div class="warn">
       <p>[NOTE] Updated <span class="timeago" datetime="2021-07-06T22:27:48" title="July 6, 2021">July 6, 2021</span>. This article may have outdated content or subject matter.</p>
     </div>
   </div>
@@ -313,7 +313,7 @@
 
 
 
-<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+<script type="text/javascript" src="/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js"></script>
 
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-XXXXXXXXX-X"></script>
 <script>

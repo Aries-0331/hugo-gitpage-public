@@ -17,7 +17,7 @@
 
 
 <meta name="author" content="urchinzhou" /><meta name="description" content=" 概念上理清 HTTPS 与 HTTP 的区别。
- 在互联网协议套件中，将网络协议分为四层，从下至上依次为链路层-网络层-传输层-应用层，HTTP 属于应用层协议。中文名为超文本传输协议，其设计初衷是为了传输 HTML 页面。
+在互联网协议套件中，将网络协议分为四层，从下至上依次为链路层-网络层-传输层-应用层，HTTP 属于应用层协议。中文名为超文本传输协议，其设计初衷是为了传输 HTML 页面。
 HTTP 主要规定了客户端和服务器之间的通信格式，并不涉及数据包的传输，传输依赖于 TCP/IP 协议。
 简单理解就是，将需要传递的数据按照 HTTP 的要求格式化（挖坑，数据格式），然后剩下的交给协议栈中的 TCP/IP 层。
 因此基于 HTTP 协议的数据传输，其发送阶段的数据处理流程为，应用层格式化，TCP 封装，IP 封装，过程中不涉及数据的加解密，数据为明文形式传输。
@@ -34,7 +34,7 @@ TLS 表示传输层安全，从 SSL 演进而来，属于应用层与 TCP 层之
 
 
 
-<meta name="generator" content="Hugo 0.91.2 with theme even" />
+<meta name="generator" content="Hugo 0.105.0 with theme even" />
 
 
 <link rel="canonical" href="https://urchinzhou.com/post/https%E4%B8%8Ehttp/" />
@@ -196,7 +196,7 @@ TLS 表示传输层安全，从 SSL 演进而来，属于应用层与 TCP 层之
   </div>
 </div>
   <div class="post-outdated">
-    <div class="hint">
+    <div class="warn">
       <p>[NOTE] Updated <span class="timeago" datetime="2021-07-06T22:28:02" title="July 6, 2021">July 6, 2021</span>. This article may have outdated content or subject matter.</p>
     </div>
   </div>
@@ -304,7 +304,7 @@ TLS 表示传输层安全，从 SSL 演进而来，属于应用层与 TCP 层之
 
 
 
-<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+<script type="text/javascript" src="/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js"></script>
 
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-XXXXXXXXX-X"></script>
 <script>

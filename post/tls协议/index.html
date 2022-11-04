@@ -17,14 +17,14 @@
 
 
 <meta name="author" content="urchinzhou" /><meta name="description" content="TLS 协议的设计目标 构建一个安全传输层（Transport Layer Security），在基于连接的传输层（如 TCP）之上提供密码学安全，包括
- 机密性，信息加密传输，无法被窃听 完整性，信息一旦被篡改，通信双方可感知 认证，通信双方防止身份被冒充 " /><meta name="keywords" content="urchinzhou, blog, hugo" />
+机密性，信息加密传输，无法被窃听 完整性，信息一旦被篡改，通信双方可感知 认证，通信双方防止身份被冒充 " /><meta name="keywords" content="urchinzhou, blog, hugo" />
 
 
 
 
 
 
-<meta name="generator" content="Hugo 0.91.2 with theme even" />
+<meta name="generator" content="Hugo 0.105.0 with theme even" />
 
 
 <link rel="canonical" href="https://urchinzhou.com/post/tls%E5%8D%8F%E8%AE%AE/" />
@@ -190,7 +190,7 @@
   </div>
 </div>
   <div class="post-outdated">
-    <div class="hint">
+    <div class="warn">
       <p>[NOTE] Updated <span class="timeago" datetime="2021-07-06T22:24:45" title="July 6, 2021">July 6, 2021</span>. This article may have outdated content or subject matter.</p>
     </div>
   </div>
@@ -281,25 +281,25 @@
 </span><span class="lnt">18
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c">      <span class="n">Client</span>                                               <span class="n">Server</span>
-
-      <span class="n">ClientHello</span>                  <span class="o">--------&gt;</span>
-                                                      <span class="n">ServerHello</span>
-                                                     <span class="n">Certificate</span><span class="o">*</span>
-                                               <span class="n">ServerKeyExchange</span><span class="o">*</span>
-                                              <span class="n">CertificateRequest</span><span class="o">*</span>
-                                   <span class="o">&lt;--------</span>      <span class="n">ServerHelloDone</span>
-      <span class="n">Certificate</span><span class="o">*</span>
-      <span class="n">ClientKeyExchange</span>
-      <span class="n">CertificateVerify</span><span class="o">*</span>
-      <span class="p">[</span><span class="n">ChangeCipherSpec</span><span class="p">]</span>
-      <span class="n">Finished</span>                     <span class="o">--------&gt;</span>
-                                               <span class="p">[</span><span class="n">ChangeCipherSpec</span><span class="p">]</span>
-                                   <span class="o">&lt;--------</span>             <span class="n">Finished</span>
-      <span class="n">Application</span> <span class="n">Data</span>             <span class="o">&lt;-------&gt;</span>     <span class="n">Application</span> <span class="n">Data</span>
-
-      <span class="c1">//*表示可选的消息，或根据上下文在某些情况下会发送的消息
-</span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl">      <span class="n">Client</span>                                               <span class="n">Server</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">      <span class="n">ClientHello</span>                  <span class="o">--------&gt;</span>
+</span></span><span class="line"><span class="cl">                                                      <span class="n">ServerHello</span>
+</span></span><span class="line"><span class="cl">                                                     <span class="n">Certificate</span><span class="o">*</span>
+</span></span><span class="line"><span class="cl">                                               <span class="n">ServerKeyExchange</span><span class="o">*</span>
+</span></span><span class="line"><span class="cl">                                              <span class="n">CertificateRequest</span><span class="o">*</span>
+</span></span><span class="line"><span class="cl">                                   <span class="o">&lt;--------</span>      <span class="n">ServerHelloDone</span>
+</span></span><span class="line"><span class="cl">      <span class="n">Certificate</span><span class="o">*</span>
+</span></span><span class="line"><span class="cl">      <span class="n">ClientKeyExchange</span>
+</span></span><span class="line"><span class="cl">      <span class="n">CertificateVerify</span><span class="o">*</span>
+</span></span><span class="line"><span class="cl">      <span class="p">[</span><span class="n">ChangeCipherSpec</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">      <span class="n">Finished</span>                     <span class="o">--------&gt;</span>
+</span></span><span class="line"><span class="cl">                                               <span class="p">[</span><span class="n">ChangeCipherSpec</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">                                   <span class="o">&lt;--------</span>             <span class="n">Finished</span>
+</span></span><span class="line"><span class="cl">      <span class="n">Application</span> <span class="n">Data</span>             <span class="o">&lt;-------&gt;</span>     <span class="n">Application</span> <span class="n">Data</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">      <span class="c1">//*表示可选的消息，或根据上下文在某些情况下会发送的消息
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div><p>握手过程的主要行为：</p>
 <ul>
@@ -335,24 +335,24 @@
 </span><span class="lnt">17
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c">          <span class="n">Client</span>                                               <span class="n">Server</span>
-
-          <span class="n">ClientHello</span>
-          <span class="o">+</span> <span class="n">key_share</span>               <span class="o">--------&gt;</span>
-                                                          <span class="n">ServerHello</span>
-                                                          <span class="o">+</span> <span class="n">key_share</span>
-                                                <span class="p">{</span><span class="n">EncryptedExtensions</span><span class="p">}</span>
-                                                <span class="p">{</span><span class="n">CertificateRequest</span><span class="o">*</span><span class="p">}</span>
-                                                       <span class="p">{</span><span class="n">Certificate</span><span class="o">*</span><span class="p">}</span>
-                                                 <span class="p">{</span><span class="n">CertificateVerify</span><span class="o">*</span><span class="p">}</span>
-                                                           <span class="p">{</span><span class="n">Finished</span><span class="p">}</span>
-                                    <span class="o">&lt;--------</span>     <span class="p">[</span><span class="n">Application</span> <span class="n">Data</span><span class="o">*</span><span class="p">]</span>
-          <span class="p">{</span><span class="n">Certificate</span><span class="o">*</span><span class="p">}</span>
-          <span class="p">{</span><span class="n">CertificateVerify</span><span class="o">*</span><span class="p">}</span>
-          <span class="p">{</span><span class="n">Finished</span><span class="p">}</span>                <span class="o">--------&gt;</span>
-                                    <span class="o">&lt;--------</span>      <span class="p">[</span><span class="n">NewSessionTicket</span><span class="p">]</span>
-          <span class="p">[</span><span class="n">Application</span> <span class="n">Data</span><span class="p">]</span>        <span class="o">&lt;-------&gt;</span>      <span class="p">[</span><span class="n">Application</span> <span class="n">Data</span><span class="p">]</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl">          <span class="n">Client</span>                                               <span class="n">Server</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">          <span class="n">ClientHello</span>
+</span></span><span class="line"><span class="cl">          <span class="o">+</span> <span class="n">key_share</span>               <span class="o">--------&gt;</span>
+</span></span><span class="line"><span class="cl">                                                          <span class="n">ServerHello</span>
+</span></span><span class="line"><span class="cl">                                                          <span class="o">+</span> <span class="n">key_share</span>
+</span></span><span class="line"><span class="cl">                                                <span class="p">{</span><span class="n">EncryptedExtensions</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">                                                <span class="p">{</span><span class="n">CertificateRequest</span><span class="o">*</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">                                                       <span class="p">{</span><span class="n">Certificate</span><span class="o">*</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">                                                 <span class="p">{</span><span class="n">CertificateVerify</span><span class="o">*</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">                                                           <span class="p">{</span><span class="n">Finished</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">                                    <span class="o">&lt;--------</span>     <span class="p">[</span><span class="n">Application</span> <span class="n">Data</span><span class="o">*</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">          <span class="p">{</span><span class="n">Certificate</span><span class="o">*</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">          <span class="p">{</span><span class="n">CertificateVerify</span><span class="o">*</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">          <span class="p">{</span><span class="n">Finished</span><span class="p">}</span>                <span class="o">--------&gt;</span>
+</span></span><span class="line"><span class="cl">                                    <span class="o">&lt;--------</span>      <span class="p">[</span><span class="n">NewSessionTicket</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">          <span class="p">[</span><span class="n">Application</span> <span class="n">Data</span><span class="p">]</span>        <span class="o">&lt;-------&gt;</span>      <span class="p">[</span><span class="n">Application</span> <span class="n">Data</span><span class="p">]</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>主要分 3 个阶段</p>
 <ul>
@@ -462,7 +462,7 @@
 
 
 
-<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+<script type="text/javascript" src="/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js"></script>
 
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-XXXXXXXXX-X"></script>
 <script>

@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.91.2 with theme even" />
+<meta name="generator" content="Hugo 0.105.0 with theme even" />
 
 
 <link rel="canonical" href="https://urchinzhou.com/" />
@@ -150,12 +150,12 @@
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="nl">cflags</span><span class="p">:</span> <span class="p">[</span>
-        <span class="s">&#34;-Werror&#34;</span><span class="p">,</span>
-        <span class="s">&#34;-fvisibility=hidden&#34;</span><span class="p">,</span>
-  <span class="p">......</span>
-  <span class="p">]</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="nl">cflags</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">        <span class="s">&#34;-Werror&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s">&#34;-fvisibility=hidden&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="p">......</span>
+</span></span><span class="line"><span class="cl">  <span class="p">]</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>可见性属性会覆盖编译时通过 <code>-fvisibility</code> 选项指定的值，<code>default</code> 可见性属性会使符号在所有情况下都被输出，<code>hidden</code> 可见性属性会隐藏相应的符号。</p>
 <p>结论：该模块在编译时，通过编译选项 <code>&quot;-fvisibility=hidden&quot;</code> 将符号的默认可见性属性设置为不可见，因此，对于源文件中没有显示声明为可见的函数或变量，无法被共享库的其它文件访问，从而导致编译时触发 <code>error:undefined reference to </code>，解决办法是将需要对外共享的函数、变量的可见性属性标识为 <code>default</code>。</p>
@@ -367,7 +367,7 @@
 
 
 
-<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+<script type="text/javascript" src="/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js"></script>
 
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-XXXXXXXXX-X"></script>
 <script>

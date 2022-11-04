@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>quic on urchinzhou</title>
+    <link>https://urchinzhou.com/categories/quic/</link>
+    <description>Recent content in quic on urchinzhou</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 04 Nov 2022 17:13:59 +0800</lastBuildDate><atom:link href="https://urchinzhou.com/categories/quic/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>关于QUIC Crypto</title>
+      <link>https://urchinzhou.com/post/%E5%85%B3%E4%BA%8Equic-crypto/</link>
+      <pubDate>Fri, 04 Nov 2022 17:13:59 +0800</pubDate>
+      
+      <guid>https://urchinzhou.com/post/%E5%85%B3%E4%BA%8Equic-crypto/</guid>
+      <description>简要介绍 QUIC（Quick UDP Internet Connections）是一种默认加密的互联网传输协议，旨在提供安全、快速的 HTTP 传输，以替代 TCP 和 TLS。Goo</description>
+    </item>
+    
+  </channel>
+</rss>

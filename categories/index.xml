@@ -6,7 +6,25 @@
     <description>Recent content in Categories on urchinzhou</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 28 Dec 2021 14:24:52 +0800</lastBuildDate><atom:link href="https://urchinzhou.com/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 04 Nov 2022 17:13:59 +0800</lastBuildDate><atom:link href="https://urchinzhou.com/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>crypto</title>
+      <link>https://urchinzhou.com/categories/crypto/</link>
+      <pubDate>Fri, 04 Nov 2022 17:13:59 +0800</pubDate>
+      
+      <guid>https://urchinzhou.com/categories/crypto/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>quic</title>
+      <link>https://urchinzhou.com/categories/quic/</link>
+      <pubDate>Fri, 04 Nov 2022 17:13:59 +0800</pubDate>
+      
+      <guid>https://urchinzhou.com/categories/quic/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>log</title>
       <link>https://urchinzhou.com/categories/log/</link>
@@ -22,15 +40,6 @@
       <pubDate>Tue, 21 Dec 2021 16:05:14 +0800</pubDate>
       
       <guid>https://urchinzhou.com/categories/read/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>crypto</title>
-      <link>https://urchinzhou.com/categories/crypto/</link>
-      <pubDate>Tue, 21 Dec 2021 15:25:18 +0800</pubDate>
-      
-      <guid>https://urchinzhou.com/categories/crypto/</guid>
       <description></description>
     </item>
     

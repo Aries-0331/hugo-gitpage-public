@@ -6,7 +6,16 @@
     <description>Recent content on urchinzhou</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 28 Dec 2021 14:24:52 +0800</lastBuildDate><atom:link href="https://urchinzhou.com/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 04 Nov 2022 17:13:59 +0800</lastBuildDate><atom:link href="https://urchinzhou.com/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>关于QUIC Crypto</title>
+      <link>https://urchinzhou.com/post/%E5%85%B3%E4%BA%8Equic-crypto/</link>
+      <pubDate>Fri, 04 Nov 2022 17:13:59 +0800</pubDate>
+      
+      <guid>https://urchinzhou.com/post/%E5%85%B3%E4%BA%8Equic-crypto/</guid>
+      <description>简要介绍 QUIC（Quick UDP Internet Connections）是一种默认加密的互联网传输协议，旨在提供安全、快速的 HTTP 传输，以替代 TCP 和 TLS。Goo</description>
+    </item>
+    
     <item>
       <title>2021年·因吹斯汀</title>
       <link>https://urchinzhou.com/post/2021%E5%9B%A0%E5%90%B9%E6%96%AF%E6%B1%80/</link>
@@ -481,15 +490,6 @@
 &lt;/div&gt;&lt;p&gt;图中 load average 后的三个数字，依次是过去1分钟、5分钟、15分钟的平均负载（Load Average）。简单来说，它代表的是单位时间内，系统处于&lt;strong&gt;可运行状态&lt;/strong&gt;和&lt;strong&gt;不可中断状态&lt;/strong&gt;的平均进程数，也就是&lt;strong&gt;平均活跃进程数&lt;/strong&gt;，和 CPU 使用率并没有直接关系。&lt;/p&gt;
 &lt;p&gt;所谓可运行状态的进程，是指正在使用 CPU 或正在等待 CPU 的进程，也就是使用 ps 命令看到的处于 R/Running/Runnable 状态的进程。&lt;/p&gt;
 &lt;p&gt;不可中断的进程，是指正处于内核态关键流程中的进程，且这些流程是不可打断的，比如等待硬件设备的 I/O 响应，也就是我们在 ps 命令中看到的 D 状态进程。&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://urchinzhou.com/post/%E5%85%B3%E4%BA%8E-quic-crypto/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://urchinzhou.com/post/%E5%85%B3%E4%BA%8E-quic-crypto/</guid>
-      <description>简要介绍 QUIC（Quick UDP Internet Connections）是一种默认加密的互联网传输协议，旨在提供安全、快速的 HTTP 传输，以替代 TCP 和 TLS。Goo</description>
     </item>
     
   </channel>

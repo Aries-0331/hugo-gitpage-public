@@ -6,7 +6,16 @@
     <description>Recent content in crypto on urchinzhou</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 21 Dec 2021 15:25:18 +0800</lastBuildDate><atom:link href="https://urchinzhou.com/categories/crypto/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 04 Nov 2022 17:13:59 +0800</lastBuildDate><atom:link href="https://urchinzhou.com/categories/crypto/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>关于QUIC Crypto</title>
+      <link>https://urchinzhou.com/post/%E5%85%B3%E4%BA%8Equic-crypto/</link>
+      <pubDate>Fri, 04 Nov 2022 17:13:59 +0800</pubDate>
+      
+      <guid>https://urchinzhou.com/post/%E5%85%B3%E4%BA%8Equic-crypto/</guid>
+      <description>简要介绍 QUIC（Quick UDP Internet Connections）是一种默认加密的互联网传输协议，旨在提供安全、快速的 HTTP 传输，以替代 TCP 和 TLS。Goo</description>
+    </item>
+    
     <item>
       <title>关于加密和密码学的经验教训和误解</title>
       <link>https://urchinzhou.com/post/%E5%85%B3%E4%BA%8E%E5%8A%A0%E5%AF%86%E5%92%8C%E5%AF%86%E7%A0%81%E5%AD%A6%E7%9A%84%E7%BB%8F%E9%AA%8C%E6%95%99%E8%AE%AD%E5%92%8C%E8%AF%AF%E8%A7%A3/</link>

@@ -128,6 +128,74 @@
           <section id="posts" class="posts">
     <article class="post">
   <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/tips/">Tips</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2022-11-11 </span>
+      <div class="post-category">
+          <a href="/categories/tips/"> tips </a>
+          </div>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      <h2 id="在新环境中配置多-git-仓库的-ssh-权限">在新环境中配置多 Git 仓库的 ssh 权限</h2>
+<ol>
+<li>cd ~/.ssh</li>
+<li>ssh-keygen -t ed25519  -C  username //创建 ssh 密钥对，按照提示创建文件名(eg:repo1-deploy-key、repo2-deploy-key)</li>
+<li>eval <code>ssh-agent -s</code></li>
+<li>ssh-add repo1-deploy-key repo2-deploy-key</li>
+<li>复制 filename.pub 中的内容</li>
+<li>粘贴至 Git 仓库的 Settings&ndash;Deploy Keys&ndash;Add deploy key 中</li>
+<li>修改<code>~/.ssh/config</code>，参考如下</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Host repo1.github.com
+</span></span><span class="line"><span class="cl">        HostName github.com
+</span></span><span class="line"><span class="cl">        AddKeysToAgent yes
+</span></span><span class="line"><span class="cl">        IdentityFile ~/.ssh/repo1-deploy-key
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Host repo2.github.com
+</span></span><span class="line"><span class="cl">        HostName github.com
+</span></span><span class="line"><span class="cl">        AddKeysToAgent yes
+</span></span><span class="line"><span class="cl">        IdentityFile ~/.ssh/blog-repo
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ol start="8">
+<li>分别修改 repo1、repo2 目录下 <code>.git/config</code> 中的url，参考如下</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="c1">//url = git@github.com:username/repo1.git
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">url</span> <span class="o">=</span> <span class="n">git</span><span class="err">@</span><span class="n">repo1</span><span class="p">.</span><span class="n">github</span><span class="p">.</span><span class="nl">com</span><span class="p">:</span><span class="n">username</span><span class="o">/</span><span class="n">repo1</span><span class="p">.</span><span class="n">git</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div>
+    </div>
+    <div class="read-more">
+      <a href="/post/tips/" class="read-more-link">Read more...</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
     <h1 class="post-title"><a class="post-link" href="/post/%E5%85%B3%E4%BA%8Equic-crypto/">关于QUIC Crypto</a></h1>
     <div class="post-meta">
       <span class="post-time"> 2022-11-04 </span>
@@ -407,54 +475,6 @@
     </div>
     <div class="read-more">
       <a href="/post/%E5%85%B3%E4%BA%8E%E5%8A%A0%E5%AF%86%E5%92%8C%E5%AF%86%E7%A0%81%E5%AD%A6%E7%9A%84%E7%BB%8F%E9%AA%8C%E6%95%99%E8%AE%AD%E5%92%8C%E8%AF%AF%E8%A7%A3/" class="read-more-link">Read more...</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/git%E4%BF%AE%E6%94%B9commit%E4%BF%A1%E6%81%AF/">Git修改commit信息</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2021-07-20 </span>
-      <div class="post-category">
-          <a href="/categories/git/"> git </a>
-          </div>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <ul>
-<li>修改用户名/邮箱</li>
-</ul>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span><span class="lnt">9
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">1. git rebase -i &#34;commit id&#34; //commit id 选择目标 commit 上一次的 commit ID
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">2. 修改 pick 为 edit 后，保存退出
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">3. git commit --amend --author=&#34;username &lt;useremail&gt;&#34;//eg: git commit --amend --author=&#34;hahaha &lt;hahaha@gmail.com&gt;&#34;
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">4. git rebase --continue
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">ps:如果想修改第一次commit的信息，则步骤1中参数 commit id 改为 --root，即 git rebase -i --root
-</span></span></code></pre></td></tr></table>
-</div>
-</div>
-    </div>
-    <div class="read-more">
-      <a href="/post/git%E4%BF%AE%E6%94%B9commit%E4%BF%A1%E6%81%AF/" class="read-more-link">Read more...</a>
     </div>
   </div>
 </article>

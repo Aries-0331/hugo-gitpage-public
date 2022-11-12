@@ -128,6 +128,41 @@
           <section id="posts" class="posts">
     <article class="post">
   <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/%E5%AF%86%E7%A0%81%E5%BA%94%E7%94%A8%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">密码应用基础知识</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2021-07-06 </span>
+      <div class="post-category">
+          <a href="/categories/crypto/"> crypto </a>
+          </div>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      <h1 id="对称算法">对称算法</h1>
+<p>加密密钥能够从解密密钥中推算出来，反过来也成立。在大多数对称算法中，加密解密<strong>密钥是相同的</strong>。这些算法也叫<strong>秘密密钥算法</strong>或<strong>单密钥算法</strong>，它要求发送者和接受者在安全通信之前，商定一个密钥。</p>
+<p>对称算法的安全性依赖于密钥，泄露密钥就意味着任何人都能对消息进行加密解密。</p>
+<p><strong>分组算法</strong></p>
+<p>对数据块运算，如果数据长度不够一块，则需要填充；加密之后数据长度可能会变长，某些场景下不适用；需要对数据进行缓存，某些场景下不适用。</p>
+<p><strong>分组算法的工作模式</strong></p>
+<ul>
+<li>ECB 模式，最简单，加密长数据有风险；</li>
+<li>CBC 模式，<strong>最常用的工作模式</strong>，但本身并没有什么优势，单纯因为过去用的人多，属于历史遗留问题；</li>
+<li>OFB 模式，效果类似于流密码，适合处理音视频数据；</li>
+<li>CFB 模式，效果类似于流密码，几乎没人用；</li>
+<li>CTR 模式，可并行加速，只要有条件就推荐使用，广泛应用于 ATM 网络安全和 IPSec 应用中；</li>
+<li>GCM、CCM 认证加密模式，既能加密又能防篡改防重放；</li>
+<li>XTS 存储加密模式，适合随机读写模式；</li>
+</ul>
+    </div>
+    <div class="read-more">
+      <a href="/post/%E5%AF%86%E7%A0%81%E5%BA%94%E7%94%A8%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" class="read-more-link">Read more...</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
     <h1 class="post-title"><a class="post-link" href="/post/tls%E5%8D%8F%E8%AE%AE/">TLS协议</a></h1>
     <div class="post-meta">
       <span class="post-time"> 2021-07-06 </span>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>SQLCipher替代SQLite - Aries</title>
+  <title>HTML Introduction - Aries</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -16,8 +16,9 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="Aries" /><meta name="description" content="SQLCipher 是基于 SQLite 的安全扩展，加解密行为对应用层透明，可使用标准 SQLite API 执行数据库操作，移植简单，以页为单位进行加解密操作，效率高，开销比 SQLite 多 5% 左右。
-安全特性 加密算法使用 AES-256 CBC模式； 使用口令初始化数据库，实际加密密钥根据口令派生产生，相同口令派生出的密钥不同； 以页为单位加解密，默认页大小 4096 Bytes，可调整优化； 对每一页写的时候，文末会附带消息验证码，用于读取时校验； 加密算法由 OpenSSL libcrypto 等开源库支持； " /><meta name="keywords" content="Aries, blog, hugo" />
+<meta name="author" content="Aries" /><meta name="description" content="This blog is an attempt to generate with ai.
+In this blog post, we will embark on a journey into the world of web technology and explore the fundamental aspects of HTML (Hypertext Markup Language). As a crucial language for structuring web content, HTML lays the groundwork for creating visually appealing and interactive websites. Let&amp;rsquo;s dive in!
+HTML Essentials: HTML employs tags to define elements and organize information on web pages." /><meta name="keywords" content="Aries, blog, hugo" />
 
 
 
@@ -27,7 +28,7 @@
 <meta name="generator" content="Hugo 0.114.0 with theme even" />
 
 
-<link rel="canonical" href="https://urchinzhou.com/post/sqlcipher%E6%9B%BF%E4%BB%A3sqlite/" />
+<link rel="canonical" href="https://urchinzhou.com/post/html-introduction/" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -40,43 +41,25 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
-<meta property="og:title" content="SQLCipher替代SQLite" />
-<meta property="og:description" content="SQLCipher 是基于 SQLite 的安全扩展，加解密行为对应用层透明，可使用标准 SQLite API 执行数据库操作，移植简单，以页为单位进行加解密操作，效率高，开销比 SQLite 多 5% 左右。
-安全特性
-
-加密算法使用 AES-256 CBC模式；
-使用口令初始化数据库，实际加密密钥根据口令派生产生，相同口令派生出的密钥不同；
-以页为单位加解密，默认页大小 4096 Bytes，可调整优化；
-对每一页写的时候，文末会附带消息验证码，用于读取时校验；
-加密算法由 OpenSSL libcrypto 等开源库支持；
-" />
+<meta property="og:title" content="HTML Introduction" />
+<meta property="og:description" content="This blog is an attempt to generate with ai.
+In this blog post, we will embark on a journey into the world of web technology and explore the fundamental aspects of HTML (Hypertext Markup Language). As a crucial language for structuring web content, HTML lays the groundwork for creating visually appealing and interactive websites. Let&rsquo;s dive in!
+HTML Essentials: HTML employs tags to define elements and organize information on web pages." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://urchinzhou.com/post/sqlcipher%E6%9B%BF%E4%BB%A3sqlite/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2021-07-06T22:27:48+08:00" />
-<meta property="article:modified_time" content="2021-07-06T22:27:48+08:00" />
-<meta itemprop="name" content="SQLCipher替代SQLite">
-<meta itemprop="description" content="SQLCipher 是基于 SQLite 的安全扩展，加解密行为对应用层透明，可使用标准 SQLite API 执行数据库操作，移植简单，以页为单位进行加解密操作，效率高，开销比 SQLite 多 5% 左右。
-安全特性
-
-加密算法使用 AES-256 CBC模式；
-使用口令初始化数据库，实际加密密钥根据口令派生产生，相同口令派生出的密钥不同；
-以页为单位加解密，默认页大小 4096 Bytes，可调整优化；
-对每一页写的时候，文末会附带消息验证码，用于读取时校验；
-加密算法由 OpenSSL libcrypto 等开源库支持；
-"><meta itemprop="datePublished" content="2021-07-06T22:27:48+08:00" />
-<meta itemprop="dateModified" content="2021-07-06T22:27:48+08:00" />
-<meta itemprop="wordCount" content="250">
+<meta property="og:url" content="https://urchinzhou.com/post/html-introduction/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2023-06-21T18:00:12+08:00" />
+<meta property="article:modified_time" content="2023-06-21T18:00:12+08:00" />
+<meta itemprop="name" content="HTML Introduction">
+<meta itemprop="description" content="This blog is an attempt to generate with ai.
+In this blog post, we will embark on a journey into the world of web technology and explore the fundamental aspects of HTML (Hypertext Markup Language). As a crucial language for structuring web content, HTML lays the groundwork for creating visually appealing and interactive websites. Let&rsquo;s dive in!
+HTML Essentials: HTML employs tags to define elements and organize information on web pages."><meta itemprop="datePublished" content="2023-06-21T18:00:12+08:00" />
+<meta itemprop="dateModified" content="2023-06-21T18:00:12+08:00" />
+<meta itemprop="wordCount" content="321">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="SQLCipher替代SQLite"/>
-<meta name="twitter:description" content="SQLCipher 是基于 SQLite 的安全扩展，加解密行为对应用层透明，可使用标准 SQLite API 执行数据库操作，移植简单，以页为单位进行加解密操作，效率高，开销比 SQLite 多 5% 左右。
-安全特性
-
-加密算法使用 AES-256 CBC模式；
-使用口令初始化数据库，实际加密密钥根据口令派生产生，相同口令派生出的密钥不同；
-以页为单位加解密，默认页大小 4096 Bytes，可调整优化；
-对每一页写的时候，文末会附带消息验证码，用于读取时校验；
-加密算法由 OpenSSL libcrypto 等开源库支持；
-"/>
+<meta name="twitter:title" content="HTML Introduction"/>
+<meta name="twitter:description" content="This blog is an attempt to generate with ai.
+In this blog post, we will embark on a journey into the world of web technology and explore the fundamental aspects of HTML (Hypertext Markup Language). As a crucial language for structuring web content, HTML lays the groundwork for creating visually appealing and interactive websites. Let&rsquo;s dive in!
+HTML Essentials: HTML employs tags to define elements and organize information on web pages."/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -155,12 +138,13 @@
           <article class="post">
     
     <header class="post-header">
-      <h1 class="post-title">SQLCipher替代SQLite</h1>
+      <h1 class="post-title">HTML Introduction</h1>
 
       <div class="post-meta">
-        <span class="post-time"> 2021-07-06 </span>
+        <span class="post-time"> 2023-06-21 </span>
         <div class="post-category">
-            <a href="/categories/android/"> android </a>
+            <a href="/categories/web/"> Web </a>
+            <a href="/categories/aigc/"> AIGC </a>
             </div>
         
       </div>
@@ -169,59 +153,38 @@
     <div class="post-toc" id="post-toc">
   <h2 class="post-toc-title">Contents</h2>
   <div class="post-toc-content always-active">
-    <nav id="TableOfContents">
-  <ul>
-    <li>
-      <ul>
-        <li>
-          <ul>
-            <li><a href="#安全特性">安全特性</a></li>
-            <li><a href="#业务流程">业务流程</a></li>
-            <li><a href="#效果对比">效果对比</a></li>
-            <li><a href="#应用示例android">应用示例（Android）</a></li>
-            <li><a href="#faq">FAQ：</a></li>
-          </ul>
-        </li>
-      </ul>
-    </li>
-  </ul>
-</nav>
+    <nav id="TableOfContents"></nav>
   </div>
 </div>
-  <div class="post-outdated">
-    <div class="warn">
-      <p>[NOTE] Updated <span class="timeago" datetime="2021-07-06T22:27:48" title="July 6, 2021">July 6, 2021</span>. This article may have outdated content or subject matter.</p>
-    </div>
-  </div>
     <div class="post-content">
-      <p>SQLCipher 是基于 SQLite 的安全扩展，加解密行为对应用层透明，可使用标准 SQLite API 执行数据库操作，移植简单，以页为单位进行加解密操作，效率高，开销比 SQLite 多 5% 左右。</p>
-<h3 id="安全特性">安全特性</h3>
-<ul>
-<li>加密算法使用 AES-256 CBC模式；</li>
-<li>使用口令初始化数据库，实际加密密钥根据口令派生产生，相同口令派生出的密钥不同；</li>
-<li>以页为单位加解密，默认页大小 4096 Bytes，可调整优化；</li>
-<li>对每一页写的时候，文末会附带消息验证码，用于读取时校验；</li>
-<li>加密算法由 OpenSSL libcrypto 等开源库支持；</li>
-</ul>
-<h3 id="业务流程">业务流程</h3>
-<p>以 Android 为例</p>
-<img src="https://s3.ax1x.com/2021/01/28/y94yrj.md.png" width=500 alt="flow" align=center />
-<h3 id="效果对比">效果对比</h3>
-<ul>
-<li>SQLite</li>
-</ul>
-<img src="https://s3.ax1x.com/2021/01/29/yCo7B4.png" alt="yCo7B4.png" border="0"/>
-<ul>
-<li>SQLCipher</li>
-</ul>
-<img src="https://s3.ax1x.com/2021/01/29/yCTev8.png" alt="yCTev8.png" border="0" />
-<h3 id="应用示例android">应用示例（Android）</h3>
-<ul>
-<li><a href="https://github.com/sqlcipher/android-database-sqlcipher#using-sqlcipher-for-android-with-room">Using SQLCipher for Android With Room</a></li>
-<li><a href="https://github.com/sqlcipher/android-database-sqlcipher#using-sqlcipher-for-androids-native-api">Using SQLCipher for Android&rsquo;s Native API</a></li>
-</ul>
-<h3 id="faq">FAQ：</h3>
-<p><a href="https://discuss.zetetic.net/t/how-to-encrypt-a-plaintext-sqlite-database-to-use-sqlcipher-and-avoid-file-is-encrypted-or-is-not-a-database-errors/868">如何使用 SQLCipher 加密明文 SQLite 数据库</a></p>
+      <blockquote>
+<p>This blog is an attempt to generate with ai.</p>
+</blockquote>
+<p>In this blog post, we will embark on a journey into the world of web technology and explore the fundamental aspects of HTML (Hypertext Markup Language). As a crucial language for structuring web content, HTML lays the groundwork for creating visually appealing and interactive websites. Let&rsquo;s dive in!</p>
+<p>HTML Essentials: HTML employs tags to define elements and organize information on web pages. Familiarize yourself with these essential tags:</p>
+<ol>
+<li><code>&lt;html&gt;</code>: The root of an HTML document.</li>
+<li><code>&lt;head&gt;</code>: Contains metadata and references to external stylesheets and scripts.</li>
+<li><code>&lt;body&gt;</code>: Houses the visible content of the web page.</li>
+<li><code>&lt;h1&gt;</code> to <code>&lt;h6&gt;</code>: Define headings, with <code>&lt;h1&gt;</code> being the highest level and <code>&lt;h6&gt;</code> the lowest.</li>
+<li><code>&lt;p&gt;</code>: Creates paragraphs.</li>
+<li><code>&lt;a&gt;</code>: Establishes links to other web pages or resources.</li>
+<li><code>&lt;img&gt;</code>: Embeds images into your web page.</li>
+<li><code>&lt;div&gt;</code>: A versatile container for grouping elements.</li>
+<li><code>&lt;ul&gt;</code> and <code>&lt;ol&gt;</code>: Define unordered and ordered lists, respectively.</li>
+<li><code>&lt;li&gt;</code>: Represents list items within <code>&lt;ul&gt;</code> or <code>&lt;ol&gt;</code>.</li>
+</ol>
+<p>Building Your Web Page: To begin creating your own web page, follow these steps:</p>
+<ol>
+<li>Open a text editor and create a new file.</li>
+<li>Start with the <code>&lt;html&gt;</code> tag and include the necessary <code>&lt;head&gt;</code> and <code>&lt;body&gt;</code> tags.</li>
+<li>Utilize various HTML tags within the <code>&lt;body&gt;</code> tag to add content.</li>
+<li>Save the file with a &ldquo;.html&rdquo; extension, e.g., &ldquo;index.html&rdquo;.</li>
+<li>Open the saved file in a web browser to witness your creation in action.</li>
+</ol>
+<p>Expanding Your Knowledge: While HTML lays the foundation for web content, CSS (Cascading Style Sheets) and JavaScript enhance styling and interactivity, respectively. To continue your web development journey, explore these topics in greater depth. Leverage online resources, tutorials, and practical projects to strengthen your understanding.</p>
+<p>Conclusion: Congratulations on taking your first steps into the captivating realm of web technology! Armed with HTML fundamentals, you are on the path to becoming a proficient frontend web developer. Embrace continuous learning, stay curious, and adapt to the ever-evolving web technology landscape. Happy coding!</p>
+
     </div>
 
     <div class="post-copyright">
@@ -232,7 +195,7 @@
   <p class="copyright-item">
     <span class="item-title">LastMod</span>
     <span class="item-content">
-        2021-07-06
+        2023-06-21
         
     </span>
   </p>
@@ -242,13 +205,9 @@
 <footer class="post-footer">
       
       <nav class="post-nav">
-        <a class="prev" href="/post/https%E4%B8%8Ehttp/">
-            <i class="iconfont icon-left"></i>
-            <span class="prev-text nav-default">HTTPS与HTTP</span>
-            <span class="prev-text nav-mobile">Prev</span>
-          </a>
-        <a class="next" href="/post/tcp%E4%B8%8E%E7%B2%98%E5%8C%85%E9%97%AE%E9%A2%98/">
-            <span class="next-text nav-default">TCP与粘包问题</span>
+        
+        <a class="next" href="/post/tips/">
+            <span class="next-text nav-default">Tips</span>
             <span class="next-text nav-mobile">Next</span>
             <i class="iconfont icon-right"></i>
           </a>

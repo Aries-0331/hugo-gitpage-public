@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>关于QUIC Crypto - urchinzhou</title>
+  <title>关于QUIC Crypto - Aries</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -16,7 +16,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="urchinzhou" /><meta name="description" content="简要介绍 QUIC（Quick UDP Internet Connections）是一种默认加密的互联网传输协议，旨在提供安全、快速的 HTTP 传输，以替代 TCP 和 TLS。Google QUIC 的默认加密协议是自家的 QUIC Crypto。
+<meta name="author" content="Aries" /><meta name="description" content="简要介绍 QUIC（Quick UDP Internet Connections）是一种默认加密的互联网传输协议，旨在提供安全、快速的 HTTP 传输，以替代 TCP 和 TLS。Google QUIC 的默认加密协议是自家的 QUIC Crypto。
 QUIC 与 TCP 的根本不同在于默认提供安全传输的设计原则。最初的 QUIC 结合了 TCP 的三次握手以及 TLS 1.3 的握手，并将 TLS的记录层数据帧格式替换为 QUIC 自己的，同时保留了 TLS 的握手消息。这种做法既保证了连接总是经过认证和加密的，同时使得初始连接建立速度更快。TCP 和 TLS1.3 完成握手需要两轮交互，而 QUIC 握手仅需一轮，如果客户端缓存了服务端的配置信息，那么甚至无需握手。
 协商成本对比 QUIC QUIC 的服务端有一个使用私钥签名的server config参数列表，包含常规参数、 DH 公钥、有效期等信息，由于这些数据都是静态的，所以一次签名后可以长期使用，不需要每次建立连接时都签名。
 通道密钥协商使用Diffie-Hellman，DH 算法所需要的服务端参数在server config中，客户端参数通过第一个握手消息传递至服务端。为了实现 0-RTT 握手而设计的静态 server config，同时也带来了加密连接的前向安全问题 —— 只要服务端还保存有 server config，那么一旦密钥泄露，之前使用该密钥加密的数据都是可破解的。
@@ -54,14 +54,14 @@ The Transport Layer Security (TLS) Protocol Version 1.3 draft-ietf-tls-tls13-28
 QUIC: A UDP-Based Multiplexed and Secure Transport draft-ietf-quic-transport-27
 QUIC Crypto and simple state machines
 The Illustrated TLS 1.3 Connection
-" /><meta name="keywords" content="urchinzhou, blog, hugo" />
+" /><meta name="keywords" content="Aries, blog, hugo" />
 
 
 
 
 
 
-<meta name="generator" content="Hugo 0.105.0 with theme even" />
+<meta name="generator" content="Hugo 0.114.0 with theme even" />
 
 
 <link rel="canonical" href="https://urchinzhou.com/post/%E5%85%B3%E4%BA%8Equic-crypto/" />
@@ -73,7 +73,7 @@ The Illustrated TLS 1.3 Connection
 
 
 
-<link href="/sass/main.min.2e81bbed97b8b282c1aeb57488cc71c8d8c8ec559f3931531bd396bf31e0d4dd.css" rel="stylesheet">
+<link href="/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
@@ -178,7 +178,6 @@ The Illustrated TLS 1.3 Connection" />
 <meta property="og:url" content="https://urchinzhou.com/post/%E5%85%B3%E4%BA%8Equic-crypto/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2022-11-04T17:13:59+08:00" />
 <meta property="article:modified_time" content="2022-11-04T17:13:59+08:00" />
-
 <meta itemprop="name" content="关于QUIC Crypto">
 <meta itemprop="description" content="简要介绍
 QUIC（Quick UDP Internet Connections）是一种默认加密的互联网传输协议，旨在提供安全、快速的 HTTP 传输，以替代 TCP 和 TLS。Google QUIC 的默认加密协议是自家的 QUIC Crypto。
@@ -400,7 +399,7 @@ The Illustrated TLS 1.3 Connection"/>
 <body>
   <div id="mobile-navbar" class="mobile-navbar">
   <div class="mobile-header-logo">
-    <a href="/" class="logo">urchinzhou</a>
+    <a href="/" class="logo">Aries</a>
   </div>
   <div class="mobile-navbar-icon">
     <span></span>
@@ -427,7 +426,7 @@ The Illustrated TLS 1.3 Connection"/>
   <div class="container" id="mobile-panel">
     <header id="header" class="header">
         <div class="logo-wrapper">
-  <a href="/" class="logo">urchinzhou</a>
+  <a href="/" class="logo">Aries</a>
 </div>
 
 
@@ -488,6 +487,11 @@ The Illustrated TLS 1.3 Connection"/>
 </nav>
   </div>
 </div>
+  <div class="post-outdated">
+    <div class="hint">
+      <p>[NOTE] Updated <span class="timeago" datetime="2022-11-04T17:13:59" title="November 4, 2022">November 4, 2022</span>. This article may have outdated content or subject matter.</p>
+    </div>
+  </div>
     <div class="post-content">
       <h1 id="简要介绍">简要介绍</h1>
 <p>QUIC（Quick UDP Internet Connections）是一种默认加密的互联网传输协议，旨在提供安全、快速的 HTTP 传输，以替代 TCP 和 TLS。Google QUIC 的默认加密协议是自家的 QUIC Crypto。</p>
@@ -590,7 +594,7 @@ The Illustrated TLS 1.3 Connection"/>
     <div class="post-copyright">
   <p class="copyright-item">
     <span class="item-title">Author</span>
-    <span class="item-content">urchinzhou</span>
+    <span class="item-content">Aries</span>
   </p>
   <p class="copyright-item">
     <span class="item-title">LastMod</span>
@@ -632,7 +636,7 @@ The Illustrated TLS 1.3 Connection"/>
       <div class="social-links">
       <a href="mailto:urchinzhou@gmail.com" class="iconfont icon-email" title="email"></a>
       <a href="https://twitter.com/urchinzhou" class="iconfont icon-twitter" title="twitter"></a>
-      <a href="https://github.com/Urchinzhou" class="iconfont icon-github" title="github"></a>
+      <a href="https://github.com/Aries-0331" class="iconfont icon-github" title="github"></a>
   <a href="https://urchinzhou.com/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
 </div>
 
@@ -651,7 +655,7 @@ The Illustrated TLS 1.3 Connection"/>
   <span class="copyright-year">
     &copy; 
     2019 - 
-    2022<span class="heart"><i class="iconfont icon-heart"></i></span><span>urchinzhou</span>
+    2023<span class="heart"><i class="iconfont icon-heart"></i></span><span>Aries</span>
   </span>
 </div>
 

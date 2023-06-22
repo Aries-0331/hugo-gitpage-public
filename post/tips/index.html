@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>Tips - urchinzhou</title>
+  <title>Tips - Aries</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -16,14 +16,14 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="urchinzhou" /><meta name="description" content="在新环境中配置多 Git 仓库的 ssh 权限 cd ~/.ssh ssh-keygen -t ed25519 -C username //创建 ssh 密钥对，按照提示创建文件名(eg:repo1-deploy-key、repo2-deploy-key) eval ssh-agent -s ssh-add repo1-deploy-key repo2-deploy-key 复制 filename.pub 中的内容 粘贴至 Git 仓库的 Settings&amp;ndash;Deploy Keys&amp;ndash;Add deploy key 中 修改~/.ssh/config，参考如下 1 2 3 4 5 6 7 8 9 Host repo1.github.com HostName github.com AddKeysToAgent yes IdentityFile ~/.ssh/repo1-deploy-key Host repo2.github.com HostName github.com AddKeysToAgent yes IdentityFile ~/.ssh/blog-repo 分别修改 repo1、repo2 目录下 .git/config 中的url，参考如下 1 2 //url = git@github.com:username/repo1.git url = git@repo1.github.com:username/repo1.git " /><meta name="keywords" content="urchinzhou, blog, hugo" />
+<meta name="author" content="Aries" /><meta name="description" content="在新环境中配置多 Git 仓库的 ssh 权限 cd ~/.ssh ssh-keygen -t ed25519 -C username //创建 ssh 密钥对，按照提示创建文件名(eg:repo1-deploy-key、repo2-deploy-key) eval ssh-agent -s ssh-add repo1-deploy-key repo2-deploy-key 复制 filename.pub 中的内容 粘贴至 Git 仓库的 Settings&amp;ndash;Deploy Keys&amp;ndash;Add deploy key 中 修改~/.ssh/config，参考如下 1 2 3 4 5 6 7 8 9 Host repo1.github.com HostName github.com AddKeysToAgent yes IdentityFile ~/.ssh/repo1-deploy-key Host repo2.github.com HostName github.com AddKeysToAgent yes IdentityFile ~/.ssh/blog-repo 分别修改 repo1、repo2 目录下 .git/config 中的url，参考如下 1 2 //url = git@github.com:username/repo1.git url = git@repo1.github.com:username/repo1.git " /><meta name="keywords" content="Aries, blog, hugo" />
 
 
 
 
 
 
-<meta name="generator" content="Hugo 0.105.0 with theme even" />
+<meta name="generator" content="Hugo 0.114.0 with theme even" />
 
 
 <link rel="canonical" href="https://urchinzhou.com/post/tips/" />
@@ -35,7 +35,7 @@
 
 
 
-<link href="/sass/main.min.2e81bbed97b8b282c1aeb57488cc71c8d8c8ec559f3931531bd396bf31e0d4dd.css" rel="stylesheet">
+<link href="/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
@@ -92,7 +92,6 @@ url = git@repo1.github.com:username/repo1.git
 <meta property="og:url" content="https://urchinzhou.com/post/tips/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2022-11-11T16:21:12+08:00" />
 <meta property="article:modified_time" content="2022-11-11T16:21:12+08:00" />
-
 <meta itemprop="name" content="Tips">
 <meta itemprop="description" content="在新环境中配置多 Git 仓库的 ssh 权限
 
@@ -218,7 +217,7 @@ url = git@repo1.github.com:username/repo1.git
 <body>
   <div id="mobile-navbar" class="mobile-navbar">
   <div class="mobile-header-logo">
-    <a href="/" class="logo">urchinzhou</a>
+    <a href="/" class="logo">Aries</a>
   </div>
   <div class="mobile-navbar-icon">
     <span></span>
@@ -245,7 +244,7 @@ url = git@repo1.github.com:username/repo1.git
   <div class="container" id="mobile-panel">
     <header id="header" class="header">
         <div class="logo-wrapper">
-  <a href="/" class="logo">urchinzhou</a>
+  <a href="/" class="logo">Aries</a>
 </div>
 
 
@@ -298,6 +297,11 @@ url = git@repo1.github.com:username/repo1.git
 </nav>
   </div>
 </div>
+  <div class="post-outdated">
+    <div class="hint">
+      <p>[NOTE] Updated <span class="timeago" datetime="2022-11-11T16:21:12" title="November 11, 2022">November 11, 2022</span>. This article may have outdated content or subject matter.</p>
+    </div>
+  </div>
     <div class="post-content">
       <h2 id="在新环境中配置多-git-仓库的-ssh-权限">在新环境中配置多 Git 仓库的 ssh 权限</h2>
 <ol>
@@ -353,7 +357,7 @@ url = git@repo1.github.com:username/repo1.git
     <div class="post-copyright">
   <p class="copyright-item">
     <span class="item-title">Author</span>
-    <span class="item-content">urchinzhou</span>
+    <span class="item-content">Aries</span>
   </p>
   <p class="copyright-item">
     <span class="item-title">LastMod</span>
@@ -368,7 +372,11 @@ url = git@repo1.github.com:username/repo1.git
 <footer class="post-footer">
       
       <nav class="post-nav">
-        
+        <a class="prev" href="/post/html-introduction/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">HTML Introduction</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
         <a class="next" href="/post/%E5%85%B3%E4%BA%8Equic-crypto/">
             <span class="next-text nav-default">关于QUIC Crypto</span>
             <span class="next-text nav-mobile">Next</span>
@@ -391,7 +399,7 @@ url = git@repo1.github.com:username/repo1.git
       <div class="social-links">
       <a href="mailto:urchinzhou@gmail.com" class="iconfont icon-email" title="email"></a>
       <a href="https://twitter.com/urchinzhou" class="iconfont icon-twitter" title="twitter"></a>
-      <a href="https://github.com/Urchinzhou" class="iconfont icon-github" title="github"></a>
+      <a href="https://github.com/Aries-0331" class="iconfont icon-github" title="github"></a>
   <a href="https://urchinzhou.com/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
 </div>
 
@@ -410,7 +418,7 @@ url = git@repo1.github.com:username/repo1.git
   <span class="copyright-year">
     &copy; 
     2019 - 
-    2022<span class="heart"><i class="iconfont icon-heart"></i></span><span>urchinzhou</span>
+    2023<span class="heart"><i class="iconfont icon-heart"></i></span><span>Aries</span>
   </span>
 </div>
 

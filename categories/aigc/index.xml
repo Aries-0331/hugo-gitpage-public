@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>AIGC on Aries</title>
+    <link>https://urchinzhou.com/categories/aigc/</link>
+    <description>Recent content in AIGC on Aries</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 21 Jun 2023 18:00:12 +0800</lastBuildDate><atom:link href="https://urchinzhou.com/categories/aigc/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>HTML Introduction</title>
+      <link>https://urchinzhou.com/post/html-introduction/</link>
+      <pubDate>Wed, 21 Jun 2023 18:00:12 +0800</pubDate>
+      
+      <guid>https://urchinzhou.com/post/html-introduction/</guid>
+      <description>This blog is an attempt to generate with ai.
+In this blog post, we will embark on a journey into the world of web technology and explore the fundamental aspects of HTML (Hypertext Markup Language). As a crucial language for structuring web content, HTML lays the groundwork for creating visually appealing and interactive websites. Let&amp;rsquo;s dive in!
+HTML Essentials: HTML employs tags to define elements and organize information on web pages.</description>
+    </item>
+    
+  </channel>
+</rss>

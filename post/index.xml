@@ -13,24 +13,9 @@
       <pubDate>Wed, 21 Jun 2023 18:00:12 +0800</pubDate>
       
       <guid>https://urchinzhou.com/post/html-introduction/</guid>
-      <description>&lt;blockquote&gt;
-&lt;p&gt;This blog is an attempt to generate with ai.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;In this blog post, we will embark on a journey into the world of web technology and explore the fundamental aspects of HTML (Hypertext Markup Language). As a crucial language for structuring web content, HTML lays the groundwork for creating visually appealing and interactive websites. Let&amp;rsquo;s dive in!&lt;/p&gt;
-&lt;p&gt;HTML Essentials: HTML employs tags to define elements and organize information on web pages. Familiarize yourself with these essential tags:&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;code&gt;&amp;lt;html&amp;gt;&lt;/code&gt;: The root of an HTML document.&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;&amp;lt;head&amp;gt;&lt;/code&gt;: Contains metadata and references to external stylesheets and scripts.&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;&amp;lt;body&amp;gt;&lt;/code&gt;: Houses the visible content of the web page.&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;&amp;lt;h1&amp;gt;&lt;/code&gt; to &lt;code&gt;&amp;lt;h6&amp;gt;&lt;/code&gt;: Define headings, with &lt;code&gt;&amp;lt;h1&amp;gt;&lt;/code&gt; being the highest level and &lt;code&gt;&amp;lt;h6&amp;gt;&lt;/code&gt; the lowest.&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;&amp;lt;p&amp;gt;&lt;/code&gt;: Creates paragraphs.&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;&amp;lt;a&amp;gt;&lt;/code&gt;: Establishes links to other web pages or resources.&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;&amp;lt;img&amp;gt;&lt;/code&gt;: Embeds images into your web page.&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;&amp;lt;div&amp;gt;&lt;/code&gt;: A versatile container for grouping elements.&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;&amp;lt;ul&amp;gt;&lt;/code&gt; and &lt;code&gt;&amp;lt;ol&amp;gt;&lt;/code&gt;: Define unordered and ordered lists, respectively.&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;&amp;lt;li&amp;gt;&lt;/code&gt;: Represents list items within &lt;code&gt;&amp;lt;ul&amp;gt;&lt;/code&gt; or &lt;code&gt;&amp;lt;ol&amp;gt;&lt;/code&gt;.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;Building Your Web Page: To begin creating your own web page, follow these steps:&lt;/p&gt;</description>
+      <description>This blog is an attempt to generate with ai.
+In this blog post, we will embark on a journey into the world of web technology and explore the fundamental aspects of HTML (Hypertext Markup Language). As a crucial language for structuring web content, HTML lays the groundwork for creating visually appealing and interactive websites. Let&amp;rsquo;s dive in!
+HTML Essentials: HTML employs tags to define elements and organize information on web pages.</description>
     </item>
     
     <item>
@@ -266,63 +251,7 @@
       <pubDate>Tue, 21 Dec 2021 15:25:18 +0800</pubDate>
       
       <guid>https://urchinzhou.com/post/%E5%85%B3%E4%BA%8E%E5%8A%A0%E5%AF%86%E5%92%8C%E5%AF%86%E7%A0%81%E5%AD%A6%E7%9A%84%E7%BB%8F%E9%AA%8C%E6%95%99%E8%AE%AD%E5%92%8C%E8%AF%AF%E8%A7%A3/</guid>
-      <description>&lt;blockquote&gt;
-&lt;p&gt;本文翻译自&lt;a href=&#34;https://security.stackexchange.com/questions/2202/lessons-learned-and-misconceptions-regarding-encryption-and-cryptology&#34;&gt;stackexchange&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;密码学是一个广泛复杂的主题，即使经验丰富的工程师在初步应用密码技术时也会犯错，而加密又是一个重要的行为，在这件事上犯错的代价往往是巨大的。因此本文旨在记录常见的密码应用误区、经验教训以及对于算法或API的谨慎选择。&lt;/p&gt;
-&lt;h2 id=&#34;不要创造算法&#34;&gt;不要创造算法&lt;/h2&gt;
-&lt;p&gt;不要发明自己的加密算法或协议，因为容易出错。加密算法很复杂，需要大量的严谨的审查以确保其安全性，通常自己发明的算法或协议，无法提供合理的数学推导以证明其安全。&lt;/p&gt;
-&lt;p&gt;最佳选择是，使用标准加密算法和协议。通常一个标准算法的诞生，是为了解决曾经的某些问题，而这些问题很可能就是你所面临的，比如：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;使用 TLS 或 SSL 解决通信安全&lt;/li&gt;
-&lt;li&gt;使用 GPG 或 PGP 解决静态数据安全&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;这些属于经过充分验证的密码方案，如果需要使用密码接口实现某些功能，优先考虑使用一些高级加密库，例如 cryptlib、GPGME、Keyczar等，而不是诸如 OpenSSL、CryptoAPI、JCE 等易于出错且难以应用的低级别库。&lt;/p&gt;
-&lt;h2 id=&#34;不要使用非认证的加密&#34;&gt;不要使用非认证的加密&lt;/h2&gt;
-&lt;p&gt;这是一种非常常见的错误——&lt;strong&gt;对数据进行加密而不进行认证&lt;/strong&gt;。&lt;/p&gt;
-&lt;p&gt;例如：某开发者想保护敏感信息，使用 AES-CBC 模式对该消息进行加密。&lt;/p&gt;
-&lt;p&gt;该行为仅实现了消息的机密性，但却无法保证在面临主动攻击（如篡改）、重返攻击和反射攻击等威胁时的安全性。&lt;/p&gt;
-&lt;p&gt;而增加消息认证即可解决该问题。&lt;/p&gt;
-&lt;p&gt;许多线上系统出现过该问题导致的严重漏洞，如 &lt;a href=&#34;http://netifera.com/research/poet/ieee-aspnetcrypto.pdf&#34;&gt;ASP.NET&lt;/a&gt;, &lt;a href=&#34;https://crypto.stackexchange.com/q/1066/351&#34;&gt;XML&lt;/a&gt; &lt;a href=&#34;https://crypto.stackexchange.com/q/1042/351&#34;&gt;encryption&lt;/a&gt;, &lt;a href=&#34;http://www.informationweek.com/news/security/vulnerabilities/231901532&#34;&gt;Amazon EC2&lt;/a&gt;, &lt;a href=&#34;http://usenix.org/events/woot10/tech/full_papers/Rizzo.pdf&#34;&gt;JavaServer Faces, Ruby on Rails, OWASP ESAPI&lt;/a&gt;, &lt;a href=&#34;http://www.cs.columbia.edu/~smb/papers/badesp.ps&#34;&gt;IPSEC&lt;/a&gt;, &lt;a href=&#34;http://www.cs.berkeley.edu/~daw/papers/wep-mob01.pdf&#34;&gt;WEP&lt;/a&gt;, &lt;a href=&#34;https://www.trustwave.com/spiderlabs/advisories/TWSL2010-001.txt&#34;&gt;ASP.NET again&lt;/a&gt;, 以及 &lt;a href=&#34;http://lasecwww.epfl.ch/pub/lasec/doc/Vau02a.ps&#34;&gt;SSH2&lt;/a&gt;。&lt;/p&gt;
-&lt;p&gt;为了避免该问题，应该在每次加密时都使用消息认证，主流做法有以下两种：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;最简便的方式是，使用现成的加密认证方案，如 GCM、CWC、EAX、CCM、OCB，这些加密方法实现了加密的同时并对数据做认证，使用者无需再关心该问题；&lt;/li&gt;
-&lt;li&gt;另一种方式是，自己实现消息认证。首先，使用适当的对称加密方法加密消息（例如AES-CBC），然后对密文数据生成消息认证码（如AES-CMAC, SHA1-HMAC, SHA256-HMAC），并在传输数据前，将生成的 MAC 摘要附在密文后。对于接收端，在解密数据前先验证 MAC 摘要的有效性。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;不要将一个密钥同时用于加密认证或签名&#34;&gt;不要将一个密钥同时用于加密、认证或签名&lt;/h2&gt;
-&lt;p&gt;一个密钥不用该重用于多种目的，这种行为会扩大风险。&lt;/p&gt;
-&lt;p&gt;例如，如果你有一对 RSA 公私钥对，不应该将其既用于加密又用于签名。如果你需要加密和签名这两种行为，那么就生成两对密钥。&lt;/p&gt;
-&lt;p&gt;相应的，对于对称加密而言，不应该将用于加密的密钥，用于生成消息认证码。总而言之，不要将密钥重用与不同的目的。&lt;/p&gt;
-&lt;h2 id=&#34;对拼接字符串做哈希要慎重&#34;&gt;对拼接字符串做哈希要慎重&lt;/h2&gt;
-&lt;p&gt;例如，某开发者想获取字符串 S 和 T 的哈希值。于是他将 S 与 T 做拼接后进行哈希运算，获得H(S||T)。这是有缺陷的。&lt;/p&gt;
-&lt;p&gt;问题在于，拼接使得两个字符串的边界不明确。例如 &lt;code&gt;builtin&lt;/code&gt;||&lt;code&gt;securely&lt;/code&gt; = &lt;code&gt;built&lt;/code&gt;||&lt;code&gt;insecurely&lt;/code&gt;，哈希运算无法识别字符串 S 和 T。因此攻击者或许可以改变两个字符串的边界而不改变哈希值。例如，如果 Alice 想发送两个字符串 &lt;code&gt;builtin &lt;/code&gt;和&lt;code&gt;securely&lt;/code&gt;，攻击者可以在不使哈希值失效的情况下将字符串改为&lt;code&gt;built&lt;/code&gt;和&lt;code&gt;insecurely&lt;/code&gt;。&lt;/p&gt;
-&lt;p&gt;在对拼接字符串进行数字签名或消息认证码运算是也会有类似的问题。&lt;/p&gt;
-&lt;p&gt;解决办法是，不进行明文拼接，而是使用可以明确解码的编码。例如，当想计算H(S||T)时，不妨改为H(length(S)||S||T)，这里length(S)是一个32位值，用以表示字符串 S 的长度；亦或者采取 H(H(S)||H(T))、H(H(S)||T) 等方式。&lt;/p&gt;
-&lt;p&gt;有关该问题的相关案例参见 &lt;a href=&#34;http://rdist.root.org/2009/05/20/amazon-web-services-signature-vulnerability/&#34;&gt;this flaw in Amazon Web Services&lt;/a&gt;、 &lt;a href=&#34;http://netifera.com/research/flickr_api_signature_forgery.pdf&#34;&gt;this flaw in Flickr&lt;/a&gt;。&lt;/p&gt;
-&lt;h2 id=&#34;不要重用nonces或ivs&#34;&gt;不要重用nonces或IVs&lt;/h2&gt;
-&lt;p&gt;许多加密模式需要 IV（初始化向量）。永远不要重复使用同一个 IV，这样会导致严重的漏洞。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;对于流密码而言，例如 CTR 或 OFB 模式，会导致加密数据被轻松恢复为明文&lt;/li&gt;
-&lt;li&gt;对于 CBC 等其它模式而言，重用 IV 同样会造成明文恢复攻击&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;因此不管使用什么加密模式，都不应该重用 IV。&lt;/p&gt;
-&lt;h2 id=&#34;确保随机数生成器具备足够的熵&#34;&gt;确保随机数生成器具备足够的熵&lt;/h2&gt;
-&lt;p&gt;确保使用密码伪随机数生成器来产生key、IV、nonce等，而不是使用&lt;code&gt;rand()&lt;/code&gt;, &lt;code&gt;random()&lt;/code&gt;, &lt;code&gt;drand48()&lt;/code&gt;等。&lt;/p&gt;
-&lt;p&gt;确保给随机数生成器注入足够的熵，不要使用日期作为种子，这是可预测的。&lt;/p&gt;
-&lt;p&gt;例如：&lt;code&gt;srand(time(NULL))&lt;/code&gt;并不好，比较好的方式是给随机数生成器注入128位数据或真随机数，例如通过&lt;code&gt;/dev/urandom&lt;/code&gt;, &lt;code&gt;CryptGenRandom&lt;/code&gt;或其它类似工具。在 Java 中，使用 SecureRandom 而不是 Random。在 .NET 中，使用 System.Security.Cryptography.RandomNumberGenerator，而不是 System.Random。在 Python 中，使用 random.SystemRandom，而不是 random。&lt;/p&gt;
-&lt;h2 id=&#34;对于对称加密不要使用ecb模式&#34;&gt;对于对称加密，不要使用ECB模式&lt;/h2&gt;
-&lt;p&gt;例如，一图片数据的明文显示如下：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://upload.wikimedia.org/wikipedia/commons/5/56/Tux.jpg&#34; alt=&#34;明文&#34;&gt;&lt;/p&gt;
-&lt;p&gt;该数据经ECB模式加密后的效果：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://upload.wikimedia.org/wikipedia/commons/f/f0/Tux_ecb.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
-&lt;p&gt;该数据经CBC模式加密后的效果：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://upload.wikimedia.org/wikipedia/commons/a/a0/Tux_secure.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
-&lt;h2 id=&#34;避免使用密码作为密钥&#34;&gt;避免使用密码作为密钥&lt;/h2&gt;
-&lt;p&gt;一个常见的错误做法是，使用密码或密码的哈希值作为加密密钥。密钥需要有足够的熵，而大多数密码/口令并不具备，因此容易遭到字典攻击。&lt;/p&gt;
-&lt;p&gt;如果一定要基于密码来生成密钥，那么可以通过迭代哈希的方式，来增加字典攻击的难度，例如H(H(H(&amp;hellip;H(password)&amp;hellip;)))。&lt;/p&gt;
-&lt;h2 id=&#34;不要使用不安全的密钥长度&#34;&gt;不要使用不安全的密钥长度&lt;/h2&gt;
-&lt;p&gt;确保使用足够长的密钥，比如1024-bit 的 RSA 密钥在2010年左右已被证实不安全，建议使用至少 2048 长度的 RSA 密钥。&lt;/p&gt;
-&lt;p&gt;对于对称密码而言，应使用 128-bit 以上的密钥。&lt;/p&gt;</description>
+      <description>本文翻译自stackexchange 密码学是一个广泛复杂的主题，即使经验丰富的工程师在初步应用密码技术时也会犯错，而加密又是一个重要的行为，</description>
     </item>
     
     <item>
@@ -367,8 +296,7 @@
       <pubDate>Tue, 06 Jul 2021 22:30:30 +0800</pubDate>
       
       <guid>https://urchinzhou.com/post/logcat%E6%97%A5%E5%BF%97%E8%AF%BB%E5%8F%96%E6%B5%81%E7%A8%8B%E5%88%86%E6%9E%90/</guid>
-      <description>&lt;p&gt;logcat 通过读 &lt;strong&gt;/dev/socket/logd&lt;/strong&gt; 套接字节点，以从 &lt;strong&gt;logd&lt;/strong&gt; 进程中获取信息。&lt;/p&gt;
-&lt;p&gt;在 &lt;code&gt;/logcat/logcat.cpp&lt;/code&gt; 的 &lt;code&gt;__logcat&lt;/code&gt; 方法中调用 &lt;code&gt;android_logger_list_read&lt;/code&gt;&lt;/p&gt;</description>
+      <description>logcat 通过读 /dev/socket/logd 套接字节点，以从 logd 进程中获取信息。 在 /logcat/logcat.cpp 的 __logcat 方法中调用 android_logger_list_read 1 2 3 4 5 6 7 8 9 10 11 static int __logcat(android_logcat_context_internal* context) { ...... while (!context-&amp;gt;stop &amp;amp;&amp;amp; (!context-&amp;gt;maxCount || (context-&amp;gt;printCount &amp;lt; context-&amp;gt;maxCount))) { struct log_msg log_msg; int ret = android_logger_list_read(logger_list, &amp;amp;log_msg); if (!ret) { logcat_panic(context,</description>
     </item>
     
     <item>
@@ -460,19 +388,7 @@
       <pubDate>Tue, 06 Jul 2021 22:28:02 +0800</pubDate>
       
       <guid>https://urchinzhou.com/post/https%E4%B8%8Ehttp/</guid>
-      <description>&lt;blockquote&gt;
-&lt;p&gt;概念上理清 HTTPS 与 HTTP 的区别。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;在&lt;a href=&#34;https://zh.wikipedia.org/wiki/TCP/IP%E5%8D%8F%E8%AE%AE%E6%97%8F&#34;&gt;互联网协议套件&lt;/a&gt;中，将网络协议分为四层，从下至上依次为&lt;strong&gt;链路层-网络层-传输层-应用层&lt;/strong&gt;，HTTP 属于应用层协议。中文名为超文本传输协议，其设计初衷是为了传输 HTML 页面。&lt;/p&gt;
-&lt;p&gt;HTTP 主要规定了客户端和服务器之间的通信格式，并不涉及数据包的传输，传输依赖于 TCP/IP 协议。&lt;/p&gt;
-&lt;p&gt;简单理解就是，将需要传递的数据按照 HTTP 的要求格式化（&lt;em&gt;挖坑，数据格式&lt;/em&gt;），然后剩下的交给协议栈中的 TCP/IP 层。&lt;/p&gt;
-&lt;p&gt;因此基于 HTTP 协议的数据传输，其发送阶段的数据处理流程为，应用层格式化，TCP 封装，IP 封装，过程中不涉及数据的加解密，数据为明文形式传输。&lt;/p&gt;
-&lt;p&gt;而 HTTPS 就是在这一流程基础上增加了安全性功能。通常可以这么理解 HTTPS， HTTPS = HTTP over TLS。（&lt;em&gt;由于安全问题，普遍已经抛弃SSL，因此这里就直接按 TLS 写了&lt;/em&gt;）&lt;/p&gt;
-&lt;p&gt;TLS 表示传输层安全，从 SSL 演进而来，属于应用层与 TCP 层之间的一个协议，其目的是为互联网通信提供安全及数据完整性保障（挖坑，数据完整性），说白了就是确保数据加密传输，以及确保如果数据被篡改了，接收方能察觉到。&lt;/p&gt;
-&lt;p&gt;那么 TLS 做了什么？&lt;/p&gt;
-&lt;p&gt;由于要实现数据加解密，因此 TLS 要实现数据的对称加密，不用非对称加密主要是考虑到性能问题。&lt;/p&gt;
-&lt;p&gt;通信双方进行数据的对称加密传输前，需要验证对端的身份，即身份认证，这一点 TLS 通过数字证书来实现（&lt;em&gt;挖坑，实现原理&lt;/em&gt;）。&lt;/p&gt;
-&lt;p&gt;因此基于 HTTPS 协议的数据传输，其发送阶段的数据处理流程为，应用层格式化，TLS 封装，TCP 封装，IP 封装，相较于 HTTP，流程中增加了 TLS 的处理，包括身份认证、数据加解密等。&lt;/p&gt;</description>
+      <description>概念上理清 HTTPS 与 HTTP 的区别。 在互联网协议套件中，将网络协议分为四层，从下至上依次为链路层-网络层-传输层-应用层，HTTP 属于应用层协议。中文名</description>
     </item>
     
     <item>
@@ -576,10 +492,7 @@
       <pubDate>Tue, 06 Jul 2021 22:25:41 +0800</pubDate>
       
       <guid>https://urchinzhou.com/post/%E5%85%B3%E4%BA%8E%E6%95%B0%E6%8D%AE%E5%88%86%E7%89%87%E4%B8%8E%E5%88%86%E6%AE%B5/</guid>
-      <description>&lt;p&gt;链路层要求数据帧的长度最大值为 1500 字节，该特性被称为 MTU，即最大传输单元。当 IP 层的数据报大于 MTU 时，IP 层就需要进行分片，就是把数据报分成若干片，使每一片都小于 MTU。&lt;/p&gt;
-&lt;p&gt;但是，对于采用 TCP 作为传输协议的数据而言，在 IP 层是不会分片的，因为 TCP 层有一个分段的特性 —— MSS，最大分段大小。为了达到最佳传输效能，TCP 在建立连接时会协商双方的 MSS 值，这个值通常是 1460（MTU1500 - IP包头20 - TCP包头20），对于大于 1460 的数据，当到达 TCP 层时便分段了，因此 IP 层就不用分片了。&lt;/p&gt;
-&lt;p&gt;而 UDP 则会产生 IP 分片，因为没有类似于 TCP 的分段特性。&lt;/p&gt;
-&lt;p&gt;分片发生在网络层，分段发生在传输层。&lt;/p&gt;</description>
+      <description>链路层要求数据帧的长度最大值为 1500 字节，该特性被称为 MTU，即最大传输单元。当 IP 层的数据报大于 MTU 时，IP 层就需要进行分片，就是把数据报分成若干</description>
     </item>
     
     <item>

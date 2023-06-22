@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Aries</title>
+    <title>Aries blablabla</title>
     <link>https://urchinzhou.com/</link>
-    <description>Recent content on Aries</description>
+    <description>Recent content on Aries blablabla</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Wed, 21 Jun 2023 18:00:12 +0800</lastBuildDate><atom:link href="https://urchinzhou.com/index.xml" rel="self" type="application/rss+xml" />
@@ -13,9 +13,24 @@
       <pubDate>Wed, 21 Jun 2023 18:00:12 +0800</pubDate>
       
       <guid>https://urchinzhou.com/post/html-introduction/</guid>
-      <description>This blog is an attempt to generate with ai.
-In this blog post, we will embark on a journey into the world of web technology and explore the fundamental aspects of HTML (Hypertext Markup Language). As a crucial language for structuring web content, HTML lays the groundwork for creating visually appealing and interactive websites. Let&amp;rsquo;s dive in!
-HTML Essentials: HTML employs tags to define elements and organize information on web pages.</description>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;This blog is an attempt to generate with ai.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;In this blog post, we will embark on a journey into the world of web technology and explore the fundamental aspects of HTML (Hypertext Markup Language). As a crucial language for structuring web content, HTML lays the groundwork for creating visually appealing and interactive websites. Let&amp;rsquo;s dive in!&lt;/p&gt;
+&lt;p&gt;HTML Essentials: HTML employs tags to define elements and organize information on web pages. Familiarize yourself with these essential tags:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;&amp;lt;html&amp;gt;&lt;/code&gt;: The root of an HTML document.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&amp;lt;head&amp;gt;&lt;/code&gt;: Contains metadata and references to external stylesheets and scripts.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&amp;lt;body&amp;gt;&lt;/code&gt;: Houses the visible content of the web page.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&amp;lt;h1&amp;gt;&lt;/code&gt; to &lt;code&gt;&amp;lt;h6&amp;gt;&lt;/code&gt;: Define headings, with &lt;code&gt;&amp;lt;h1&amp;gt;&lt;/code&gt; being the highest level and &lt;code&gt;&amp;lt;h6&amp;gt;&lt;/code&gt; the lowest.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&amp;lt;p&amp;gt;&lt;/code&gt;: Creates paragraphs.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&amp;lt;a&amp;gt;&lt;/code&gt;: Establishes links to other web pages or resources.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&amp;lt;img&amp;gt;&lt;/code&gt;: Embeds images into your web page.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&amp;lt;div&amp;gt;&lt;/code&gt;: A versatile container for grouping elements.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&amp;lt;ul&amp;gt;&lt;/code&gt; and &lt;code&gt;&amp;lt;ol&amp;gt;&lt;/code&gt;: Define unordered and ordered lists, respectively.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&amp;lt;li&amp;gt;&lt;/code&gt;: Represents list items within &lt;code&gt;&amp;lt;ul&amp;gt;&lt;/code&gt; or &lt;code&gt;&amp;lt;ol&amp;gt;&lt;/code&gt;.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Building Your Web Page: To begin creating your own web page, follow these steps:&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -84,8 +99,8 @@ HTML Essentials: HTML employs tags to define elements and organize information o
 &lt;p&gt;QUIC（Quick UDP Internet Connections）是一种默认加密的互联网传输协议，旨在提供安全、快速的 HTTP 传输，以替代 TCP 和 TLS。Google QUIC 的默认加密协议是自家的 QUIC Crypto。&lt;/p&gt;
 &lt;p&gt;QUIC 与 TCP 的根本不同在于默认提供安全传输的设计原则。最初的 QUIC 结合了 TCP 的三次握手以及 TLS 1.3 的握手，并将 TLS的记录层数据帧格式替换为 QUIC 自己的，同时保留了 TLS 的握手消息。这种做法既保证了连接总是经过认证和加密的，同时使得初始连接建立速度更快。TCP 和 TLS1.3 完成握手需要两轮交互，而 QUIC 握手仅需一轮，如果客户端缓存了服务端的配置信息，那么甚至无需握手。&lt;/p&gt;
 &lt;div align=center&gt;
-&lt;img src=&#34;https://blog.cloudflare.com/content/images/2018/07/http-request-over-tcp-tls@2x.png&#34; width=&#34;600&#34;&gt;
-&lt;img src=&#34;https://blog.cloudflare.com/content/images/2018/07/http-request-over-quic@2x.png&#34; width=&#34;600&#34;&gt;
+&lt;img src=&#34;https://github.com/Aries-0331/pic/blob/master/http-request-over-tcp-tls@2x.png?raw=true&#34; width=&#34;600&#34;&gt;
+&lt;img src=&#34;https://github.com/Aries-0331/pic/blob/master/http-request-over-quic@2x.png?raw=true&#34; width=&#34;600&#34;&gt;
 &lt;/div&gt;
 &lt;h1 id=&#34;协商成本对比&#34;&gt;协商成本对比&lt;/h1&gt;
 &lt;h2 id=&#34;quic&#34;&gt;QUIC&lt;/h2&gt;

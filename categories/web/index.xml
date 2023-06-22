@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Web on Aries</title>
+    <title>Web on Aries blablabla</title>
     <link>https://urchinzhou.com/categories/web/</link>
-    <description>Recent content in Web on Aries</description>
+    <description>Recent content in Web on Aries blablabla</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Wed, 21 Jun 2023 18:00:12 +0800</lastBuildDate><atom:link href="https://urchinzhou.com/categories/web/index.xml" rel="self" type="application/rss+xml" />
@@ -13,9 +13,24 @@
       <pubDate>Wed, 21 Jun 2023 18:00:12 +0800</pubDate>
       
       <guid>https://urchinzhou.com/post/html-introduction/</guid>
-      <description>This blog is an attempt to generate with ai.
-In this blog post, we will embark on a journey into the world of web technology and explore the fundamental aspects of HTML (Hypertext Markup Language). As a crucial language for structuring web content, HTML lays the groundwork for creating visually appealing and interactive websites. Let&amp;rsquo;s dive in!
-HTML Essentials: HTML employs tags to define elements and organize information on web pages.</description>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;This blog is an attempt to generate with ai.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;In this blog post, we will embark on a journey into the world of web technology and explore the fundamental aspects of HTML (Hypertext Markup Language). As a crucial language for structuring web content, HTML lays the groundwork for creating visually appealing and interactive websites. Let&amp;rsquo;s dive in!&lt;/p&gt;
+&lt;p&gt;HTML Essentials: HTML employs tags to define elements and organize information on web pages. Familiarize yourself with these essential tags:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;&amp;lt;html&amp;gt;&lt;/code&gt;: The root of an HTML document.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&amp;lt;head&amp;gt;&lt;/code&gt;: Contains metadata and references to external stylesheets and scripts.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&amp;lt;body&amp;gt;&lt;/code&gt;: Houses the visible content of the web page.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&amp;lt;h1&amp;gt;&lt;/code&gt; to &lt;code&gt;&amp;lt;h6&amp;gt;&lt;/code&gt;: Define headings, with &lt;code&gt;&amp;lt;h1&amp;gt;&lt;/code&gt; being the highest level and &lt;code&gt;&amp;lt;h6&amp;gt;&lt;/code&gt; the lowest.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&amp;lt;p&amp;gt;&lt;/code&gt;: Creates paragraphs.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&amp;lt;a&amp;gt;&lt;/code&gt;: Establishes links to other web pages or resources.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&amp;lt;img&amp;gt;&lt;/code&gt;: Embeds images into your web page.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&amp;lt;div&amp;gt;&lt;/code&gt;: A versatile container for grouping elements.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&amp;lt;ul&amp;gt;&lt;/code&gt; and &lt;code&gt;&amp;lt;ol&amp;gt;&lt;/code&gt;: Define unordered and ordered lists, respectively.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&amp;lt;li&amp;gt;&lt;/code&gt;: Represents list items within &lt;code&gt;&amp;lt;ul&amp;gt;&lt;/code&gt; or &lt;code&gt;&amp;lt;ol&amp;gt;&lt;/code&gt;.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Building Your Web Page: To begin creating your own web page, follow these steps:&lt;/p&gt;</description>
     </item>
     
   </channel>

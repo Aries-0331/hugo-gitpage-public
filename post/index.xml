@@ -29,15 +29,15 @@ HTML Essentials: HTML employs tags to define elements and organize information o
     </item>
     
     <item>
-      <title>Tips</title>
-      <link>https://urchinzhou.com/post/tips/</link>
+      <title>在新环境中配置多 Git 仓库的 ssh 权限</title>
+      <link>https://urchinzhou.com/post/%E9%85%8D%E7%BD%AE%E5%A4%9A%E4%B8%AAgit%E4%BB%93%E5%BA%93%E7%9A%84ssh%E6%9D%83%E9%99%90/</link>
       <pubDate>Fri, 11 Nov 2022 16:21:12 +0800</pubDate>
       
-      <guid>https://urchinzhou.com/post/tips/</guid>
-      <description>&lt;h2 id=&#34;在新环境中配置多-git-仓库的-ssh-权限&#34;&gt;在新环境中配置多 Git 仓库的 ssh 权限&lt;/h2&gt;
+      <guid>https://urchinzhou.com/post/%E9%85%8D%E7%BD%AE%E5%A4%9A%E4%B8%AAgit%E4%BB%93%E5%BA%93%E7%9A%84ssh%E6%9D%83%E9%99%90/</guid>
+      <description>&lt;h1 id=&#34;配置多个-git-仓库的-ssh-权限&#34;&gt;配置多个 Git 仓库的 ssh 权限&lt;/h1&gt;
 &lt;ol&gt;
-&lt;li&gt;cd ~/.ssh&lt;/li&gt;
-&lt;li&gt;ssh-keygen -t ed25519  -C  username //创建 ssh 密钥对，按照提示创建文件名(eg:repo1-deploy-key、repo2-deploy-key)&lt;/li&gt;
+&lt;li&gt;跳转至 ssh 配置路径，通常默认为 &lt;code&gt;~/.ssh&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;创建 ssh 密钥对，按照提示创建文件名（eg:repo1-deploy-key、repo2-deploy-key），简易命令用 &lt;code&gt;./ssh-keygen&lt;/code&gt; 即可，默认创建 rsa 密钥对，也可以通过参数自定义，例如 &lt;code&gt;./ssh-keygen -t ed25519  -C  username&lt;/code&gt; 等&lt;/li&gt;
 &lt;li&gt;eval &lt;code&gt;ssh-agent -s&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;ssh-add repo1-deploy-key repo2-deploy-key&lt;/li&gt;
 &lt;li&gt;复制 filename.pub 中的内容&lt;/li&gt;
@@ -81,7 +81,8 @@ HTML Essentials: HTML employs tags to define elements and organize information o
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;url&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;git&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;@&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;repo1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;github&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nl&#34;&gt;com&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;username&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;repo1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;git&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;</description>
+&lt;/div&gt;&lt;h2 id=&#34;failed-to-connect-to-githubcom-port-443-timed-out&#34;&gt;Failed to connect to github.com port 443: Timed out&lt;/h2&gt;
+&lt;p&gt;将 .git/config 文件中的 https url 修改为 Git 仓库的 ssh rul。&lt;/p&gt;</description>
     </item>
     
     <item>

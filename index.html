@@ -173,21 +173,21 @@ HTML Essentials: HTML employs tags to define elements and organize information o
 
     <article class="post">
   <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/tips/">Tips</a></h1>
+    <h1 class="post-title"><a class="post-link" href="/post/%E9%85%8D%E7%BD%AE%E5%A4%9A%E4%B8%AAgit%E4%BB%93%E5%BA%93%E7%9A%84ssh%E6%9D%83%E9%99%90/">在新环境中配置多 Git 仓库的 ssh 权限</a></h1>
     <div class="post-meta">
       <span class="post-time"> 2022-11-11 </span>
       <div class="post-category">
-          <a href="/categories/tips/"> tips </a>
+          <a href="/categories/git/"> Git </a>
           </div>
     </div>
   </header>
   
   <div class="post-content">
     <div class="post-summary">
-      <h2 id="在新环境中配置多-git-仓库的-ssh-权限">在新环境中配置多 Git 仓库的 ssh 权限</h2>
+      <h1 id="配置多个-git-仓库的-ssh-权限">配置多个 Git 仓库的 ssh 权限</h1>
 <ol>
-<li>cd ~/.ssh</li>
-<li>ssh-keygen -t ed25519  -C  username //创建 ssh 密钥对，按照提示创建文件名(eg:repo1-deploy-key、repo2-deploy-key)</li>
+<li>跳转至 ssh 配置路径，通常默认为 <code>~/.ssh</code></li>
+<li>创建 ssh 密钥对，按照提示创建文件名（eg:repo1-deploy-key、repo2-deploy-key），简易命令用 <code>./ssh-keygen</code> 即可，默认创建 rsa 密钥对，也可以通过参数自定义，例如 <code>./ssh-keygen -t ed25519  -C  username</code> 等</li>
 <li>eval <code>ssh-agent -s</code></li>
 <li>ssh-add repo1-deploy-key repo2-deploy-key</li>
 <li>复制 filename.pub 中的内容</li>
@@ -231,10 +231,11 @@ HTML Essentials: HTML employs tags to define elements and organize information o
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">url</span> <span class="o">=</span> <span class="n">git</span><span class="err">@</span><span class="n">repo1</span><span class="p">.</span><span class="n">github</span><span class="p">.</span><span class="nl">com</span><span class="p">:</span><span class="n">username</span><span class="o">/</span><span class="n">repo1</span><span class="p">.</span><span class="n">git</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div>
+</div><h2 id="failed-to-connect-to-githubcom-port-443-timed-out">Failed to connect to github.com port 443: Timed out</h2>
+<p>将 .git/config 文件中的 https url 修改为 Git 仓库的 ssh rul。</p>
     </div>
     <div class="read-more">
-      <a href="/post/tips/" class="read-more-link">Read more...</a>
+      <a href="/post/%E9%85%8D%E7%BD%AE%E5%A4%9A%E4%B8%AAgit%E4%BB%93%E5%BA%93%E7%9A%84ssh%E6%9D%83%E9%99%90/" class="read-more-link">Read more...</a>
     </div>
   </div>
 </article>

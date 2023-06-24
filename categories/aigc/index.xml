@@ -6,7 +6,17 @@
     <description>Recent content in AIGC on Aries blablabla</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 23 Jun 2023 21:59:23 +0800</lastBuildDate><atom:link href="https://urchinzhou.com/categories/aigc/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 24 Jun 2023 10:53:48 +0800</lastBuildDate><atom:link href="https://urchinzhou.com/categories/aigc/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>A Glance at JavaScript</title>
+      <link>https://urchinzhou.com/post/a-glance-at-javascript/</link>
+      <pubDate>Sat, 24 Jun 2023 10:53:48 +0800</pubDate>
+      
+      <guid>https://urchinzhou.com/post/a-glance-at-javascript/</guid>
+      <description>Introduction: Welcome, esteemed senior engineers, to the realm of JavaScript! As experts in object-oriented languages like C++, you are well-positioned to explore the unique features and possibilities that JavaScript offers. In this blog, we will delve into JavaScript&amp;rsquo;s language features, grammar, application scenarios, and provide insights on becoming a professional JavaScript developer.
+JavaScript Language Features: Discover the dynamic nature of JavaScript and its powerful capabilities. Learn about JavaScript&amp;rsquo;s prototypal inheritance model, functional programming concepts, lexical scoping, closures, and the event-driven nature of the language.</description>
+    </item>
+    
     <item>
       <title>Mastering ChatGPT：Crafting Effective Prompt</title>
       <link>https://urchinzhou.com/post/mastering-chatgptcrafting-effective-prompt/</link>

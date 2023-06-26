@@ -16,8 +16,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="Aries" /><meta name="description" content="配置多个 Git 仓库的 ssh 权限 跳转至 ssh 配置路径，通常默认为 ~/.ssh 创建 ssh 密钥对，按照提示创建文件名（eg:repo1-deploy-key、repo2-deploy-key），简易命令用 ./ssh-keygen 即可，默认创建 rsa 密钥对，也可以通过参数自定义，例如 ./ssh-keygen -t ed25519 -C username 等 eval ssh-agent -s ssh-add repo1-deploy-key repo2-deploy-key 复制 filename.pub 中的内容 粘贴至 Git 仓库的 Settings&amp;ndash;Deploy Keys&amp;ndash;Add deploy key 中 修改~/.ssh/config，参考如下 1 2 3 4 5 6 7 8 9 Host repo1.github.com HostName github.com AddKeysToAgent yes IdentityFile ~/.ssh/repo1-deploy-key Host repo2.github.com HostName github.com AddKeysToAgent yes IdentityFile ~/.ssh/blog-repo 分别修改 repo1、repo2 目录下 .git/config 中的url，参考如下 1 2 //url = git@github.com:username/repo1.git url = git@repo1.github.com:username/repo1.git Failed to connect to github.com port 443: Timed out 将 .git/config 文件中的 https url 修改为 Git 仓库的 ssh rul。
-" /><meta name="keywords" content="Aries, blog, hugo" />
+<meta name="author" content="Aries" /><meta name="description" content="配置多个 Git 仓库的 ssh 权限 跳转至 ssh 配置路径，通常默认为 ~/.ssh 创建 ssh 密钥对，按照提示创建文件名（eg:repo1-deploy-key、repo2-d" /><meta name="keywords" content="Aries, blog, hugo" />
 
 
 
@@ -41,162 +40,18 @@
 
 
 <meta property="og:title" content="在新环境中配置多 Git 仓库的 ssh 权限" />
-<meta property="og:description" content="配置多个 Git 仓库的 ssh 权限
-
-跳转至 ssh 配置路径，通常默认为 ~/.ssh
-创建 ssh 密钥对，按照提示创建文件名（eg:repo1-deploy-key、repo2-deploy-key），简易命令用 ./ssh-keygen 即可，默认创建 rsa 密钥对，也可以通过参数自定义，例如 ./ssh-keygen -t ed25519  -C  username 等
-eval ssh-agent -s
-ssh-add repo1-deploy-key repo2-deploy-key
-复制 filename.pub 中的内容
-粘贴至 Git 仓库的 Settings&ndash;Deploy Keys&ndash;Add deploy key 中
-修改~/.ssh/config，参考如下
-
-
-
-1
-2
-3
-4
-5
-6
-7
-8
-9
-
-
-Host repo1.github.com
-        HostName github.com
-        AddKeysToAgent yes
-        IdentityFile ~/.ssh/repo1-deploy-key
-
-Host repo2.github.com
-        HostName github.com
-        AddKeysToAgent yes
-        IdentityFile ~/.ssh/blog-repo
-
-
-
-分别修改 repo1、repo2 目录下 .git/config 中的url，参考如下
-
-
-
-1
-2
-
-
-//url = git@github.com:username/repo1.git
-url = git@repo1.github.com:username/repo1.git
-
-
-Failed to connect to github.com port 443: Timed out
-将 .git/config 文件中的 https url 修改为 Git 仓库的 ssh rul。" />
+<meta property="og:description" content="配置多个 Git 仓库的 ssh 权限 跳转至 ssh 配置路径，通常默认为 ~/.ssh 创建 ssh 密钥对，按照提示创建文件名（eg:repo1-deploy-key、repo2-d" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://urchinzhou.com/post/%E9%85%8D%E7%BD%AE%E5%A4%9A%E4%B8%AAgit%E4%BB%93%E5%BA%93%E7%9A%84ssh%E6%9D%83%E9%99%90/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2022-11-11T16:21:12+08:00" />
 <meta property="article:modified_time" content="2022-11-11T16:21:12+08:00" />
 <meta itemprop="name" content="在新环境中配置多 Git 仓库的 ssh 权限">
-<meta itemprop="description" content="配置多个 Git 仓库的 ssh 权限
-
-跳转至 ssh 配置路径，通常默认为 ~/.ssh
-创建 ssh 密钥对，按照提示创建文件名（eg:repo1-deploy-key、repo2-deploy-key），简易命令用 ./ssh-keygen 即可，默认创建 rsa 密钥对，也可以通过参数自定义，例如 ./ssh-keygen -t ed25519  -C  username 等
-eval ssh-agent -s
-ssh-add repo1-deploy-key repo2-deploy-key
-复制 filename.pub 中的内容
-粘贴至 Git 仓库的 Settings&ndash;Deploy Keys&ndash;Add deploy key 中
-修改~/.ssh/config，参考如下
-
-
-
-1
-2
-3
-4
-5
-6
-7
-8
-9
-
-
-Host repo1.github.com
-        HostName github.com
-        AddKeysToAgent yes
-        IdentityFile ~/.ssh/repo1-deploy-key
-
-Host repo2.github.com
-        HostName github.com
-        AddKeysToAgent yes
-        IdentityFile ~/.ssh/blog-repo
-
-
-
-分别修改 repo1、repo2 目录下 .git/config 中的url，参考如下
-
-
-
-1
-2
-
-
-//url = git@github.com:username/repo1.git
-url = git@repo1.github.com:username/repo1.git
-
-
-Failed to connect to github.com port 443: Timed out
-将 .git/config 文件中的 https url 修改为 Git 仓库的 ssh rul。"><meta itemprop="datePublished" content="2022-11-11T16:21:12+08:00" />
+<meta itemprop="description" content="配置多个 Git 仓库的 ssh 权限 跳转至 ssh 配置路径，通常默认为 ~/.ssh 创建 ssh 密钥对，按照提示创建文件名（eg:repo1-deploy-key、repo2-d"><meta itemprop="datePublished" content="2022-11-11T16:21:12+08:00" />
 <meta itemprop="dateModified" content="2022-11-11T16:21:12+08:00" />
 <meta itemprop="wordCount" content="254">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="在新环境中配置多 Git 仓库的 ssh 权限"/>
-<meta name="twitter:description" content="配置多个 Git 仓库的 ssh 权限
-
-跳转至 ssh 配置路径，通常默认为 ~/.ssh
-创建 ssh 密钥对，按照提示创建文件名（eg:repo1-deploy-key、repo2-deploy-key），简易命令用 ./ssh-keygen 即可，默认创建 rsa 密钥对，也可以通过参数自定义，例如 ./ssh-keygen -t ed25519  -C  username 等
-eval ssh-agent -s
-ssh-add repo1-deploy-key repo2-deploy-key
-复制 filename.pub 中的内容
-粘贴至 Git 仓库的 Settings&ndash;Deploy Keys&ndash;Add deploy key 中
-修改~/.ssh/config，参考如下
-
-
-
-1
-2
-3
-4
-5
-6
-7
-8
-9
-
-
-Host repo1.github.com
-        HostName github.com
-        AddKeysToAgent yes
-        IdentityFile ~/.ssh/repo1-deploy-key
-
-Host repo2.github.com
-        HostName github.com
-        AddKeysToAgent yes
-        IdentityFile ~/.ssh/blog-repo
-
-
-
-分别修改 repo1、repo2 目录下 .git/config 中的url，参考如下
-
-
-
-1
-2
-
-
-//url = git@github.com:username/repo1.git
-url = git@repo1.github.com:username/repo1.git
-
-
-Failed to connect to github.com port 443: Timed out
-将 .git/config 文件中的 https url 修改为 Git 仓库的 ssh rul。"/>
+<meta name="twitter:description" content="配置多个 Git 仓库的 ssh 权限 跳转至 ssh 配置路径，通常默认为 ~/.ssh 创建 ssh 密钥对，按照提示创建文件名（eg:repo1-deploy-key、repo2-d"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -342,6 +197,7 @@ Failed to connect to github.com port 443: Timed out
 </div>
 </div><h2 id="failed-to-connect-to-githubcom-port-443-timed-out">Failed to connect to github.com port 443: Timed out</h2>
 <p>将 .git/config 文件中的 https url 修改为 Git 仓库的 ssh rul。</p>
+
     </div>
 
     

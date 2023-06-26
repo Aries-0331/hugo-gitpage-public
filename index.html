@@ -127,7 +127,7 @@
           <section id="posts" class="posts">
     <article class="post">
   <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/vscode-install-go-tools-failed/">VSCode 安装 Go 相关工具失败</a></h1>
+    <h1 class="post-title"><a class="post-link" href="/post/vs-code-%E5%AE%89%E8%A3%85-go-%E7%9B%B8%E5%85%B3%E5%B7%A5%E5%85%B7%E5%A4%B1%E8%B4%A5/">VSCode 安装 Go 相关工具失败</a></h1>
     <div class="post-meta">
       <span class="post-time"> 2023-06-26 </span>
       <div class="post-category">
@@ -142,7 +142,7 @@
       1 go version go1.19.5 windows/amd64 使用 VS Code 安装 Go 插件后，安装关联工具时，输出内容报如下内容，或错误信息中包含类似 unresponse、timeout 等网络问题相关字
     </div>
     <div class="read-more">
-      <a href="/post/vscode-install-go-tools-failed/" class="read-more-link">Read more...</a>
+      <a href="/post/vs-code-%E5%AE%89%E8%A3%85-go-%E7%9B%B8%E5%85%B3%E5%B7%A5%E5%85%B7%E5%A4%B1%E8%B4%A5/" class="read-more-link">Read more...</a>
     </div>
   </div>
 </article>
@@ -228,55 +228,7 @@ HTML Essentials: HTML employs tags to define elements and organize information o
   
   <div class="post-content">
     <div class="post-summary">
-      <h1 id="配置多个-git-仓库的-ssh-权限">配置多个 Git 仓库的 ssh 权限</h1>
-<ol>
-<li>跳转至 ssh 配置路径，通常默认为 <code>~/.ssh</code></li>
-<li>创建 ssh 密钥对，按照提示创建文件名（eg:repo1-deploy-key、repo2-deploy-key），简易命令用 <code>./ssh-keygen</code> 即可，默认创建 rsa 密钥对，也可以通过参数自定义，例如 <code>./ssh-keygen -t ed25519  -C  username</code> 等</li>
-<li>eval <code>ssh-agent -s</code></li>
-<li>ssh-add repo1-deploy-key repo2-deploy-key</li>
-<li>复制 filename.pub 中的内容</li>
-<li>粘贴至 Git 仓库的 Settings&ndash;Deploy Keys&ndash;Add deploy key 中</li>
-<li>修改<code>~/.ssh/config</code>，参考如下</li>
-</ol>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span><span class="lnt">9
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Host repo1.github.com
-</span></span><span class="line"><span class="cl">        HostName github.com
-</span></span><span class="line"><span class="cl">        AddKeysToAgent yes
-</span></span><span class="line"><span class="cl">        IdentityFile ~/.ssh/repo1-deploy-key
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">Host repo2.github.com
-</span></span><span class="line"><span class="cl">        HostName github.com
-</span></span><span class="line"><span class="cl">        AddKeysToAgent yes
-</span></span><span class="line"><span class="cl">        IdentityFile ~/.ssh/blog-repo
-</span></span></code></pre></td></tr></table>
-</div>
-</div><ol start="8">
-<li>分别修改 repo1、repo2 目录下 <code>.git/config</code> 中的url，参考如下</li>
-</ol>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="c1">//url = git@github.com:username/repo1.git
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">url</span> <span class="o">=</span> <span class="n">git</span><span class="err">@</span><span class="n">repo1</span><span class="p">.</span><span class="n">github</span><span class="p">.</span><span class="nl">com</span><span class="p">:</span><span class="n">username</span><span class="o">/</span><span class="n">repo1</span><span class="p">.</span><span class="n">git</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h2 id="failed-to-connect-to-githubcom-port-443-timed-out">Failed to connect to github.com port 443: Timed out</h2>
-<p>将 .git/config 文件中的 https url 修改为 Git 仓库的 ssh rul。</p>
+      配置多个 Git 仓库的 ssh 权限 跳转至 ssh 配置路径，通常默认为 ~/.ssh 创建 ssh 密钥对，按照提示创建文件名（eg:repo1-deploy-key、repo2-d
     </div>
     <div class="read-more">
       <a href="/post/%E9%85%8D%E7%BD%AE%E5%A4%9A%E4%B8%AAgit%E4%BB%93%E5%BA%93%E7%9A%84ssh%E6%9D%83%E9%99%90/" class="read-more-link">Read more...</a>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>vscode on Aries blablabla</title>
+    <link>https://urchinzhou.com/categories/vscode/</link>
+    <description>Recent content in vscode on Aries blablabla</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 26 Jun 2023 17:37:07 +0800</lastBuildDate><atom:link href="https://urchinzhou.com/categories/vscode/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>VSCode 安装 Go 相关工具失败</title>
+      <link>https://urchinzhou.com/post/vscode-install-go-tools-failed/</link>
+      <pubDate>Mon, 26 Jun 2023 17:37:07 +0800</pubDate>
+      
+      <guid>https://urchinzhou.com/post/vscode-install-go-tools-failed/</guid>
+      <description>1 go version go1.19.5 windows/amd64 使用 VS Code 安装 Go 插件后，安装关联工具时，输出内容报如下内容，或错误信息中包含类似 unresponse、timeout 等网络问题相关字</description>
+    </item>
+    
+  </channel>
+</rss>

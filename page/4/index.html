@@ -127,6 +127,31 @@
           <section id="posts" class="posts">
     <article class="post">
   <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/tcp%E4%B8%8E%E7%B2%98%E5%8C%85%E9%97%AE%E9%A2%98/">TCP与粘包问题</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2021-07-06 </span>
+      <div class="post-category">
+          <a href="/categories/tcp/"> tcp </a>
+          </div>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      <p><strong>TCP 没有粘包问题</strong>。搜索引擎中列出的各种关于“TCP 粘包问题”的文章，所讲的其实是采用 TCP 传输数据的应用层协议设计不合理导致的粘包问题，并不是 TCP 的锅。</p>
+<p>TCP 是流协议，没有粘包这个概念。</p>
+<p>所谓粘包问题，是指发送方的多条消息在传输到接收方时，由于被拼接在一起而导致无法解析的情况。要解决这一问题，需要合理设计应用层协议，约定好消息边界，以便即使多条消息被拼接在一起，也能够按照协议找到消息边界从而正确解析。</p>
+<p>之所以很多人将粘包问题看作是 TCP 造成的，是因为“拼接”这一行为发生在 TCP 层。通过 TCP 发送和接收的数据，均为数据流格式。当应用层协议使用 TCP 协议传输数据时，TCP 协议很可能将应用层发送的消息分成多个包依次发送或将多条消息组合后发送，这就会出现接收方收到的一个数据段可能由多条消息组成，即粘包。</p>
+<p>而实际情况是，TCP 本就是基于字节流而不是消息包的协议，它保证的是字节流的次序到达，对于字节流的解析应该是由应用层协议来完成的，所以<strong>粘包问题，实际上描述的是“如何设计应用层协议”的问题</strong>。</p>
+    </div>
+    <div class="read-more">
+      <a href="/post/tcp%E4%B8%8E%E7%B2%98%E5%8C%85%E9%97%AE%E9%A2%98/" class="read-more-link">Read more...</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
     <h1 class="post-title"><a class="post-link" href="/post/%E5%85%B3%E4%BA%8Egcc%E7%BC%96%E8%AF%91%E6%97%B6%E5%87%BD%E6%95%B0%E7%AC%A6%E5%8F%B7%E5%AF%BC%E5%87%BA%E7%9A%84%E9%97%AE%E9%A2%98/">关于gcc编译时函数符号导出的问题</a></h1>
     <div class="post-meta">
       <span class="post-time"> 2021-07-06 </span>
@@ -267,33 +292,6 @@
     </div>
     <div class="read-more">
       <a href="/post/%E5%AF%86%E7%A0%81%E5%BA%94%E7%94%A8%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" class="read-more-link">Read more...</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/tls%E5%8D%8F%E8%AE%AE/">TLS协议</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2021-07-06 </span>
-      <div class="post-category">
-          <a href="/categories/tls/"> tls </a>
-          </div>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <h2 id="tls-协议的设计目标">TLS 协议的设计目标</h2>
-<p><strong>构建一个安全传输层（Transport Layer Security）</strong>，在基于连接的传输层（如 TCP）之上提供密码学安全，包括</p>
-<ol>
-<li>机密性，信息加密传输，无法被窃听</li>
-<li>完整性，信息一旦被篡改，通信双方可感知</li>
-<li>认证，通信双方防止身份被冒充</li>
-</ol>
-    </div>
-    <div class="read-more">
-      <a href="/post/tls%E5%8D%8F%E8%AE%AE/" class="read-more-link">Read more...</a>
     </div>
   </div>
 </article>

@@ -6,7 +6,16 @@
     <description>Recent content in Posts on Aries blablabla</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 24 Jun 2023 10:53:48 +0800</lastBuildDate><atom:link href="https://urchinzhou.com/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 26 Jun 2023 17:37:07 +0800</lastBuildDate><atom:link href="https://urchinzhou.com/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>VSCode 安装 Go 相关工具失败</title>
+      <link>https://urchinzhou.com/post/vscode-install-go-tools-failed/</link>
+      <pubDate>Mon, 26 Jun 2023 17:37:07 +0800</pubDate>
+      
+      <guid>https://urchinzhou.com/post/vscode-install-go-tools-failed/</guid>
+      <description>1 go version go1.19.5 windows/amd64 使用 VS Code 安装 Go 插件后，安装关联工具时，输出内容报如下内容，或错误信息中包含类似 unresponse、timeout 等网络问题相关字</description>
+    </item>
+    
     <item>
       <title>A Glance at JavaScript</title>
       <link>https://urchinzhou.com/post/a-glance-at-javascript/</link>

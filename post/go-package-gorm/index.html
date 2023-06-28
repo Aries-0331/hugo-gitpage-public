@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>Go Package - gorilla mux - Aries blablabla</title>
+  <title>Go Package - gorm - Aries blablabla</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -16,9 +16,9 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="Aries" /><meta name="description" content="Gorilla/mux is a popular package in the Go ecosystem that simplifies routing and URL matching for HTTP services. It offers a rich set of features and allows developers to define custom routes, handle variables, and leverage middleware for enhanced functionality. With gorilla/mux, you can build scalable and maintainable web applications with ease.
-Main Usage of gorilla/mux:
-Routing: Gorilla/mux enables you to define powerful and dynamic routes by leveraging patterns, placeholders, and regular expressions." /><meta name="keywords" content="Aries, blog, hugo" />
+<meta name="author" content="Aries" /><meta name="description" content="GORM is a popular Object-Relational Mapping (ORM) package for Go, designed to simplify database operations and improve developer productivity. It provides a robust and expressive API for interacting with various databases, including PostgreSQL, MySQL, SQLite, and more. With GORM, you can focus on your application&amp;rsquo;s logic while it handles the complexities of database management.
+Main Usage of GORM:
+Model Definition: GORM allows you to define models, which are Go structs representing database tables." /><meta name="keywords" content="Aries, blog, hugo" />
 
 
 
@@ -28,7 +28,7 @@ Routing: Gorilla/mux enables you to define powerful and dynamic routes by levera
 <meta name="generator" content="Hugo 0.114.1 with theme even" />
 
 
-<link rel="canonical" href="https://urchinzhou.com/post/go-package-gorilla-mux/" />
+<link rel="canonical" href="https://urchinzhou.com/post/go-package-gorm/" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -41,25 +41,25 @@ Routing: Gorilla/mux enables you to define powerful and dynamic routes by levera
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
-<meta property="og:title" content="Go Package - gorilla mux" />
-<meta property="og:description" content="Gorilla/mux is a popular package in the Go ecosystem that simplifies routing and URL matching for HTTP services. It offers a rich set of features and allows developers to define custom routes, handle variables, and leverage middleware for enhanced functionality. With gorilla/mux, you can build scalable and maintainable web applications with ease.
-Main Usage of gorilla/mux:
-Routing: Gorilla/mux enables you to define powerful and dynamic routes by leveraging patterns, placeholders, and regular expressions." />
+<meta property="og:title" content="Go Package - gorm" />
+<meta property="og:description" content="GORM is a popular Object-Relational Mapping (ORM) package for Go, designed to simplify database operations and improve developer productivity. It provides a robust and expressive API for interacting with various databases, including PostgreSQL, MySQL, SQLite, and more. With GORM, you can focus on your application&rsquo;s logic while it handles the complexities of database management.
+Main Usage of GORM:
+Model Definition: GORM allows you to define models, which are Go structs representing database tables." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://urchinzhou.com/post/go-package-gorilla-mux/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2023-06-27T17:00:03+08:00" />
-<meta property="article:modified_time" content="2023-06-27T17:00:03+08:00" />
-<meta itemprop="name" content="Go Package - gorilla mux">
-<meta itemprop="description" content="Gorilla/mux is a popular package in the Go ecosystem that simplifies routing and URL matching for HTTP services. It offers a rich set of features and allows developers to define custom routes, handle variables, and leverage middleware for enhanced functionality. With gorilla/mux, you can build scalable and maintainable web applications with ease.
-Main Usage of gorilla/mux:
-Routing: Gorilla/mux enables you to define powerful and dynamic routes by leveraging patterns, placeholders, and regular expressions."><meta itemprop="datePublished" content="2023-06-27T17:00:03+08:00" />
-<meta itemprop="dateModified" content="2023-06-27T17:00:03+08:00" />
-<meta itemprop="wordCount" content="323">
+<meta property="og:url" content="https://urchinzhou.com/post/go-package-gorm/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2023-06-28T22:15:12+08:00" />
+<meta property="article:modified_time" content="2023-06-28T22:15:12+08:00" />
+<meta itemprop="name" content="Go Package - gorm">
+<meta itemprop="description" content="GORM is a popular Object-Relational Mapping (ORM) package for Go, designed to simplify database operations and improve developer productivity. It provides a robust and expressive API for interacting with various databases, including PostgreSQL, MySQL, SQLite, and more. With GORM, you can focus on your application&rsquo;s logic while it handles the complexities of database management.
+Main Usage of GORM:
+Model Definition: GORM allows you to define models, which are Go structs representing database tables."><meta itemprop="datePublished" content="2023-06-28T22:15:12+08:00" />
+<meta itemprop="dateModified" content="2023-06-28T22:15:12+08:00" />
+<meta itemprop="wordCount" content="433">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Go Package - gorilla mux"/>
-<meta name="twitter:description" content="Gorilla/mux is a popular package in the Go ecosystem that simplifies routing and URL matching for HTTP services. It offers a rich set of features and allows developers to define custom routes, handle variables, and leverage middleware for enhanced functionality. With gorilla/mux, you can build scalable and maintainable web applications with ease.
-Main Usage of gorilla/mux:
-Routing: Gorilla/mux enables you to define powerful and dynamic routes by leveraging patterns, placeholders, and regular expressions."/>
+<meta name="twitter:title" content="Go Package - gorm"/>
+<meta name="twitter:description" content="GORM is a popular Object-Relational Mapping (ORM) package for Go, designed to simplify database operations and improve developer productivity. It provides a robust and expressive API for interacting with various databases, including PostgreSQL, MySQL, SQLite, and more. With GORM, you can focus on your application&rsquo;s logic while it handles the complexities of database management.
+Main Usage of GORM:
+Model Definition: GORM allows you to define models, which are Go structs representing database tables."/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -138,10 +138,10 @@ Routing: Gorilla/mux enables you to define powerful and dynamic routes by levera
           <article class="post">
     
     <header class="post-header">
-      <h1 class="post-title">Go Package - gorilla mux</h1>
+      <h1 class="post-title">Go Package - gorm</h1>
 
       <div class="post-meta">
-        <span class="post-time"> 2023-06-27 </span>
+        <span class="post-time"> 2023-06-28 </span>
         <div class="post-category">
             <a href="/categories/go/"> go </a>
             <a href="/categories/aigc/"> aigc </a>
@@ -152,21 +152,21 @@ Routing: Gorilla/mux enables you to define powerful and dynamic routes by levera
 
     
     <div class="post-content">
-      <p>Gorilla/mux is a popular package in the Go ecosystem that simplifies routing and URL matching for HTTP services. It offers a rich set of features and allows developers to define custom routes, handle variables, and leverage middleware for enhanced functionality. With gorilla/mux, you can build scalable and maintainable web applications with ease.</p>
-<p>Main Usage of gorilla/mux:</p>
+      <p>GORM is a popular Object-Relational Mapping (ORM) package for Go, designed to simplify database operations and improve developer productivity. It provides a robust and expressive API for interacting with various databases, including PostgreSQL, MySQL, SQLite, and more. With GORM, you can focus on your application&rsquo;s logic while it handles the complexities of database management.</p>
+<p>Main Usage of GORM:</p>
 <ol>
-<li>Routing: Gorilla/mux enables you to define powerful and dynamic routes by leveraging patterns, placeholders, and regular expressions. Create RESTful APIs, handle different HTTP methods, and efficiently route requests to the appropriate handlers.</li>
-<li>URL Parameters: Easily extract parameters from URLs using gorilla/mux&rsquo;s built-in functionality. Capture variables from the URL path and use them within your handlers to customize behavior based on user input.</li>
-<li>Middleware: Extend your application&rsquo;s functionality by incorporating middleware with gorilla/mux. Apply authentication, logging, error handling, or any custom logic to requests and responses at various stages of the request processing pipeline.</li>
-<li>Subrouters: Gorilla/mux allows the creation of subrouters, enabling logical grouping of routes and middleware. This modular approach promotes code organization and reusability, making your application easier to maintain.</li>
+<li>Model Definition: GORM allows you to define models, which are Go structs representing database tables. By leveraging struct tags, you can specify table names, column names, data types, constraints, and relationships with other models. GORM automates the mapping between these models and database tables, eliminating manual SQL queries.</li>
+<li>CRUD Operations: GORM simplifies database operations with its intuitive API. Perform Create, Read, Update, and Delete (CRUD) operations effortlessly using GORM&rsquo;s methods. Insert records, retrieve data based on conditions, update existing records, and delete data from the database with ease.</li>
+<li>Querying: GORM provides a powerful query builder that enables you to construct complex database queries using a chainable syntax. Leverage conditions, aggregations, joins, sorting, and pagination to retrieve the exact data you need from your database. GORM&rsquo;s query builder abstracts away the underlying SQL, making it easier to write and maintain complex queries.</li>
+<li>Relationships and Associations: GORM simplifies working with relationships between database tables. Define associations like one-to-one, one-to-many, and many-to-many relationships in your models using struct tags. GORM handles the necessary join queries and provides convenient methods to access related data.</li>
 </ol>
 <p>Application Scenarios:</p>
 <ol>
-<li>RESTful APIs: With its flexible routing capabilities, gorilla/mux is an excellent choice for building RESTful APIs. Define resource endpoints, handle different HTTP verbs, and implement CRUD (Create, Read, Update, Delete) operations efficiently.</li>
-<li>Web Applications: Gorilla/mux is well-suited for developing web applications of any scale. It provides a solid foundation for handling URL routing, middleware integration, and parameter extraction, making it ideal for building user-friendly and robust web experiences.</li>
-<li>Microservices: As Go gains popularity in the realm of microservices, gorilla/mux emerges as a go-to package for handling routing within a distributed architecture. Its simplicity, performance, and flexibility make it an excellent choice for building microservices that communicate via HTTP.</li>
+<li>Web Applications: GORM is well-suited for building web applications that require efficient database interactions. Whether you&rsquo;re building an e-commerce platform, a content management system, or a social media application, GORM&rsquo;s simplicity and performance make it an excellent choice for managing your application&rsquo;s data layer.</li>
+<li>Microservices: As Go gains popularity in microservice architectures, GORM proves to be a valuable tool for managing database interactions in distributed systems. Use GORM to handle data storage and retrieval across different microservices, ensuring consistency and efficiency in your overall architecture.</li>
+<li>Data-Driven APIs: GORM&rsquo;s ease of use and powerful query builder make it ideal for developing data-driven APIs. Retrieve data based on user-defined filters, perform aggregations, and efficiently handle large datasets with GORM&rsquo;s optimized database operations. Build robust APIs that deliver data seamlessly to your frontend or other consuming applications.</li>
 </ol>
-<p>By utilizing gorilla/mux, you can easily define routes, handle URL parameters, incorporate middleware, and create subrouters. Whether you&rsquo;re building RESTful APIs, web applications, or microservices, gorilla/mux provides the necessary tools to create efficient and maintainable code.</p>
+<p>Conclusion: GORM simplifies database interactions in Go applications, enabling developers to focus on business logic rather than database management. By utilizing GORM&rsquo;s model definition, CRUD operations, querying capabilities, and support for relationships, you can streamline database interactions and improve productivity. Whether you&rsquo;re building web applications, microservices, or data-driven APIs, GORM empowers you to handle database operations efficiently and effectively.</p>
 
     </div>
 
@@ -174,13 +174,9 @@ Routing: Gorilla/mux enables you to define powerful and dynamic routes by levera
 <footer class="post-footer">
       
       <nav class="post-nav">
-        <a class="prev" href="/post/go-package-gorm/">
-            <i class="iconfont icon-left"></i>
-            <span class="prev-text nav-default">Go Package - gorm</span>
-            <span class="prev-text nav-mobile">Prev</span>
-          </a>
-        <a class="next" href="/post/vs-code-%E5%AE%89%E8%A3%85-go-%E7%9B%B8%E5%85%B3%E5%B7%A5%E5%85%B7%E5%A4%B1%E8%B4%A5/">
-            <span class="next-text nav-default">VSCode 安装 Go 相关工具失败</span>
+        
+        <a class="next" href="/post/go-package-gorilla-mux/">
+            <span class="next-text nav-default">Go Package - gorilla mux</span>
             <span class="next-text nav-mobile">Next</span>
             <i class="iconfont icon-right"></i>
           </a>

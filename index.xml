@@ -6,7 +6,18 @@
     <description>Recent content on Aries blablabla</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 29 Jun 2023 17:50:27 +0800</lastBuildDate><atom:link href="https://urchinzhou.com/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 29 Jun 2023 18:24:09 +0800</lastBuildDate><atom:link href="https://urchinzhou.com/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>What happens when tcp listen to a port?</title>
+      <link>https://urchinzhou.com/post/tcp/</link>
+      <pubDate>Thu, 29 Jun 2023 18:24:09 +0800</pubDate>
+      
+      <guid>https://urchinzhou.com/post/tcp/</guid>
+      <description>When reading the net/http code of golang, I was suddenly curious about the mechanism of tcp listen, then I googled and found this interesting Q&amp;amp;A - What happens when we say &amp;ldquo;listen to a port&amp;rdquo;? on StackOverflow.
+Q:When we start a server application, we always need to speicify the port number it listens to. But how is this &amp;ldquo;listening mechanism&amp;rdquo; implemented under the hood?
+My current imagination is like this:</description>
+    </item>
+    
     <item>
       <title>Go Basic - Interface as Parameter to Function</title>
       <link>https://urchinzhou.com/post/go-basic-interface-as-parameter-to-function/</link>

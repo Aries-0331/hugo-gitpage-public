@@ -127,6 +127,27 @@
           <section id="posts" class="posts">
     <article class="post">
   <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/2021/">2021</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2021-12-28 </span>
+      <div class="post-category">
+          <a href="/categories/log/"> log </a>
+          </div>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      结婚 首先要说的是，和女友恋爱668天后，于10月31日领证结婚了。 曾经一度认为自己在30岁前不会考虑结婚的事情，但是遇到一个知书达理善解人意
+    </div>
+    <div class="read-more">
+      <a href="/post/2021/" class="read-more-link">Read more...</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
     <h1 class="post-title"><a class="post-link" href="/post/how_to_learn_new_programming_languages_and_frameworks_quickly/">How to learn new programming languages and frameworks quickly</a></h1>
     <div class="post-meta">
       <span class="post-time"> 2021-12-21 </span>
@@ -236,50 +257,6 @@
     </div>
     <div class="read-more">
       <a href="/post/logcat%E6%97%A5%E5%BF%97%E8%AF%BB%E5%8F%96%E6%B5%81%E7%A8%8B%E5%88%86%E6%9E%90/" class="read-more-link">Read more...</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/%E6%8C%87%E9%92%88/">一个野指针</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2021-07-06 </span>
-      <div class="post-category">
-          <a href="/categories/c/"> c </a>
-          </div>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="c1">//常见错误
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">int</span> <span class="o">*</span><span class="n">a</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="o">*</span><span class="n">a</span> <span class="o">=</span> <span class="mi">12</span><span class="p">;</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>该代码段，声明了一个名为 a 的指针变量，之后将 12 存储在 a 所指向的空间中。</p>
-<p>声明了变量 a，但未对其初始化，所以并不知道 a 所指向的具体位置，即数据 12 将存储于什么地方尚未可知。</p>
-<p>声明一个指向整型的指针，不会创建用于存储整型值的内存空间。</p>
-<p>对于该代码段可能造成的结果：</p>
-<ul>
-<li>报错</li>
-</ul>
-<p>若 a 的初始值是非法地址，则赋值语句将会报错，从而终止程序。在 UNIX 系统上，这种错误通常为“段错误（segmentation fault）”、“段违例（segmentation violation）”或“内存错误（memory fault）”。<strong>提示程序在试图访问一个并未分配给程序的内存位置。</strong></p>
-<ul>
-<li>不报错</li>
-</ul>
-<p>若 a 的初始值刚好是一个合法的地址，则该地址的原值被新的赋值语句所覆盖，虽然你并无意修改该地址的值。这种情况下导致的错误很难发现，因为引发错误的代码大概率与原本用于操作被修改值的代码毫不相干。因此，<strong>在对指针进行间接访问之前，务必确保指针变量已被初始化。</strong></p>
-    </div>
-    <div class="read-more">
-      <a href="/post/%E6%8C%87%E9%92%88/" class="read-more-link">Read more...</a>
     </div>
   </div>
 </article>

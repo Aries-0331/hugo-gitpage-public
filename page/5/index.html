@@ -127,6 +127,54 @@
           <section id="posts" class="posts">
     <article class="post">
   <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/%E5%85%B3%E4%BA%8Exlog%E5%8A%A0%E5%AF%86%E5%A4%84%E7%90%86%E5%88%86%E6%9E%90/">关于xlog加密处理分析</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2021-07-06 </span>
+      <div class="post-category">
+          <a href="/categories/crypto/"> crypto </a>
+          <a href="/categories/android/"> android </a>
+          </div>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      <p>xlog 使用微型加密算法（TEA，Tiny Encryption Algorithm）对日志数据进行加密，使用 ECDH 密钥交换算法进行对称密钥的协商，对称密钥以数组形式存储在栈区，声明为 <code>LogCrypt</code> 类的私有字段。</p>
+<p>会话密钥长度与椭圆曲线参数相关，xlog 中使用 16 Bytes 密钥。</p>
+<h3 id="相关接口">相关接口</h3>
+<ul>
+<li>uECC_make_key ( client_pubkey, client_pri )
+<ul>
+<li>生成客户端公私钥对</li>
+</ul>
+</li>
+<li>uECC_shared_secret ( svr_pubkey, client_pri, secret )
+<ul>
+<li>根据服务端公钥与客户端私钥，运算出对称密钥 secret</li>
+</ul>
+</li>
+<li>__TeaEncrypt ( log, secret )
+<ul>
+<li>使用对称密钥加密日志</li>
+</ul>
+</li>
+</ul>
+<h3 id="协商流程">协商流程：</h3>
+<ol>
+<li><code>client</code> 调用 <code>uECC_make_key</code> 生成 pubKeyA 与 priKeyA；</li>
+<li><code>server</code> 调用 <code>uECC_make_key</code> 生成 pubKeyB 与 priKeyB；</li>
+<li><code>client</code> 获取<code>server</code> 公钥 <code>pubKeyB</code> ，调用 <code>uECC_shared_secret</code> 生成对称密钥 <code>secret</code>；（此处采用 ECDH 密钥交换算法）</li>
+<li><code>server</code> 获取<code>client</code> 公钥 <code>pubKeyA</code> ，调用 <code>uECC_shared_secret</code> 生成对称密钥 <code>secret</code>；</li>
+</ol>
+    </div>
+    <div class="read-more">
+      <a href="/post/%E5%85%B3%E4%BA%8Exlog%E5%8A%A0%E5%AF%86%E5%A4%84%E7%90%86%E5%88%86%E6%9E%90/" class="read-more-link">Read more...</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
     <h1 class="post-title"><a class="post-link" href="/post/%E5%85%B3%E4%BA%8E%E6%95%B0%E6%8D%AE%E5%88%86%E7%89%87%E4%B8%8E%E5%88%86%E6%AE%B5/">关于数据分片与分段</a></h1>
     <div class="post-meta">
       <span class="post-time"> 2021-07-06 </span>
@@ -236,44 +284,6 @@
   </div>
 </article>
 
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3%E5%B9%B3%E5%9D%87%E8%B4%9F%E8%BD%BD/">如何理解平均负载</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2021-07-06 </span>
-      <div class="post-category">
-          <a href="/categories/linux/"> linux </a>
-          </div>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <blockquote>
-<p>平均负载不仅包括<strong>正在使用 CPU</strong> 的进程，还包括<strong>等待 CPU</strong> 和<strong>等待 I/O</strong> 的进程。</p>
-</blockquote>
-<h3 id="什么是平均负载">什么是平均负载</h3>
-<p>通常我们使用 top 或 uptime 命令，来查看系统负载情况时，都会关注 load average 这一参数，但实际上你真的理解这一参数后三个数字的含义吗？相当一部分人将平均负载简单理解为单位时间内的 CPU 使用率，其实不然。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">root@zwx-virtual-machine:/# uptime
-</span></span><span class="line"><span class="cl"> 11:06:40 up 1 day, 12 min,  1 user,  load average: 0.09, 0.04, 0.01
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>图中 load average 后的三个数字，依次是过去1分钟、5分钟、15分钟的平均负载（Load Average）。简单来说，它代表的是单位时间内，系统处于<strong>可运行状态</strong>和<strong>不可中断状态</strong>的平均进程数，也就是<strong>平均活跃进程数</strong>，和 CPU 使用率并没有直接关系。</p>
-<p>所谓可运行状态的进程，是指正在使用 CPU 或正在等待 CPU 的进程，也就是使用 ps 命令看到的处于 R/Running/Runnable 状态的进程。</p>
-<p>不可中断的进程，是指正处于内核态关键流程中的进程，且这些流程是不可打断的，比如等待硬件设备的 I/O 响应，也就是我们在 ps 命令中看到的 D 状态进程。</p>
-    </div>
-    <div class="read-more">
-      <a href="/post/%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3%E5%B9%B3%E5%9D%87%E8%B4%9F%E8%BD%BD/" class="read-more-link">Read more...</a>
-    </div>
-  </div>
-</article>
-
     </section>
   
   <nav class="pagination">
@@ -281,7 +291,10 @@
         <i class="iconfont icon-left"></i>
         <span class="prev-text">Prev</span>
       </a>
-    
+    <a class="next" href="/page/6/">
+        <span class="next-text">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
   </nav>
         </div>
         

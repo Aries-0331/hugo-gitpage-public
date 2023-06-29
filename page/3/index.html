@@ -127,6 +127,31 @@
           <section id="posts" class="posts">
     <article class="post">
   <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/how_to_learn_new_programming_languages_and_frameworks_quickly/">How to learn new programming languages and frameworks quickly</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2021-12-21 </span>
+      <div class="post-category">
+          <a href="/categories/read/"> read </a>
+          </div>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      <blockquote>
+<p>An excerpt from <a href="https://www.quastor.org/p/how-whatsapp-scaled-to-1-billion">how-whatsapp-scaled-to-1-billion</a></p>
+</blockquote>
+<p><a href="https://news.ycombinator.com/item?id=28017289">This</a> is an interesting discussion on Hacker News for a process to learn new things quickly.</p>
+<p>Here are some of the top answers summarized.</p>
+    </div>
+    <div class="read-more">
+      <a href="/post/how_to_learn_new_programming_languages_and_frameworks_quickly/" class="read-more-link">Read more...</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
     <h1 class="post-title"><a class="post-link" href="/post/%E5%85%B3%E4%BA%8E%E5%8A%A0%E5%AF%86%E5%92%8C%E5%AF%86%E7%A0%81%E5%AD%A6%E7%9A%84%E7%BB%8F%E9%AA%8C%E6%95%99%E8%AE%AD%E5%92%8C%E8%AF%AF%E8%A7%A3/">关于加密和密码学的经验教训和误解</a></h1>
     <div class="post-meta">
       <span class="post-time"> 2021-12-21 </span>
@@ -255,70 +280,6 @@
     </div>
     <div class="read-more">
       <a href="/post/%E6%8C%87%E9%92%88/" class="read-more-link">Read more...</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/encryptedsharedpreferences%E5%88%86%E6%9E%90/">EncryptedSharedPreferences分析</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2021-07-06 </span>
-      <div class="post-category">
-          <a href="/categories/crypto/"> crypto </a>
-          <a href="/categories/android/"> android </a>
-          </div>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <p>EncryptedSharedPreferenes 是 androidx 下安全组件中的加密类，实现<code>SharedPreferences</code>的键值对加密。</p>
-<p>开发者文档中提供了<code>SharedPreferences</code>加密键值对的实例代码，其中使用<code>MasterKeys</code>来进行密钥管理，而在 <a href="https://developer.android.com/reference/androidx/security/crypto/MasterKeys?hl=zh-cn">MasterKeys</a> 的文档中提示该类已废弃，应使用<code>MasterKey.Builder</code>来管理主密钥（版本说明：基于 Jetpack Security 1.1.0-alpha01），示例如下</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"> <span class="c1">// this is equivalent to using deprecated MasterKeys.AES256_GCM_SPEC
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span> <span class="n">KeyGenParameterSpec</span> <span class="n">spec</span> <span class="o">=</span> <span class="k">new</span> <span class="n">KeyGenParameterSpec</span><span class="o">.</span><span class="na">Builder</span><span class="o">(</span>
-</span></span><span class="line"><span class="cl">         <span class="n">MASTER_KEY_ALIAS</span><span class="o">,</span>
-</span></span><span class="line"><span class="cl">         <span class="n">KeyProperties</span><span class="o">.</span><span class="na">PURPOSE_ENCRYPT</span> <span class="o">|</span> <span class="n">KeyProperties</span><span class="o">.</span><span class="na">PURPOSE_DECRYPT</span><span class="o">)</span>
-</span></span><span class="line"><span class="cl">         <span class="o">.</span><span class="na">setBlockModes</span><span class="o">(</span><span class="n">KeyProperties</span><span class="o">.</span><span class="na">BLOCK_MODE_GCM</span><span class="o">)</span>
-</span></span><span class="line"><span class="cl">         <span class="o">.</span><span class="na">setEncryptionPaddings</span><span class="o">(</span><span class="n">KeyProperties</span><span class="o">.</span><span class="na">ENCRYPTION_PADDING_NONE</span><span class="o">)</span>
-</span></span><span class="line"><span class="cl">         <span class="o">.</span><span class="na">setKeySize</span><span class="o">(</span><span class="n">KEY_SIZE</span><span class="o">)</span>
-</span></span><span class="line"><span class="cl">         <span class="o">.</span><span class="na">build</span><span class="o">();</span>
-</span></span><span class="line"><span class="cl"> <span class="n">MasterKey</span> <span class="n">masterKey</span> <span class="o">=</span> <span class="k">new</span> <span class="n">MasterKey</span><span class="o">.</span><span class="na">Builder</span><span class="o">(</span><span class="n">MainActivity</span><span class="o">.</span><span class="na">this</span><span class="o">)</span>
-</span></span><span class="line"><span class="cl">         <span class="o">.</span><span class="na">setKeyGenParameterSpec</span><span class="o">(</span><span class="n">spec</span><span class="o">)</span>
-</span></span><span class="line"><span class="cl">         <span class="o">.</span><span class="na">build</span><span class="o">();</span>
-</span></span><span class="line"><span class="cl"> <span class="n">EncryptedSharedPreferences</span><span class="o">.</span><span class="na">create</span><span class="o">(</span>
-</span></span><span class="line"><span class="cl">         <span class="n">MainActivity</span><span class="o">.</span><span class="na">this</span><span class="o">,</span>
-</span></span><span class="line"><span class="cl">         <span class="s">&#34;your-app-preferences-name&#34;</span><span class="o">,</span>
-</span></span><span class="line"><span class="cl">         <span class="n">masterKey</span><span class="o">,</span> <span class="c1">// masterKey created above
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>         <span class="n">EncryptedSharedPreferences</span><span class="o">.</span><span class="na">PrefKeyEncryptionScheme</span><span class="o">.</span><span class="na">AES256_SIV</span><span class="o">,</span>
-</span></span><span class="line"><span class="cl">         <span class="n">EncryptedSharedPreferences</span><span class="o">.</span><span class="na">PrefValueEncryptionScheme</span><span class="o">.</span><span class="na">AES256_GCM</span><span class="o">);</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div>
-    </div>
-    <div class="read-more">
-      <a href="/post/encryptedsharedpreferences%E5%88%86%E6%9E%90/" class="read-more-link">Read more...</a>
     </div>
   </div>
 </article>

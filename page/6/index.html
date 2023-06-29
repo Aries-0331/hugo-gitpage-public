@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>go · Aries blablabla</title>
+  <title>Aries blablabla</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -26,9 +26,9 @@
 <meta name="generator" content="Hugo 0.114.1 with theme even" />
 
 
-<link rel="canonical" href="https://urchinzhou.com/categories/go/" />
-  <link href="https://urchinzhou.com/categories/go/index.xml" rel="alternate" type="application/rss+xml" title="Aries blablabla" />
-  <link href="https://urchinzhou.com/categories/go/index.xml" rel="feed" type="application/rss+xml" title="Aries blablabla" />
+<link rel="canonical" href="https://urchinzhou.com/" />
+  <link href="https://urchinzhou.com/index.xml" rel="alternate" type="application/rss+xml" title="Aries blablabla" />
+  <link href="https://urchinzhou.com/index.xml" rel="feed" type="application/rss+xml" title="Aries blablabla" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -41,13 +41,13 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
-<meta property="og:title" content="go" />
+<meta property="og:title" content="Aries blablabla" />
 <meta property="og:description" content="Aries&#39;s blog" />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="https://urchinzhou.com/categories/go/" />
-<meta itemprop="name" content="go">
+<meta property="og:url" content="https://urchinzhou.com/" />
+<meta itemprop="name" content="Aries blablabla">
 <meta itemprop="description" content="Aries&#39;s blog"><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="go"/>
+<meta name="twitter:title" content="Aries blablabla"/>
 <meta name="twitter:description" content="Aries&#39;s blog"/>
 
 <!--[if lte IE 9]>
@@ -124,54 +124,54 @@
     <main id="main" class="main">
       <div class="content-wrapper">
         <div id="content" class="content">
-          <section id="archive" class="archive">
-  <div class="archive-title category">
-        <h2 class="archive-name">go</h2>
-      </div>
-
-  <div class="archive-post">
-      <span class="archive-post-time">
-        2023-06-29
-      </span>
-      <span class="archive-post-title">
-        <a href="/post/go-basic-interface-as-parameter-to-function/" class="archive-post-link">
-          Go Basic - Interface as Parameter to Function
-        </a>
-      </span>
-    </div><div class="archive-post">
-      <span class="archive-post-time">
-        2023-06-28
-      </span>
-      <span class="archive-post-title">
-        <a href="/post/go-package-gorm/" class="archive-post-link">
-          Go Package - gorm
-        </a>
-      </span>
-    </div><div class="archive-post">
-      <span class="archive-post-time">
-        2023-06-27
-      </span>
-      <span class="archive-post-title">
-        <a href="/post/go-package-gorilla-mux/" class="archive-post-link">
-          Go Package - gorilla mux
-        </a>
-      </span>
-    </div><div class="archive-post">
-      <span class="archive-post-time">
-        2023-06-26
-      </span>
-      <span class="archive-post-title">
-        <a href="/post/vs-code-%E5%AE%89%E8%A3%85-go-%E7%9B%B8%E5%85%B3%E5%B7%A5%E5%85%B7%E5%A4%B1%E8%B4%A5/" class="archive-post-link">
-          VSCode 安装 Go 相关工具失败
-        </a>
-      </span>
+          <section id="posts" class="posts">
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3%E5%B9%B3%E5%9D%87%E8%B4%9F%E8%BD%BD/">如何理解平均负载</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2021-07-06 </span>
+      <div class="post-category">
+          <a href="/categories/linux/"> linux </a>
+          </div>
     </div>
-</section>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      <blockquote>
+<p>平均负载不仅包括<strong>正在使用 CPU</strong> 的进程，还包括<strong>等待 CPU</strong> 和<strong>等待 I/O</strong> 的进程。</p>
+</blockquote>
+<h3 id="什么是平均负载">什么是平均负载</h3>
+<p>通常我们使用 top 或 uptime 命令，来查看系统负载情况时，都会关注 load average 这一参数，但实际上你真的理解这一参数后三个数字的含义吗？相当一部分人将平均负载简单理解为单位时间内的 CPU 使用率，其实不然。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">root@zwx-virtual-machine:/# uptime
+</span></span><span class="line"><span class="cl"> 11:06:40 up 1 day, 12 min,  1 user,  load average: 0.09, 0.04, 0.01
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>图中 load average 后的三个数字，依次是过去1分钟、5分钟、15分钟的平均负载（Load Average）。简单来说，它代表的是单位时间内，系统处于<strong>可运行状态</strong>和<strong>不可中断状态</strong>的平均进程数，也就是<strong>平均活跃进程数</strong>，和 CPU 使用率并没有直接关系。</p>
+<p>所谓可运行状态的进程，是指正在使用 CPU 或正在等待 CPU 的进程，也就是使用 ps 命令看到的处于 R/Running/Runnable 状态的进程。</p>
+<p>不可中断的进程，是指正处于内核态关键流程中的进程，且这些流程是不可打断的，比如等待硬件设备的 I/O 响应，也就是我们在 ps 命令中看到的 D 状态进程。</p>
+    </div>
+    <div class="read-more">
+      <a href="/post/%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3%E5%B9%B3%E5%9D%87%E8%B4%9F%E8%BD%BD/" class="read-more-link">Read more...</a>
+    </div>
+  </div>
+</article>
 
-<nav class="pagination">
+    </section>
   
-  
-</nav>
+  <nav class="pagination">
+    <a class="prev" href="/page/5/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text">Prev</span>
+      </a>
+    
+  </nav>
         </div>
         
 
@@ -215,10 +215,24 @@
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/timeago.js@3.0.2/dist/timeago.min.js" integrity="sha256-jwCP0NAdCBloaIWTWHmW4i3snUNMHUNO+jr9rYd2iOI=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/timeago.js@3.0.2/dist/timeago.locales.min.js" integrity="sha256-ZwofwC1Lf/faQCzN7nZtfijVV6hSwxjQMwXL4gn9qU8=" crossorigin="anonymous"></script>
+  <script><!-- NOTE: timeago.js uses the language code format like "zh_CN" (underscore and case sensitive) -->
+    var languageCode = "en".replace(/-/g, '_').replace(/_(.*)/, function ($0, $1) {return $0.replace($1, $1.toUpperCase());});
+    timeago().render(document.querySelectorAll('.timeago'), languageCode);
+    timeago.cancel();  
+  </script>
 
 
 
 <script type="text/javascript" src="/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex: {
+        }
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js" integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin="anonymous"></script>
 
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-XXXXXXXXX-X"></script>
 <script>

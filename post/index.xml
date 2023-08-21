@@ -6,7 +6,16 @@
     <description>Recent content in Posts on Aries blablabla</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 29 Jun 2023 18:24:09 +0800</lastBuildDate><atom:link href="https://urchinzhou.com/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 21 Aug 2023 11:50:04 +0800</lastBuildDate><atom:link href="https://urchinzhou.com/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>推荐阅读</title>
+      <link>https://urchinzhou.com/post/%E6%8E%A8%E8%8D%90%E9%98%85%E8%AF%BB/</link>
+      <pubDate>Mon, 21 Aug 2023 11:50:04 +0800</pubDate>
+      
+      <guid>https://urchinzhou.com/post/%E6%8E%A8%E8%8D%90%E9%98%85%E8%AF%BB/</guid>
+      <description>—— Paul Graham</description>
+    </item>
+    
     <item>
       <title>What happens when tcp listen to a port?</title>
       <link>https://urchinzhou.com/post/tcp/</link>

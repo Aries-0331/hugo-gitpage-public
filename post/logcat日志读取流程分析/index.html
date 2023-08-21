@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.114.1 with theme even" />
+<meta name="generator" content="Hugo 0.117.0 with theme even" />
 
 
 <link rel="canonical" href="https://urchinzhou.com/post/logcat%E6%97%A5%E5%BF%97%E8%AF%BB%E5%8F%96%E6%B5%81%E7%A8%8B%E5%88%86%E6%9E%90/" />
@@ -202,7 +202,7 @@
 </span></span><span class="line"><span class="cl">      <span class="o">(</span><span class="n">struct</span> <span class="n">android_log_logger_list</span><span class="o">*)</span><span class="n">logger_list</span><span class="o">;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">  <span class="kt">int</span> <span class="n">ret</span> <span class="o">=</span> <span class="n">init_transport_context</span><span class="o">(</span><span class="n">logger_list_internal</span><span class="o">);</span>
-</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="o">(</span><span class="n">ret</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="o">(</span><span class="n">ret</span> <span class="o">&lt;</span> <span class="n">0</span><span class="o">)</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">ret</span><span class="o">;</span>
 </span></span><span class="line"><span class="cl">  <span class="o">}</span>
 </span></span><span class="line"><span class="cl"><span class="o">......</span>
@@ -258,7 +258,7 @@
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">LIBLOG_HIDDEN</span> <span class="kt">void</span> <span class="nf">__android_log_config_read</span><span class="o">()</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl"><span class="o">......</span>
-</span></span><span class="line"><span class="cl"><span class="err">#</span><span class="k">if</span> <span class="o">(</span><span class="n">FAKE_LOG_DEVICE</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl"><span class="err">#</span><span class="k">if</span> <span class="o">(</span><span class="n">FAKE_LOG_DEVICE</span> <span class="o">==</span> <span class="n">0</span><span class="o">)</span>
 </span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="o">((</span><span class="n">__android_log_transport</span> <span class="o">==</span> <span class="n">LOGGER_DEFAULT</span><span class="o">)</span> <span class="o">||</span>
 </span></span><span class="line"><span class="cl">      <span class="o">(</span><span class="n">__android_log_transport</span> <span class="o">&amp;</span> <span class="n">LOGGER_LOGD</span><span class="o">))</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">    <span class="n">extern</span> <span class="n">struct</span> <span class="n">android_log_transport_read</span> <span class="n">logdLoggerRead</span><span class="o">;</span>
@@ -332,11 +332,11 @@
 </span></span><span class="line"><span class="cl">                    <span class="n">struct</span> <span class="n">log_msg</span><span class="o">*</span> <span class="n">log_msg</span><span class="o">)</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl"><span class="o">......</span>
 </span></span><span class="line"><span class="cl">  <span class="n">ret</span> <span class="o">=</span> <span class="n">logdOpen</span><span class="o">(</span><span class="n">logger_list</span><span class="o">,</span> <span class="n">transp</span><span class="o">);</span>
-</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="o">(</span><span class="n">ret</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="o">(</span><span class="n">ret</span> <span class="o">&lt;</span> <span class="n">0</span><span class="o">)</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">ret</span><span class="o">;</span>
 </span></span><span class="line"><span class="cl">  <span class="o">}</span>
 </span></span><span class="line"><span class="cl"><span class="o">......</span>
-</span></span><span class="line"><span class="cl">   <span class="n">ret</span> <span class="o">=</span> <span class="n">recv</span><span class="o">(</span><span class="n">ret</span><span class="o">,</span> <span class="n">log_msg</span><span class="o">,</span> <span class="n">LOGGER_ENTRY_MAX_LEN</span><span class="o">,</span> <span class="mi">0</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">   <span class="n">ret</span> <span class="o">=</span> <span class="n">recv</span><span class="o">(</span><span class="n">ret</span><span class="o">,</span> <span class="n">log_msg</span><span class="o">,</span> <span class="n">LOGGER_ENTRY_MAX_LEN</span><span class="o">,</span> <span class="n">0</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl"><span class="o">......</span>
 </span></span><span class="line"><span class="cl"><span class="o">}</span>
 </span></span></code></pre></td></tr></table>

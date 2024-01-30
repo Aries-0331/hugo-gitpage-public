@@ -28,7 +28,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.117.0 with theme even" />
+<meta name="generator" content="Hugo 0.122.0 with theme even" />
 
 
 <link rel="canonical" href="https://urchinzhou.com/post/%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3%E5%B9%B3%E5%9D%87%E8%B4%9F%E8%BD%BD/" />
@@ -67,6 +67,7 @@ root@zwx-virtual-machine:/# uptime
 <meta property="og:url" content="https://urchinzhou.com/post/%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3%E5%B9%B3%E5%9D%87%E8%B4%9F%E8%BD%BD/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2021-07-06T22:05:40+08:00" />
 <meta property="article:modified_time" content="2021-07-06T22:05:40+08:00" />
+
 <meta itemprop="name" content="如何理解平均负载">
 <meta itemprop="description" content="
 平均负载不仅包括正在使用 CPU 的进程，还包括等待 CPU 和等待 I/O 的进程。
@@ -88,8 +89,7 @@ root@zwx-virtual-machine:/# uptime
 不可中断的进程，是指正处于内核态关键流程中的进程，且这些流程是不可打断的，比如等待硬件设备的 I/O 响应，也就是我们在 ps 命令中看到的 D 状态进程。"><meta itemprop="datePublished" content="2021-07-06T22:05:40+08:00" />
 <meta itemprop="dateModified" content="2021-07-06T22:05:40+08:00" />
 <meta itemprop="wordCount" content="1177">
-<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="如何理解平均负载"/>
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="如何理解平均负载"/>
 <meta name="twitter:description" content="
 平均负载不仅包括正在使用 CPU 的进程，还包括等待 CPU 和等待 I/O 的进程。
 
@@ -215,8 +215,8 @@ root@zwx-virtual-machine:/# uptime
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">root@zwx-virtual-machine:/# uptime
-</span></span><span class="line"><span class="cl"> 11:06:40 up 1 day, 12 min,  1 user,  load average: 0.09, 0.04, 0.01
+<pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="n">root</span><span class="err">@</span><span class="n">zwx</span><span class="o">-</span><span class="n">virtual</span><span class="o">-</span><span class="n">machine</span><span class="p">:</span><span class="o">/</span><span class="c1"># uptime</span>
+</span></span><span class="line"><span class="cl"> <span class="mi">11</span><span class="p">:</span><span class="mi">06</span><span class="p">:</span><span class="mi">40</span> <span class="n">up</span> <span class="mi">1</span> <span class="n">day</span><span class="p">,</span> <span class="mi">12</span> <span class="nb">min</span><span class="p">,</span>  <span class="mi">1</span> <span class="n">user</span><span class="p">,</span>  <span class="nb">load</span> <span class="n">average</span><span class="p">:</span> <span class="mf">0.09</span><span class="p">,</span> <span class="mf">0.04</span><span class="p">,</span> <span class="mf">0.01</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>图中 load average 后的三个数字，依次是过去1分钟、5分钟、15分钟的平均负载（Load Average）。简单来说，它代表的是单位时间内，系统处于<strong>可运行状态</strong>和<strong>不可中断状态</strong>的平均进程数，也就是<strong>平均活跃进程数</strong>，和 CPU 使用率并没有直接关系。</p>
@@ -288,7 +288,7 @@ root@zwx-virtual-machine:/# uptime
   <span class="copyright-year">
     &copy; 
     2019 - 
-    2023<span class="heart"><i class="iconfont icon-heart"></i></span><span>Aries</span>
+    2024<span class="heart"><i class="iconfont icon-heart"></i></span><span>Aries</span>
   </span>
 </div>
 
@@ -304,7 +304,7 @@ root@zwx-virtual-machine:/# uptime
   <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/timeago.js@3.0.2/dist/timeago.min.js" integrity="sha256-jwCP0NAdCBloaIWTWHmW4i3snUNMHUNO+jr9rYd2iOI=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/timeago.js@3.0.2/dist/timeago.locales.min.js" integrity="sha256-ZwofwC1Lf/faQCzN7nZtfijVV6hSwxjQMwXL4gn9qU8=" crossorigin="anonymous"></script>
-  <script><!-- NOTE: timeago.js uses the language code format like "zh_CN" (underscore and case sensitive) -->
+  <script>
     var languageCode = "en".replace(/-/g, '_').replace(/_(.*)/, function ($0, $1) {return $0.replace($1, $1.toUpperCase());});
     timeago().render(document.querySelectorAll('.timeago'), languageCode);
     timeago.cancel();  

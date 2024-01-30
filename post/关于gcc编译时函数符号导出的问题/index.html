@@ -29,7 +29,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.117.0 with theme even" />
+<meta name="generator" content="Hugo 0.122.0 with theme even" />
 
 
 <link rel="canonical" href="https://urchinzhou.com/post/%E5%85%B3%E4%BA%8Egcc%E7%BC%96%E8%AF%91%E6%97%B6%E5%87%BD%E6%95%B0%E7%AC%A6%E5%8F%B7%E5%AF%BC%E5%87%BA%E7%9A%84%E9%97%AE%E9%A2%98/" />
@@ -72,6 +72,7 @@ cflags: [
 <meta property="og:url" content="https://urchinzhou.com/post/%E5%85%B3%E4%BA%8Egcc%E7%BC%96%E8%AF%91%E6%97%B6%E5%87%BD%E6%95%B0%E7%AC%A6%E5%8F%B7%E5%AF%BC%E5%87%BA%E7%9A%84%E9%97%AE%E9%A2%98/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2021-07-06T22:26:17+08:00" />
 <meta property="article:modified_time" content="2021-07-06T22:26:17+08:00" />
+
 <meta itemprop="name" content="关于gcc编译时函数符号导出的问题">
 <meta itemprop="description" content="背景：在 Android P liblog 模块中增加一个功能，涉及外部函数调用。如在 A.c 中定义函数 fun，在 A.h 中声明函数 fun，在 B.c 中包含 A.h 后调用 fun，文件名、路径等均没有问题，但编译时会触发 error:undefined reference to 。
 分析：函数显然是定义了的，提示未定义应该是出于某种原因未找到。后发现 logprint.c 文件中部分函数带有前缀 LIBLOG_ABI_PUBLIC，该宏定义为 #define LIBLOG_ABI_PUBLIC __attribute__((visibility(&quot;default&quot;)))，作用是设置符号的可见性属性，查看 liblog 的 Android.bp 文件，发现编译选项设置为
@@ -97,8 +98,7 @@ cflags: [
 控制符号的可见性"><meta itemprop="datePublished" content="2021-07-06T22:26:17+08:00" />
 <meta itemprop="dateModified" content="2021-07-06T22:26:17+08:00" />
 <meta itemprop="wordCount" content="452">
-<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="关于gcc编译时函数符号导出的问题"/>
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="关于gcc编译时函数符号导出的问题"/>
 <meta name="twitter:description" content="背景：在 Android P liblog 模块中增加一个功能，涉及外部函数调用。如在 A.c 中定义函数 fun，在 A.h 中声明函数 fun，在 B.c 中包含 A.h 后调用 fun，文件名、路径等均没有问题，但编译时会触发 error:undefined reference to 。
 分析：函数显然是定义了的，提示未定义应该是出于某种原因未找到。后发现 logprint.c 文件中部分函数带有前缀 LIBLOG_ABI_PUBLIC，该宏定义为 #define LIBLOG_ABI_PUBLIC __attribute__((visibility(&quot;default&quot;)))，作用是设置符号的可见性属性，查看 liblog 的 Android.bp 文件，发现编译选项设置为
 
@@ -291,7 +291,7 @@ cflags: [
   <span class="copyright-year">
     &copy; 
     2019 - 
-    2023<span class="heart"><i class="iconfont icon-heart"></i></span><span>Aries</span>
+    2024<span class="heart"><i class="iconfont icon-heart"></i></span><span>Aries</span>
   </span>
 </div>
 
@@ -307,7 +307,7 @@ cflags: [
   <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/timeago.js@3.0.2/dist/timeago.min.js" integrity="sha256-jwCP0NAdCBloaIWTWHmW4i3snUNMHUNO+jr9rYd2iOI=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/timeago.js@3.0.2/dist/timeago.locales.min.js" integrity="sha256-ZwofwC1Lf/faQCzN7nZtfijVV6hSwxjQMwXL4gn9qU8=" crossorigin="anonymous"></script>
-  <script><!-- NOTE: timeago.js uses the language code format like "zh_CN" (underscore and case sensitive) -->
+  <script>
     var languageCode = "en".replace(/-/g, '_').replace(/_(.*)/, function ($0, $1) {return $0.replace($1, $1.toUpperCase());});
     timeago().render(document.querySelectorAll('.timeago'), languageCode);
     timeago.cancel();  

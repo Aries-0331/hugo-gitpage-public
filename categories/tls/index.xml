@@ -6,30 +6,21 @@
     <description>Recent content in tls on Aries blablabla</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 06 Jul 2021 22:28:02 +0800</lastBuildDate><atom:link href="https://urchinzhou.com/categories/tls/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 06 Jul 2021 22:28:02 +0800</lastBuildDate>
+    <atom:link href="https://urchinzhou.com/categories/tls/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>HTTPS与HTTP</title>
       <link>https://urchinzhou.com/post/https%E4%B8%8Ehttp/</link>
       <pubDate>Tue, 06 Jul 2021 22:28:02 +0800</pubDate>
-      
       <guid>https://urchinzhou.com/post/https%E4%B8%8Ehttp/</guid>
       <description>概念上理清 HTTPS 与 HTTP 的区别。 在互联网协议套件中，将网络协议分为四层，从下至上依次为链路层-网络层-传输层-应用层，HTTP 属于应用层协议。中文名</description>
     </item>
-    
     <item>
       <title>TLS协议</title>
       <link>https://urchinzhou.com/post/tls%E5%8D%8F%E8%AE%AE/</link>
       <pubDate>Tue, 06 Jul 2021 22:24:45 +0800</pubDate>
-      
       <guid>https://urchinzhou.com/post/tls%E5%8D%8F%E8%AE%AE/</guid>
-      <description>&lt;h2 id=&#34;tls-协议的设计目标&#34;&gt;TLS 协议的设计目标&lt;/h2&gt;
-&lt;p&gt;&lt;strong&gt;构建一个安全传输层（Transport Layer Security）&lt;/strong&gt;，在基于连接的传输层（如 TCP）之上提供密码学安全，包括&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;机密性，信息加密传输，无法被窃听&lt;/li&gt;
-&lt;li&gt;完整性，信息一旦被篡改，通信双方可感知&lt;/li&gt;
-&lt;li&gt;认证，通信双方防止身份被冒充&lt;/li&gt;
-&lt;/ol&gt;</description>
+      <description>&lt;h2 id=&#34;tls-协议的设计目标&#34;&gt;TLS 协议的设计目标&lt;/h2&gt;&#xA;&lt;p&gt;&lt;strong&gt;构建一个安全传输层（Transport Layer Security）&lt;/strong&gt;，在基于连接的传输层（如 TCP）之上提供密码学安全，包括&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;机密性，信息加密传输，无法被窃听&lt;/li&gt;&#xA;&lt;li&gt;完整性，信息一旦被篡改，通信双方可感知&lt;/li&gt;&#xA;&lt;li&gt;认证，通信双方防止身份被冒充&lt;/li&gt;&#xA;&lt;/ol&gt;</description>
     </item>
-    
   </channel>
 </rss>

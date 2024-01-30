@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.117.0 with theme even" />
+<meta name="generator" content="Hugo 0.122.0 with theme even" />
 
 
 <link rel="canonical" href="https://urchinzhou.com/" />
@@ -45,9 +45,9 @@
 <meta property="og:description" content="Aries&#39;s blog" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://urchinzhou.com/" />
+
 <meta itemprop="name" content="Aries blablabla">
-<meta itemprop="description" content="Aries&#39;s blog"><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Aries blablabla"/>
+<meta itemprop="description" content="Aries&#39;s blog"><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Aries blablabla"/>
 <meta name="twitter:description" content="Aries&#39;s blog"/>
 
 <!--[if lte IE 9]>
@@ -227,24 +227,24 @@
 </span><span class="lnt">17
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"> <span class="c1">// this is equivalent to using deprecated MasterKeys.AES256_GCM_SPEC
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span> <span class="n">KeyGenParameterSpec</span> <span class="n">spec</span> <span class="o">=</span> <span class="k">new</span> <span class="n">KeyGenParameterSpec</span><span class="o">.</span><span class="na">Builder</span><span class="o">(</span>
-</span></span><span class="line"><span class="cl">         <span class="n">MASTER_KEY_ALIAS</span><span class="o">,</span>
-</span></span><span class="line"><span class="cl">         <span class="n">KeyProperties</span><span class="o">.</span><span class="na">PURPOSE_ENCRYPT</span> <span class="o">|</span> <span class="n">KeyProperties</span><span class="o">.</span><span class="na">PURPOSE_DECRYPT</span><span class="o">)</span>
-</span></span><span class="line"><span class="cl">         <span class="o">.</span><span class="na">setBlockModes</span><span class="o">(</span><span class="n">KeyProperties</span><span class="o">.</span><span class="na">BLOCK_MODE_GCM</span><span class="o">)</span>
-</span></span><span class="line"><span class="cl">         <span class="o">.</span><span class="na">setEncryptionPaddings</span><span class="o">(</span><span class="n">KeyProperties</span><span class="o">.</span><span class="na">ENCRYPTION_PADDING_NONE</span><span class="o">)</span>
-</span></span><span class="line"><span class="cl">         <span class="o">.</span><span class="na">setKeySize</span><span class="o">(</span><span class="n">KEY_SIZE</span><span class="o">)</span>
-</span></span><span class="line"><span class="cl">         <span class="o">.</span><span class="na">build</span><span class="o">();</span>
-</span></span><span class="line"><span class="cl"> <span class="n">MasterKey</span> <span class="n">masterKey</span> <span class="o">=</span> <span class="k">new</span> <span class="n">MasterKey</span><span class="o">.</span><span class="na">Builder</span><span class="o">(</span><span class="n">MainActivity</span><span class="o">.</span><span class="na">this</span><span class="o">)</span>
-</span></span><span class="line"><span class="cl">         <span class="o">.</span><span class="na">setKeyGenParameterSpec</span><span class="o">(</span><span class="n">spec</span><span class="o">)</span>
-</span></span><span class="line"><span class="cl">         <span class="o">.</span><span class="na">build</span><span class="o">();</span>
-</span></span><span class="line"><span class="cl"> <span class="n">EncryptedSharedPreferences</span><span class="o">.</span><span class="na">create</span><span class="o">(</span>
-</span></span><span class="line"><span class="cl">         <span class="n">MainActivity</span><span class="o">.</span><span class="na">this</span><span class="o">,</span>
-</span></span><span class="line"><span class="cl">         <span class="s">&#34;your-app-preferences-name&#34;</span><span class="o">,</span>
-</span></span><span class="line"><span class="cl">         <span class="n">masterKey</span><span class="o">,</span> <span class="c1">// masterKey created above
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>         <span class="n">EncryptedSharedPreferences</span><span class="o">.</span><span class="na">PrefKeyEncryptionScheme</span><span class="o">.</span><span class="na">AES256_SIV</span><span class="o">,</span>
-</span></span><span class="line"><span class="cl">         <span class="n">EncryptedSharedPreferences</span><span class="o">.</span><span class="na">PrefValueEncryptionScheme</span><span class="o">.</span><span class="na">AES256_GCM</span><span class="o">);</span>
-</span></span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="w"> </span><span class="c1">// this is equivalent to using deprecated MasterKeys.AES256_GCM_SPEC</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"> </span><span class="n">KeyGenParameterSpec</span><span class="w"> </span><span class="n">spec</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">KeyGenParameterSpec</span><span class="p">.</span><span class="na">Builder</span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">         </span><span class="n">MASTER_KEY_ALIAS</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">         </span><span class="n">KeyProperties</span><span class="p">.</span><span class="na">PURPOSE_ENCRYPT</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">KeyProperties</span><span class="p">.</span><span class="na">PURPOSE_DECRYPT</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">         </span><span class="p">.</span><span class="na">setBlockModes</span><span class="p">(</span><span class="n">KeyProperties</span><span class="p">.</span><span class="na">BLOCK_MODE_GCM</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">         </span><span class="p">.</span><span class="na">setEncryptionPaddings</span><span class="p">(</span><span class="n">KeyProperties</span><span class="p">.</span><span class="na">ENCRYPTION_PADDING_NONE</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">         </span><span class="p">.</span><span class="na">setKeySize</span><span class="p">(</span><span class="n">KEY_SIZE</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">         </span><span class="p">.</span><span class="na">build</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"> </span><span class="n">MasterKey</span><span class="w"> </span><span class="n">masterKey</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">MasterKey</span><span class="p">.</span><span class="na">Builder</span><span class="p">(</span><span class="n">MainActivity</span><span class="p">.</span><span class="na">this</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">         </span><span class="p">.</span><span class="na">setKeyGenParameterSpec</span><span class="p">(</span><span class="n">spec</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">         </span><span class="p">.</span><span class="na">build</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"> </span><span class="n">EncryptedSharedPreferences</span><span class="p">.</span><span class="na">create</span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">         </span><span class="n">MainActivity</span><span class="p">.</span><span class="na">this</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">         </span><span class="s">&#34;your-app-preferences-name&#34;</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">         </span><span class="n">masterKey</span><span class="p">,</span><span class="w"> </span><span class="c1">// masterKey created above</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">         </span><span class="n">EncryptedSharedPreferences</span><span class="p">.</span><span class="na">PrefKeyEncryptionScheme</span><span class="p">.</span><span class="na">AES256_SIV</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">         </span><span class="n">EncryptedSharedPreferences</span><span class="p">.</span><span class="na">PrefValueEncryptionScheme</span><span class="p">.</span><span class="na">AES256_GCM</span><span class="p">);</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div>
     </div>
@@ -345,7 +345,7 @@
   <span class="copyright-year">
     &copy; 
     2019 - 
-    2023<span class="heart"><i class="iconfont icon-heart"></i></span><span>Aries</span>
+    2024<span class="heart"><i class="iconfont icon-heart"></i></span><span>Aries</span>
   </span>
 </div>
 
@@ -361,7 +361,7 @@
   <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/timeago.js@3.0.2/dist/timeago.min.js" integrity="sha256-jwCP0NAdCBloaIWTWHmW4i3snUNMHUNO+jr9rYd2iOI=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/timeago.js@3.0.2/dist/timeago.locales.min.js" integrity="sha256-ZwofwC1Lf/faQCzN7nZtfijVV6hSwxjQMwXL4gn9qU8=" crossorigin="anonymous"></script>
-  <script><!-- NOTE: timeago.js uses the language code format like "zh_CN" (underscore and case sensitive) -->
+  <script>
     var languageCode = "en".replace(/-/g, '_').replace(/_(.*)/, function ($0, $1) {return $0.replace($1, $1.toUpperCase());});
     timeago().render(document.querySelectorAll('.timeago'), languageCode);
     timeago.cancel();  

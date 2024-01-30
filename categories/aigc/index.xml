@@ -6,59 +6,42 @@
     <description>Recent content in AIGC on Aries blablabla</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 28 Jun 2023 22:15:12 +0800</lastBuildDate><atom:link href="https://urchinzhou.com/categories/aigc/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 28 Jun 2023 22:15:12 +0800</lastBuildDate>
+    <atom:link href="https://urchinzhou.com/categories/aigc/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Go Package - gorm</title>
       <link>https://urchinzhou.com/post/go-package-gorm/</link>
       <pubDate>Wed, 28 Jun 2023 22:15:12 +0800</pubDate>
-      
       <guid>https://urchinzhou.com/post/go-package-gorm/</guid>
-      <description>GORM is a popular Object-Relational Mapping (ORM) package for Go, designed to simplify database operations and improve developer productivity. It provides a robust and expressive API for interacting with various databases, including PostgreSQL, MySQL, SQLite, and more. With GORM, you can focus on your application&amp;rsquo;s logic while it handles the complexities of database management.
-Main Usage of GORM:
-Model Definition: GORM allows you to define models, which are Go structs representing database tables.</description>
+      <description>GORM is a popular Object-Relational Mapping (ORM) package for Go, designed to simplify database operations and improve developer productivity. It provides a robust and expressive API for interacting with various databases, including PostgreSQL, MySQL, SQLite, and more. With GORM, you can focus on your application&amp;rsquo;s logic while it handles the complexities of database management.&#xA;Main Usage of GORM:&#xA;Model Definition: GORM allows you to define models, which are Go structs representing database tables.</description>
     </item>
-    
     <item>
       <title>Go Package - gorilla mux</title>
       <link>https://urchinzhou.com/post/go-package-gorilla-mux/</link>
       <pubDate>Tue, 27 Jun 2023 17:00:03 +0800</pubDate>
-      
       <guid>https://urchinzhou.com/post/go-package-gorilla-mux/</guid>
-      <description>Gorilla/mux is a popular package in the Go ecosystem that simplifies routing and URL matching for HTTP services. It offers a rich set of features and allows developers to define custom routes, handle variables, and leverage middleware for enhanced functionality. With gorilla/mux, you can build scalable and maintainable web applications with ease.
-Main Usage of gorilla/mux:
-Routing: Gorilla/mux enables you to define powerful and dynamic routes by leveraging patterns, placeholders, and regular expressions.</description>
+      <description>Gorilla/mux is a popular package in the Go ecosystem that simplifies routing and URL matching for HTTP services. It offers a rich set of features and allows developers to define custom routes, handle variables, and leverage middleware for enhanced functionality. With gorilla/mux, you can build scalable and maintainable web applications with ease.&#xA;Main Usage of gorilla/mux:&#xA;Routing: Gorilla/mux enables you to define powerful and dynamic routes by leveraging patterns, placeholders, and regular expressions.</description>
     </item>
-    
     <item>
       <title>A Glance at JavaScript</title>
       <link>https://urchinzhou.com/post/a-glance-at-javascript/</link>
       <pubDate>Sat, 24 Jun 2023 10:53:48 +0800</pubDate>
-      
       <guid>https://urchinzhou.com/post/a-glance-at-javascript/</guid>
-      <description>Introduction: Welcome, esteemed senior engineers, to the realm of JavaScript! As experts in object-oriented languages like C++, you are well-positioned to explore the unique features and possibilities that JavaScript offers. In this blog, we will delve into JavaScript&amp;rsquo;s language features, grammar, application scenarios, and provide insights on becoming a professional JavaScript developer.
-JavaScript Language Features: Discover the dynamic nature of JavaScript and its powerful capabilities. Learn about JavaScript&amp;rsquo;s prototypal inheritance model, functional programming concepts, lexical scoping, closures, and the event-driven nature of the language.</description>
+      <description>Introduction: Welcome, esteemed senior engineers, to the realm of JavaScript! As experts in object-oriented languages like C++, you are well-positioned to explore the unique features and possibilities that JavaScript offers. In this blog, we will delve into JavaScript&amp;rsquo;s language features, grammar, application scenarios, and provide insights on becoming a professional JavaScript developer.&#xA;JavaScript Language Features: Discover the dynamic nature of JavaScript and its powerful capabilities. Learn about JavaScript&amp;rsquo;s prototypal inheritance model, functional programming concepts, lexical scoping, closures, and the event-driven nature of the language.</description>
     </item>
-    
     <item>
       <title>Mastering ChatGPT：Crafting Effective Prompt</title>
       <link>https://urchinzhou.com/post/mastering-chatgptcrafting-effective-prompt/</link>
       <pubDate>Fri, 23 Jun 2023 21:59:23 +0800</pubDate>
-      
       <guid>https://urchinzhou.com/post/mastering-chatgptcrafting-effective-prompt/</guid>
-      <description>Introduction: Engaging in conversations with AI models like ChatGPT can be an exciting and rewarding experience. However, achieving meaningful and accurate responses relies heavily on the quality of prompts provided. In this blog post, we will explore strategies for crafting excellent prompts that maximize the potential of ChatGPT and enhance the overall conversation. Let&amp;rsquo;s dive in and unlock the power of effective prompts!
-Be Clear and Specific: Clearly communicate your intention and provide specific context in your prompts.</description>
+      <description>Introduction: Engaging in conversations with AI models like ChatGPT can be an exciting and rewarding experience. However, achieving meaningful and accurate responses relies heavily on the quality of prompts provided. In this blog post, we will explore strategies for crafting excellent prompts that maximize the potential of ChatGPT and enhance the overall conversation. Let&amp;rsquo;s dive in and unlock the power of effective prompts!&#xA;Be Clear and Specific: Clearly communicate your intention and provide specific context in your prompts.</description>
     </item>
-    
     <item>
       <title>HTML Introduction</title>
       <link>https://urchinzhou.com/post/html-introduction/</link>
       <pubDate>Wed, 21 Jun 2023 18:00:12 +0800</pubDate>
-      
       <guid>https://urchinzhou.com/post/html-introduction/</guid>
-      <description>This blog is an attempt to generate with ai.
-In this blog post, we will embark on a journey into the world of web technology and explore the fundamental aspects of HTML (Hypertext Markup Language). As a crucial language for structuring web content, HTML lays the groundwork for creating visually appealing and interactive websites. Let&amp;rsquo;s dive in!
-HTML Essentials: HTML employs tags to define elements and organize information on web pages.</description>
+      <description>This blog is an attempt to generate with ai.&#xA;In this blog post, we will embark on a journey into the world of web technology and explore the fundamental aspects of HTML (Hypertext Markup Language). As a crucial language for structuring web content, HTML lays the groundwork for creating visually appealing and interactive websites. Let&amp;rsquo;s dive in!&#xA;HTML Essentials: HTML employs tags to define elements and organize information on web pages.</description>
     </item>
-    
   </channel>
 </rss>

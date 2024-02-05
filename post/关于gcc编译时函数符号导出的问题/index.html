@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>关于gcc编译时函数符号导出的问题 - Aries blablabla</title>
+  <title>关于gcc编译时函数符号导出的问题 - Aries notebook</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -42,7 +42,7 @@
 
 
 <link href="/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
 
 
 <meta property="og:title" content="关于gcc编译时函数符号导出的问题" />
@@ -211,11 +211,6 @@ cflags: [
     </header>
 
     
-  <div class="post-outdated">
-    <div class="warn">
-      <p>[NOTE] Updated <span class="timeago" datetime="2021-07-06T22:26:17" title="July 6, 2021">July 6, 2021</span>. This article may have outdated content or subject matter.</p>
-    </div>
-  </div>
     <div class="post-content">
       <p>背景：在 Android P liblog 模块中增加一个功能，涉及外部函数调用。如在 <code>A.c</code> 中定义函数 <code>fun</code>，在 <code>A.h</code> 中声明函数 <code>fun</code>，在 <code>B.c</code> 中包含 <code>A.h</code> 后调用 <code>fun</code>，文件名、路径等均没有问题，但编译时会触发 <code>error:undefined reference to </code>。</p>
 <p>分析：函数显然是定义了的，提示未定义应该是出于某种原因未找到。后发现 <code>logprint.c</code> 文件中部分函数带有前缀 <code>LIBLOG_ABI_PUBLIC</code>，该宏定义为 <code>#define LIBLOG_ABI_PUBLIC __attribute__((visibility(&quot;default&quot;)))</code>，作用是设置符号的可见性属性，查看 liblog 的 Android.bp 文件，发现编译选项设置为</p>
@@ -304,14 +299,7 @@ cflags: [
   
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/timeago.js@3.0.2/dist/timeago.min.js" integrity="sha256-jwCP0NAdCBloaIWTWHmW4i3snUNMHUNO+jr9rYd2iOI=" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/timeago.js@3.0.2/dist/timeago.locales.min.js" integrity="sha256-ZwofwC1Lf/faQCzN7nZtfijVV6hSwxjQMwXL4gn9qU8=" crossorigin="anonymous"></script>
-  <script>
-    var languageCode = "en".replace(/-/g, '_').replace(/_(.*)/, function ($0, $1) {return $0.replace($1, $1.toUpperCase());});
-    timeago().render(document.querySelectorAll('.timeago'), languageCode);
-    timeago.cancel();  
-  </script>
+  
 
 
 

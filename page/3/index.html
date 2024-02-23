@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Aries notebook</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Aries" /><meta name="description" content="Aries notebook" /><meta name="keywords" content="Aries, blog, hugo" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.123.2 with theme even" />
+
+
+<link rel="canonical" href="https://urchinzhou.com/" />
+  <link href="https://urchinzhou.com/index.xml" rel="alternate" type="application/rss+xml" title="Aries notebook" />
+  <link href="https://urchinzhou.com/index.xml" rel="feed" type="application/rss+xml" title="Aries notebook" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
+
+
+
+<meta property="og:title" content="Aries notebook" />
+<meta property="og:description" content="Aries notebook" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://urchinzhou.com/" />
+
+<meta itemprop="name" content="Aries notebook">
+<meta itemprop="description" content="Aries notebook"><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Aries notebook"/>
+<meta name="twitter:description" content="Aries notebook"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-XXXXXXXXX-X"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-XXXXXXXXX-X');
+</script>
+
+
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Aries</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
+
+  
+
+
+</nav>
+
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Aries</a>
+</div>
+
+
+
+
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <section id="posts" class="posts">
+  <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/tcp/">What happens when tcp listen to a port?</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2023-06-29 </span>
+      <div class="post-category">
+        <a href="/%20categories/tcp/"> tcp </a>
+        </div>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    
+    <div class="post-summary">
+      <p>When reading the net/http code of golang, I was suddenly curious about the mechanism of tcp listen, then I googled and found this interesting Q&amp;A - <a href="https://stackoverflow.com/questions/4530187/what-happens-when-we-say-listen-to-a-port">What happens when we say &ldquo;listen to a port&rdquo;?</a> on StackOverflow.</p>
+<blockquote>
+<p>Q:When we start a server application, we always need to speicify the port number it listens to. But how is this &ldquo;listening mechanism&rdquo; implemented under the hood?</p>
+<p>My current <em>imagination</em> is like this:</p>
+<p>The operating system associate the port number with some buffer. The server application&rsquo;s responsibiliy is to monitor this buffer. If there&rsquo;s no data in this buffer, the server application&rsquo;s listen operation will just *<strong>block*</strong> the application.</p>
+<p>When some data arrives from the wire, the operating system will *<strong>know*</strong> that and then check the data and see if it is targeted at this port number. And then it will fill the *<strong>corresponding*</strong> buffer. And then OS will notify the blocked server application and the server application will get the data and continue to run.</p>
+<p>Question is:</p>
+<ul>
+<li>If the above scenario is correct, how could the opearting system *<strong>know*</strong> there&rsquo;s data arriving from wire? It cannot be a busy polling. Is it some kind of interrupt-based mechanism?</li>
+<li>If there&rsquo;s too much data arriving and the buffer is not big enough, will there be data loss?</li>
+<li>Is the &ldquo;listen to a port&rdquo; operation really a blocking operation?</li>
+</ul>
+</blockquote>
+<p>The accepted answer is :</p>
+<blockquote>
+<p>There is <em>no buffer</em> that the application monitors. Instead, the application calls listen() at some point, and the OS remembers from then on that this application is interested in new connections to that port number. Only one application can indicate interest in a certain port at any time.</p>
+<p>The listen operation does <em>not block</em>. Instead, it returns right away. What may block is <a href="http://linux.die.net/man/2/accept"><code>accept()</code></a>. The system has a backlog of incoming connections (buffering the data that have been received), and returns one of the connections every time accept is called. accept doesn&rsquo;t transmit any data; the application must then do recv() calls on the accepted socket.</p>
+<p>As to your questions:</p>
+<ul>
+<li>as others have said: hardware interrupts. The NIC takes the datagram completely off the wire, interrupts, and is assigned an address in memory to copy it to.</li>
+<li>for TCP, there will be no data loss, as there will always be sufficient memory during the communication. TCP has flow control, and the sender will stop sending before the receiver has no more memory. For UDP and new TCP connections, there can be data loss; the sender will typically get an error indication (as the system reserves memory to accept just one more datagram).</li>
+<li>see above: listen itself is not blocking; accept is.</li>
+</ul>
+</blockquote>
+
+    </div>
+    
+  </div>
+</article>
+  </section>
+
+<nav class="pagination">
+  <a class="prev" href="/page/2/">
+    <i class="iconfont icon-left"></i>
+    <span class="prev-text">Prev</span>
+  </a>
+  <a class="next" href="/page/4/">
+    <span class="next-text">Next</span>
+    <i class="iconfont icon-right"></i>
+  </a>
+</nav>
+        </div>
+        
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:urchinzhou@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://twitter.com/AriesBlabla" class="iconfont icon-twitter" title="twitter"></a>
+      <a href="https://github.com/Aries-0331" class="iconfont icon-github" title="github"></a>
+  <a href="https://urchinzhou.com/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+     - 
+    2024<span class="heart"><i class="iconfont icon-heart"></i></span><span>Aries</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  
+
+
+
+<script type="text/javascript" src="/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex: {
+        }
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js" integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin="anonymous"></script>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-XXXXXXXXX-X"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-XXXXXXXXX-X');
+</script>
+
+
+
+
+
+
+
+
+</body>
+</html>

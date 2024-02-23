@@ -6,12 +6,12 @@
     <description>Recent content in Network on Aries notebook</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 06 Jul 2021 22:25:41 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 27 Apr 2021 22:25:41 +0800</lastBuildDate>
     <atom:link href="https://urchinzhou.com/categories/network/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>关于数据分片与分段</title>
       <link>https://urchinzhou.com/post/%E5%85%B3%E4%BA%8E%E6%95%B0%E6%8D%AE%E5%88%86%E7%89%87%E4%B8%8E%E5%88%86%E6%AE%B5/</link>
-      <pubDate>Tue, 06 Jul 2021 22:25:41 +0800</pubDate>
+      <pubDate>Tue, 27 Apr 2021 22:25:41 +0800</pubDate>
       <guid>https://urchinzhou.com/post/%E5%85%B3%E4%BA%8E%E6%95%B0%E6%8D%AE%E5%88%86%E7%89%87%E4%B8%8E%E5%88%86%E6%AE%B5/</guid>
       <description>链路层要求数据帧的长度最大值为 1500 字节，该特性被称为 MTU，即最大传输单元。当 IP 层的数据报大于 MTU 时，IP 层就需要进行分片，就是把数据报分成若干</description>
     </item>

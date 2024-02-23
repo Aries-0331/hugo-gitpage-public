@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Javascript on Aries notebook</title>
+    <link>https://urchinzhou.com/categories/javascript/</link>
+    <description>Recent content in Javascript on Aries notebook</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 30 Jan 2024 15:48:57 +0800</lastBuildDate>
+    <atom:link href="https://urchinzhou.com/categories/javascript/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>JavaScript Basic Summarize</title>
+      <link>https://urchinzhou.com/post/javascript-basic-summarize/</link>
+      <pubDate>Tue, 30 Jan 2024 15:48:57 +0800</pubDate>
+      <guid>https://urchinzhou.com/post/javascript-basic-summarize/</guid>
+      <description>Typically something that are easy to forget or misunderstand.&#xA;Data types JavaScript is a dynamic language with dynamic types. Variables in JavaScript are not directly associated with any particular value type, and any variable can be assigned (and re-assigned) values of all types.&#xA;JavaScript is also a weakly typed language, which means it allows implicit type conversion when an operation involves mismatched types, instead of throwing type errors.&#xA;Implicit coercions are very convenient, but can create subtle bugs when conversions happen where they are not expected, or where they are expected to happen in the other direction (for example, string to number instead of number to string).</description>
+    </item>
+    <item>
+      <title>About JavaScript</title>
+      <link>https://urchinzhou.com/post/a-glance-at-javascript/</link>
+      <pubDate>Sat, 24 Jun 2023 10:53:48 +0800</pubDate>
+      <guid>https://urchinzhou.com/post/a-glance-at-javascript/</guid>
+      <description>Introduction: Welcome, esteemed senior engineers, to the realm of JavaScript! As experts in object-oriented languages like C++, you are well-positioned to explore the unique features and possibilities that JavaScript offers. In this blog, we will delve into JavaScript&amp;rsquo;s language features, grammar, application scenarios, and provide insights on becoming a professional JavaScript developer.&#xA;JavaScript Language Features: Discover the dynamic nature of JavaScript and its powerful capabilities. Learn about JavaScript&amp;rsquo;s prototypal inheritance model, functional programming concepts, lexical scoping, closures, and the event-driven nature of the language.</description>
+    </item>
+  </channel>
+</rss>

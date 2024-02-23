@@ -1,133 +1,47 @@
-<!doctype html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<html
-  class="not-ready lg:text-base"
-  style="--bg: #faf8f1"
-  lang="en"
->
-  <head>
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1, shrink-to-fit=no"
-  />
-
-  
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <title>What happens when tcp listen to a port? - Aries notebook</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
-  
-  <meta name="theme-color" />
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
 
-  
-  
-  
-  
-  <meta name="description" content="When reading the net/http code of golang, I was suddenly curious about the mechanism of tcp listen, then I googled and found this interesting Q&amp;A - What happens when we say &ldquo;listen to a port&rdquo;? on StackOverflow.
-Q:When we start a server application, we always need to speicify the port number it listens to. But how is this &ldquo;listening mechanism&rdquo; implemented under the hood?
-My current imagination is like this:" />
-  <meta name="author" content="Aries" />
-  
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
-  
-  
-  
-  
-  
-  
-  <link rel="preload stylesheet" as="style" href="https://urchinzhou.com/main.min.css" />
 
-  
-  
-  
-  
-  
-  <link rel="preload" as="image" href="https://urchinzhou.com/theme.png" />
+<meta name="author" content="Aries" /><meta name="description" content="When reading the net/http code of golang, I was suddenly curious about the mechanism of tcp listen, then I googled and found this interesting Q&amp;amp;A - What happens when we say &amp;ldquo;listen to a port&amp;rdquo;? on StackOverflow.
+Q:When we start a server application, we always need to speicify the port number it listens to. But how is this &amp;ldquo;listening mechanism&amp;rdquo; implemented under the hood?
+My current imagination is like this:" /><meta name="keywords" content="Aries, blog, hugo" />
 
-  
-  
-  
-  
-  
 
-  
-  
-  
 
-  
-  
-  <script
-    defer
-    src="https://urchinzhou.com/highlight.min.js"
-    onload="hljs.initHighlightingOnLoad();"
-  ></script>
-  
 
-  
-  
-  
 
-  
-  <link rel="icon" href="https://urchinzhou.com/favicon.ico" />
-  <link rel="apple-touch-icon" href="https://urchinzhou.com/apple-touch-icon.png" />
 
-  
-  <meta name="generator" content="Hugo 0.123.2">
+<meta name="generator" content="Hugo 0.123.2 with theme even" />
 
-  
-  
-  
-  
-<script>
-var doNotTrack = false;
-if (!doNotTrack) {
-	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-	ga('create', 'UA-144279628-1', 'auto');
-	ga('set', 'anonymizeIp', true);
-	ga('send', 'pageview');
-}
-</script>
-  
-  <meta itemprop="name" content="What happens when tcp listen to a port?">
-<meta itemprop="description" content="When reading the net/http code of golang, I was suddenly curious about the mechanism of tcp listen, then I googled and found this interesting Q&amp;A - What happens when we say &ldquo;listen to a port&rdquo;? on StackOverflow.
-Q:When we start a server application, we always need to speicify the port number it listens to. But how is this &ldquo;listening mechanism&rdquo; implemented under the hood?
-My current imagination is like this:"><meta itemprop="datePublished" content="2023-06-29T18:24:09+08:00" />
-<meta itemprop="dateModified" content="2023-06-29T18:24:09+08:00" />
-<meta itemprop="wordCount" content="440">
-<meta itemprop="keywords" content="" />
-  
-  <meta property="og:title" content="What happens when tcp listen to a port?" />
+
+<link rel="canonical" href="https://urchinzhou.com/post/tcp/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
+
+
+
+<meta property="og:title" content="What happens when tcp listen to a port?" />
 <meta property="og:description" content="When reading the net/http code of golang, I was suddenly curious about the mechanism of tcp listen, then I googled and found this interesting Q&amp;A - What happens when we say &ldquo;listen to a port&rdquo;? on StackOverflow.
 Q:When we start a server application, we always need to speicify the port number it listens to. But how is this &ldquo;listening mechanism&rdquo; implemented under the hood?
 My current imagination is like this:" />
@@ -136,139 +50,108 @@ My current imagination is like this:" />
 <meta property="article:published_time" content="2023-06-29T18:24:09+08:00" />
 <meta property="article:modified_time" content="2023-06-29T18:24:09+08:00" />
 
-
-  
-  <meta name="twitter:card" content="summary"/><meta name="twitter:title" content="What happens when tcp listen to a port?"/>
+<meta itemprop="name" content="What happens when tcp listen to a port?">
+<meta itemprop="description" content="When reading the net/http code of golang, I was suddenly curious about the mechanism of tcp listen, then I googled and found this interesting Q&amp;A - What happens when we say &ldquo;listen to a port&rdquo;? on StackOverflow.
+Q:When we start a server application, we always need to speicify the port number it listens to. But how is this &ldquo;listening mechanism&rdquo; implemented under the hood?
+My current imagination is like this:"><meta itemprop="datePublished" content="2023-06-29T18:24:09+08:00" />
+<meta itemprop="dateModified" content="2023-06-29T18:24:09+08:00" />
+<meta itemprop="wordCount" content="440">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="What happens when tcp listen to a port?"/>
 <meta name="twitter:description" content="When reading the net/http code of golang, I was suddenly curious about the mechanism of tcp listen, then I googled and found this interesting Q&amp;A - What happens when we say &ldquo;listen to a port&rdquo;? on StackOverflow.
 Q:When we start a server application, we always need to speicify the port number it listens to. But how is this &ldquo;listening mechanism&rdquo; implemented under the hood?
 My current imagination is like this:"/>
 
-  
-  
-  
-  <link rel="canonical" href="https://urchinzhou.com/post/tcp/" />
-  
-  
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-XXXXXXXXX-X"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-XXXXXXXXX-X');
+</script>
+
+
+
 </head>
-
-  <body class="text-black duration-200 ease-out dark:text-white">
-    <header class="mx-auto flex h-[4.5rem] max-w-3xl px-8 lg:justify-center">
-  <div class="relative z-50 mr-auto flex items-center">
-    <a
-      class="-translate-x-[1px] -translate-y-[1px] text-2xl font-semibold"
-      href="https://urchinzhou.com/"
-      >Aries notebook</a
-    >
-    <div
-      class="btn-dark text-[0] ml-4 h-6 w-6 shrink-0 cursor-pointer [background:url(./theme.png)_left_center/_auto_theme('spacing.6')_no-repeat] [transition:_background-position_0.4s_steps(5)] dark:[background-position:right]"
-      role="button"
-      aria-label="Dark"
-    ></div>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Aries</a>
   </div>
-
-  <div
-    class="btn-menu relative z-50 -mr-8 flex h-[4.5rem] w-[5rem] shrink-0 cursor-pointer flex-col items-center justify-center gap-2.5 lg:hidden"
-    role="button"
-    aria-label="Menu"
-  ></div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
 
   
 
-  <script>
-    
-    const htmlClass = document.documentElement.classList;
-    setTimeout(() => {
-      htmlClass.remove('not-ready');
-    }, 10);
 
-    
-    const btnMenu = document.querySelector('.btn-menu');
-    btnMenu.addEventListener('click', () => {
-      htmlClass.toggle('open');
-    });
+</nav>
 
-    
-    const metaTheme = document.querySelector('meta[name="theme-color"]');
-    const lightBg = '#faf8f1'.replace(/"/g, '');
-    const setDark = (isDark) => {
-      metaTheme.setAttribute('content', isDark ? '#000' : lightBg);
-      htmlClass[isDark ? 'add' : 'remove']('dark');
-      localStorage.setItem('dark', isDark);
-    };
-
-    
-    const darkScheme = window.matchMedia('(prefers-color-scheme: dark)');
-    if (htmlClass.contains('dark')) {
-      setDark(true);
-    } else {
-      const darkVal = localStorage.getItem('dark');
-      setDark(darkVal ? darkVal === 'true' : darkScheme.matches);
-    }
-
-    
-    darkScheme.addEventListener('change', (event) => {
-      setDark(event.matches);
-    });
-
-    
-    const btnDark = document.querySelector('.btn-dark');
-    btnDark.addEventListener('click', () => {
-      setDark(localStorage.getItem('dark') !== 'true');
-    });
-  </script>
-
-  <div
-    class="nav-wrapper fixed inset-x-0 top-full z-40 flex h-full select-none flex-col justify-center pb-16 duration-200 dark:bg-black lg:static lg:h-auto lg:flex-row lg:!bg-transparent lg:pb-0 lg:transition-none"
-  >
-    
-    
-    <nav class="lg:ml-12 lg:flex lg:flex-row lg:items-center lg:space-x-6">
-      
-      <a
-        class="block text-center text-2xl leading-[5rem] lg:text-base lg:font-normal"
-        href="/"
-        >Home</a
-      >
-      
-      <a
-        class="block text-center text-2xl leading-[5rem] lg:text-base lg:font-normal"
-        href="/post/"
-        >Archives</a
-      >
-      
-    </nav>
-    
-
-    
-  </div>
-</header>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Aries</a>
+</div>
 
 
-    <main
-      class="prose prose-neutral relative mx-auto min-h-[calc(100%-9rem)] max-w-3xl px-8 pb-16 pt-12 dark:prose-invert"
-    >
-      
 
-<article>
-  <header class="mb-16">
-    <h1 class="!my-0 pb-2.5">What happens when tcp listen to a port?</h1>
+
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">What happens when tcp listen to a port?</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2023-06-29 </span>
+        <div class="post-category">
+            <a href="/categories/tcp/"> tcp </a>
+            </div>
+        
+      </div>
+    </header>
 
     
-    <div class="text-sm antialiased opacity-60">
-      
-      <time>Jun 29, 2023</time>
-      
-      
-      
-      
-      <span class="mx-1">&middot;</span>
-      <span>Aries</span>
-      
-    </div>
-    
-  </header>
-
-  <section><p>When reading the net/http code of golang, I was suddenly curious about the mechanism of tcp listen, then I googled and found this interesting Q&amp;A - <a href="https://stackoverflow.com/questions/4530187/what-happens-when-we-say-listen-to-a-port">What happens when we say &ldquo;listen to a port&rdquo;?</a> on StackOverflow.</p>
+    <div class="post-content">
+      <p>When reading the net/http code of golang, I was suddenly curious about the mechanism of tcp listen, then I googled and found this interesting Q&amp;A - <a href="https://stackoverflow.com/questions/4530187/what-happens-when-we-say-listen-to-a-port">What happens when we say &ldquo;listen to a port&rdquo;?</a> on StackOverflow.</p>
 <blockquote>
 <p>Q:When we start a server application, we always need to speicify the port number it listens to. But how is this &ldquo;listening mechanism&rdquo; implemented under the hood?</p>
 <p>My current <em>imagination</em> is like this:</p>
@@ -292,67 +175,100 @@ My current imagination is like this:"/>
 <li>see above: listen itself is not blocking; accept is.</li>
 </ul>
 </blockquote>
-</section>
 
-  
-  
+    </div>
 
-  
-  
-  
-  
-  <nav class="mt-24 flex rounded-lg bg-black/[3%] text-lg dark:bg-white/[8%]">
     
-    <a
-      class="flex w-1/2 items-center rounded-l-md p-6 pr-3 font-semibold no-underline hover:bg-black/[2%] dark:hover:bg-white/[3%]"
-      href="https://urchinzhou.com/post/javascript-basic-summarize/"
-      ><span class="mr-1.5">←</span><span>JavaScript Basic Summarize</span></a
-    >
-    
-    
-    <a
-      class="ml-auto flex w-1/2 items-center justify-end rounded-r-md p-6 pl-3 font-semibold no-underline hover:bg-black/[2%] dark:hover:bg-white/[3%]"
-      href="https://urchinzhou.com/post/go-basic---interface-as-parameter-to-function/"
-      ><span>Go Basic - Interface as Parameter to Function</span><span class="ml-1.5">→</span></a
-    >
-    
-  </nav>
-  
-  
+<footer class="post-footer">
+      
+      <nav class="post-nav">
+        <a class="prev" href="/post/javascript-basic-summarize/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">JavaScript Basic Summarize</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        <a class="next" href="/post/go-basic---interface-as-parameter-to-function/">
+            <span class="next-text nav-default">Go Basic - Interface as Parameter to Function</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
 
-  
-  
-
-  
   
 
   
 
-
-  
-</article>
-
-
+      </div>
     </main>
 
-    <footer
-  class="opaco mx-auto flex h-[4.5rem] max-w-3xl items-center px-8 text-[0.9em] opacity-60"
->
-  <div class="mr-auto">
-    &copy; 2024
-    <a class="link" href="https://urchinzhou.com/">Aries notebook</a>
-  </div>
-  <a class="link mx-6" href="https://gohugo.io/" rel="noopener" target="_blank"
-    >Powered by Hugo️️</a
-  >️
-  <a
-    class="link"
-    href="https://github.com/nanxiaobei/hugo-paper"
-    rel="noopener"
-    target="_blank"
-    >✎ Paper</a
-  >
-</footer>
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:urchinzhou@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://twitter.com/AriesBlabla" class="iconfont icon-twitter" title="twitter"></a>
+      <a href="https://github.com/Aries-0331" class="iconfont icon-github" title="github"></a>
+  <a href="https://urchinzhou.com/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
 
-  </body>
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2019 - 
+    2024<span class="heart"><i class="iconfont icon-heart"></i></span><span>Aries</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  
+
+
+
+<script type="text/javascript" src="/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex: {
+        }
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js" integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin="anonymous"></script>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-XXXXXXXXX-X"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-XXXXXXXXX-X');
+</script>
+
+
+
+
+
+
+
+
+</body>
 </html>

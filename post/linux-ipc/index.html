@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>Aries notebook</title>
+  <title>Linux IPC - Aries notebook</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -16,7 +16,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="Aries" /><meta name="description" content="Aries notebook" /><meta name="keywords" content="Aries, blog, hugo" />
+<meta name="author" content="Aries" /><meta name="description" content="IPC（进程间通信），是 Linux 系统中不同进程间进行数据交换的机制。主要包括 管道（Pipe）：主要用于父子进程通信，分为匿名管道和命名管道（FIF" /><meta name="keywords" content="Aries, blog, hugo" />
 
 
 
@@ -26,9 +26,7 @@
 <meta name="generator" content="Hugo 0.123.3 with theme even" />
 
 
-<link rel="canonical" href="https://urchinzhou.com/" />
-  <link href="https://urchinzhou.com/index.xml" rel="alternate" type="application/rss+xml" title="Aries notebook" />
-  <link href="https://urchinzhou.com/index.xml" rel="feed" type="application/rss+xml" title="Aries notebook" />
+<link rel="canonical" href="https://urchinzhou.com/post/linux-ipc/" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -41,14 +39,19 @@
 
 
 
-<meta property="og:title" content="Aries notebook" />
-<meta property="og:description" content="Aries notebook" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://urchinzhou.com/" />
+<meta property="og:title" content="Linux IPC" />
+<meta property="og:description" content="IPC（进程间通信），是 Linux 系统中不同进程间进行数据交换的机制。主要包括 管道（Pipe）：主要用于父子进程通信，分为匿名管道和命名管道（FIF" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://urchinzhou.com/post/linux-ipc/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2024-02-23T13:28:32+08:00" />
+<meta property="article:modified_time" content="2024-02-23T13:28:32+08:00" />
 
-<meta itemprop="name" content="Aries notebook">
-<meta itemprop="description" content="Aries notebook"><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Aries notebook"/>
-<meta name="twitter:description" content="Aries notebook"/>
+<meta itemprop="name" content="Linux IPC">
+<meta itemprop="description" content="IPC（进程间通信），是 Linux 系统中不同进程间进行数据交换的机制。主要包括 管道（Pipe）：主要用于父子进程通信，分为匿名管道和命名管道（FIF"><meta itemprop="datePublished" content="2024-02-23T13:28:32+08:00" />
+<meta itemprop="dateModified" content="2024-02-23T13:28:32+08:00" />
+<meta itemprop="wordCount" content="6611">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Linux IPC"/>
+<meta name="twitter:description" content="IPC（进程间通信），是 Linux 系统中不同进程间进行数据交换的机制。主要包括 管道（Pipe）：主要用于父子进程通信，分为匿名管道和命名管道（FIF"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -124,21 +127,22 @@
     <main id="main" class="main">
       <div class="content-wrapper">
         <div id="content" class="content">
-          <section id="posts" class="posts">
-  <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/linux-ipc/">Linux IPC</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2024-02-23 </span>
-      <div class="post-category">
-        <a href="/%20categories/linux/"> linux </a>
-        </div>
-    </div>
-  </header>
-  
-  <div class="post-content">
+          <article class="post">
     
-    <div class="post-summary">
+    <header class="post-header">
+      <h1 class="post-title">Linux IPC</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2024-02-23 </span>
+        <div class="post-category">
+            <a href="/categories/linux/"> linux </a>
+            </div>
+        
+      </div>
+    </header>
+
+    
+    <div class="post-content">
       <ol>
 <li>
 <p>IPC（进程间通信），是 Linux 系统中不同进程间进行数据交换的机制。主要包括</p>
@@ -762,20 +766,26 @@
 </ol>
 
     </div>
-    
-  </div>
-</article>
-  </section>
 
-<nav class="pagination">
-  
-  <a class="next" href="/page/2/">
-    <span class="next-text">Next</span>
-    <i class="iconfont icon-right"></i>
-  </a>
-</nav>
+    
+<footer class="post-footer">
+      
+      <nav class="post-nav">
+        
+        <a class="next" href="/post/javascript-basic-summarize/">
+            <span class="next-text nav-default">JavaScript Basic Summarize</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
         </div>
         
+
+  
+
+  
 
       </div>
     </main>

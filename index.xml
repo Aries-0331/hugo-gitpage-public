@@ -9,11 +9,11 @@
     <lastBuildDate>Fri, 23 Feb 2024 13:28:32 +0800</lastBuildDate>
     <atom:link href="https://urchinzhou.com/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>IPC 管道</title>
-      <link>https://urchinzhou.com/post/ipc-%E7%AE%A1%E9%81%93/</link>
+      <title>Linux IPC</title>
+      <link>https://urchinzhou.com/post/linux-ipc/</link>
       <pubDate>Fri, 23 Feb 2024 13:28:32 +0800</pubDate>
-      <guid>https://urchinzhou.com/post/ipc-%E7%AE%A1%E9%81%93/</guid>
-      <description>管道（Pipe）是一种在类 Unix 系统中，用于进程间通信的机制。它允许一个进程的输出直接成为另一个进程的输入，常见于命令行环境，它能够将一个命令的</description>
+      <guid>https://urchinzhou.com/post/linux-ipc/</guid>
+      <description>IPC（进程间通信），是 Linux 系统中不同进程间进行数据交换的机制。主要包括 管道（Pipe）：主要用于父子进程通信，分为匿名管道和命名管道（FIF</description>
     </item>
     <item>
       <title>JavaScript Basic Summarize</title>

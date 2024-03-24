@@ -16,14 +16,14 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="Aries" /><meta name="description" content="Aries notebook" /><meta name="keywords" content="Aries, blog, hugo" />
+<meta name="author" content="" /><meta name="description" content="Aries notebook" /><meta name="keywords" content="Aries, blog, hugo" />
 
 
 
 
 
 
-<meta name="generator" content="Hugo 0.123.3 with theme even" />
+<meta name="generator" content="Hugo 0.124.1 with theme even" />
 
 
 <link rel="canonical" href="https://urchinzhou.com/" />
@@ -45,7 +45,6 @@
 <meta property="og:description" content="Aries notebook" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://urchinzhou.com/" />
-
 <meta itemprop="name" content="Aries notebook">
 <meta itemprop="description" content="Aries notebook"><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Aries notebook"/>
 <meta name="twitter:description" content="Aries notebook"/>
@@ -87,8 +86,8 @@
         <li class="mobile-menu-item">Home</li>
       </a><a href="/post/">
         <li class="mobile-menu-item">Archives</li>
-      </a><a href="/categories/">
-        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
       </a>
   </ul>
 
@@ -114,7 +113,7 @@
       </li><li class="menu-item">
         <a class="menu-item-link" href="/post/">Archives</a>
       </li><li class="menu-item">
-        <a class="menu-item-link" href="/categories/">Categories</a>
+        <a class="menu-item-link" href="/tags/">Tags</a>
       </li>
   </ul>
 </nav>
@@ -127,39 +126,41 @@
           <section id="posts" class="posts">
   <article class="post">
   <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/%E5%96%84%E7%94%A8%E9%98%85%E8%AF%BB%E6%8A%80%E5%B7%A7-%E6%A3%80%E8%A7%86%E9%98%85%E8%AF%BB/">善用阅读技巧 检视阅读</a></h1>
+    <h1 class="post-title"><a class="post-link" href="/post/tcp/">What happens when tcp listen to a port?</a></h1>
     <div class="post-meta">
-      <span class="post-time"> 2021-01-06 </span>
-      <div class="post-category">
-        <a href="/%20categories/read/"> read </a>
-        </div>
+      <span class="post-time"> 2020-06-29 </span>
+      
     </div>
   </header>
   
   <div class="post-content">
     
     <div class="post-summary">
-      <p>检视阅读（inspectional reading），强调在有限的时间内完成阅读。</p>
-<p>初次接触这一概念，是在莫提默·艾德勒所写的《如何阅读一本书》。作者从阅读技巧层面，将阅读划分为四个层次，检视阅读属于其中的第二层。</p>
+      <p>When reading the net/http code of golang, I was suddenly curious about the mechanism of tcp listen, then I googled and found this interesting Q&amp;A - <a href="https://stackoverflow.com/questions/4530187/what-happens-when-we-say-listen-to-a-port">What happens when we say &ldquo;listen to a port&rdquo;?</a> on StackOverflow.</p>
+<blockquote>
+<p>Q:When we start a server application, we always need to speicify the port number it listens to. But how is this &ldquo;listening mechanism&rdquo; implemented under the hood?</p>
+<p>My current <em>imagination</em> is like this:</p>
+<p>The operating system associate the port number with some buffer. The server application&rsquo;s responsibiliy is to monitor this buffer. If there&rsquo;s no data in this buffer, the server application&rsquo;s listen operation will just <strong>*block*</strong> the application.</p>
+<p>When some data arrives from the wire, the operating system will <strong>*know*</strong> that and then check the data and see if it is targeted at this port number. And then it will fill the <strong>*corresponding*</strong> buffer. And then OS will notify the blocked server application and the server application will get the data and continue to run.</p>
+<p>Question is:</p>
 <ul>
-<li>第一层被称为<strong>基础阅读</strong>（elementary reading），是指脱离文盲程度，能够从字面意义上完成阅读动作，基本上小学阶段即可达到这一层次。</li>
-<li>第三层被称为<strong>分析阅读</strong>（analytical reading），相较前两层而言，更优质、更系统，摆脱了时间的限制，旨在追求抓住整本书的内容，直到彻底内化。</li>
-<li>第四层，也是最高层次的阅读，被称为<strong>主题阅读</strong>（syntopical reading），此时的目标已经不再针对于一本书，而是围绕一个主题，开展调研式的阅读。与其称之为阅读，不如说是「研究」更为贴切。</li>
+<li>If the above scenario is correct, how could the opearting system <strong>*know*</strong> there&rsquo;s data arriving from wire? It cannot be a busy polling. Is it some kind of interrupt-based mechanism?</li>
+<li>If there&rsquo;s too much data arriving and the buffer is not big enough, will there be data loss?</li>
+<li>Is the &ldquo;listen to a port&rdquo; operation really a blocking operation?</li>
 </ul>
-<p>检视阅读相较于基础阅读多了时间上的要求，比如「速读」「略读」等，都属于检视阅读的范畴，大部分成年人所采取的阅读技巧便是如此。但是掌握这一技巧的人，大多并不会充分利用这一技巧，包括我自己，在有意识地学习阅读技巧之前，对于自己所掌握并常用的技能，并没有很好地运用，从而导致阅读很低效。</p>
-<p><strong>为什么这样讲？</strong></p>
-<p>我曾经面对很多“大部头”书籍总是无法完整地读下去，甚至第一次读了十几页放弃后，过阵子再拿起来从头读几页，又放弃，是因为我下意识地使用了检视阅读的方式，却没有贯彻检视阅读的思想。</p>
-<p><strong>什么意思呢？</strong></p>
-<p>检视阅读的核心在于，在有限的时间内通读一遍。而九年义务教育教导我们，遇到不认识的字要查、遇到不懂的知识要问，所以当我们阅读时，碰到晦涩的概念停一下，碰到不认识的字停一下，碰到不认识的人再停一下，无法流畅地阅读，很容易导致，读着读着发觉读不下去。读了周五的忘了周一的，完了返回去看，半个月下来发现还在读第一章，备受挫折orz&hellip;&hellip;</p>
-<p><strong>那么相对合理的策略是什么？</strong></p>
-<p>很简单，遇到生僻字不着急查，先跳过去，遇到陌生的概念，简单联系一下上下文，能推测就推测，推测不出来也先跳过去，以读下去为第一要务。目标是终点，而不是重点。</p>
-<p>这个过程就好比“取其精华去其糟粕”的反向操作，将「糟粕」视为初次阅读的目标和收益，先获取容易获取的部分，然后再考虑剩下的。</p>
-<p>一本书的内容，不可能全部是晦涩难懂的概念，总会有与我们的理解力齐平的部分，而这部分通常散落在整本书的各个角落，粗犷地勾勒出整本书的轮廓，让我们在读完后能够大致想象出这本书的框架。</p>
-<p>说到这里，应该很容易联想到目录、简介、序&hellip;&hellip;这些以往被我们习惯性忽略的内容。而这恰恰是以检视阅读作为常用阅读技巧的我们，所应该重视的内容。</p>
-<p>研究目录页，就相当于出发旅行前先看一下地图，具有指导性意义。简介也并不是无关紧要的，事实是，大部分的作者都会在简介或序言花费大量精力去雕琢，因为这是整本书中，唯一一处只能用精炼的语言概括自己作品内容，却又必须覆盖全面的地方。</p>
-<p>如果找来一本曾经完整读过且内容熟悉的书，看看它的序言，同时回忆书本内容，想必会不免惊叹于作者言语的精炼、措辞的精确以及架构的清晰，这种感受在阅读论述类书籍时尤为明显，如《娱乐至死》等。</p>
-<p>因此，如果你意识到自己惯用的阅读方式为速读、略读，那么要注意避开寻根究底的”阅读陷阱“，秉承五柳先生不求甚解的精神，放心大胆地读下去。哪怕一遍下来只收获百分之三十，也好过颗粒无收。而如果连一遍顺利的检视阅读都没完成，就更别提什么深入理解了。</p>
-<p>《如何阅读一本书》这本书，能够很好地帮助我们改善阅读技巧，提高阅读效率，并逐步形成自己的方法论，有兴趣的朋友可以找来看看，相信会有所收获。</p>
+</blockquote>
+<p>The accepted answer is :</p>
+<blockquote>
+<p>There is <em>no buffer</em> that the application monitors. Instead, the application calls listen() at some point, and the OS remembers from then on that this application is interested in new connections to that port number. Only one application can indicate interest in a certain port at any time.</p>
+<p>The listen operation does <em>not block</em>. Instead, it returns right away. What may block is <a href="http://linux.die.net/man/2/accept"><code>accept()</code></a>. The system has a backlog of incoming connections (buffering the data that have been received), and returns one of the connections every time accept is called. accept doesn&rsquo;t transmit any data; the application must then do recv() calls on the accepted socket.</p>
+<p>As to your questions:</p>
+<ul>
+<li>as others have said: hardware interrupts. The NIC takes the datagram completely off the wire, interrupts, and is assigned an address in memory to copy it to.</li>
+<li>for TCP, there will be no data loss, as there will always be sufficient memory during the communication. TCP has flow control, and the sender will stop sending before the receiver has no more memory. For UDP and new TCP connections, there can be data loss; the sender will typically get an error indication (as the system reserves memory to accept just one more datagram).</li>
+<li>see above: listen itself is not blocking; accept is.</li>
+</ul>
+</blockquote>
+
     </div>
     
   </div>
@@ -171,7 +172,10 @@
     <i class="iconfont icon-left"></i>
     <span class="prev-text">Prev</span>
   </a>
-  
+  <a class="next" href="/page/30/">
+    <span class="next-text">Next</span>
+    <i class="iconfont icon-right"></i>
+  </a>
 </nav>
         </div>
         
@@ -201,8 +205,8 @@
 
   <span class="copyright-year">
     &copy; 
-     - 
-    2024<span class="heart"><i class="iconfont icon-heart"></i></span><span>Aries</span>
+    2020 - 
+    2024<span class="heart"><i class="iconfont icon-heart"></i></span><span></span>
   </span>
 </div>
 

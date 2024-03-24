@@ -16,14 +16,14 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="Aries" /><meta name="description" content="Aries notebook" /><meta name="keywords" content="Aries, blog, hugo" />
+<meta name="author" content="" /><meta name="description" content="Aries notebook" /><meta name="keywords" content="Aries, blog, hugo" />
 
 
 
 
 
 
-<meta name="generator" content="Hugo 0.123.3 with theme even" />
+<meta name="generator" content="Hugo 0.124.1 with theme even" />
 
 
 <link rel="canonical" href="https://urchinzhou.com/" />
@@ -45,7 +45,6 @@
 <meta property="og:description" content="Aries notebook" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://urchinzhou.com/" />
-
 <meta itemprop="name" content="Aries notebook">
 <meta itemprop="description" content="Aries notebook"><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Aries notebook"/>
 <meta name="twitter:description" content="Aries notebook"/>
@@ -87,8 +86,8 @@
         <li class="mobile-menu-item">Home</li>
       </a><a href="/post/">
         <li class="mobile-menu-item">Archives</li>
-      </a><a href="/categories/">
-        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
       </a>
   </ul>
 
@@ -114,7 +113,7 @@
       </li><li class="menu-item">
         <a class="menu-item-link" href="/post/">Archives</a>
       </li><li class="menu-item">
-        <a class="menu-item-link" href="/categories/">Categories</a>
+        <a class="menu-item-link" href="/tags/">Tags</a>
       </li>
   </ul>
 </nav>
@@ -127,62 +126,21 @@
           <section id="posts" class="posts">
   <article class="post">
   <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/%E5%85%B3%E4%BA%8Exlog%E5%8A%A0%E5%AF%86%E5%A4%84%E7%90%86%E5%88%86%E6%9E%90/">关于xlog加密处理分析</a></h1>
+    <h1 class="post-title"><a class="post-link" href="/post/%E5%85%B3%E4%BA%8E%E6%95%B0%E6%8D%AE%E5%88%86%E7%89%87%E4%B8%8E%E5%88%86%E6%AE%B5/">关于数据分片与分段</a></h1>
     <div class="post-meta">
-      <span class="post-time"> 2021-05-28 </span>
-      <div class="post-category">
-        <a href="/%20categories/crypto/"> crypto </a>
-        <a href="/%20categories/android/"> android </a>
-        </div>
+      <span class="post-time"> 2021-04-27 </span>
+      
     </div>
   </header>
   
   <div class="post-content">
     
     <div class="post-summary">
-      <p>xlog 使用微型加密算法（TEA，Tiny Encryption Algorithm）对日志数据进行加密，使用 ECDH 密钥交换算法进行对称密钥的协商，对称密钥以数组形式存储在栈区，声明为 <code>LogCrypt</code> 类的私有字段。</p>
-<p>会话密钥长度与椭圆曲线参数相关，xlog 中使用 16 Bytes 密钥。</p>
-<h3 id="相关接口">相关接口</h3>
-<ul>
-<li>uECC_make_key ( client_pubkey, client_pri )
-<ul>
-<li>生成客户端公私钥对</li>
-</ul>
-</li>
-<li>uECC_shared_secret ( svr_pubkey, client_pri, secret )
-<ul>
-<li>根据服务端公钥与客户端私钥，运算出对称密钥 secret</li>
-</ul>
-</li>
-<li>__TeaEncrypt ( log, secret )
-<ul>
-<li>使用对称密钥加密日志</li>
-</ul>
-</li>
-</ul>
-<h3 id="协商流程">协商流程：</h3>
-<ol>
-<li><code>client</code> 调用 <code>uECC_make_key</code> 生成 pubKeyA 与 priKeyA；</li>
-<li><code>server</code> 调用 <code>uECC_make_key</code> 生成 pubKeyB 与 priKeyB；</li>
-<li><code>client</code> 获取<code>server</code> 公钥 <code>pubKeyB</code> ，调用 <code>uECC_shared_secret</code> 生成对称密钥 <code>secret</code>；（此处采用 ECDH 密钥交换算法）</li>
-<li><code>server</code> 获取<code>client</code> 公钥 <code>pubKeyA</code> ，调用 <code>uECC_shared_secret</code> 生成对称密钥 <code>secret</code>；</li>
-</ol>
-<h3 id="ecdh-密钥交换算法原理概述">ECDH 密钥交换算法原理概述</h3>
-<p>ECDH 基于 ECC 算法，ECC 是建立在基于椭圆曲线的离散对数问题上的密码体制，给定椭圆曲线上的一个点 P，一个整数 k，求解 Q = kP 很容易，但给定一个点 P、一个点Q，求解 k 很难。ECDH 便建立在该数学难题上。</p>
-<p>假设密钥协商的双方 Alice 和 Bob 共享公共参数 p、g 以及 ECDH 算法，以下场景可模拟交换流程（mod 表示取余运算）：</p>
-<ol>
-<li>Alice 生成私钥 a，通过公式 <code>g^a mod p = A</code> 生成公钥 A，并将 p、g、A 发送给 Bob；</li>
-<li>Bob 获得 p、g、A 后，生成自己的私钥 b，通过<code>g^b mod p = B</code> 生成公钥B，通过公式 <code>A^B mod p = K</code> 生成会话密钥（对称密钥）K，然后将公钥 B 发送给 Alice；</li>
-<li>Alice 获得 Bob 的公钥 B，通过 <code>B^a mod p = K</code> 生成会话密钥 K，至此，Alice 和 Bob 在未传递私钥 a、b 的情况下，完成了会话密钥协商。</li>
-</ol>
-<p>ECDH 不传输对称密钥，而是传输 ECC 椭圆曲线算法生成的公钥，然后通过收到的公钥结合自己的私钥，各自计算出共享的对称密钥，椭圆曲线保证了双方计算出的密钥一定是相同的，且第三方在不知道通信双方私钥的情况下，无法通过从信道中截获的信息反推出对称密钥。</p>
-<h3 id="代入数据">代入数据：</h3>
-<ol>
-<li>假定 p = 23，g = 5；</li>
-<li>Alice 生成私钥 a = 6，计算 A = g^a mod p = 5^6 mod 23 = 8；</li>
-<li>Bob 生成私钥 b = 15，计算 B = g^b mod p = 5^15 mod 23 = 19，计算 K = A^B mod p = 8^18 mod 23 = 2；</li>
-<li>Alice 计算 K&rsquo; = B^a mod p = 19^6 mod 23 = 2，K&rsquo; = K。</li>
-</ol>
+      <p>链路层要求数据帧的长度最大值为 1500 字节，该特性被称为 MTU，即最大传输单元。当 IP 层的数据报大于 MTU 时，IP 层就需要进行分片，就是把数据报分成若干片，使每一片都小于 MTU。</p>
+<p>但是，对于采用 TCP 作为传输协议的数据而言，在 IP 层是不会分片的，因为 TCP 层有一个分段的特性 —— MSS，最大分段大小。为了达到最佳传输效能，TCP 在建立连接时会协商双方的 MSS 值，这个值通常是 1460（MTU1500 - IP包头20 - TCP包头20），对于大于 1460 的数据，当到达 TCP 层时便分段了，因此 IP 层就不用分片了。</p>
+<p>而 UDP 则会产生 IP 分片，因为没有类似于 TCP 的分段特性。</p>
+<p>分片发生在网络层，分段发生在传输层。</p>
+
     </div>
     
   </div>
@@ -227,8 +185,8 @@
 
   <span class="copyright-year">
     &copy; 
-     - 
-    2024<span class="heart"><i class="iconfont icon-heart"></i></span><span>Aries</span>
+    2020 - 
+    2024<span class="heart"><i class="iconfont icon-heart"></i></span><span></span>
   </span>
 </div>
 

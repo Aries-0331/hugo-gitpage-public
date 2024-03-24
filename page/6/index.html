@@ -16,14 +16,14 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="Aries" /><meta name="description" content="Aries notebook" /><meta name="keywords" content="Aries, blog, hugo" />
+<meta name="author" content="" /><meta name="description" content="Aries notebook" /><meta name="keywords" content="Aries, blog, hugo" />
 
 
 
 
 
 
-<meta name="generator" content="Hugo 0.123.3 with theme even" />
+<meta name="generator" content="Hugo 0.124.1 with theme even" />
 
 
 <link rel="canonical" href="https://urchinzhou.com/" />
@@ -45,7 +45,6 @@
 <meta property="og:description" content="Aries notebook" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://urchinzhou.com/" />
-
 <meta itemprop="name" content="Aries notebook">
 <meta itemprop="description" content="Aries notebook"><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Aries notebook"/>
 <meta name="twitter:description" content="Aries notebook"/>
@@ -87,8 +86,8 @@
         <li class="mobile-menu-item">Home</li>
       </a><a href="/post/">
         <li class="mobile-menu-item">Archives</li>
-      </a><a href="/categories/">
-        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
       </a>
   </ul>
 
@@ -114,7 +113,7 @@
       </li><li class="menu-item">
         <a class="menu-item-link" href="/post/">Archives</a>
       </li><li class="menu-item">
-        <a class="menu-item-link" href="/categories/">Categories</a>
+        <a class="menu-item-link" href="/tags/">Tags</a>
       </li>
   </ul>
 </nav>
@@ -127,34 +126,104 @@
           <section id="posts" class="posts">
   <article class="post">
   <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/go-package---gorilla-mux/">Go Package - gorilla mux</a></h1>
+    <h1 class="post-title"><a class="post-link" href="/post/javsscript-%E5%8E%9F%E5%9E%8B%E9%93%BE/">JavsScript 原型链</a></h1>
     <div class="post-meta">
-      <span class="post-time"> 2023-06-27 </span>
-      <div class="post-category">
-        <a href="/%20categories/go/"> go </a>
-        <a href="/%20categories/aigc/"> aigc </a>
-        </div>
+      <span class="post-time"> 2022-11-24 </span>
+      
     </div>
   </header>
   
   <div class="post-content">
     
     <div class="post-summary">
-      <p>Gorilla/mux is a popular package in the Go ecosystem that simplifies routing and URL matching for HTTP services. It offers a rich set of features and allows developers to define custom routes, handle variables, and leverage middleware for enhanced functionality. With gorilla/mux, you can build scalable and maintainable web applications with ease.</p>
-<p>Main Usage of gorilla/mux:</p>
+      <p>每个 JavaScript 对象都有一个指向其他对象的链接，这个链接就是我们所说的“原型”。当我们试图访问一个对象的属性或方法时，如果它自身没有这个属性或方法，JavaScript 就会沿着这条原型链向上查找，直到找到为止，这就是原型链。</p>
+<p>初次接触这一概念时，很容易想到 C++ 之类 OOP 语言中的继承，对于这类语言严格区分类和实例，继承实际上是类的扩展。但是 JavaScript 的面向对象编程方式和其它大多语言都不太一样，JavaScript 不区分类和实例的概念，而是通过原型（prototype）来实现面向对象编程。</p>
+<p>每个 JavaScript 对象都有一个内置的 <code>__proto__</code> 属性（非标准，但广泛支持），指向创建它的构造函数的原型对象 <code>prototype</code>。使用构造函数创建一个对象时，新对象的 <code>__proto__</code> 会指向构造函数的 <code>prototype</code> 属性，这是原型链的基础。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">Person</span><span class="p">(</span><span class="nx">name</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="nx">name</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">Person</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">sayName</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">name</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">person1</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Person</span><span class="p">(</span><span class="s1">&#39;Alice&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nx">person1</span><span class="p">.</span><span class="nx">sayName</span><span class="p">();</span> <span class="c1">// Alice
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">person1</span><span class="p">.</span><span class="nx">__proto__</span> <span class="o">===</span> <span class="nx">Person</span><span class="p">.</span><span class="nx">prototype</span><span class="p">);</span> <span class="c1">// true
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>在这个例子中，<code>Person.prototype</code> 是 <code>person1</code> 的原型。当我们调用 <code>person1.sayName()</code> 时，虽然 <code>person1</code> 自己没有 <code>sayName</code> 方法，但它会通过原型链在 <code>Person.prototype</code> 中找到这个方法。</p>
+<p>原型链的一个重要应用是实现对象之间的继承。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">Employee</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span> <span class="nx">jobTitle</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">Person</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="nx">name</span><span class="p">);</span> <span class="c1">// 调用 Person 构造函数
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="k">this</span><span class="p">.</span><span class="nx">jobTitle</span> <span class="o">=</span> <span class="nx">jobTitle</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 继承 Person
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">Employee</span><span class="p">.</span><span class="nx">prototype</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">Person</span><span class="p">.</span><span class="nx">prototype</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nx">Employee</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">constructor</span> <span class="o">=</span> <span class="nx">Employee</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">Employee</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">sayJob</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">jobTitle</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">employee1</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Employee</span><span class="p">(</span><span class="s1">&#39;Bob&#39;</span><span class="p">,</span> <span class="s1">&#39;Developer&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nx">employee1</span><span class="p">.</span><span class="nx">sayName</span><span class="p">();</span> <span class="c1">// Bob
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">employee1</span><span class="p">.</span><span class="nx">sayJob</span><span class="p">();</span> <span class="c1">// Developer
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>这个示例中实现了使用 <code>Employee</code> 从 <code>Person</code> 的继承，将 <code>Employee.prototype</code> 设置为 <code>Person.prototype</code> 的一个实例，这样 <code>Employee</code> 的实例就可以访问 <code>Person</code> 原型上的方法。</p>
+<p>总的来说，JavaScript 的原型链主要用于实现继承、多态、给对象添加方法、实现一些性能优化（比如通过原型共享方法、减少每个实例的内存占用）等。</p>
+<p>另外，需要注意避免链过长和原型污染。链过长可能导致性能问题，而多个实例共享同一个原型时，对原型对象的修改会影响所有通过这个原型创建的对象，可能会导致意想不到的问题，需谨慎使用。</p>
+<p>对于 <code>__proto__</code> 属性来说，它允许对一个对象的原型进行读/写访问。这是一个非常强大的特性，因为它让开发者可以直接操作对象的原型链。不过，正因为它这么强大，直接操作<code>__proto__</code>也可能引发代码的可维护性和性能问题，这也是为什么它不被包含在ECMAScript 2015（ES6）及以后版本的标准中的原因之一。</p>
+<p>尽管如此，考虑到现有代码库中广泛使用了<code>__proto__</code>，以及它在一些特定情况下的用途，大多数现代JavaScript环境仍然支持它。但是，官方推荐使用<code>Object.getPrototypeOf()</code>和<code>Object.setPrototypeOf()</code>这两个方法来代替直接访问<code>__proto__</code>属性，因为这两个方法是标准中定义的，因此使用它们编写的代码会更加可靠和兼容。</p>
+<hr>
 <ol>
-<li>Routing: Gorilla/mux enables you to define powerful and dynamic routes by leveraging patterns, placeholders, and regular expressions. Create RESTful APIs, handle different HTTP methods, and efficiently route requests to the appropriate handlers.</li>
-<li>URL Parameters: Easily extract parameters from URLs using gorilla/mux&rsquo;s built-in functionality. Capture variables from the URL path and use them within your handlers to customize behavior based on user input.</li>
-<li>Middleware: Extend your application&rsquo;s functionality by incorporating middleware with gorilla/mux. Apply authentication, logging, error handling, or any custom logic to requests and responses at various stages of the request processing pipeline.</li>
-<li>Subrouters: Gorilla/mux allows the creation of subrouters, enabling logical grouping of routes and middleware. This modular approach promotes code organization and reusability, making your application easier to maintain.</li>
+<li>
+<p><a href="https://zh.wikipedia.org/wiki/%E5%9F%BA%E4%BA%8E%E5%8E%9F%E5%9E%8B%E7%BC%96%E7%A8%8B">https://zh.wikipedia.org/wiki/%E5%9F%BA%E4%BA%8E%E5%8E%9F%E5%9E%8B%E7%BC%96%E7%A8%8B</a></p>
+</li>
+<li>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Inheritance_and_the_prototype_chain#%E5%9F%BA%E4%BA%8E%E5%8E%9F%E5%9E%8B%E9%93%BE%E7%9A%84%E7%BB%A7%E6%89%BF">https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Inheritance_and_the_prototype_chain#%E5%9F%BA%E4%BA%8E%E5%8E%9F%E5%9E%8B%E9%93%BE%E7%9A%84%E7%BB%A7%E6%89%BF</a></p>
+</li>
+<li>
+<p><a href="https://www.liaoxuefeng.com/wiki/1022910821149312/1023021997355072">https://www.liaoxuefeng.com/wiki/1022910821149312/1023021997355072</a></p>
+</li>
 </ol>
-<p>Application Scenarios:</p>
-<ol>
-<li>RESTful APIs: With its flexible routing capabilities, gorilla/mux is an excellent choice for building RESTful APIs. Define resource endpoints, handle different HTTP verbs, and implement CRUD (Create, Read, Update, Delete) operations efficiently.</li>
-<li>Web Applications: Gorilla/mux is well-suited for developing web applications of any scale. It provides a solid foundation for handling URL routing, middleware integration, and parameter extraction, making it ideal for building user-friendly and robust web experiences.</li>
-<li>Microservices: As Go gains popularity in the realm of microservices, gorilla/mux emerges as a go-to package for handling routing within a distributed architecture. Its simplicity, performance, and flexibility make it an excellent choice for building microservices that communicate via HTTP.</li>
-</ol>
-<p>By utilizing gorilla/mux, you can easily define routes, handle URL parameters, incorporate middleware, and create subrouters. Whether you&rsquo;re building RESTful APIs, web applications, or microservices, gorilla/mux provides the necessary tools to create efficient and maintainable code.</p>
 
     </div>
     
@@ -200,8 +269,8 @@
 
   <span class="copyright-year">
     &copy; 
-     - 
-    2024<span class="heart"><i class="iconfont icon-heart"></i></span><span>Aries</span>
+    2020 - 
+    2024<span class="heart"><i class="iconfont icon-heart"></i></span><span></span>
   </span>
 </div>
 

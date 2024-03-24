@@ -16,14 +16,14 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="Aries" /><meta name="description" content="Aries notebook" /><meta name="keywords" content="Aries, blog, hugo" />
+<meta name="author" content="" /><meta name="description" content="Aries notebook" /><meta name="keywords" content="Aries, blog, hugo" />
 
 
 
 
 
 
-<meta name="generator" content="Hugo 0.123.3 with theme even" />
+<meta name="generator" content="Hugo 0.124.1 with theme even" />
 
 
 <link rel="canonical" href="https://urchinzhou.com/" />
@@ -45,7 +45,6 @@
 <meta property="og:description" content="Aries notebook" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://urchinzhou.com/" />
-
 <meta itemprop="name" content="Aries notebook">
 <meta itemprop="description" content="Aries notebook"><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Aries notebook"/>
 <meta name="twitter:description" content="Aries notebook"/>
@@ -87,8 +86,8 @@
         <li class="mobile-menu-item">Home</li>
       </a><a href="/post/">
         <li class="mobile-menu-item">Archives</li>
-      </a><a href="/categories/">
-        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
       </a>
   </ul>
 
@@ -114,7 +113,7 @@
       </li><li class="menu-item">
         <a class="menu-item-link" href="/post/">Archives</a>
       </li><li class="menu-item">
-        <a class="menu-item-link" href="/categories/">Categories</a>
+        <a class="menu-item-link" href="/tags/">Tags</a>
       </li>
   </ul>
 </nav>
@@ -127,34 +126,27 @@
           <section id="posts" class="posts">
   <article class="post">
   <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/go-package---gorm/">Go Package - gorm</a></h1>
+    <h1 class="post-title"><a class="post-link" href="/post/mastering-chatgptcrafting-effective-prompt/">Mastering ChatGPT：Crafting Effective Prompt</a></h1>
     <div class="post-meta">
-      <span class="post-time"> 2023-06-28 </span>
-      <div class="post-category">
-        <a href="/%20categories/go/"> go </a>
-        <a href="/%20categories/aigc/"> aigc </a>
-        </div>
+      <span class="post-time"> 2023-01-23 </span>
+      
     </div>
   </header>
   
   <div class="post-content">
     
     <div class="post-summary">
-      <p>GORM is a popular Object-Relational Mapping (ORM) package for Go, designed to simplify database operations and improve developer productivity. It provides a robust and expressive API for interacting with various databases, including PostgreSQL, MySQL, SQLite, and more. With GORM, you can focus on your application&rsquo;s logic while it handles the complexities of database management.</p>
-<p>Main Usage of GORM:</p>
+      <p>Introduction: Engaging in conversations with AI models like ChatGPT can be an exciting and rewarding experience. However, achieving meaningful and accurate responses relies heavily on the quality of prompts provided. In this blog post, we will explore strategies for crafting excellent prompts that maximize the potential of ChatGPT and enhance the overall conversation. Let&rsquo;s dive in and unlock the power of effective prompts!</p>
 <ol>
-<li>Model Definition: GORM allows you to define models, which are Go structs representing database tables. By leveraging struct tags, you can specify table names, column names, data types, constraints, and relationships with other models. GORM automates the mapping between these models and database tables, eliminating manual SQL queries.</li>
-<li>CRUD Operations: GORM simplifies database operations with its intuitive API. Perform Create, Read, Update, and Delete (CRUD) operations effortlessly using GORM&rsquo;s methods. Insert records, retrieve data based on conditions, update existing records, and delete data from the database with ease.</li>
-<li>Querying: GORM provides a powerful query builder that enables you to construct complex database queries using a chainable syntax. Leverage conditions, aggregations, joins, sorting, and pagination to retrieve the exact data you need from your database. GORM&rsquo;s query builder abstracts away the underlying SQL, making it easier to write and maintain complex queries.</li>
-<li>Relationships and Associations: GORM simplifies working with relationships between database tables. Define associations like one-to-one, one-to-many, and many-to-many relationships in your models using struct tags. GORM handles the necessary join queries and provides convenient methods to access related data.</li>
+<li>Be Clear and Specific: Clearly communicate your intention and provide specific context in your prompts. Avoid ambiguous or vague instructions that may confuse the model. The more precise your prompt is, the better ChatGPT can understand and generate accurate responses.</li>
+<li>Set the Conversation Tone: Establish the desired tone for the conversation by incorporating relevant instructions. Whether it&rsquo;s formal, casual, professional, or playful, guiding the AI with tone-specific prompts helps shape the response accordingly.</li>
+<li>Ask Direct Questions: To receive targeted answers, ask direct questions rather than making open-ended statements. ChatGPT is more likely to provide focused responses when prompted with specific inquiries. For instance, instead of saying &ldquo;Tell me about cats,&rdquo; ask &ldquo;What are the main characteristics of domestic cats?&rdquo;</li>
+<li>Provide Context and Constraints: Offering context and constraints helps narrow down the response and align it with your expectations. For example, if discussing a specific time period, include it in the prompt to ensure the AI understands the historical context.</li>
+<li>Iterate and Experiment: Crafting the perfect prompt may require iteration and experimentation. If initial responses are not meeting your expectations, refine your prompt, rephrase the question, or adjust the context. Iterative refinement allows you to fine-tune the conversation and achieve better outcomes.</li>
+<li>Utilize System and User Instructions: Leverage the capability of ChatGPT&rsquo;s system and user instructions. By using the system instruction, you can guide the model&rsquo;s behavior in a general sense. User instructions allow you to provide specific guidance for the current prompt. Utilize these instructions strategically to guide the conversation flow effectively.</li>
+<li>Use Examples and Formatting: When necessary, include examples or formatting instructions within your prompt to clarify the expected response format. For instance, if you want a bulleted list, mention it explicitly in your prompt or provide an example of the desired output.</li>
 </ol>
-<p>Application Scenarios:</p>
-<ol>
-<li>Web Applications: GORM is well-suited for building web applications that require efficient database interactions. Whether you&rsquo;re building an e-commerce platform, a content management system, or a social media application, GORM&rsquo;s simplicity and performance make it an excellent choice for managing your application&rsquo;s data layer.</li>
-<li>Microservices: As Go gains popularity in microservice architectures, GORM proves to be a valuable tool for managing database interactions in distributed systems. Use GORM to handle data storage and retrieval across different microservices, ensuring consistency and efficiency in your overall architecture.</li>
-<li>Data-Driven APIs: GORM&rsquo;s ease of use and powerful query builder make it ideal for developing data-driven APIs. Retrieve data based on user-defined filters, perform aggregations, and efficiently handle large datasets with GORM&rsquo;s optimized database operations. Build robust APIs that deliver data seamlessly to your frontend or other consuming applications.</li>
-</ol>
-<p>Conclusion: GORM simplifies database interactions in Go applications, enabling developers to focus on business logic rather than database management. By utilizing GORM&rsquo;s model definition, CRUD operations, querying capabilities, and support for relationships, you can streamline database interactions and improve productivity. Whether you&rsquo;re building web applications, microservices, or data-driven APIs, GORM empowers you to handle database operations efficiently and effectively.</p>
+<p>Conclusion: Mastering the art of writing excellent prompts is crucial to unlock the full potential of ChatGPT. By being clear, specific, and providing context, you can guide the AI model to generate accurate and relevant responses. Remember to iterate, experiment, and leverage system and user instructions to optimize your conversations. With practice and refinement, you can create engaging and meaningful interactions with ChatGPT.</p>
 
     </div>
     
@@ -200,8 +192,8 @@
 
   <span class="copyright-year">
     &copy; 
-     - 
-    2024<span class="heart"><i class="iconfont icon-heart"></i></span><span>Aries</span>
+    2020 - 
+    2024<span class="heart"><i class="iconfont icon-heart"></i></span><span></span>
   </span>
 </div>
 

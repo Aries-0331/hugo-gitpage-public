@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on Aries notebook</title>
+    <link>https://urchinzhou.com/tags/</link>
+    <description>Recent content in Tags on Aries notebook</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 24 Mar 2024 21:30:48 +0800</lastBuildDate>
+    <atom:link href="https://urchinzhou.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Go</title>
+      <link>https://urchinzhou.com/tags/go/</link>
+      <pubDate>Thu, 06 Apr 2023 17:50:27 +0800</pubDate>
+      <guid>https://urchinzhou.com/tags/go/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Aigc</title>
+      <link>https://urchinzhou.com/tags/aigc/</link>
+      <pubDate>Sun, 12 Mar 2023 22:15:12 +0800</pubDate>
+      <guid>https://urchinzhou.com/tags/aigc/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Vscode</title>
+      <link>https://urchinzhou.com/tags/vscode/</link>
+      <pubDate>Sun, 26 Feb 2023 17:37:07 +0800</pubDate>
+      <guid>https://urchinzhou.com/tags/vscode/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Gpt</title>
+      <link>https://urchinzhou.com/tags/gpt/</link>
+      <pubDate>Mon, 23 Jan 2023 21:59:23 +0800</pubDate>
+      <guid>https://urchinzhou.com/tags/gpt/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Javascript</title>
+      <link>https://urchinzhou.com/tags/javascript/</link>
+      <pubDate>Thu, 24 Nov 2022 20:36:26 +0800</pubDate>
+      <guid>https://urchinzhou.com/tags/javascript/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>原型链</title>
+      <link>https://urchinzhou.com/tags/%E5%8E%9F%E5%9E%8B%E9%93%BE/</link>
+      <pubDate>Thu, 24 Nov 2022 20:36:26 +0800</pubDate>
+      <guid>https://urchinzhou.com/tags/%E5%8E%9F%E5%9E%8B%E9%93%BE/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>闭包</title>
+      <link>https://urchinzhou.com/tags/%E9%97%AD%E5%8C%85/</link>
+      <pubDate>Wed, 24 Aug 2022 13:13:04 +0800</pubDate>
+      <guid>https://urchinzhou.com/tags/%E9%97%AD%E5%8C%85/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Cryptography</title>
+      <link>https://urchinzhou.com/tags/cryptography/</link>
+      <pubDate>Mon, 04 Jul 2022 17:13:59 +0800</pubDate>
+      <guid>https://urchinzhou.com/tags/cryptography/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Quic</title>
+      <link>https://urchinzhou.com/tags/quic/</link>
+      <pubDate>Mon, 04 Jul 2022 17:13:59 +0800</pubDate>
+      <guid>https://urchinzhou.com/tags/quic/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>函数式编程</title>
+      <link>https://urchinzhou.com/tags/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B/</link>
+      <pubDate>Sun, 24 Apr 2022 21:14:54 +0800</pubDate>
+      <guid>https://urchinzhou.com/tags/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>高阶函数</title>
+      <link>https://urchinzhou.com/tags/%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0/</link>
+      <pubDate>Sun, 24 Apr 2022 21:14:54 +0800</pubDate>
+      <guid>https://urchinzhou.com/tags/%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Ipc</title>
+      <link>https://urchinzhou.com/tags/ipc/</link>
+      <pubDate>Wed, 23 Mar 2022 13:28:32 +0800</pubDate>
+      <guid>https://urchinzhou.com/tags/ipc/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Linux</title>
+      <link>https://urchinzhou.com/tags/linux/</link>
+      <pubDate>Wed, 23 Mar 2022 13:28:32 +0800</pubDate>
+      <guid>https://urchinzhou.com/tags/linux/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Annual-Summary</title>
+      <link>https://urchinzhou.com/tags/annual-summary/</link>
+      <pubDate>Sun, 02 Jan 2022 14:24:52 +0800</pubDate>
+      <guid>https://urchinzhou.com/tags/annual-summary/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Es6</title>
+      <link>https://urchinzhou.com/tags/es6/</link>
+      <pubDate>Fri, 17 Dec 2021 21:30:48 +0800</pubDate>
+      <guid>https://urchinzhou.com/tags/es6/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Https</title>
+      <link>https://urchinzhou.com/tags/https/</link>
+      <pubDate>Fri, 22 Oct 2021 22:28:02 +0800</pubDate>
+      <guid>https://urchinzhou.com/tags/https/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Tls</title>
+      <link>https://urchinzhou.com/tags/tls/</link>
+      <pubDate>Fri, 22 Oct 2021 22:28:02 +0800</pubDate>
+      <guid>https://urchinzhou.com/tags/tls/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>平均负载</title>
+      <link>https://urchinzhou.com/tags/%E5%B9%B3%E5%9D%87%E8%B4%9F%E8%BD%BD/</link>
+      <pubDate>Sun, 01 Aug 2021 22:05:40 +0800</pubDate>
+      <guid>https://urchinzhou.com/tags/%E5%B9%B3%E5%9D%87%E8%B4%9F%E8%BD%BD/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Git</title>
+      <link>https://urchinzhou.com/tags/git/</link>
+      <pubDate>Tue, 20 Jul 2021 15:19:14 +0800</pubDate>
+      <guid>https://urchinzhou.com/tags/git/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Android</title>
+      <link>https://urchinzhou.com/tags/android/</link>
+      <pubDate>Tue, 13 Jul 2021 22:27:48 +0800</pubDate>
+      <guid>https://urchinzhou.com/tags/android/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Sqlcipher</title>
+      <link>https://urchinzhou.com/tags/sqlcipher/</link>
+      <pubDate>Tue, 13 Jul 2021 22:27:48 +0800</pubDate>
+      <guid>https://urchinzhou.com/tags/sqlcipher/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Log</title>
+      <link>https://urchinzhou.com/tags/log/</link>
+      <pubDate>Thu, 17 Jun 2021 22:30:30 +0800</pubDate>
+      <guid>https://urchinzhou.com/tags/log/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Xlog</title>
+      <link>https://urchinzhou.com/tags/xlog/</link>
+      <pubDate>Fri, 28 May 2021 22:25:57 +0800</pubDate>
+      <guid>https://urchinzhou.com/tags/xlog/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Tcp</title>
+      <link>https://urchinzhou.com/tags/tcp/</link>
+      <pubDate>Sat, 22 May 2021 22:26:31 +0800</pubDate>
+      <guid>https://urchinzhou.com/tags/tcp/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Gcc</title>
+      <link>https://urchinzhou.com/tags/gcc/</link>
+      <pubDate>Sat, 10 Apr 2021 22:26:17 +0800</pubDate>
+      <guid>https://urchinzhou.com/tags/gcc/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Languages</title>
+      <link>https://urchinzhou.com/tags/languages/</link>
+      <pubDate>Mon, 21 Dec 2020 16:05:14 +0800</pubDate>
+      <guid>https://urchinzhou.com/tags/languages/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>C</title>
+      <link>https://urchinzhou.com/tags/c/</link>
+      <pubDate>Sun, 23 Aug 2020 22:29:13 +0800</pubDate>
+      <guid>https://urchinzhou.com/tags/c/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>指针</title>
+      <link>https://urchinzhou.com/tags/%E6%8C%87%E9%92%88/</link>
+      <pubDate>Sun, 23 Aug 2020 22:29:13 +0800</pubDate>
+      <guid>https://urchinzhou.com/tags/%E6%8C%87%E9%92%88/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>React</title>
+      <link>https://urchinzhou.com/tags/react/</link>
+      <pubDate>Wed, 05 Feb 2020 15:58:02 +0800</pubDate>
+      <guid>https://urchinzhou.com/tags/react/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>检视阅读</title>
+      <link>https://urchinzhou.com/tags/%E6%A3%80%E8%A7%86%E9%98%85%E8%AF%BB/</link>
+      <pubDate>Mon, 06 Jan 2020 22:24:19 +0800</pubDate>
+      <guid>https://urchinzhou.com/tags/%E6%A3%80%E8%A7%86%E9%98%85%E8%AF%BB/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>

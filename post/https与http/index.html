@@ -16,14 +16,14 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="Aries" /><meta name="description" content="概念上理清 HTTPS 与 HTTP 的区别。 在互联网协议套件中，将网络协议分为四层，从下至上依次为链路层-网络层-传输层-应用层，HTTP 属于应用层协议。中文名" /><meta name="keywords" content="Aries, blog, hugo" />
+<meta name="author" content="" /><meta name="description" content="概念上理清 HTTPS 与 HTTP 的区别。 在互联网协议套件中，将网络协议分为四层，从下至上依次为链路层-网络层-传输层-应用层，HTTP 属于应用层协议。中文名" /><meta name="keywords" content="Aries, blog, hugo" />
 
 
 
 
 
 
-<meta name="generator" content="Hugo 0.123.3 with theme even" />
+<meta name="generator" content="Hugo 0.124.1 with theme even" />
 
 
 <link rel="canonical" href="https://urchinzhou.com/post/https%E4%B8%8Ehttp/" />
@@ -43,14 +43,13 @@
 <meta property="og:description" content="概念上理清 HTTPS 与 HTTP 的区别。 在互联网协议套件中，将网络协议分为四层，从下至上依次为链路层-网络层-传输层-应用层，HTTP 属于应用层协议。中文名" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://urchinzhou.com/post/https%E4%B8%8Ehttp/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2021-06-22T22:28:02+08:00" />
-<meta property="article:modified_time" content="2021-06-22T22:28:02+08:00" />
-
+<meta property="article:published_time" content="2021-10-22T22:28:02+08:00" />
+<meta property="article:modified_time" content="2021-10-22T22:28:02+08:00" />
 <meta itemprop="name" content="HTTPS与HTTP">
-<meta itemprop="description" content="概念上理清 HTTPS 与 HTTP 的区别。 在互联网协议套件中，将网络协议分为四层，从下至上依次为链路层-网络层-传输层-应用层，HTTP 属于应用层协议。中文名"><meta itemprop="datePublished" content="2021-06-22T22:28:02+08:00" />
-<meta itemprop="dateModified" content="2021-06-22T22:28:02+08:00" />
+<meta itemprop="description" content="概念上理清 HTTPS 与 HTTP 的区别。 在互联网协议套件中，将网络协议分为四层，从下至上依次为链路层-网络层-传输层-应用层，HTTP 属于应用层协议。中文名"><meta itemprop="datePublished" content="2021-10-22T22:28:02+08:00" />
+<meta itemprop="dateModified" content="2021-10-22T22:28:02+08:00" />
 <meta itemprop="wordCount" content="615">
-<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="HTTPS与HTTP"/>
+<meta itemprop="keywords" content="tls,https," /><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="HTTPS与HTTP"/>
 <meta name="twitter:description" content="概念上理清 HTTPS 与 HTTP 的区别。 在互联网协议套件中，将网络协议分为四层，从下至上依次为链路层-网络层-传输层-应用层，HTTP 属于应用层协议。中文名"/>
 
 <!--[if lte IE 9]>
@@ -90,8 +89,8 @@
         <li class="mobile-menu-item">Home</li>
       </a><a href="/post/">
         <li class="mobile-menu-item">Archives</li>
-      </a><a href="/categories/">
-        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
       </a>
   </ul>
 
@@ -117,7 +116,7 @@
       </li><li class="menu-item">
         <a class="menu-item-link" href="/post/">Archives</a>
       </li><li class="menu-item">
-        <a class="menu-item-link" href="/categories/">Categories</a>
+        <a class="menu-item-link" href="/tags/">Tags</a>
       </li>
   </ul>
 </nav>
@@ -133,10 +132,8 @@
       <h1 class="post-title">HTTPS与HTTP</h1>
 
       <div class="post-meta">
-        <span class="post-time"> 2021-06-22 </span>
-        <div class="post-category">
-            <a href="/categories/tls/"> tls </a>
-            </div>
+        <span class="post-time"> 2021-10-22 </span>
+        
         
       </div>
     </header>
@@ -150,7 +147,7 @@
 <p>HTTP 主要规定了客户端和服务器之间的通信格式，并不涉及数据包的传输，传输依赖于 TCP/IP 协议。</p>
 <p>简单理解就是，将需要传递的数据按照 HTTP 的要求格式化（<em>挖坑，数据格式</em>），然后剩下的交给协议栈中的 TCP/IP 层。</p>
 <p>因此基于 HTTP 协议的数据传输，其发送阶段的数据处理流程为，应用层格式化，TCP 封装，IP 封装，过程中不涉及数据的加解密，数据为明文形式传输。</p>
-<p>而 HTTPS 就是在这一流程基础上增加了安全性功能。通常可以这么理解 HTTPS， HTTPS = HTTP over TLS。（<em>由于安全问题，普遍已经抛弃SSL，因此这里就直接按 TLS 写了</em>）</p>
+<p>而 HTTPS 就是在这一流程基础上增加了安全性功能。通常可以这么理解 HTTPS， HTTPS = HTTP over TLS。（<em>由于安全问题，普遍已经抛弃 SSL，因此这里就直接按 TLS 写了</em>）</p>
 <p>TLS 表示传输层安全，从 SSL 演进而来，属于应用层与 TCP 层之间的一个协议，其目的是为互联网通信提供安全及数据完整性保障（挖坑，数据完整性），说白了就是确保数据加密传输，以及确保如果数据被篡改了，接收方能察觉到。</p>
 <p>那么 TLS 做了什么？</p>
 <p>由于要实现数据加解密，因此 TLS 要实现数据的对称加密，不用非对称加密主要是考虑到性能问题。</p>
@@ -161,15 +158,18 @@
 
     
 <footer class="post-footer">
-      
+      <div class="post-tags">
+          <a href="/tags/tls/">tls</a>
+          <a href="/tags/https/">https</a>
+          </div>
       <nav class="post-nav">
-        <a class="prev" href="/post/encryptedsharedpreferences%E5%88%86%E6%9E%90/">
+        <a class="prev" href="/post/%E5%85%B3%E4%BA%8E%E5%8A%A0%E5%AF%86%E5%92%8C%E5%AF%86%E7%A0%81%E5%AD%A6%E7%9A%84%E7%BB%8F%E9%AA%8C%E6%95%99%E8%AE%AD%E5%92%8C%E8%AF%AF%E8%A7%A3/">
             <i class="iconfont icon-left"></i>
-            <span class="prev-text nav-default">EncryptedSharedPreferences分析</span>
+            <span class="prev-text nav-default">关于加密和密码学的经验教训和误解</span>
             <span class="prev-text nav-mobile">Prev</span>
           </a>
-        <a class="next" href="/post/logcat%E6%97%A5%E5%BF%97%E8%AF%BB%E5%8F%96%E6%B5%81%E7%A8%8B%E5%88%86%E6%9E%90/">
-            <span class="next-text nav-default">logcat日志读取流程分析</span>
+        <a class="next" href="/post/%E5%AF%86%E7%A0%81%E5%BA%94%E7%94%A8%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">
+            <span class="next-text nav-default">密码应用基础知识</span>
             <span class="next-text nav-mobile">Next</span>
             <i class="iconfont icon-right"></i>
           </a>
@@ -208,8 +208,8 @@
 
   <span class="copyright-year">
     &copy; 
-     - 
-    2024<span class="heart"><i class="iconfont icon-heart"></i></span><span>Aries</span>
+    2020 - 
+    2024<span class="heart"><i class="iconfont icon-heart"></i></span><span></span>
   </span>
 </div>
 

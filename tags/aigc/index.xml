@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Aigc on Aries notebook</title>
+    <link>https://urchinzhou.com/tags/aigc/</link>
+    <description>Recent content in Aigc on Aries notebook</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 12 Mar 2023 22:15:12 +0800</lastBuildDate>
+    <atom:link href="https://urchinzhou.com/tags/aigc/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Go Package - gorm</title>
+      <link>https://urchinzhou.com/post/go-package---gorm/</link>
+      <pubDate>Sun, 12 Mar 2023 22:15:12 +0800</pubDate>
+      <guid>https://urchinzhou.com/post/go-package---gorm/</guid>
+      <description>GORM is a popular Object-Relational Mapping (ORM) package for Go, designed to simplify database operations and improve developer productivity. It provides a robust and expressive API for interacting with various databases, including PostgreSQL, MySQL, SQLite, and more. With GORM, you can focus on your application&amp;rsquo;s logic while it handles the complexities of database management.&#xA;Main Usage of GORM:&#xA;Model Definition: GORM allows you to define models, which are Go structs representing database tables.</description>
+    </item>
+  </channel>
+</rss>

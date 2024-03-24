@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>高阶函数 on Aries notebook</title>
+    <link>https://urchinzhou.com/tags/%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0/</link>
+    <description>Recent content in 高阶函数 on Aries notebook</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 24 Mar 2024 21:14:54 +0800</lastBuildDate>
+    <atom:link href="https://urchinzhou.com/tags/%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>JavsScript 高阶函数</title>
+      <link>https://urchinzhou.com/post/javsscript-%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0/</link>
+      <pubDate>Sun, 24 Apr 2022 21:14:54 +0800</pubDate>
+      <guid>https://urchinzhou.com/post/javsscript-%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0/</guid>
+      <description>在 JavaScript 中，如果一个函数能接收一个或多个函数作为参数，或返回另一个函数，那么该函数被称为高阶函数。 高阶函数是函数式编程的一个重要概念，提供了极大</description>
+    </item>
+  </channel>
+</rss>

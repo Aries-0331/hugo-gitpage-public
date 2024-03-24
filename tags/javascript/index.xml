@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Javascript on Aries notebook</title>
+    <link>https://urchinzhou.com/tags/javascript/</link>
+    <description>Recent content in Javascript on Aries notebook</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 24 Mar 2024 21:30:48 +0800</lastBuildDate>
+    <atom:link href="https://urchinzhou.com/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>JavsScript 原型链</title>
+      <link>https://urchinzhou.com/post/javsscript-%E5%8E%9F%E5%9E%8B%E9%93%BE/</link>
+      <pubDate>Thu, 24 Nov 2022 20:36:26 +0800</pubDate>
+      <guid>https://urchinzhou.com/post/javsscript-%E5%8E%9F%E5%9E%8B%E9%93%BE/</guid>
+      <description>每个 JavaScript 对象都有一个指向其他对象的链接，这个链接就是我们所说的“原型”。当我们试图访问一个对象的属性或方法时，如果它自身没有这个属性或方法，J</description>
+    </item>
+    <item>
+      <title>闭包</title>
+      <link>https://urchinzhou.com/post/%E9%97%AD%E5%8C%85/</link>
+      <pubDate>Wed, 24 Aug 2022 13:13:04 +0800</pubDate>
+      <guid>https://urchinzhou.com/post/%E9%97%AD%E5%8C%85/</guid>
+      <description>初步理解闭包 接触 JavaScript 的闭包概念前，我在阅读部分前端项目代码时，下意识带着阅读 C++ 代码时的思维惯性来分析 JavaScript 代码，从而造成对一些变量的值，做出错误判</description>
+    </item>
+    <item>
+      <title>JavsScript 高阶函数</title>
+      <link>https://urchinzhou.com/post/javsscript-%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0/</link>
+      <pubDate>Sun, 24 Apr 2022 21:14:54 +0800</pubDate>
+      <guid>https://urchinzhou.com/post/javsscript-%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0/</guid>
+      <description>在 JavaScript 中，如果一个函数能接收一个或多个函数作为参数，或返回另一个函数，那么该函数被称为高阶函数。 高阶函数是函数式编程的一个重要概念，提供了极大</description>
+    </item>
+    <item>
+      <title>JavsScript 箭头函数</title>
+      <link>https://urchinzhou.com/post/javsscript-%E7%AE%AD%E5%A4%B4%E5%87%BD%E6%95%B0/</link>
+      <pubDate>Mon, 24 Jan 2022 21:40:30 +0800</pubDate>
+      <guid>https://urchinzhou.com/post/javsscript-%E7%AE%AD%E5%A4%B4%E5%87%BD%E6%95%B0/</guid>
+      <description>箭头函数 箭头函数是 ES6 (ECMAScript 2015) 引入的一个新增特性，提供了一种更简洁的方式来写函数表达式。它不仅语法简短，而且还有其他几个特别之处，特别是与this</description>
+    </item>
+    <item>
+      <title>JavsScript ES6</title>
+      <link>https://urchinzhou.com/post/javsscript-es6/</link>
+      <pubDate>Fri, 17 Dec 2021 21:30:48 +0800</pubDate>
+      <guid>https://urchinzhou.com/post/javsscript-es6/</guid>
+      <description>ES6（ECMAScript 2015 或 ECMAScript6）与 ES5 主要区别： 1. 变量声明 ES5: 只有 var 关键字用于变量声明，它有函数作用域或全局作用域。 ES6: 引</description>
+    </item>
+  </channel>
+</rss>

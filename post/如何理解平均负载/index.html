@@ -16,19 +16,14 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="Aries" /><meta name="description" content=" 平均负载不仅包括正在使用 CPU 的进程，还包括等待 CPU 和等待 I/O 的进程。
-什么是平均负载 通常我们使用 top 或 uptime 命令，来查看系统负载情况时，都会关注 load average 这一参数，但实际上你真的理解这一参数后三个数字的含义吗？相当一部分人将平均负载简单理解为单位时间内的 CPU 使用率，其实不然。
-1 2 root@zwx-virtual-machine:/# uptime 11:06:40 up 1 day, 12 min, 1 user, load average: 0.09, 0.04, 0.01 图中 load average 后的三个数字，依次是过去1分钟、5分钟、15分钟的平均负载（Load Average）。简单来说，它代表的是单位时间内，系统处于可运行状态和不可中断状态的平均进程数，也就是平均活跃进程数，和 CPU 使用率并没有直接关系。
-所谓可运行状态的进程，是指正在使用 CPU 或正在等待 CPU 的进程，也就是使用 ps 命令看到的处于 R/Running/Runnable 状态的进程。
-不可中断的进程，是指正处于内核态关键流程中的进程，且这些流程是不可打断的，比如等待硬件设备的 I/O 响应，也就是我们在 ps 命令中看到的 D 状态进程。
-" /><meta name="keywords" content="Aries, blog, hugo" />
+<meta name="author" content="" /><meta name="description" content="平均负载不仅包括正在使用 CPU 的进程，还包括等待 CPU 和等待 I/O 的进程。 什么是平均负载 通常我们使用 top 或 uptime 命令，来查看系统负载情况时，都会关注 load average 这一参" /><meta name="keywords" content="Aries, blog, hugo" />
 
 
 
 
 
 
-<meta name="generator" content="Hugo 0.123.3 with theme even" />
+<meta name="generator" content="Hugo 0.124.1 with theme even" />
 
 
 <link rel="canonical" href="https://urchinzhou.com/post/%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3%E5%B9%B3%E5%9D%87%E8%B4%9F%E8%BD%BD/" />
@@ -45,69 +40,17 @@
 
 
 <meta property="og:title" content="如何理解平均负载" />
-<meta property="og:description" content="
-平均负载不仅包括正在使用 CPU 的进程，还包括等待 CPU 和等待 I/O 的进程。
-
-什么是平均负载
-通常我们使用 top 或 uptime 命令，来查看系统负载情况时，都会关注 load average 这一参数，但实际上你真的理解这一参数后三个数字的含义吗？相当一部分人将平均负载简单理解为单位时间内的 CPU 使用率，其实不然。
-
-
-1
-2
-
-
-root@zwx-virtual-machine:/# uptime
- 11:06:40 up 1 day, 12 min,  1 user,  load average: 0.09, 0.04, 0.01
-
-
-图中 load average 后的三个数字，依次是过去1分钟、5分钟、15分钟的平均负载（Load Average）。简单来说，它代表的是单位时间内，系统处于可运行状态和不可中断状态的平均进程数，也就是平均活跃进程数，和 CPU 使用率并没有直接关系。
-所谓可运行状态的进程，是指正在使用 CPU 或正在等待 CPU 的进程，也就是使用 ps 命令看到的处于 R/Running/Runnable 状态的进程。
-不可中断的进程，是指正处于内核态关键流程中的进程，且这些流程是不可打断的，比如等待硬件设备的 I/O 响应，也就是我们在 ps 命令中看到的 D 状态进程。" />
+<meta property="og:description" content="平均负载不仅包括正在使用 CPU 的进程，还包括等待 CPU 和等待 I/O 的进程。 什么是平均负载 通常我们使用 top 或 uptime 命令，来查看系统负载情况时，都会关注 load average 这一参" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://urchinzhou.com/post/%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3%E5%B9%B3%E5%9D%87%E8%B4%9F%E8%BD%BD/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2021-08-01T22:05:40+08:00" />
 <meta property="article:modified_time" content="2021-08-01T22:05:40+08:00" />
-
 <meta itemprop="name" content="如何理解平均负载">
-<meta itemprop="description" content="
-平均负载不仅包括正在使用 CPU 的进程，还包括等待 CPU 和等待 I/O 的进程。
-
-什么是平均负载
-通常我们使用 top 或 uptime 命令，来查看系统负载情况时，都会关注 load average 这一参数，但实际上你真的理解这一参数后三个数字的含义吗？相当一部分人将平均负载简单理解为单位时间内的 CPU 使用率，其实不然。
-
-
-1
-2
-
-
-root@zwx-virtual-machine:/# uptime
- 11:06:40 up 1 day, 12 min,  1 user,  load average: 0.09, 0.04, 0.01
-
-
-图中 load average 后的三个数字，依次是过去1分钟、5分钟、15分钟的平均负载（Load Average）。简单来说，它代表的是单位时间内，系统处于可运行状态和不可中断状态的平均进程数，也就是平均活跃进程数，和 CPU 使用率并没有直接关系。
-所谓可运行状态的进程，是指正在使用 CPU 或正在等待 CPU 的进程，也就是使用 ps 命令看到的处于 R/Running/Runnable 状态的进程。
-不可中断的进程，是指正处于内核态关键流程中的进程，且这些流程是不可打断的，比如等待硬件设备的 I/O 响应，也就是我们在 ps 命令中看到的 D 状态进程。"><meta itemprop="datePublished" content="2021-08-01T22:05:40+08:00" />
+<meta itemprop="description" content="平均负载不仅包括正在使用 CPU 的进程，还包括等待 CPU 和等待 I/O 的进程。 什么是平均负载 通常我们使用 top 或 uptime 命令，来查看系统负载情况时，都会关注 load average 这一参"><meta itemprop="datePublished" content="2021-08-01T22:05:40+08:00" />
 <meta itemprop="dateModified" content="2021-08-01T22:05:40+08:00" />
 <meta itemprop="wordCount" content="1177">
-<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="如何理解平均负载"/>
-<meta name="twitter:description" content="
-平均负载不仅包括正在使用 CPU 的进程，还包括等待 CPU 和等待 I/O 的进程。
-
-什么是平均负载
-通常我们使用 top 或 uptime 命令，来查看系统负载情况时，都会关注 load average 这一参数，但实际上你真的理解这一参数后三个数字的含义吗？相当一部分人将平均负载简单理解为单位时间内的 CPU 使用率，其实不然。
-
-
-1
-2
-
-
-root@zwx-virtual-machine:/# uptime
- 11:06:40 up 1 day, 12 min,  1 user,  load average: 0.09, 0.04, 0.01
-
-
-图中 load average 后的三个数字，依次是过去1分钟、5分钟、15分钟的平均负载（Load Average）。简单来说，它代表的是单位时间内，系统处于可运行状态和不可中断状态的平均进程数，也就是平均活跃进程数，和 CPU 使用率并没有直接关系。
-所谓可运行状态的进程，是指正在使用 CPU 或正在等待 CPU 的进程，也就是使用 ps 命令看到的处于 R/Running/Runnable 状态的进程。
-不可中断的进程，是指正处于内核态关键流程中的进程，且这些流程是不可打断的，比如等待硬件设备的 I/O 响应，也就是我们在 ps 命令中看到的 D 状态进程。"/>
+<meta itemprop="keywords" content="linux,平均负载," /><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="如何理解平均负载"/>
+<meta name="twitter:description" content="平均负载不仅包括正在使用 CPU 的进程，还包括等待 CPU 和等待 I/O 的进程。 什么是平均负载 通常我们使用 top 或 uptime 命令，来查看系统负载情况时，都会关注 load average 这一参"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -146,8 +89,8 @@ root@zwx-virtual-machine:/# uptime
         <li class="mobile-menu-item">Home</li>
       </a><a href="/post/">
         <li class="mobile-menu-item">Archives</li>
-      </a><a href="/categories/">
-        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
       </a>
   </ul>
 
@@ -173,7 +116,7 @@ root@zwx-virtual-machine:/# uptime
       </li><li class="menu-item">
         <a class="menu-item-link" href="/post/">Archives</a>
       </li><li class="menu-item">
-        <a class="menu-item-link" href="/categories/">Categories</a>
+        <a class="menu-item-link" href="/tags/">Tags</a>
       </li>
   </ul>
 </nav>
@@ -190,9 +133,7 @@ root@zwx-virtual-machine:/# uptime
 
       <div class="post-meta">
         <span class="post-time"> 2021-08-01 </span>
-        <div class="post-category">
-            <a href="/categories/linux/"> linux </a>
-            </div>
+        
         
       </div>
     </header>
@@ -235,15 +176,19 @@ root@zwx-virtual-machine:/# uptime
 <li>平均负载高，并不一定代表 CPU 使用率高，还可有能是 I/O 繁忙；</li>
 <li>当发现平均负载高时，可以使用 mpstat、pidstat 等工具，辅助分析负载来源。</li>
 </ul>
+
     </div>
 
     
 <footer class="post-footer">
-      
+      <div class="post-tags">
+          <a href="/tags/linux/">linux</a>
+          <a href="/tags/%E5%B9%B3%E5%9D%87%E8%B4%9F%E8%BD%BD/">平均负载</a>
+          </div>
       <nav class="post-nav">
-        <a class="prev" href="/post/%E6%8C%87%E9%92%88/">
+        <a class="prev" href="/post/%E5%AF%86%E7%A0%81%E5%BA%94%E7%94%A8%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">
             <i class="iconfont icon-left"></i>
-            <span class="prev-text nav-default">一个野指针</span>
+            <span class="prev-text nav-default">密码应用基础知识</span>
             <span class="prev-text nav-mobile">Prev</span>
           </a>
         <a class="next" href="/post/git%E4%BF%AE%E6%94%B9commit%E4%BF%A1%E6%81%AF/">
@@ -286,8 +231,8 @@ root@zwx-virtual-machine:/# uptime
 
   <span class="copyright-year">
     &copy; 
-     - 
-    2024<span class="heart"><i class="iconfont icon-heart"></i></span><span>Aries</span>
+    2020 - 
+    2024<span class="heart"><i class="iconfont icon-heart"></i></span><span></span>
   </span>
 </div>
 

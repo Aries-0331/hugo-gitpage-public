@@ -16,14 +16,14 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="Aries" /><meta name="description" content="Aries notebook" /><meta name="keywords" content="Aries, blog, hugo" />
+<meta name="author" content="" /><meta name="description" content="Aries notebook" /><meta name="keywords" content="Aries, blog, hugo" />
 
 
 
 
 
 
-<meta name="generator" content="Hugo 0.123.3 with theme even" />
+<meta name="generator" content="Hugo 0.124.1 with theme even" />
 
 
 <link rel="canonical" href="https://urchinzhou.com/" />
@@ -45,7 +45,6 @@
 <meta property="og:description" content="Aries notebook" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://urchinzhou.com/" />
-
 <meta itemprop="name" content="Aries notebook">
 <meta itemprop="description" content="Aries notebook"><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Aries notebook"/>
 <meta name="twitter:description" content="Aries notebook"/>
@@ -87,8 +86,8 @@
         <li class="mobile-menu-item">Home</li>
       </a><a href="/post/">
         <li class="mobile-menu-item">Archives</li>
-      </a><a href="/categories/">
-        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
       </a>
   </ul>
 
@@ -114,7 +113,7 @@
       </li><li class="menu-item">
         <a class="menu-item-link" href="/post/">Archives</a>
       </li><li class="menu-item">
-        <a class="menu-item-link" href="/categories/">Categories</a>
+        <a class="menu-item-link" href="/tags/">Tags</a>
       </li>
   </ul>
 </nav>
@@ -127,42 +126,31 @@
           <section id="posts" class="posts">
   <article class="post">
   <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/tcp/">What happens when tcp listen to a port?</a></h1>
+    <h1 class="post-title"><a class="post-link" href="/post/go-package---gorm/">Go Package - gorm</a></h1>
     <div class="post-meta">
-      <span class="post-time"> 2023-06-29 </span>
-      <div class="post-category">
-        <a href="/%20categories/tcp/"> tcp </a>
-        </div>
+      <span class="post-time"> 2023-03-12 </span>
+      
     </div>
   </header>
   
   <div class="post-content">
     
     <div class="post-summary">
-      <p>When reading the net/http code of golang, I was suddenly curious about the mechanism of tcp listen, then I googled and found this interesting Q&amp;A - <a href="https://stackoverflow.com/questions/4530187/what-happens-when-we-say-listen-to-a-port">What happens when we say &ldquo;listen to a port&rdquo;?</a> on StackOverflow.</p>
-<blockquote>
-<p>Q:When we start a server application, we always need to speicify the port number it listens to. But how is this &ldquo;listening mechanism&rdquo; implemented under the hood?</p>
-<p>My current <em>imagination</em> is like this:</p>
-<p>The operating system associate the port number with some buffer. The server application&rsquo;s responsibiliy is to monitor this buffer. If there&rsquo;s no data in this buffer, the server application&rsquo;s listen operation will just *<strong>block*</strong> the application.</p>
-<p>When some data arrives from the wire, the operating system will *<strong>know*</strong> that and then check the data and see if it is targeted at this port number. And then it will fill the *<strong>corresponding*</strong> buffer. And then OS will notify the blocked server application and the server application will get the data and continue to run.</p>
-<p>Question is:</p>
-<ul>
-<li>If the above scenario is correct, how could the opearting system *<strong>know*</strong> there&rsquo;s data arriving from wire? It cannot be a busy polling. Is it some kind of interrupt-based mechanism?</li>
-<li>If there&rsquo;s too much data arriving and the buffer is not big enough, will there be data loss?</li>
-<li>Is the &ldquo;listen to a port&rdquo; operation really a blocking operation?</li>
-</ul>
-</blockquote>
-<p>The accepted answer is :</p>
-<blockquote>
-<p>There is <em>no buffer</em> that the application monitors. Instead, the application calls listen() at some point, and the OS remembers from then on that this application is interested in new connections to that port number. Only one application can indicate interest in a certain port at any time.</p>
-<p>The listen operation does <em>not block</em>. Instead, it returns right away. What may block is <a href="http://linux.die.net/man/2/accept"><code>accept()</code></a>. The system has a backlog of incoming connections (buffering the data that have been received), and returns one of the connections every time accept is called. accept doesn&rsquo;t transmit any data; the application must then do recv() calls on the accepted socket.</p>
-<p>As to your questions:</p>
-<ul>
-<li>as others have said: hardware interrupts. The NIC takes the datagram completely off the wire, interrupts, and is assigned an address in memory to copy it to.</li>
-<li>for TCP, there will be no data loss, as there will always be sufficient memory during the communication. TCP has flow control, and the sender will stop sending before the receiver has no more memory. For UDP and new TCP connections, there can be data loss; the sender will typically get an error indication (as the system reserves memory to accept just one more datagram).</li>
-<li>see above: listen itself is not blocking; accept is.</li>
-</ul>
-</blockquote>
+      <p>GORM is a popular Object-Relational Mapping (ORM) package for Go, designed to simplify database operations and improve developer productivity. It provides a robust and expressive API for interacting with various databases, including PostgreSQL, MySQL, SQLite, and more. With GORM, you can focus on your application&rsquo;s logic while it handles the complexities of database management.</p>
+<p>Main Usage of GORM:</p>
+<ol>
+<li>Model Definition: GORM allows you to define models, which are Go structs representing database tables. By leveraging struct tags, you can specify table names, column names, data types, constraints, and relationships with other models. GORM automates the mapping between these models and database tables, eliminating manual SQL queries.</li>
+<li>CRUD Operations: GORM simplifies database operations with its intuitive API. Perform Create, Read, Update, and Delete (CRUD) operations effortlessly using GORM&rsquo;s methods. Insert records, retrieve data based on conditions, update existing records, and delete data from the database with ease.</li>
+<li>Querying: GORM provides a powerful query builder that enables you to construct complex database queries using a chainable syntax. Leverage conditions, aggregations, joins, sorting, and pagination to retrieve the exact data you need from your database. GORM&rsquo;s query builder abstracts away the underlying SQL, making it easier to write and maintain complex queries.</li>
+<li>Relationships and Associations: GORM simplifies working with relationships between database tables. Define associations like one-to-one, one-to-many, and many-to-many relationships in your models using struct tags. GORM handles the necessary join queries and provides convenient methods to access related data.</li>
+</ol>
+<p>Application Scenarios:</p>
+<ol>
+<li>Web Applications: GORM is well-suited for building web applications that require efficient database interactions. Whether you&rsquo;re building an e-commerce platform, a content management system, or a social media application, GORM&rsquo;s simplicity and performance make it an excellent choice for managing your application&rsquo;s data layer.</li>
+<li>Microservices: As Go gains popularity in microservice architectures, GORM proves to be a valuable tool for managing database interactions in distributed systems. Use GORM to handle data storage and retrieval across different microservices, ensuring consistency and efficiency in your overall architecture.</li>
+<li>Data-Driven APIs: GORM&rsquo;s ease of use and powerful query builder make it ideal for developing data-driven APIs. Retrieve data based on user-defined filters, perform aggregations, and efficiently handle large datasets with GORM&rsquo;s optimized database operations. Build robust APIs that deliver data seamlessly to your frontend or other consuming applications.</li>
+</ol>
+<p>Conclusion: GORM simplifies database interactions in Go applications, enabling developers to focus on business logic rather than database management. By utilizing GORM&rsquo;s model definition, CRUD operations, querying capabilities, and support for relationships, you can streamline database interactions and improve productivity. Whether you&rsquo;re building web applications, microservices, or data-driven APIs, GORM empowers you to handle database operations efficiently and effectively.</p>
 
     </div>
     
@@ -208,8 +196,8 @@
 
   <span class="copyright-year">
     &copy; 
-     - 
-    2024<span class="heart"><i class="iconfont icon-heart"></i></span><span>Aries</span>
+    2020 - 
+    2024<span class="heart"><i class="iconfont icon-heart"></i></span><span></span>
   </span>
 </div>
 

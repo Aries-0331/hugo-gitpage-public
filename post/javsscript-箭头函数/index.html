@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>JavsScript 箭头函数 - Aries notebook</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="" /><meta name="description" content="箭头函数 箭头函数是 ES6 (ECMAScript 2015) 引入的一个新增特性，提供了一种更简洁的方式来写函数表达式。它不仅语法简短，而且还有其他几个特别之处，特别是与this" /><meta name="keywords" content="Aries, blog, hugo" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.124.1 with theme even" />
+
+
+<link rel="canonical" href="https://urchinzhou.com/post/javsscript-%E7%AE%AD%E5%A4%B4%E5%87%BD%E6%95%B0/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
+
+
+
+<meta property="og:title" content="JavsScript 箭头函数" />
+<meta property="og:description" content="箭头函数 箭头函数是 ES6 (ECMAScript 2015) 引入的一个新增特性，提供了一种更简洁的方式来写函数表达式。它不仅语法简短，而且还有其他几个特别之处，特别是与this" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://urchinzhou.com/post/javsscript-%E7%AE%AD%E5%A4%B4%E5%87%BD%E6%95%B0/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2022-01-24T21:40:30+08:00" />
+<meta property="article:modified_time" content="2022-01-24T21:40:30+08:00" />
+<meta itemprop="name" content="JavsScript 箭头函数">
+<meta itemprop="description" content="箭头函数 箭头函数是 ES6 (ECMAScript 2015) 引入的一个新增特性，提供了一种更简洁的方式来写函数表达式。它不仅语法简短，而且还有其他几个特别之处，特别是与this"><meta itemprop="datePublished" content="2022-01-24T21:40:30+08:00" />
+<meta itemprop="dateModified" content="2022-01-24T21:40:30+08:00" />
+<meta itemprop="wordCount" content="1262">
+<meta itemprop="keywords" content="javascript," /><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="JavsScript 箭头函数"/>
+<meta name="twitter:description" content="箭头函数 箭头函数是 ES6 (ECMAScript 2015) 引入的一个新增特性，提供了一种更简洁的方式来写函数表达式。它不仅语法简短，而且还有其他几个特别之处，特别是与this"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-XXXXXXXXX-X"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-XXXXXXXXX-X');
+</script>
+
+
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Aries</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a>
+  </ul>
+
+  
+
+
+</nav>
+
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Aries</a>
+</div>
+
+
+
+
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li>
+  </ul>
+</nav>
+
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">JavsScript 箭头函数</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2022-01-24 </span>
+        
+        
+      </div>
+    </header>
+
+    
+    <div class="post-content">
+      <h2 id="箭头函数">箭头函数</h2>
+<p>箭头函数是 ES6 (ECMAScript 2015) 引入的一个新增特性，提供了一种更简洁的方式来写函数表达式。它不仅语法简短，而且还有其他几个特别之处，特别是与<code>this</code>关键字的绑定相关的行为。</p>
+<p>箭头函数的基本语法如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="k">const</span> <span class="n">functionName</span> <span class="o">=</span> <span class="p">(</span><span class="n">arg1</span><span class="p">,</span> <span class="n">arg2</span><span class="p">,</span> <span class="o">...</span><span class="n">argN</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="o">//</span> <span class="err">函数体</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>如果箭头函数直接返回一个值，可以省略花括号和<code>return</code>关键字：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">const</span> <span class="n">functionName</span> <span class="o">=</span> <span class="p">(</span><span class="n">arg1</span><span class="p">,</span> <span class="n">arg2</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="n">arg1</span> <span class="o">+</span> <span class="n">arg2</span><span class="p">;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>如果只有一个参数，还可以省略参数周围的括号：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">const</span> <span class="n">functionName</span> <span class="o">=</span> <span class="n">arg</span> <span class="o">=&gt;</span> <span class="n">arg</span> <span class="o">*</span> <span class="mi">2</span><span class="p">;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="this的绑定"><code>this</code>的绑定</h3>
+<p>箭头函数不绑定自己的<code>this</code>，它会捕获其所在上下文的<code>this</code>值作为自己的<code>this</code>值，这使得在回调函数和闭包中处理<code>this</code>变得更加容易。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">function Counter() {
+</span></span><span class="line"><span class="cl">  this.count = 0;
+</span></span><span class="line"><span class="cl">  setInterval(() =&gt; {
+</span></span><span class="line"><span class="cl">    this.count++;
+</span></span><span class="line"><span class="cl">    console.log(this.count);
+</span></span><span class="line"><span class="cl">  }, 1000);
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>在这个例子中，<code>setInterval</code>内部的箭头函数没有自己的<code>this</code>绑定，因此它可以直接访问外围<code>Counter</code>函数中的<code>this</code>对象。</p>
+<h3 id="使用限制">使用限制</h3>
+<ul>
+<li><strong>没有自己的<code>this</code></strong>：如上所述，箭头函数不绑定<code>this</code>，意味着不能用它来定义对象方法，如果尝试通过<code>new</code>关键字调用箭头函数，会抛出一个 TypeError 错误。</li>
+<li><strong>没有<code>arguments</code>对象</strong>：箭头函数没有自己的<code>arguments</code>对象，但是可以通过剩余参数（<code>...args</code>）来访问函数的参数。</li>
+<li><strong>不能用作构造函数</strong>：由于没有自己的<code>this</code>绑定，箭头函数不能用作构造函数。</li>
+<li><strong>没有<code>prototype</code>属性</strong>：箭头函数没有<code>prototype</code>属性。</li>
+</ul>
+<h3 id="应用场景">应用场景</h3>
+<p>箭头函数最适用于非方法函数和那些不能被当作构造函数使用的场景，非常适合用于简短的回调或函数式编程场景，比如<code>map</code>、<code>filter</code>、<code>reduce</code>等数组方法的参数，或者任何需要简洁语法的地方。</p>
+<h2 id="对比匿名函数">对比匿名函数</h2>
+<p><strong>箭头函数</strong> 提供了一种更简洁的函数写法。通常用于单行表达式，但也可以用于更复杂的场景。箭头函数没有自己的 <code>this</code>, <code>arguments</code>, <code>super</code>, 或 <code>new.target</code> 绑定。这些值由外围最近一层非箭头函数决定。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="k">const</span> <span class="n">arrowFunction</span> <span class="o">=</span> <span class="p">(</span><span class="n">arg1</span><span class="p">,</span> <span class="n">arg2</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="n">arg1</span> <span class="o">+</span> <span class="n">arg2</span><span class="p">;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>如果箭头函数体包含了一个表达式，那么该表达式的结果会被自动返回。对于更复杂的逻辑，可以使用花括号 <code>{}</code> 来包围函数体，并且需要显式返回一个值（如果需要的话）。</p>
+<p><strong>匿名函数</strong> 是一种没有名称的函数表达式，通常用于传递给其他函数作为参数，或者定义立即执行的函数表达式（IIFE）。匿名函数可以有自己的 <code>this</code>, <code>arguments</code>, <code>super</code>, 和 <code>new.target</code> 绑定。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="k">const</span> <span class="n">anonymousFunction</span> <span class="o">=</span> <span class="n">function</span><span class="p">(</span><span class="n">arg1</span><span class="p">,</span> <span class="n">arg2</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="n">arg1</span> <span class="o">+</span> <span class="n">arg2</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="this-绑定的差异"><code>this</code> 绑定的差异</h3>
+<p><strong>箭头函数</strong> 没有自己的 <code>this</code> 值。箭头函数内的 <code>this</code> 值由外围最近一层非箭头函数的执行上下文决定。这使得箭头函数非常适合用作回调函数，尤其是在需要对 <code>this</code> 绑定进行词法跟踪的场合。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-mysql" data-lang="mysql"><span class="line"><span class="cl"><span class="n">function</span><span class="w"> </span><span class="nf">Counter</span><span class="p">()</span><span class="w"> </span><span class="err">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">this</span><span class="p">.</span><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nf">setInterval</span><span class="p">(()</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="err">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">this</span><span class="p">.</span><span class="n">count</span><span class="o">++</span><span class="p">;</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="o">`</span><span class="n">this</span><span class="o">`</span><span class="w"> </span><span class="err">与外围函数的</span><span class="w"> </span><span class="o">`</span><span class="n">this</span><span class="o">`</span><span class="w"> </span><span class="err">相同</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="n">this</span><span class="p">.</span><span class="n">count</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="err">}</span><span class="p">,</span><span class="w"> </span><span class="mi">1000</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="err">}</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>匿名函数</strong> 有自己的 <code>this</code> 绑定。如果匿名函数被一个对象调用，<code>this</code> 将指向那个对象。在全局作用域中调用时，<code>this</code> 会指向全局对象（在非严格模式下）或者是 <code>undefined</code>（在严格模式下）。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-mysql" data-lang="mysql"><span class="line"><span class="cl"><span class="n">function</span><span class="w"> </span><span class="nf">Counter</span><span class="p">()</span><span class="w"> </span><span class="err">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">this</span><span class="p">.</span><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nf">setInterval</span><span class="p">(</span><span class="nf">function</span><span class="p">()</span><span class="w"> </span><span class="err">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">this</span><span class="p">.</span><span class="n">count</span><span class="o">++</span><span class="p">;</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="o">`</span><span class="n">this</span><span class="o">`</span><span class="w"> </span><span class="err">不指向</span><span class="w"> </span><span class="n">Counter</span><span class="w"> </span><span class="err">实例，除非显式绑定</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="n">this</span><span class="p">.</span><span class="n">count</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="err">}</span><span class="p">,</span><span class="w"> </span><span class="mi">1000</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="err">}</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="用途和选择">用途和选择</h3>
+<ul>
+<li><strong>箭头函数</strong> 是首选的回调函数形式，特别是当需要在回调函数中访问外围函数的 <code>this</code> 上下文时。它们的简洁语法也使得代码更加清晰和简洁。</li>
+<li><strong>匿名函数</strong> 更适合那些需要独立的 <code>this</code> 绑定的场合，或者是在需要将函数作为构造函数时（箭头函数不能用作构造函数）。</li>
+</ul>
+
+    </div>
+
+    
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/javascript/">javascript</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/linux-ipc/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">Linux IPC</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        <a class="next" href="/post/2021/">
+            <span class="next-text nav-default">2021</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:urchinzhou@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://twitter.com/AriesBlabla" class="iconfont icon-twitter" title="twitter"></a>
+      <a href="https://github.com/Aries-0331" class="iconfont icon-github" title="github"></a>
+  <a href="https://urchinzhou.com/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2020 - 
+    2024<span class="heart"><i class="iconfont icon-heart"></i></span><span></span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  
+
+
+
+<script type="text/javascript" src="/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex: {
+        }
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js" integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin="anonymous"></script>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-XXXXXXXXX-X"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-XXXXXXXXX-X');
+</script>
+
+
+
+
+
+
+
+
+</body>
+</html>

@@ -16,20 +16,14 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="Aries" /><meta name="description" content=" 1 2 3 //常见错误 int *a; *a = 12; 该代码段，声明了一个名为 a 的指针变量，之后将 12 存储在 a 所指向的空间中。
-声明了变量 a，但未对其初始化，所以并不知道 a 所指向的具体位置，即数据 12 将存储于什么地方尚未可知。
-声明一个指向整型的指针，不会创建用于存储整型值的内存空间。
-对于该代码段可能造成的结果：
-报错 若 a 的初始值是非法地址，则赋值语句将会报错，从而终止程序。在 UNIX 系统上，这种错误通常为“段错误（segmentation fault）”、“段违例（segmentation violation）”或“内存错误（memory fault）”。提示程序在试图访问一个并未分配给程序的内存位置。
-不报错 若 a 的初始值刚好是一个合法的地址，则该地址的原值被新的赋值语句所覆盖，虽然你并无意修改该地址的值。这种情况下导致的错误很难发现，因为引发错误的代码大概率与原本用于操作被修改值的代码毫不相干。因此，在对指针进行间接访问之前，务必确保指针变量已被初始化。
-" /><meta name="keywords" content="Aries, blog, hugo" />
+<meta name="author" content="" /><meta name="description" content="1 2 3 //常见错误 int *a; *a = 12; 该代码段，声明了一个名为 a 的指针变量，之后将 12 存储在 a 所指向的空间中。 声明了变量 a，但未对其初始化，所以并不知道" /><meta name="keywords" content="Aries, blog, hugo" />
 
 
 
 
 
 
-<meta name="generator" content="Hugo 0.123.3 with theme even" />
+<meta name="generator" content="Hugo 0.124.1 with theme even" />
 
 
 <link rel="canonical" href="https://urchinzhou.com/post/%E6%8C%87%E9%92%88/" />
@@ -46,87 +40,17 @@
 
 
 <meta property="og:title" content="一个野指针" />
-<meta property="og:description" content="
-
-1
-2
-3
-
-
-//常见错误
-int *a;
-*a = 12;
-
-
-该代码段，声明了一个名为 a 的指针变量，之后将 12 存储在 a 所指向的空间中。
-声明了变量 a，但未对其初始化，所以并不知道 a 所指向的具体位置，即数据 12 将存储于什么地方尚未可知。
-声明一个指向整型的指针，不会创建用于存储整型值的内存空间。
-对于该代码段可能造成的结果：
-
-报错
-
-若 a 的初始值是非法地址，则赋值语句将会报错，从而终止程序。在 UNIX 系统上，这种错误通常为“段错误（segmentation fault）”、“段违例（segmentation violation）”或“内存错误（memory fault）”。提示程序在试图访问一个并未分配给程序的内存位置。
-
-不报错
-
-若 a 的初始值刚好是一个合法的地址，则该地址的原值被新的赋值语句所覆盖，虽然你并无意修改该地址的值。这种情况下导致的错误很难发现，因为引发错误的代码大概率与原本用于操作被修改值的代码毫不相干。因此，在对指针进行间接访问之前，务必确保指针变量已被初始化。" />
+<meta property="og:description" content="1 2 3 //常见错误 int *a; *a = 12; 该代码段，声明了一个名为 a 的指针变量，之后将 12 存储在 a 所指向的空间中。 声明了变量 a，但未对其初始化，所以并不知道" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://urchinzhou.com/post/%E6%8C%87%E9%92%88/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2021-08-23T22:29:13+08:00" />
-<meta property="article:modified_time" content="2021-08-23T22:29:13+08:00" />
-
+<meta property="article:published_time" content="2020-08-23T22:29:13+08:00" />
+<meta property="article:modified_time" content="2020-08-23T22:29:13+08:00" />
 <meta itemprop="name" content="一个野指针">
-<meta itemprop="description" content="
-
-1
-2
-3
-
-
-//常见错误
-int *a;
-*a = 12;
-
-
-该代码段，声明了一个名为 a 的指针变量，之后将 12 存储在 a 所指向的空间中。
-声明了变量 a，但未对其初始化，所以并不知道 a 所指向的具体位置，即数据 12 将存储于什么地方尚未可知。
-声明一个指向整型的指针，不会创建用于存储整型值的内存空间。
-对于该代码段可能造成的结果：
-
-报错
-
-若 a 的初始值是非法地址，则赋值语句将会报错，从而终止程序。在 UNIX 系统上，这种错误通常为“段错误（segmentation fault）”、“段违例（segmentation violation）”或“内存错误（memory fault）”。提示程序在试图访问一个并未分配给程序的内存位置。
-
-不报错
-
-若 a 的初始值刚好是一个合法的地址，则该地址的原值被新的赋值语句所覆盖，虽然你并无意修改该地址的值。这种情况下导致的错误很难发现，因为引发错误的代码大概率与原本用于操作被修改值的代码毫不相干。因此，在对指针进行间接访问之前，务必确保指针变量已被初始化。"><meta itemprop="datePublished" content="2021-08-23T22:29:13+08:00" />
-<meta itemprop="dateModified" content="2021-08-23T22:29:13+08:00" />
+<meta itemprop="description" content="1 2 3 //常见错误 int *a; *a = 12; 该代码段，声明了一个名为 a 的指针变量，之后将 12 存储在 a 所指向的空间中。 声明了变量 a，但未对其初始化，所以并不知道"><meta itemprop="datePublished" content="2020-08-23T22:29:13+08:00" />
+<meta itemprop="dateModified" content="2020-08-23T22:29:13+08:00" />
 <meta itemprop="wordCount" content="410">
-<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="一个野指针"/>
-<meta name="twitter:description" content="
-
-1
-2
-3
-
-
-//常见错误
-int *a;
-*a = 12;
-
-
-该代码段，声明了一个名为 a 的指针变量，之后将 12 存储在 a 所指向的空间中。
-声明了变量 a，但未对其初始化，所以并不知道 a 所指向的具体位置，即数据 12 将存储于什么地方尚未可知。
-声明一个指向整型的指针，不会创建用于存储整型值的内存空间。
-对于该代码段可能造成的结果：
-
-报错
-
-若 a 的初始值是非法地址，则赋值语句将会报错，从而终止程序。在 UNIX 系统上，这种错误通常为“段错误（segmentation fault）”、“段违例（segmentation violation）”或“内存错误（memory fault）”。提示程序在试图访问一个并未分配给程序的内存位置。
-
-不报错
-
-若 a 的初始值刚好是一个合法的地址，则该地址的原值被新的赋值语句所覆盖，虽然你并无意修改该地址的值。这种情况下导致的错误很难发现，因为引发错误的代码大概率与原本用于操作被修改值的代码毫不相干。因此，在对指针进行间接访问之前，务必确保指针变量已被初始化。"/>
+<meta itemprop="keywords" content="c,指针," /><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="一个野指针"/>
+<meta name="twitter:description" content="1 2 3 //常见错误 int *a; *a = 12; 该代码段，声明了一个名为 a 的指针变量，之后将 12 存储在 a 所指向的空间中。 声明了变量 a，但未对其初始化，所以并不知道"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -165,8 +89,8 @@ int *a;
         <li class="mobile-menu-item">Home</li>
       </a><a href="/post/">
         <li class="mobile-menu-item">Archives</li>
-      </a><a href="/categories/">
-        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
       </a>
   </ul>
 
@@ -192,7 +116,7 @@ int *a;
       </li><li class="menu-item">
         <a class="menu-item-link" href="/post/">Archives</a>
       </li><li class="menu-item">
-        <a class="menu-item-link" href="/categories/">Categories</a>
+        <a class="menu-item-link" href="/tags/">Tags</a>
       </li>
   </ul>
 </nav>
@@ -208,10 +132,8 @@ int *a;
       <h1 class="post-title">一个野指针</h1>
 
       <div class="post-meta">
-        <span class="post-time"> 2021-08-23 </span>
-        <div class="post-category">
-            <a href="/categories/c/"> c </a>
-            </div>
+        <span class="post-time"> 2020-08-23 </span>
+        
         
       </div>
     </header>
@@ -242,19 +164,23 @@ int *a;
 <li>不报错</li>
 </ul>
 <p>若 a 的初始值刚好是一个合法的地址，则该地址的原值被新的赋值语句所覆盖，虽然你并无意修改该地址的值。这种情况下导致的错误很难发现，因为引发错误的代码大概率与原本用于操作被修改值的代码毫不相干。因此，<strong>在对指针进行间接访问之前，务必确保指针变量已被初始化。</strong></p>
+
     </div>
 
     
 <footer class="post-footer">
-      
+      <div class="post-tags">
+          <a href="/tags/c/">c</a>
+          <a href="/tags/%E6%8C%87%E9%92%88/">指针</a>
+          </div>
       <nav class="post-nav">
-        <a class="prev" href="/post/%E5%AF%86%E7%A0%81%E5%BA%94%E7%94%A8%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">
+        <a class="prev" href="/post/%E9%85%8D%E7%BD%AE%E5%A4%9A%E4%B8%AAgit%E4%BB%93%E5%BA%93%E7%9A%84ssh%E6%9D%83%E9%99%90/">
             <i class="iconfont icon-left"></i>
-            <span class="prev-text nav-default">密码应用基础知识</span>
+            <span class="prev-text nav-default">在新环境中配置多 Git 仓库的 ssh 权限</span>
             <span class="prev-text nav-mobile">Prev</span>
           </a>
-        <a class="next" href="/post/%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3%E5%B9%B3%E5%9D%87%E8%B4%9F%E8%BD%BD/">
-            <span class="next-text nav-default">如何理解平均负载</span>
+        <a class="next" href="/post/tcp/">
+            <span class="next-text nav-default">What happens when tcp listen to a port?</span>
             <span class="next-text nav-mobile">Next</span>
             <i class="iconfont icon-right"></i>
           </a>
@@ -293,8 +219,8 @@ int *a;
 
   <span class="copyright-year">
     &copy; 
-     - 
-    2024<span class="heart"><i class="iconfont icon-heart"></i></span><span>Aries</span>
+    2020 - 
+    2024<span class="heart"><i class="iconfont icon-heart"></i></span><span></span>
   </span>
 </div>
 

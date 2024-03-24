@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>SQLCipher替代SQLite - Aries notebook</title>
+  <title>SQLCipher - Aries notebook</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -16,15 +16,14 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="Aries" /><meta name="description" content="SQLCipher 是基于 SQLite 的安全扩展，加解密行为对应用层透明，可使用标准 SQLite API 执行数据库操作，移植简单，以页为单位进行加解密操作，效率高，开销比 SQLite 多 5% 左右。
-安全特性 加密算法使用 AES-256 CBC模式； 使用口令初始化数据库，实际加密密钥根据口令派生产生，相同口令派生出的密钥不同； 以页为单位加解密，默认页大小 4096 Bytes，可调整优化； 对每一页写的时候，文末会附带消息验证码，用于读取时校验； 加密算法由 OpenSSL libcrypto 等开源库支持； " /><meta name="keywords" content="Aries, blog, hugo" />
+<meta name="author" content="" /><meta name="description" content="SQLCipher 是基于 SQLite 的安全扩展，加解密行为对应用层透明，可使用标准 SQLite API 执行数据库操作，移植简单，以页为单位进行加解密操作，效率高，开销比 SQLite 多 5% 左右。 安" /><meta name="keywords" content="Aries, blog, hugo" />
 
 
 
 
 
 
-<meta name="generator" content="Hugo 0.123.3 with theme even" />
+<meta name="generator" content="Hugo 0.124.1 with theme even" />
 
 
 <link rel="canonical" href="https://urchinzhou.com/post/sqlcipher%E6%9B%BF%E4%BB%A3sqlite/" />
@@ -40,43 +39,18 @@
 
 
 
-<meta property="og:title" content="SQLCipher替代SQLite" />
-<meta property="og:description" content="SQLCipher 是基于 SQLite 的安全扩展，加解密行为对应用层透明，可使用标准 SQLite API 执行数据库操作，移植简单，以页为单位进行加解密操作，效率高，开销比 SQLite 多 5% 左右。
-安全特性
-
-加密算法使用 AES-256 CBC模式；
-使用口令初始化数据库，实际加密密钥根据口令派生产生，相同口令派生出的密钥不同；
-以页为单位加解密，默认页大小 4096 Bytes，可调整优化；
-对每一页写的时候，文末会附带消息验证码，用于读取时校验；
-加密算法由 OpenSSL libcrypto 等开源库支持；
-" />
+<meta property="og:title" content="SQLCipher" />
+<meta property="og:description" content="SQLCipher 是基于 SQLite 的安全扩展，加解密行为对应用层透明，可使用标准 SQLite API 执行数据库操作，移植简单，以页为单位进行加解密操作，效率高，开销比 SQLite 多 5% 左右。 安" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://urchinzhou.com/post/sqlcipher%E6%9B%BF%E4%BB%A3sqlite/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2021-07-13T22:27:48+08:00" />
 <meta property="article:modified_time" content="2021-07-13T22:27:48+08:00" />
-
-<meta itemprop="name" content="SQLCipher替代SQLite">
-<meta itemprop="description" content="SQLCipher 是基于 SQLite 的安全扩展，加解密行为对应用层透明，可使用标准 SQLite API 执行数据库操作，移植简单，以页为单位进行加解密操作，效率高，开销比 SQLite 多 5% 左右。
-安全特性
-
-加密算法使用 AES-256 CBC模式；
-使用口令初始化数据库，实际加密密钥根据口令派生产生，相同口令派生出的密钥不同；
-以页为单位加解密，默认页大小 4096 Bytes，可调整优化；
-对每一页写的时候，文末会附带消息验证码，用于读取时校验；
-加密算法由 OpenSSL libcrypto 等开源库支持；
-"><meta itemprop="datePublished" content="2021-07-13T22:27:48+08:00" />
+<meta itemprop="name" content="SQLCipher">
+<meta itemprop="description" content="SQLCipher 是基于 SQLite 的安全扩展，加解密行为对应用层透明，可使用标准 SQLite API 执行数据库操作，移植简单，以页为单位进行加解密操作，效率高，开销比 SQLite 多 5% 左右。 安"><meta itemprop="datePublished" content="2021-07-13T22:27:48+08:00" />
 <meta itemprop="dateModified" content="2021-07-13T22:27:48+08:00" />
 <meta itemprop="wordCount" content="250">
-<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="SQLCipher替代SQLite"/>
-<meta name="twitter:description" content="SQLCipher 是基于 SQLite 的安全扩展，加解密行为对应用层透明，可使用标准 SQLite API 执行数据库操作，移植简单，以页为单位进行加解密操作，效率高，开销比 SQLite 多 5% 左右。
-安全特性
-
-加密算法使用 AES-256 CBC模式；
-使用口令初始化数据库，实际加密密钥根据口令派生产生，相同口令派生出的密钥不同；
-以页为单位加解密，默认页大小 4096 Bytes，可调整优化；
-对每一页写的时候，文末会附带消息验证码，用于读取时校验；
-加密算法由 OpenSSL libcrypto 等开源库支持；
-"/>
+<meta itemprop="keywords" content="sqlcipher,android," /><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="SQLCipher"/>
+<meta name="twitter:description" content="SQLCipher 是基于 SQLite 的安全扩展，加解密行为对应用层透明，可使用标准 SQLite API 执行数据库操作，移植简单，以页为单位进行加解密操作，效率高，开销比 SQLite 多 5% 左右。 安"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -115,8 +89,8 @@
         <li class="mobile-menu-item">Home</li>
       </a><a href="/post/">
         <li class="mobile-menu-item">Archives</li>
-      </a><a href="/categories/">
-        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
       </a>
   </ul>
 
@@ -142,7 +116,7 @@
       </li><li class="menu-item">
         <a class="menu-item-link" href="/post/">Archives</a>
       </li><li class="menu-item">
-        <a class="menu-item-link" href="/categories/">Categories</a>
+        <a class="menu-item-link" href="/tags/">Tags</a>
       </li>
   </ul>
 </nav>
@@ -155,13 +129,11 @@
           <article class="post">
     
     <header class="post-header">
-      <h1 class="post-title">SQLCipher替代SQLite</h1>
+      <h1 class="post-title">SQLCipher</h1>
 
       <div class="post-meta">
         <span class="post-time"> 2021-07-13 </span>
-        <div class="post-category">
-            <a href="/categories/android/"> android </a>
-            </div>
+        
         
       </div>
     </header>
@@ -196,11 +168,15 @@
 </ul>
 <h3 id="faq">FAQ：</h3>
 <p><a href="https://discuss.zetetic.net/t/how-to-encrypt-a-plaintext-sqlite-database-to-use-sqlcipher-and-avoid-file-is-encrypted-or-is-not-a-database-errors/868">如何使用 SQLCipher 加密明文 SQLite 数据库</a></p>
+
     </div>
 
     
 <footer class="post-footer">
-      
+      <div class="post-tags">
+          <a href="/tags/sqlcipher/">sqlcipher</a>
+          <a href="/tags/android/">android</a>
+          </div>
       <nav class="post-nav">
         <a class="prev" href="/post/git%E4%BF%AE%E6%94%B9commit%E4%BF%A1%E6%81%AF/">
             <i class="iconfont icon-left"></i>
@@ -247,8 +223,8 @@
 
   <span class="copyright-year">
     &copy; 
-     - 
-    2024<span class="heart"><i class="iconfont icon-heart"></i></span><span>Aries</span>
+    2020 - 
+    2024<span class="heart"><i class="iconfont icon-heart"></i></span><span></span>
   </span>
 </div>
 

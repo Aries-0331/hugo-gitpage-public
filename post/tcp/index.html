@@ -16,7 +16,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="Aries" /><meta name="description" content="When reading the net/http code of golang, I was suddenly curious about the mechanism of tcp listen, then I googled and found this interesting Q&amp;amp;A - What happens when we say &amp;ldquo;listen to a port&amp;rdquo;? on StackOverflow.
+<meta name="author" content="" /><meta name="description" content="When reading the net/http code of golang, I was suddenly curious about the mechanism of tcp listen, then I googled and found this interesting Q&amp;amp;A - What happens when we say &amp;ldquo;listen to a port&amp;rdquo;? on StackOverflow.
 Q:When we start a server application, we always need to speicify the port number it listens to. But how is this &amp;ldquo;listening mechanism&amp;rdquo; implemented under the hood?
 My current imagination is like this:" /><meta name="keywords" content="Aries, blog, hugo" />
 
@@ -25,7 +25,7 @@ My current imagination is like this:" /><meta name="keywords" content="Aries, bl
 
 
 
-<meta name="generator" content="Hugo 0.123.3 with theme even" />
+<meta name="generator" content="Hugo 0.124.1 with theme even" />
 
 
 <link rel="canonical" href="https://urchinzhou.com/post/tcp/" />
@@ -47,16 +47,15 @@ Q:When we start a server application, we always need to speicify the port number
 My current imagination is like this:" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://urchinzhou.com/post/tcp/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2023-06-29T18:24:09+08:00" />
-<meta property="article:modified_time" content="2023-06-29T18:24:09+08:00" />
-
+<meta property="article:published_time" content="2020-06-29T18:24:09+08:00" />
+<meta property="article:modified_time" content="2020-06-29T18:24:09+08:00" />
 <meta itemprop="name" content="What happens when tcp listen to a port?">
 <meta itemprop="description" content="When reading the net/http code of golang, I was suddenly curious about the mechanism of tcp listen, then I googled and found this interesting Q&amp;A - What happens when we say &ldquo;listen to a port&rdquo;? on StackOverflow.
 Q:When we start a server application, we always need to speicify the port number it listens to. But how is this &ldquo;listening mechanism&rdquo; implemented under the hood?
-My current imagination is like this:"><meta itemprop="datePublished" content="2023-06-29T18:24:09+08:00" />
-<meta itemprop="dateModified" content="2023-06-29T18:24:09+08:00" />
+My current imagination is like this:"><meta itemprop="datePublished" content="2020-06-29T18:24:09+08:00" />
+<meta itemprop="dateModified" content="2020-06-29T18:24:09+08:00" />
 <meta itemprop="wordCount" content="440">
-<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="What happens when tcp listen to a port?"/>
+<meta itemprop="keywords" content="tcp," /><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="What happens when tcp listen to a port?"/>
 <meta name="twitter:description" content="When reading the net/http code of golang, I was suddenly curious about the mechanism of tcp listen, then I googled and found this interesting Q&amp;A - What happens when we say &ldquo;listen to a port&rdquo;? on StackOverflow.
 Q:When we start a server application, we always need to speicify the port number it listens to. But how is this &ldquo;listening mechanism&rdquo; implemented under the hood?
 My current imagination is like this:"/>
@@ -98,8 +97,8 @@ My current imagination is like this:"/>
         <li class="mobile-menu-item">Home</li>
       </a><a href="/post/">
         <li class="mobile-menu-item">Archives</li>
-      </a><a href="/categories/">
-        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
       </a>
   </ul>
 
@@ -125,7 +124,7 @@ My current imagination is like this:"/>
       </li><li class="menu-item">
         <a class="menu-item-link" href="/post/">Archives</a>
       </li><li class="menu-item">
-        <a class="menu-item-link" href="/categories/">Categories</a>
+        <a class="menu-item-link" href="/tags/">Tags</a>
       </li>
   </ul>
 </nav>
@@ -141,10 +140,8 @@ My current imagination is like this:"/>
       <h1 class="post-title">What happens when tcp listen to a port?</h1>
 
       <div class="post-meta">
-        <span class="post-time"> 2023-06-29 </span>
-        <div class="post-category">
-            <a href="/categories/tcp/"> tcp </a>
-            </div>
+        <span class="post-time"> 2020-06-29 </span>
+        
         
       </div>
     </header>
@@ -155,11 +152,11 @@ My current imagination is like this:"/>
 <blockquote>
 <p>Q:When we start a server application, we always need to speicify the port number it listens to. But how is this &ldquo;listening mechanism&rdquo; implemented under the hood?</p>
 <p>My current <em>imagination</em> is like this:</p>
-<p>The operating system associate the port number with some buffer. The server application&rsquo;s responsibiliy is to monitor this buffer. If there&rsquo;s no data in this buffer, the server application&rsquo;s listen operation will just *<strong>block*</strong> the application.</p>
-<p>When some data arrives from the wire, the operating system will *<strong>know*</strong> that and then check the data and see if it is targeted at this port number. And then it will fill the *<strong>corresponding*</strong> buffer. And then OS will notify the blocked server application and the server application will get the data and continue to run.</p>
+<p>The operating system associate the port number with some buffer. The server application&rsquo;s responsibiliy is to monitor this buffer. If there&rsquo;s no data in this buffer, the server application&rsquo;s listen operation will just <strong>*block*</strong> the application.</p>
+<p>When some data arrives from the wire, the operating system will <strong>*know*</strong> that and then check the data and see if it is targeted at this port number. And then it will fill the <strong>*corresponding*</strong> buffer. And then OS will notify the blocked server application and the server application will get the data and continue to run.</p>
 <p>Question is:</p>
 <ul>
-<li>If the above scenario is correct, how could the opearting system *<strong>know*</strong> there&rsquo;s data arriving from wire? It cannot be a busy polling. Is it some kind of interrupt-based mechanism?</li>
+<li>If the above scenario is correct, how could the opearting system <strong>*know*</strong> there&rsquo;s data arriving from wire? It cannot be a busy polling. Is it some kind of interrupt-based mechanism?</li>
 <li>If there&rsquo;s too much data arriving and the buffer is not big enough, will there be data loss?</li>
 <li>Is the &ldquo;listen to a port&rdquo; operation really a blocking operation?</li>
 </ul>
@@ -180,15 +177,17 @@ My current imagination is like this:"/>
 
     
 <footer class="post-footer">
-      
+      <div class="post-tags">
+          <a href="/tags/tcp/">tcp</a>
+          </div>
       <nav class="post-nav">
-        <a class="prev" href="/post/javascript-basic-summarize/">
+        <a class="prev" href="/post/%E6%8C%87%E9%92%88/">
             <i class="iconfont icon-left"></i>
-            <span class="prev-text nav-default">JavaScript Basic Summarize</span>
+            <span class="prev-text nav-default">一个野指针</span>
             <span class="prev-text nav-mobile">Prev</span>
           </a>
-        <a class="next" href="/post/go-basic---interface-as-parameter-to-function/">
-            <span class="next-text nav-default">Go Basic - Interface as Parameter to Function</span>
+        <a class="next" href="/post/react-basic---components-and-props/">
+            <span class="next-text nav-default">React Components and Props</span>
             <span class="next-text nav-mobile">Next</span>
             <i class="iconfont icon-right"></i>
           </a>
@@ -227,8 +226,8 @@ My current imagination is like this:"/>
 
   <span class="copyright-year">
     &copy; 
-     - 
-    2024<span class="heart"><i class="iconfont icon-heart"></i></span><span>Aries</span>
+    2020 - 
+    2024<span class="heart"><i class="iconfont icon-heart"></i></span><span></span>
   </span>
 </div>
 

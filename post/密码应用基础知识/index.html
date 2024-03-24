@@ -16,19 +16,14 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="Aries" /><meta name="description" content="对称算法 加密密钥能够从解密密钥中推算出来，反过来也成立。在大多数对称算法中，加密解密密钥是相同的。这些算法也叫秘密密钥算法或单密钥算法，它要求发送者和接受者在安全通信之前，商定一个密钥。
-对称算法的安全性依赖于密钥，泄露密钥就意味着任何人都能对消息进行加密解密。
-分组算法
-对数据块运算，如果数据长度不够一块，则需要填充；加密之后数据长度可能会变长，某些场景下不适用；需要对数据进行缓存，某些场景下不适用。
-分组算法的工作模式
-ECB 模式，最简单，加密长数据有风险； CBC 模式，最常用的工作模式，但本身并没有什么优势，单纯因为过去用的人多，属于历史遗留问题； OFB 模式，效果类似于流密码，适合处理音视频数据； CFB 模式，效果类似于流密码，几乎没人用； CTR 模式，可并行加速，只要有条件就推荐使用，广泛应用于 ATM 网络安全和 IPSec 应用中； GCM、CCM 认证加密模式，既能加密又能防篡改防重放； XTS 存储加密模式，适合随机读写模式； " /><meta name="keywords" content="Aries, blog, hugo" />
+<meta name="author" content="" /><meta name="description" content="对称算法 加密密钥能够从解密密钥中推算出来，反过来也成立。在大多数对称算法中，加密解密密钥是相同的。这些算法也叫秘密密钥算法或单密钥算法，它要" /><meta name="keywords" content="Aries, blog, hugo" />
 
 
 
 
 
 
-<meta name="generator" content="Hugo 0.123.3 with theme even" />
+<meta name="generator" content="Hugo 0.124.1 with theme even" />
 
 
 <link rel="canonical" href="https://urchinzhou.com/post/%E5%AF%86%E7%A0%81%E5%BA%94%E7%94%A8%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" />
@@ -45,60 +40,17 @@ ECB 模式，最简单，加密长数据有风险； CBC 模式，最常用的�
 
 
 <meta property="og:title" content="密码应用基础知识" />
-<meta property="og:description" content="对称算法
-加密密钥能够从解密密钥中推算出来，反过来也成立。在大多数对称算法中，加密解密密钥是相同的。这些算法也叫秘密密钥算法或单密钥算法，它要求发送者和接受者在安全通信之前，商定一个密钥。
-对称算法的安全性依赖于密钥，泄露密钥就意味着任何人都能对消息进行加密解密。
-分组算法
-对数据块运算，如果数据长度不够一块，则需要填充；加密之后数据长度可能会变长，某些场景下不适用；需要对数据进行缓存，某些场景下不适用。
-分组算法的工作模式
-
-ECB 模式，最简单，加密长数据有风险；
-CBC 模式，最常用的工作模式，但本身并没有什么优势，单纯因为过去用的人多，属于历史遗留问题；
-OFB 模式，效果类似于流密码，适合处理音视频数据；
-CFB 模式，效果类似于流密码，几乎没人用；
-CTR 模式，可并行加速，只要有条件就推荐使用，广泛应用于 ATM 网络安全和 IPSec 应用中；
-GCM、CCM 认证加密模式，既能加密又能防篡改防重放；
-XTS 存储加密模式，适合随机读写模式；
-" />
+<meta property="og:description" content="对称算法 加密密钥能够从解密密钥中推算出来，反过来也成立。在大多数对称算法中，加密解密密钥是相同的。这些算法也叫秘密密钥算法或单密钥算法，它要" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://urchinzhou.com/post/%E5%AF%86%E7%A0%81%E5%BA%94%E7%94%A8%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2021-09-12T22:25:17+08:00" />
 <meta property="article:modified_time" content="2021-09-12T22:25:17+08:00" />
-
 <meta itemprop="name" content="密码应用基础知识">
-<meta itemprop="description" content="对称算法
-加密密钥能够从解密密钥中推算出来，反过来也成立。在大多数对称算法中，加密解密密钥是相同的。这些算法也叫秘密密钥算法或单密钥算法，它要求发送者和接受者在安全通信之前，商定一个密钥。
-对称算法的安全性依赖于密钥，泄露密钥就意味着任何人都能对消息进行加密解密。
-分组算法
-对数据块运算，如果数据长度不够一块，则需要填充；加密之后数据长度可能会变长，某些场景下不适用；需要对数据进行缓存，某些场景下不适用。
-分组算法的工作模式
-
-ECB 模式，最简单，加密长数据有风险；
-CBC 模式，最常用的工作模式，但本身并没有什么优势，单纯因为过去用的人多，属于历史遗留问题；
-OFB 模式，效果类似于流密码，适合处理音视频数据；
-CFB 模式，效果类似于流密码，几乎没人用；
-CTR 模式，可并行加速，只要有条件就推荐使用，广泛应用于 ATM 网络安全和 IPSec 应用中；
-GCM、CCM 认证加密模式，既能加密又能防篡改防重放；
-XTS 存储加密模式，适合随机读写模式；
-"><meta itemprop="datePublished" content="2021-09-12T22:25:17+08:00" />
+<meta itemprop="description" content="对称算法 加密密钥能够从解密密钥中推算出来，反过来也成立。在大多数对称算法中，加密解密密钥是相同的。这些算法也叫秘密密钥算法或单密钥算法，它要"><meta itemprop="datePublished" content="2021-09-12T22:25:17+08:00" />
 <meta itemprop="dateModified" content="2021-09-12T22:25:17+08:00" />
 <meta itemprop="wordCount" content="2110">
-<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="密码应用基础知识"/>
-<meta name="twitter:description" content="对称算法
-加密密钥能够从解密密钥中推算出来，反过来也成立。在大多数对称算法中，加密解密密钥是相同的。这些算法也叫秘密密钥算法或单密钥算法，它要求发送者和接受者在安全通信之前，商定一个密钥。
-对称算法的安全性依赖于密钥，泄露密钥就意味着任何人都能对消息进行加密解密。
-分组算法
-对数据块运算，如果数据长度不够一块，则需要填充；加密之后数据长度可能会变长，某些场景下不适用；需要对数据进行缓存，某些场景下不适用。
-分组算法的工作模式
-
-ECB 模式，最简单，加密长数据有风险；
-CBC 模式，最常用的工作模式，但本身并没有什么优势，单纯因为过去用的人多，属于历史遗留问题；
-OFB 模式，效果类似于流密码，适合处理音视频数据；
-CFB 模式，效果类似于流密码，几乎没人用；
-CTR 模式，可并行加速，只要有条件就推荐使用，广泛应用于 ATM 网络安全和 IPSec 应用中；
-GCM、CCM 认证加密模式，既能加密又能防篡改防重放；
-XTS 存储加密模式，适合随机读写模式；
-"/>
+<meta itemprop="keywords" content="cryptography," /><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="密码应用基础知识"/>
+<meta name="twitter:description" content="对称算法 加密密钥能够从解密密钥中推算出来，反过来也成立。在大多数对称算法中，加密解密密钥是相同的。这些算法也叫秘密密钥算法或单密钥算法，它要"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -137,8 +89,8 @@ XTS 存储加密模式，适合随机读写模式；
         <li class="mobile-menu-item">Home</li>
       </a><a href="/post/">
         <li class="mobile-menu-item">Archives</li>
-      </a><a href="/categories/">
-        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
       </a>
   </ul>
 
@@ -164,7 +116,7 @@ XTS 存储加密模式，适合随机读写模式；
       </li><li class="menu-item">
         <a class="menu-item-link" href="/post/">Archives</a>
       </li><li class="menu-item">
-        <a class="menu-item-link" href="/categories/">Categories</a>
+        <a class="menu-item-link" href="/tags/">Tags</a>
       </li>
   </ul>
 </nav>
@@ -181,9 +133,7 @@ XTS 存储加密模式，适合随机读写模式；
 
       <div class="post-meta">
         <span class="post-time"> 2021-09-12 </span>
-        <div class="post-category">
-            <a href="/categories/crypto/"> crypto </a>
-            </div>
+        
         
       </div>
     </header>
@@ -340,19 +290,22 @@ XTS 存储加密模式，适合随机读写模式；
 <ul>
 <li>《应用密码学：协议、算法与C源程序》，作者：（美）Bruce Schneier</li>
 </ul>
+
     </div>
 
     
 <footer class="post-footer">
-      
+      <div class="post-tags">
+          <a href="/tags/cryptography/">cryptography</a>
+          </div>
       <nav class="post-nav">
-        <a class="prev" href="/post/%E5%85%B3%E4%BA%8E%E5%8A%A0%E5%AF%86%E5%92%8C%E5%AF%86%E7%A0%81%E5%AD%A6%E7%9A%84%E7%BB%8F%E9%AA%8C%E6%95%99%E8%AE%AD%E5%92%8C%E8%AF%AF%E8%A7%A3/">
+        <a class="prev" href="/post/https%E4%B8%8Ehttp/">
             <i class="iconfont icon-left"></i>
-            <span class="prev-text nav-default">关于加密和密码学的经验教训和误解</span>
+            <span class="prev-text nav-default">HTTPS与HTTP</span>
             <span class="prev-text nav-mobile">Prev</span>
           </a>
-        <a class="next" href="/post/%E6%8C%87%E9%92%88/">
-            <span class="next-text nav-default">一个野指针</span>
+        <a class="next" href="/post/%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3%E5%B9%B3%E5%9D%87%E8%B4%9F%E8%BD%BD/">
+            <span class="next-text nav-default">如何理解平均负载</span>
             <span class="next-text nav-mobile">Next</span>
             <i class="iconfont icon-right"></i>
           </a>
@@ -391,8 +344,8 @@ XTS 存储加密模式，适合随机读写模式；
 
   <span class="copyright-year">
     &copy; 
-     - 
-    2024<span class="heart"><i class="iconfont icon-heart"></i></span><span>Aries</span>
+    2020 - 
+    2024<span class="heart"><i class="iconfont icon-heart"></i></span><span></span>
   </span>
 </div>
 

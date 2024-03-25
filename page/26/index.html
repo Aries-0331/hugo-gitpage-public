@@ -126,9 +126,9 @@
           <section id="posts" class="posts">
   <article class="post">
   <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/how_to_learn_new_programming_languages_and_frameworks_quickly/">How to learn new programming languages and frameworks quickly</a></h1>
+    <h1 class="post-title"><a class="post-link" href="/post/https%E4%B8%8Ehttp/">HTTPS与HTTP</a></h1>
     <div class="post-meta">
-      <span class="post-time"> 2020-12-21 </span>
+      <span class="post-time"> 2021-10-22 </span>
       
     </div>
   </header>
@@ -137,37 +137,18 @@
     
     <div class="post-summary">
       <blockquote>
-<p>An excerpt from <a href="https://www.quastor.org/p/how-whatsapp-scaled-to-1-billion">how-whatsapp-scaled-to-1-billion</a></p>
+<p>概念上理清 HTTPS 与 HTTP 的区别。</p>
 </blockquote>
-<p><a href="https://news.ycombinator.com/item?id=28017289">This</a> is an interesting discussion on Hacker News for a process to learn new things quickly.</p>
-<p>Here are some of the top answers summarized.</p>
-<ul>
-<li>
-<p>For a new programming language, there are a couple of standard things you should try to implement.</p>
-<p>Write several programs where you</p>
-<ul>
-<li>Read/write to a file</li>
-<li>Turn a structured object into JSON</li>
-<li>Parse JSON into an object</li>
-<li>A basic script that can be run from the CLI, parses flags/args, reads stdin</li>
-<li>Send a HTTP request</li>
-<li>Implement a very basic web server</li>
-</ul>
-<p>When you’re doing these exercises, <strong>do not copy/paste any code</strong>.</p>
-<p>You should be typing out the code yourself.</p>
-</li>
-<li>
-<p>Try to bias towards reading (blogs, documentation, code, books, etc.) over watching video tutorials. Reading is a lot faster than watching video and you can be far more efficient with your time.</p>
-</li>
-<li>
-<p>A 3 step process for learning new frameworks is to divide it up into a week’s work (10 - 15 hour total commitment)</p>
-<ul>
-<li><em>Prepare</em> - Spend 1 hour Monday through Thursday reading documentation, books, and watching content. This way you’ll have time to sleep on the concepts.</li>
-<li><em>Plan</em> - On Friday, spend 1 hour preparing a small project idea for the weekend that will use all the concepts you learned over the week.</li>
-<li><em>Project</em> - Spend 4 - 6 hours building the project over the weekend.</li>
-</ul>
-</li>
-</ul>
+<p>在<a href="https://zh.wikipedia.org/wiki/TCP/IP%E5%8D%8F%E8%AE%AE%E6%97%8F">互联网协议套件</a>中，将网络协议分为四层，从下至上依次为<strong>链路层-网络层-传输层-应用层</strong>，HTTP 属于应用层协议。中文名为超文本传输协议，其设计初衷是为了传输 HTML 页面。</p>
+<p>HTTP 主要规定了客户端和服务器之间的通信格式，并不涉及数据包的传输，传输依赖于 TCP/IP 协议。</p>
+<p>简单理解就是，将需要传递的数据按照 HTTP 的要求格式化（<em>挖坑，数据格式</em>），然后剩下的交给协议栈中的 TCP/IP 层。</p>
+<p>因此基于 HTTP 协议的数据传输，其发送阶段的数据处理流程为，应用层格式化，TCP 封装，IP 封装，过程中不涉及数据的加解密，数据为明文形式传输。</p>
+<p>而 HTTPS 就是在这一流程基础上增加了安全性功能。通常可以这么理解 HTTPS， HTTPS = HTTP over TLS。（<em>由于安全问题，普遍已经抛弃 SSL，因此这里就直接按 TLS 写了</em>）</p>
+<p>TLS 表示传输层安全，从 SSL 演进而来，属于应用层与 TCP 层之间的一个协议，其目的是为互联网通信提供安全及数据完整性保障（挖坑，数据完整性），说白了就是确保数据加密传输，以及确保如果数据被篡改了，接收方能察觉到。</p>
+<p>那么 TLS 做了什么？</p>
+<p>由于要实现数据加解密，因此 TLS 要实现数据的对称加密，不用非对称加密主要是考虑到性能问题。</p>
+<p>通信双方进行数据的对称加密传输前，需要验证对端的身份，即身份认证，这一点 TLS 通过数字证书来实现（<em>挖坑，实现原理</em>）。</p>
+<p>因此基于 HTTPS 协议的数据传输，其发送阶段的数据处理流程为，应用层格式化，TLS 封装，TCP 封装，IP 封装，相较于 HTTP，流程中增加了 TLS 的处理，包括身份认证、数据加解密等。</p>
 
     </div>
     

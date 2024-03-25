@@ -126,9 +126,9 @@
           <section id="posts" class="posts">
   <article class="post">
   <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/javsscript-%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0/">JavsScript 高阶函数</a></h1>
+    <h1 class="post-title"><a class="post-link" href="/post/vs-code-%E5%AE%89%E8%A3%85-go-%E7%9B%B8%E5%85%B3%E5%B7%A5%E5%85%B7%E5%A4%B1%E8%B4%A5/">VSCode 安装 Go 相关工具失败</a></h1>
     <div class="post-meta">
-      <span class="post-time"> 2022-04-24 </span>
+      <span class="post-time"> 2023-02-07 </span>
       
     </div>
   </header>
@@ -136,58 +136,15 @@
   <div class="post-content">
     
     <div class="post-summary">
-      <p>在 JavaScript 中，如果一个函数能接收一个或多个函数作为参数，或返回另一个函数，那么该函数被称为<strong>高阶函数</strong>。</p>
-<p>高阶函数是函数式编程的一个重要概念，提供了极大的灵活性和表达力。以下是 JavaScript 中常见的高阶函数：</p>
-<h3 id="arrayprototypemap">Array.prototype.map</h3>
-<p><code>map</code> 方法创建一个新数组，该数组中的每个元素是调用对象中每个元素调用一次提供的函数后的返回值。</p>
-<div class="highlight"><div class="chroma">
+      <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="k">const</span> <span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">];</span>
-</span></span><span class="line"><span class="cl"><span class="k">const</span> <span class="n">doubled</span> <span class="o">=</span> <span class="n">numbers</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">x</span> <span class="o">=&gt;</span> <span class="n">x</span> <span class="o">*</span> <span class="mi">2</span><span class="p">);</span> <span class="o">//</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">]</span>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">go version go1.19.5 windows/amd64
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h3 id="arrayprototypefilter">Array.prototype.filter</h3>
-<p><code>filter</code> 方法创建一个新数组，包含通过所提供函数实现的测试的所有元素。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="k">const</span> <span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">];</span>
-</span></span><span class="line"><span class="cl"><span class="k">const</span> <span class="n">evens</span> <span class="o">=</span> <span class="n">numbers</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">x</span> <span class="o">=&gt;</span> <span class="n">x</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">===</span> <span class="mi">0</span><span class="p">);</span> <span class="o">//</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="arrayprototypereduce">Array.prototype.reduce</h3>
-<p><code>reduce</code> 方法对数组中的每个元素执行一个由您提供的reducer函数(升序执行)，将其结果汇总为单个返回值。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="k">const</span> <span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">];</span>
-</span></span><span class="line"><span class="cl"><span class="k">const</span> <span class="n">sum</span> <span class="o">=</span> <span class="n">numbers</span><span class="o">.</span><span class="n">reduce</span><span class="p">((</span><span class="n">accumulator</span><span class="p">,</span> <span class="n">currentValue</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="n">accumulator</span> <span class="o">+</span> <span class="n">currentValue</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span> <span class="o">//</span> <span class="mi">10</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="arrayprototypeforeach">Array.prototype.forEach</h3>
-<p>虽然<code>forEach</code>不返回任何值（返回<code>undefined</code>），但它接收一个函数作为参数，对数组的每个元素执行该函数，因此可以被视为一个高阶函数。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="k">const</span> <span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">];</span>
-</span></span><span class="line"><span class="cl"><span class="n">numbers</span><span class="o">.</span><span class="n">forEach</span><span class="p">(</span><span class="n">x</span> <span class="o">=&gt;</span> <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">x</span><span class="p">));</span> <span class="o">//</span> <span class="err">依次打印</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="functionprototypebind">Function.prototype.bind</h3>
-<p><code>bind</code> 方法创建一个新的函数，在调用时设置<code>this</code>关键字为提供的值，并在调用新函数时前置给定的参数序列。</p>
+</div><p>使用 VS Code 安装 Go 插件后，安装关联工具时，输出内容报如下内容，或错误信息中包含类似 <code>unresponse</code>、<code>timeout</code> 等网络问题相关字样时，</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -202,39 +159,65 @@
 </span><span class="lnt">10
 </span><span class="lnt">11
 </span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-mysql" data-lang="mysql"><span class="line"><span class="cl"><span class="n">const</span><span class="w"> </span><span class="n">module</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="err">{</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">x</span><span class="p">:</span><span class="w"> </span><span class="mi">42</span><span class="p">,</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">getX</span><span class="p">:</span><span class="w"> </span><span class="nf">function</span><span class="p">()</span><span class="w"> </span><span class="err">{</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">this</span><span class="p">.</span><span class="n">x</span><span class="p">;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="err">}</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="err">}</span><span class="p">;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">const</span><span class="w"> </span><span class="n">unboundGetX</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">module</span><span class="p">.</span><span class="n">getX</span><span class="p">;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nf">unboundGetX</span><span class="p">());</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="err">函数被调用在全局作用域中</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="err">返回</span><span class="w"> </span><span class="o">`</span><span class="n">undefined</span><span class="o">`</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">const</span><span class="w"> </span><span class="n">boundGetX</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">unboundGetX</span><span class="p">.</span><span class="nf">bind</span><span class="p">(</span><span class="n">module</span><span class="p">);</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nf">boundGetX</span><span class="p">());</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="mi">42</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="nx">Installing</span> <span class="nx">golang</span><span class="p">.</span><span class="nx">org</span><span class="o">/</span><span class="nx">x</span><span class="o">/</span><span class="nx">tools</span><span class="o">/</span><span class="nx">gopls</span> <span class="nx">FAILED</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl"> <span class="s">&#34;killed&#34;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"> <span class="s">&#34;code&#34;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"> <span class="s">&#34;signal&#34;</span><span class="p">:</span> <span class="nx">null</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"> <span class="s">&#34;cmd&#34;</span><span class="p">:</span> <span class="s">&#34;/usr/local/go/bin/go get -v golang.org/x/tools/gopls&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"> <span class="s">&#34;stdout&#34;</span><span class="p">:</span> <span class="s">&#34;&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"> <span class="s">&#34;stderr&#34;</span><span class="p">:</span> <span class="err">&#34;</span><span class="k">go</span><span class="p">:</span> <span class="nx">downloading</span> <span class="nx">golang</span><span class="p">.</span><span class="nx">org</span><span class="o">/</span><span class="nx">x</span><span class="o">/</span><span class="nx">tools</span><span class="o">/</span><span class="nx">gopls</span> <span class="nx">v0</span><span class="mf">.6.9</span><span class="err">\</span><span class="nx">ngo</span><span class="p">:</span> <span class="nx">golang</span><span class="p">.</span><span class="nx">org</span><span class="o">/</span><span class="nx">x</span><span class="o">/</span><span class="nx">tools</span><span class="o">/</span><span class="nx">gopls</span> <span class="nx">upgrade</span> <span class="p">=&gt;</span> <span class="nx">v0</span><span class="mf">.6.9</span><span class="err">\</span><span class="nx">ngo</span><span class="p">:</span> <span class="nx">downloading</span> <span class="nx">golang</span><span class="p">.</span><span class="nx">org</span><span class="o">/</span><span class="nx">x</span><span class="o">/</span><span class="nx">tools</span> <span class="nx">v0</span><span class="mf">.1.1</span><span class="o">-</span><span class="mf">0.20210319172145</span><span class="o">-</span><span class="nx">bda8f5cee399</span>
+</span></span><span class="line"><span class="cl"><span class="o">...</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="mi">1</span> <span class="nx">tools</span> <span class="nx">failed</span> <span class="nx">to</span> <span class="nx">install</span><span class="p">.</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">gopls</span><span class="p">:</span> <span class="nx">failed</span> <span class="nx">to</span> <span class="nx">install</span> <span class="nf">gopls</span><span class="p">(</span><span class="nx">golang</span><span class="p">.</span><span class="nx">org</span><span class="o">/</span><span class="nx">x</span><span class="o">/</span><span class="nx">tools</span><span class="o">/</span><span class="nx">gopls</span><span class="p">):</span> <span class="nx">Error</span><span class="p">:</span> <span class="nx">Command</span> <span class="nx">failed</span><span class="p">:</span> <span class="o">/</span><span class="nx">usr</span><span class="o">/</span><span class="nx">local</span><span class="o">/</span><span class="k">go</span><span class="o">/</span><span class="nx">bin</span><span class="o">/</span><span class="k">go</span> <span class="nx">get</span> <span class="o">-</span><span class="nx">v</span> <span class="nx">golang</span><span class="p">.</span><span class="nx">org</span><span class="o">/</span><span class="nx">x</span><span class="o">/</span><span class="nx">tools</span><span class="o">/</span><span class="nx">gopls</span>
+</span></span><span class="line"><span class="cl"><span class="k">go</span><span class="p">:</span> <span class="nx">downloading</span> <span class="nx">golang</span><span class="p">.</span><span class="nx">org</span><span class="o">/</span><span class="nx">x</span><span class="o">/</span><span class="nx">tools</span><span class="o">/</span><span class="nx">gopls</span> <span class="nx">v0</span><span class="mf">.6.9</span>
+</span></span><span class="line"><span class="cl"><span class="k">go</span><span class="p">:</span> <span class="nx">golang</span><span class="p">.</span><span class="nx">org</span><span class="o">/</span><span class="nx">x</span><span class="o">/</span><span class="nx">tools</span><span class="o">/</span><span class="nx">gopls</span> <span class="nx">upgrade</span> <span class="p">=&gt;</span> <span class="nx">v0</span><span class="mf">.6.9</span>
+</span></span><span class="line"><span class="cl"><span class="k">go</span><span class="p">:</span> <span class="nx">downloading</span> <span class="nx">golang</span><span class="p">.</span><span class="nx">org</span><span class="o">/</span><span class="nx">x</span><span class="o">/</span><span class="nx">tools</span> <span class="nx">v0</span><span class="mf">.1.1</span><span class="o">-</span><span class="mf">0.20210319172145</span><span class="o">-</span><span class="nx">bda8f5cee399</span>
+</span></span><span class="line"><span class="cl"><span class="k">go</span><span class="p">:</span> <span class="nx">downloading</span> <span class="nx">golang</span><span class="p">.</span><span class="nx">org</span><span class="o">/</span><span class="nx">x</span><span class="o">/</span><span class="nx">sys</span> <span class="nx">v0</span><span class="mf">.0.0</span><span class="o">-</span><span class="mi">20210124154548</span><span class="o">-</span><span class="mi">22</span><span class="nx">da62e12c0c</span>
+</span></span><span class="line"><span class="cl"><span class="k">go</span><span class="p">:</span> <span class="nx">downloading</span> <span class="nx">honnef</span><span class="p">.</span><span class="nx">co</span><span class="o">/</span><span class="k">go</span><span class="o">/</span><span class="nx">tools</span> <span class="nx">v0</span><span class="mf">.1.1</span>
+</span></span><span class="line"><span class="cl"><span class="k">go</span><span class="p">:</span> <span class="nx">downloading</span> <span class="nx">golang</span><span class="p">.</span><span class="nx">org</span><span class="o">/</span><span class="nx">x</span><span class="o">/</span><span class="nx">mod</span> <span class="nx">v0</span><span class="mf">.4.1</span>
+</span></span><span class="line"><span class="cl"><span class="nx">golang</span><span class="p">.</span><span class="nx">org</span><span class="o">/</span><span class="nx">x</span><span class="o">/</span><span class="nx">mod</span><span class="o">/</span><span class="nx">semver</span>
+</span></span><span class="line"><span class="cl"><span class="o">...</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">go</span> <span class="nx">get</span> <span class="nx">golang</span><span class="p">.</span><span class="nx">org</span><span class="o">/</span><span class="nx">x</span><span class="o">/</span><span class="nx">tools</span><span class="o">/</span><span class="nx">gopls</span><span class="p">:</span> <span class="nx">copying</span> <span class="o">/</span><span class="kd">var</span><span class="o">/</span><span class="nx">folders</span><span class="o">/</span><span class="nx">gq</span><span class="o">/</span><span class="nx">bwl3jmx562x5twchgxvb6mlh0000gn</span><span class="o">/</span><span class="nx">T</span><span class="o">/</span><span class="k">go</span><span class="o">-</span><span class="nx">build703164122</span><span class="o">/</span><span class="nx">b001</span><span class="o">/</span><span class="nx">exe</span><span class="o">/</span><span class="nx">a</span><span class="p">.</span><span class="nx">out</span><span class="p">:</span> <span class="nx">open</span> <span class="o">/</span><span class="nx">usr</span><span class="o">/</span><span class="nx">local</span><span class="o">/</span><span class="k">go</span><span class="o">/</span><span class="nx">bin</span><span class="o">/</span><span class="nx">gopls</span><span class="p">:</span> <span class="nx">permission</span> <span class="nx">denied</span>
+</span></span><span class="line"><span class="cl"> <span class="nx">no</span> <span class="nx">output</span>
+</span></span></code></pre></td></tr></table>
 </div>
-</div><h3 id="promisethen-和-promisecatch">Promise.then 和 Promise.catch</h3>
-<p>这些<code>Promise</code>的方法也是高阶函数，因为它们接收函数作为参数，并返回一个新的<code>Promise</code>。</p>
+</div><p>可考虑开启 Go Module 模式，并设置代理</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Promise.resolve(1)
-</span></span><span class="line"><span class="cl">  .then(x =&gt; x + 1)
-</span></span><span class="line"><span class="cl">  .catch(err =&gt; console.error(err))
-</span></span><span class="line"><span class="cl">  .then(x =&gt; console.log(x)); // 2
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">$ go env -w GO111MODULE=on
+</span></span><span class="line"><span class="cl">$ go env -w GOPROXY=https://goproxy.io,direct
 </span></span></code></pre></td></tr></table>
 </div>
-</div>
+</div><p>设置完成后重启 VS Code，按照提示再 <code>Install All</code> 即可。</p>
+<p>GO111MODULE 是一个用于改变 Go 包引入方式的环境变量，在不同 Go 版本下有不同语义，这里改变它的值不一定起关键作用，如果是类似上述网络相关报错，那么重点应该在于代理。</p>
+<h1 id="ref">Ref</h1>
+<blockquote>
+<p><a href="https://l2m2.top/2020/05/26/2020-05-26-fix-golang-tools-failed-on-vscode/">https://l2m2.top/2020/05/26/2020-05-26-fix-golang-tools-failed-on-vscode/</a></p>
+<p><a href="https://stackoverflow.com/questions/66668506/how-to-solve-vs-code-gopls-command-is-not-available">https://stackoverflow.com/questions/66668506/how-to-solve-vs-code-gopls-command-is-not-available</a></p>
+</blockquote>
+
     </div>
     
   </div>

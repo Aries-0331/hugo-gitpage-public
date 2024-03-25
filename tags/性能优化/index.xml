@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>性能优化 on Aries notebook</title>
+    <link>https://urchinzhou.com/tags/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/</link>
+    <description>Recent content in 性能优化 on Aries notebook</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 30 Jun 2023 10:48:29 +0800</lastBuildDate>
+    <atom:link href="https://urchinzhou.com/tags/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>React 防止组件重新渲染</title>
+      <link>https://urchinzhou.com/post/react-%E9%98%B2%E6%AD%A2%E7%BB%84%E4%BB%B6%E9%87%8D%E6%96%B0%E6%B8%B2%E6%9F%93/</link>
+      <pubDate>Wed, 03 May 2023 18:33:42 +0800</pubDate>
+      <guid>https://urchinzhou.com/post/react-%E9%98%B2%E6%AD%A2%E7%BB%84%E4%BB%B6%E9%87%8D%E6%96%B0%E6%B8%B2%E6%9F%93/</guid>
+      <description>在React中，组件的重新渲染通常由状态（state）或属性（props）的变化触发。虽然React通过虚拟DOM和高效的对比算法（diff</description>
+    </item>
+    <item>
+      <title>前端性能优化常用策略</title>
+      <link>https://urchinzhou.com/post/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E5%B8%B8%E7%94%A8%E7%AD%96%E7%95%A5/</link>
+      <pubDate>Sat, 25 Mar 2023 10:48:29 +0800</pubDate>
+      <guid>https://urchinzhou.com/post/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E5%B8%B8%E7%94%A8%E7%AD%96%E7%95%A5/</guid>
+      <description>最佳实践： 资源压缩和合并：使用工具（如Webpack）压缩JavaScript、CSS和图片文件，减少文件大小，提高加载速度。合并资源减少H</description>
+    </item>
+    <item>
+      <title>懒加载</title>
+      <link>https://urchinzhou.com/post/%E6%87%92%E5%8A%A0%E8%BD%BD/</link>
+      <pubDate>Wed, 30 Mar 2022 10:09:28 +0800</pubDate>
+      <guid>https://urchinzhou.com/post/%E6%87%92%E5%8A%A0%E8%BD%BD/</guid>
+      <description>懒加载（Lazy Loading），也称为延迟加载，是 Web 开发中常用的优化技术。其基本原理是延迟加载页面上的资源（如图片、脚本、样式表等），直到</description>
+    </item>
+  </channel>
+</rss>

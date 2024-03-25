@@ -126,9 +126,9 @@
           <section id="posts" class="posts">
   <article class="post">
   <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/%E5%AF%86%E7%A0%81%E5%BA%94%E7%94%A8%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">密码应用基础知识</a></h1>
+    <h1 class="post-title"><a class="post-link" href="/post/react-router/">React Router</a></h1>
     <div class="post-meta">
-      <span class="post-time"> 2021-09-12 </span>
+      <span class="post-time"> 2022-05-06 </span>
       
     </div>
   </header>
@@ -136,156 +136,75 @@
   <div class="post-content">
     
     <div class="post-summary">
-      <h1 id="对称算法">对称算法</h1>
-<p>加密密钥能够从解密密钥中推算出来，反过来也成立。在大多数对称算法中，加密解密<strong>密钥是相同的</strong>。这些算法也叫<strong>秘密密钥算法</strong>或<strong>单密钥算法</strong>，它要求发送者和接受者在安全通信之前，商定一个密钥。</p>
-<p>对称算法的安全性依赖于密钥，泄露密钥就意味着任何人都能对消息进行加密解密。</p>
-<p><strong>分组算法</strong></p>
-<p>对数据块运算，如果数据长度不够一块，则需要填充；加密之后数据长度可能会变长，某些场景下不适用；需要对数据进行缓存，某些场景下不适用。</p>
-<p><strong>分组算法的工作模式</strong></p>
+      <p>React Router 是一个用于React的路由库，它允许我们在React应用中实现客户端路由。这意味着用户可以在不重新加载页面的情况下导航到不同的URL，同时应用的状态会相应更新以反映新的位置。这是单页面应用（SPA）的一个核心特性，能够提供更快的用户体验和更流畅的页面切换效果。</p>
+<h3 id="核心组件">核心组件</h3>
+<p>React Router 提供了几个核心组件来定义和管理路由：</p>
 <ul>
-<li>ECB 模式，最简单，加密长数据有风险；</li>
-<li>CBC 模式，<strong>最常用的工作模式</strong>，但本身并没有什么优势，单纯因为过去用的人多，属于历史遗留问题；</li>
-<li>OFB 模式，效果类似于流密码，适合处理音视频数据；</li>
-<li>CFB 模式，效果类似于流密码，几乎没人用；</li>
-<li>CTR 模式，可并行加速，只要有条件就推荐使用，广泛应用于 ATM 网络安全和 IPSec 应用中；</li>
-<li>GCM、CCM 认证加密模式，既能加密又能防篡改防重放；</li>
-<li>XTS 存储加密模式，适合随机读写模式；</li>
+<li><strong>BrowserRouter</strong>：一个使用HTML5 history API的Router，用于支持干净的URL。</li>
+<li><strong>HashRouter</strong>：一个使用URL的hash部分（#）来保持UI和URL同步的Router，主要用于不支持HTML5 history API的旧版浏览器。</li>
+<li><strong>Route</strong>：用于定义UI和路径之间的映射关系。它接受一个<code>path</code>属性和一个渲染方法（如<code>component</code>、<code>render</code>或<code>children</code>），当路径匹配时渲染相应的UI。</li>
+<li><strong>Switch</strong>：仅渲染第一个与当前路径匹配的<code>&lt;Route&gt;</code>或<code>&lt;Redirect&gt;</code>。在包含多个<code>&lt;Route&gt;</code>的情况下非常有用，可以确保一次只渲染一个路由。</li>
+<li><strong>Link</strong> 和 <strong>NavLink</strong>：允许在应用内导航到不同的路径。<code>NavLink</code>是<code>Link</code>的一个特殊版本，它可以为当前匹配的路由添加样式。</li>
 </ul>
-<p><strong>流密码算法</strong></p>
-<p>对数据一位一位的运算，不需要填充；加密之后数据长度不变；不需要对数据进行缓存。</p>
-<p><strong>常见对称算法</strong></p>
-<p>商用算法（国产的）</p>
-<ul>
-<li>
-<p>SM1，保密算法，常用于特殊行业，如社保卡、电力行业；</p>
-</li>
-<li>
-<p><strong>SM4，公开算法，最常用的商密对称算法</strong>；</p>
-</li>
-<li>
-<p>SM7，保密算法，轻量级算法，RFID 电子标签常用，如地铁卡；</p>
-</li>
-<li>
-<p>ZUC，流密码算法，4G 通信可用；</p>
-</li>
-</ul>
-<p>国际算法（国际的）</p>
-<ul>
-<li>
-<p><strong>AES，应用最广泛的算法，设计精良</strong>；</p>
-</li>
-<li>
-<p>DES，历史遗留算法，强度有限，不推荐；</p>
-</li>
-<li>
-<p>RC4，历史遗留算法，强度有限，不推荐；</p>
-</li>
-<li>
-<p>MD5，历史遗留算法，不是对称算法；</p>
-</li>
-<li>
-<p>Snow3G，流密码算法，3G、4G 通信使用；</p>
-</li>
-</ul>
-<p><strong>对称算法的特点</strong></p>
-<p>运算速度快，适合对大量数据进行加密解密，以及完整性保护（防篡改）；需要解决密钥管理问题——如何确保通信双方使用相同的密钥进行加解密；</p>
-<h1 id="非对称算法">非对称算法</h1>
-<p>指一个加密算法的加密密钥和解密密钥是不一样的，或者来说不能由其中一个密钥推导出另一个密钥。它是用两个数学相关的密钥对信息进行编码，在此系统中，其中一个密钥叫公钥，可随意发给期望同密钥持有者进行安全通信的人。公钥用于对信息进行加密。第二个密钥是私钥，属于密钥持有者，此人要安全保存私有密钥。密钥持有者用私钥对收到的加密信息进行解密。</p>
-<p><strong>公钥加密私钥解密</strong></p>
-<p>任何人都知道公钥，都可以做加密运算，只有持有私钥的人能解密，密钥管理非常简单，实际场景如下：A 要向 B 发送信息</p>
-<ol>
-<li>A 使用 B 的公钥对信息加密，生成密文；</li>
-<li>A 将密文发送给 B；</li>
-<li>B 接收到来自 A 的密文后，使用自己的<strong>私钥</strong>对密文进行解密，获取信息；</li>
-</ol>
-<p><strong>私钥签名公钥验证签名</strong></p>
-<p>只有持有私钥的人能签名，任何人都知道公钥，都可以验证签名，密钥管理非常简单，通常用于<strong>验证数据来源</strong>并对数据进行<strong>完整性保护</strong>，实际场景如下：A 要向 B 发送信息</p>
-<ol>
-<li>A 先对信息进行哈希运算得到 hash 值，称为<strong>摘要</strong>，命名为 h0；</li>
-<li>A 用自己的<strong>私钥</strong>对摘要进行加密，生成<strong>数字签名</strong>；</li>
-<li>A 将数字签名加在信息后面，一起发送给 B；</li>
-<li>B 收到信息后，用 A 的<strong>公钥</strong>对数字签名解密，解密成功则代表信息确实来自 A，失败则说明有人冒充 A 发送该信息；</li>
-<li>B 对信息进行哈希运算得到 hash 值，命名 h1；</li>
-<li>B 对比 h1 和 h0，一致则说明邮件未被篡改。</li>
-</ol>
-<p><strong>特点和应用场景</strong></p>
-<ul>
-<li>
-<p>用法独特，密钥管理简单；</p>
-</li>
-<li>
-<p>运算复杂，速度慢，功耗高，很多场景不适用；</p>
-</li>
-<li>
-<p>典型用法：与对称算法搭配使用</p>
-<ol>
-<li>A 使用 B的公钥加密一个对称算法的密钥 K，发送给 B；</li>
-<li>B 使用自己的私钥解密，获得密钥 K；</li>
-<li>A 和 B 使用密钥 K 进行对称算法的加密、解密；</li>
-</ol>
-</li>
-<li>
-<p>存在公钥被冒用的风险，比如 A 和 B 通信时，B 的公钥被替换成 C 的公钥</p>
-<ul>
-<li>A 想使用 B 的公钥加密一个对称算法的密钥 K，却被替换成了 C 的公钥，加密后发送给了 B；</li>
-<li>B 使用自己的私钥解密，获得密钥乱码；</li>
-<li>C 使用自己的私钥解密，获得密钥 K；</li>
-<li>A 和 B 使用密钥 K 进行对称算法的加解密，通信失败；</li>
-<li>C 截获 A 发送的信息，使用密钥 K 解密获得正确的明文；</li>
-</ul>
-</li>
-</ul>
-<p><strong>常见非对称算法</strong></p>
-<p>商用算法</p>
-<ul>
-<li>SM2，公开算法，国内最常用</li>
-<li>SM9，公开算法，“基于标识的非对称算法”，特殊用处，运算复杂；</li>
-</ul>
-<p>国际算法</p>
-<ul>
-<li>RSA，应用广泛，但性能并不好，同等效果下密钥长度是 SM2 的 8 倍；</li>
-<li>ECC，未来会逐渐取代 RSA，与 SM2 原理一致；</li>
-</ul>
-<h1 id="摘要算法">摘要算法</h1>
-<p>也称为杂凑算法、哈希算法，是一种单向算法，要由散列函数输出的结果，回推输入的资料是什么，是非常困难的。这种散列函数的输入资料，通常被称为讯息，而它的输出结果，经常被成为讯息摘要或<strong>摘要</strong>，也被称为<strong>数字指纹</strong>。</p>
-<ul>
-<li>不需要密钥参与运算，因此不具备加密解密能力，不能保护数据的机密性；</li>
-<li>杂凑算法也被称为“哈希（Hash）算法”；</li>
-<li>把任意长度的数据变为固定长度的“杂凑值”；</li>
-<li>常与非对称算法搭配，用于降低数字签名运算的数据长度；</li>
-<li>在密码应用中不起眼，但其“单向性”有许多妙用；</li>
-</ul>
-<p><strong>常见杂凑算法</strong></p>
-<p>商用算法</p>
-<ul>
-<li>SM3，公开算法；</li>
-</ul>
-<p>国际算法</p>
-<ul>
-<li>SHA3，性能出色，应用较少；</li>
-<li>SHA256，未来会逐渐成为主流；</li>
-<li>SHA1，曾经是主流算法，目前被认为强度有限，慎用；</li>
-</ul>
-<h1 id="总结">总结</h1>
-<p><strong>对称算法</strong></p>
-<ul>
-<li>1 个密钥，大量数据加解密与完整性保护；</li>
-<li>典型算法 SM4/AES；</li>
-</ul>
-<p><strong>非对称算法</strong></p>
-<ul>
-<li>2 个密钥，数字签名或公钥加密分发对称密钥；</li>
-<li>典型算法 SM2/ECC</li>
-</ul>
-<p><strong>杂凑算法</strong></p>
-<ul>
-<li>0 个密钥，单向性使其适用于部分特殊场景，如验证消息完整性、辅助数字签名；</li>
-<li>典型算法 SM3/SHA256</li>
-</ul>
-<p><strong>推荐阅读</strong></p>
-<ul>
-<li>《应用密码学：协议、算法与C源程序》，作者：（美）Bruce Schneier</li>
-</ul>
+<h3 id="路由参数">路由参数</h3>
+<p>React Router 允许通过在路径定义中使用<code>:</code>后跟参数名来指定动态片段。然后，你可以在组件中通过<code>match.params</code>属性访问这些参数。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">&lt;Route path=&#34;/user/:userId&#34; component={User} /&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>在这个例子中，任何匹配<code>/user/:userId</code>形式的路径都会渲染<code>User</code>组件，其中<code>:userId</code>是一个动态参数，可以在<code>User</code>组件内通过<code>this.props.match.params.userId</code>访问。</p>
+<h3 id="编程式导航">编程式导航</h3>
+<p>除了使用<code>&lt;Link&gt;</code>和<code>&lt;NavLink&gt;</code>组件进行声明式导航外，React Router还提供了编程式导航的能力。这可以通过访问<code>history</code>对象来实现，它作为props传递给所有由<code>&lt;Route&gt;</code>渲染的组件。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="k">class</span> <span class="n">Home</span> <span class="k">extends</span> <span class="n">React</span><span class="o">.</span><span class="n">Component</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="n">handleClick</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">this</span><span class="o">.</span><span class="n">props</span><span class="o">.</span><span class="n">history</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="s2">&#34;/about&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="n">render</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">      <span class="o">&lt;</span><span class="n">button</span> <span class="n">onClick</span><span class="o">=</span><span class="p">{</span><span class="n">this</span><span class="o">.</span><span class="n">handleClick</span><span class="p">}</span><span class="o">&gt;</span><span class="n">Go</span> <span class="n">to</span> <span class="n">About</span><span class="o">&lt;/</span><span class="n">button</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>在这个例子中，点击按钮将会使用<code>history.push</code>方法导航到<code>/about</code>路径。</p>
+<h3 id="嵌套路由">嵌套路由</h3>
+<p>React Router 允许路由嵌套，这意味着一个路由的组件内部可以包含自己的<code>&lt;Route&gt;</code>组件来进一步定义更深层次的路径结构。</p>
+<h3 id="重定向">重定向</h3>
+<p><code>&lt;Redirect&gt;</code>组件用于路由的重定向，它可以将用户从一个路径自动导航到另一个路径。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">&lt;Redirect from=&#34;/old-path&#34; to=&#34;/new-path&#34; /&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>在这个例子中，任何访问<code>/old-path</code>的请求都会被重定向到<code>/new-path</code>。</p>
 
     </div>
     

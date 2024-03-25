@@ -126,9 +126,9 @@
           <section id="posts" class="posts">
   <article class="post">
   <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/javsscript-%E7%AE%AD%E5%A4%B4%E5%87%BD%E6%95%B0/">JavsScript 箭头函数</a></h1>
+    <h1 class="post-title"><a class="post-link" href="/post/react-%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86%E5%B8%B8%E7%94%A8%E7%AD%96%E7%95%A5/">React 状态管理常用策略</a></h1>
     <div class="post-meta">
-      <span class="post-time"> 2022-01-24 </span>
+      <span class="post-time"> 2023-01-09 </span>
       
     </div>
   </header>
@@ -136,147 +136,34 @@
   <div class="post-content">
     
     <div class="post-summary">
-      <h2 id="箭头函数">箭头函数</h2>
-<p>箭头函数是 ES6 (ECMAScript 2015) 引入的一个新增特性，提供了一种更简洁的方式来写函数表达式。它不仅语法简短，而且还有其他几个特别之处，特别是与<code>this</code>关键字的绑定相关的行为。</p>
-<p>箭头函数的基本语法如下：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="k">const</span> <span class="n">functionName</span> <span class="o">=</span> <span class="p">(</span><span class="n">arg1</span><span class="p">,</span> <span class="n">arg2</span><span class="p">,</span> <span class="o">...</span><span class="n">argN</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="o">//</span> <span class="err">函数体</span>
-</span></span><span class="line"><span class="cl"><span class="p">};</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>如果箭头函数直接返回一个值，可以省略花括号和<code>return</code>关键字：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="k">const</span> <span class="n">functionName</span> <span class="o">=</span> <span class="p">(</span><span class="n">arg1</span><span class="p">,</span> <span class="n">arg2</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="n">arg1</span> <span class="o">+</span> <span class="n">arg2</span><span class="p">;</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>如果只有一个参数，还可以省略参数周围的括号：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="k">const</span> <span class="n">functionName</span> <span class="o">=</span> <span class="n">arg</span> <span class="o">=&gt;</span> <span class="n">arg</span> <span class="o">*</span> <span class="mi">2</span><span class="p">;</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="this的绑定"><code>this</code>的绑定</h3>
-<p>箭头函数不绑定自己的<code>this</code>，它会捕获其所在上下文的<code>this</code>值作为自己的<code>this</code>值，这使得在回调函数和闭包中处理<code>this</code>变得更加容易。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">function Counter() {
-</span></span><span class="line"><span class="cl">  this.count = 0;
-</span></span><span class="line"><span class="cl">  setInterval(() =&gt; {
-</span></span><span class="line"><span class="cl">    this.count++;
-</span></span><span class="line"><span class="cl">    console.log(this.count);
-</span></span><span class="line"><span class="cl">  }, 1000);
-</span></span><span class="line"><span class="cl">}
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>在这个例子中，<code>setInterval</code>内部的箭头函数没有自己的<code>this</code>绑定，因此它可以直接访问外围<code>Counter</code>函数中的<code>this</code>对象。</p>
-<h3 id="使用限制">使用限制</h3>
+      <p>在 React 中，状态（State）是组件内部的数据结构，用于记录从挂载到卸载期间，可能会发生变化的数据。状态的更新会触发组件的重新渲染，因此合理地管理状态非常重要。</p>
+<p>React 原生的状态管理，主要通过 <code>useState</code>、<code>useEffect</code> 和 <code>Context API</code> 实现，三者分别应用于不同的场景：</p>
 <ul>
-<li><strong>没有自己的<code>this</code></strong>：如上所述，箭头函数不绑定<code>this</code>，意味着不能用它来定义对象方法，如果尝试通过<code>new</code>关键字调用箭头函数，会抛出一个 TypeError 错误。</li>
-<li><strong>没有<code>arguments</code>对象</strong>：箭头函数没有自己的<code>arguments</code>对象，但是可以通过剩余参数（<code>...args</code>）来访问函数的参数。</li>
-<li><strong>不能用作构造函数</strong>：由于没有自己的<code>this</code>绑定，箭头函数不能用作构造函数。</li>
-<li><strong>没有<code>prototype</code>属性</strong>：箭头函数没有<code>prototype</code>属性。</li>
+<li>
+<p><strong>局部状态管理</strong>：使用<code>useState</code>（函数组件）或<code>this.state</code>（类组件）管理局部状态。适用于组件内部的状态逻辑，如表单输入、开关状态等。</p>
+</li>
+<li>
+<p><strong>生命周期和副作用</strong>：<code>useEffect</code>（函数组件）和生命周期方法（类组件）允许在状态更新时执行副作用操作，如数据获取、订阅或手动DOM操作。</p>
+</li>
+<li>
+<p><strong>跨组件状态共享</strong>：<code>Context API</code> 允许跨组件共享状态，而无需通过每个组件手动传递 <code>props</code>。适用于主题切换、用户认证等全局数据。</p>
+</li>
 </ul>
-<h3 id="应用场景">应用场景</h3>
-<p>箭头函数最适用于非方法函数和那些不能被当作构造函数使用的场景，非常适合用于简短的回调或函数式编程场景，比如<code>map</code>、<code>filter</code>、<code>reduce</code>等数组方法的参数，或者任何需要简洁语法的地方。</p>
-<h2 id="对比匿名函数">对比匿名函数</h2>
-<p><strong>箭头函数</strong> 提供了一种更简洁的函数写法。通常用于单行表达式，但也可以用于更复杂的场景。箭头函数没有自己的 <code>this</code>, <code>arguments</code>, <code>super</code>, 或 <code>new.target</code> 绑定。这些值由外围最近一层非箭头函数决定。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="k">const</span> <span class="n">arrowFunction</span> <span class="o">=</span> <span class="p">(</span><span class="n">arg1</span><span class="p">,</span> <span class="n">arg2</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="n">arg1</span> <span class="o">+</span> <span class="n">arg2</span><span class="p">;</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>如果箭头函数体包含了一个表达式，那么该表达式的结果会被自动返回。对于更复杂的逻辑，可以使用花括号 <code>{}</code> 来包围函数体，并且需要显式返回一个值（如果需要的话）。</p>
-<p><strong>匿名函数</strong> 是一种没有名称的函数表达式，通常用于传递给其他函数作为参数，或者定义立即执行的函数表达式（IIFE）。匿名函数可以有自己的 <code>this</code>, <code>arguments</code>, <code>super</code>, 和 <code>new.target</code> 绑定。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="k">const</span> <span class="n">anonymousFunction</span> <span class="o">=</span> <span class="n">function</span><span class="p">(</span><span class="n">arg1</span><span class="p">,</span> <span class="n">arg2</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="n">arg1</span> <span class="o">+</span> <span class="n">arg2</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="p">};</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="this-绑定的差异"><code>this</code> 绑定的差异</h3>
-<p><strong>箭头函数</strong> 没有自己的 <code>this</code> 值。箭头函数内的 <code>this</code> 值由外围最近一层非箭头函数的执行上下文决定。这使得箭头函数非常适合用作回调函数，尤其是在需要对 <code>this</code> 绑定进行词法跟踪的场合。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-mysql" data-lang="mysql"><span class="line"><span class="cl"><span class="n">function</span><span class="w"> </span><span class="nf">Counter</span><span class="p">()</span><span class="w"> </span><span class="err">{</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">this</span><span class="p">.</span><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nf">setInterval</span><span class="p">(()</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="err">{</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">this</span><span class="p">.</span><span class="n">count</span><span class="o">++</span><span class="p">;</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="o">`</span><span class="n">this</span><span class="o">`</span><span class="w"> </span><span class="err">与外围函数的</span><span class="w"> </span><span class="o">`</span><span class="n">this</span><span class="o">`</span><span class="w"> </span><span class="err">相同</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="n">this</span><span class="p">.</span><span class="n">count</span><span class="p">);</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="err">}</span><span class="p">,</span><span class="w"> </span><span class="mi">1000</span><span class="p">);</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="err">}</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><p><strong>匿名函数</strong> 有自己的 <code>this</code> 绑定。如果匿名函数被一个对象调用，<code>this</code> 将指向那个对象。在全局作用域中调用时，<code>this</code> 会指向全局对象（在非严格模式下）或者是 <code>undefined</code>（在严格模式下）。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-mysql" data-lang="mysql"><span class="line"><span class="cl"><span class="n">function</span><span class="w"> </span><span class="nf">Counter</span><span class="p">()</span><span class="w"> </span><span class="err">{</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">this</span><span class="p">.</span><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nf">setInterval</span><span class="p">(</span><span class="nf">function</span><span class="p">()</span><span class="w"> </span><span class="err">{</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">this</span><span class="p">.</span><span class="n">count</span><span class="o">++</span><span class="p">;</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="o">`</span><span class="n">this</span><span class="o">`</span><span class="w"> </span><span class="err">不指向</span><span class="w"> </span><span class="n">Counter</span><span class="w"> </span><span class="err">实例，除非显式绑定</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="n">this</span><span class="p">.</span><span class="n">count</span><span class="p">);</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="err">}</span><span class="p">,</span><span class="w"> </span><span class="mi">1000</span><span class="p">);</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="err">}</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="用途和选择">用途和选择</h3>
-<ul>
-<li><strong>箭头函数</strong> 是首选的回调函数形式，特别是当需要在回调函数中访问外围函数的 <code>this</code> 上下文时。它们的简洁语法也使得代码更加清晰和简洁。</li>
-<li><strong>匿名函数</strong> 更适合那些需要独立的 <code>this</code> 绑定的场合，或者是在需要将函数作为构造函数时（箭头函数不能用作构造函数）。</li>
-</ul>
+<p>对于比较复杂的状态，建议还是引入外部库来集中管理状态，毕竟随着代码量增多，随处可见的 <code>useState</code> 很难处理，<code>Context API</code> 也很难维护，且容易出错，而引入外部库则能显著提升开发效率，将更多精力放在模块化和逻辑优化上。</p>
+<p>目前以 Redux 最为流行，另外 Mobx 和 zustand 也很受欢迎，社区普遍认为其相对于 Redux 而言，易用性和可维护性更好。以目前使用 Redux 的感受来看，有这三个优势：</p>
+<ol>
+<li>单一数据源，且是树形结构，支持回溯，方便调试;</li>
+<li>有成熟的开发调试工具 redux devtools；</li>
+<li>有成熟的社区，一般遇到的疑难杂症，在社区通常都能找到解决方案；</li>
+</ol>
+<p>由于只使用过 Redux，因此很难和其他库进行对比，而 React 的状态管理库又是五花八门，实在是卷得很，要想逐一了解，学习成本实在太高，还是选择较为流行的一两个就好。不过无论采取什么方式管理 React 状态，其基本思路是一致的：</p>
+<ol>
+<li><strong>最小化状态</strong>：尽可能减少状态数量，仅将那些需要根据用户交互或时间变化而变化的数据作为状态。</li>
+<li><strong>单一数据源</strong>：尽可能让状态在组件树中有单一的“真实来源”，避免不同组件间的状态不一致。</li>
+<li><strong>提升状态</strong>：当多个组件需要共享状态时，将状态提升到它们共同的父组件中管理。</li>
+<li><strong>不可变数据</strong>：在更新状态时，避免直接修改状态，而是通过设置新的状态值来创建新的状态对象。</li>
+<li><strong>组件化和复用</strong>：通过封装管理自己状态的组件，实现逻辑的复用和分离。</li>
+</ol>
 
     </div>
     

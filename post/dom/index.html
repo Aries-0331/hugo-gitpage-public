@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Dom - Aries notebook</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="" /><meta name="description" content="DOM（文档对象模型 Document Object Model）是一个跨平台和语言独立的接口，允许程序和脚本动态地访问和更新文档的内容、结构和样式。DOM将HTML和X" /><meta name="keywords" content="Aries, blog, hugo" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.124.1 with theme even" />
+
+
+<link rel="canonical" href="https://urchinzhou.com/post/dom/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
+
+
+
+<meta property="og:title" content="Dom" />
+<meta property="og:description" content="DOM（文档对象模型 Document Object Model）是一个跨平台和语言独立的接口，允许程序和脚本动态地访问和更新文档的内容、结构和样式。DOM将HTML和X" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://urchinzhou.com/post/dom/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2021-11-25T14:14:09+08:00" />
+<meta property="article:modified_time" content="2024-03-25T14:14:09+08:00" />
+<meta itemprop="name" content="Dom">
+<meta itemprop="description" content="DOM（文档对象模型 Document Object Model）是一个跨平台和语言独立的接口，允许程序和脚本动态地访问和更新文档的内容、结构和样式。DOM将HTML和X"><meta itemprop="datePublished" content="2021-11-25T14:14:09+08:00" />
+<meta itemprop="dateModified" content="2024-03-25T14:14:09+08:00" />
+<meta itemprop="wordCount" content="1251">
+<meta itemprop="keywords" content="dom,前端," /><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Dom"/>
+<meta name="twitter:description" content="DOM（文档对象模型 Document Object Model）是一个跨平台和语言独立的接口，允许程序和脚本动态地访问和更新文档的内容、结构和样式。DOM将HTML和X"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-XXXXXXXXX-X"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-XXXXXXXXX-X');
+</script>
+
+
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Aries</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a>
+  </ul>
+
+  
+
+
+</nav>
+
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Aries</a>
+</div>
+
+
+
+
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li>
+  </ul>
+</nav>
+
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Dom</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2021-11-25 </span>
+        
+        
+      </div>
+    </header>
+
+    
+    <div class="post-content">
+      <p>DOM（文档对象模型 Document Object Model）是一个跨平台和语言独立的接口，允许程序和脚本动态地访问和更新文档的内容、结构和样式。DOM将HTML和XML文档呈现为树结构，其中每个节点代表文档中的一部分，例如文本、注释、元素等。</p>
+<h3 id="核心概念">核心概念</h3>
+<ul>
+<li><strong>节点（Node）</strong>：DOM将所有文档元素表示为节点树。文档中的每个部分都是一个节点，包括元素节点、文本节点、属性节点等。</li>
+<li><strong>元素（Element）</strong>：特定类型的节点，代表文档中的HTML或XML元素。元素节点可以有属性节点和子节点。</li>
+<li><strong>属性（Attribute）</strong>：定义在元素上的附加信息，如<code>class</code>、<code>id</code>、<code>style</code>等。</li>
+<li><strong>文本（Text）</strong>：元素或属性中的文本内容，被视为文本节点。</li>
+</ul>
+<h3 id="dom操作">DOM操作</h3>
+<ol>
+<li><strong>查找元素</strong>：
+<ul>
+<li><code>document.getElementById(id)</code>：通过元素ID查找元素。</li>
+<li><code>document.getElementsByTagName(name)</code>：通过标签名查找元素。</li>
+<li><code>document.getElementsByClassName(name)</code>：通过类名查找元素。</li>
+<li><code>document.querySelector(selector)</code>：返回文档中匹配指定CSS选择器的第一个元素。</li>
+<li><code>document.querySelectorAll(selector)</code>：返回文档中匹配指定CSS选择器的所有元素的NodeList。</li>
+</ul>
+</li>
+<li><strong>修改文档结构</strong>：
+<ul>
+<li><code>createElement(tagName)</code>：创建一个新的元素节点。</li>
+<li><code>createTextNode(data)</code>：创建一个新的文本节点。</li>
+<li><code>appendChild(child)</code>：将一个节点添加到指定父节点的子节点列表末尾。</li>
+<li><code>removeChild(child)</code>：从DOM中删除一个子节点。</li>
+<li><code>replaceChild(newChild, oldChild)</code>：替换子节点。</li>
+</ul>
+</li>
+<li><strong>操作属性和样式</strong>：
+<ul>
+<li>通过<code>element.style.property</code>直接修改样式。</li>
+<li>使用<code>element.setAttribute(name, value)</code>和<code>element.getAttribute(name)</code>操作属性。</li>
+</ul>
+</li>
+<li><strong>事件处理</strong>：
+<ul>
+<li><code>element.addEventListener(event, function, useCapture)</code>：为元素添加事件监听器。</li>
+<li><code>element.removeEventListener(event, function, useCapture)</code>：移除事件监听器。</li>
+</ul>
+</li>
+</ol>
+<h3 id="注意事项">注意事项</h3>
+<ul>
+<li><strong>性能考虑</strong>：频繁地操作DOM可以导致页面性能问题，因为每次修改DOM都可能引发页面的重排（reflow）和重绘（repaint）。为了优化性能，可以减少DOM操作的次数，比如使用<code>documentFragment</code>或合并多次DOM操作。</li>
+<li><strong>跨浏览器兼容性</strong>：虽然现代浏览器对DOM的支持趋于一致，但仍然存在一些兼容性问题。在开发过程中，需要注意这些差异，或使用库（如jQuery）来抹平这些差异。</li>
+<li><strong>安全性</strong>：在处理DOM时，应当注意防止跨站脚本攻击（XSS），特别是在插入用户输入内容到DOM时。应该对用户输入进行适当的清理和转义。</li>
+</ul>
+<h3 id="虚拟dom">虚拟DOM</h3>
+<p>虚拟DOM是对真实DOM的抽象，主要用于前端框架中，以提高应用性能。虚拟DOM允许我们在内存中进行DOM操作，通过比较两个虚拟DOM树的差异，只更新真实DOM树中需要变更的部分，从而避免了不必要的DOM操作。</p>
+
+    </div>
+
+    
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/dom/">dom</a>
+          <a href="/tags/%E5%89%8D%E7%AB%AF/">前端</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/javsscript-es6/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">JavsScript ES6</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        <a class="next" href="/post/%E5%85%B3%E4%BA%8E%E5%8A%A0%E5%AF%86%E5%92%8C%E5%AF%86%E7%A0%81%E5%AD%A6%E7%9A%84%E7%BB%8F%E9%AA%8C%E6%95%99%E8%AE%AD%E5%92%8C%E8%AF%AF%E8%A7%A3/">
+            <span class="next-text nav-default">关于加密和密码学的经验教训和误解</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:urchinzhou@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://twitter.com/AriesBlabla" class="iconfont icon-twitter" title="twitter"></a>
+      <a href="https://github.com/Aries-0331" class="iconfont icon-github" title="github"></a>
+  <a href="https://urchinzhou.com/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2020 - 
+    2024<span class="heart"><i class="iconfont icon-heart"></i></span><span></span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  
+
+
+
+<script type="text/javascript" src="/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex: {
+        }
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js" integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin="anonymous"></script>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-XXXXXXXXX-X"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-XXXXXXXXX-X');
+</script>
+
+
+
+
+
+
+
+
+</body>
+</html>

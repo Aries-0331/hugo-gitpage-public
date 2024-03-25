@@ -126,9 +126,9 @@
           <section id="posts" class="posts">
   <article class="post">
   <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/%E7%B2%98%E5%8C%85%E9%97%AE%E9%A2%98/">粘包问题</a></h1>
+    <h1 class="post-title"><a class="post-link" href="/post/javsscript-es6/">JavsScript ES6</a></h1>
     <div class="post-meta">
-      <span class="post-time"> 2021-05-22 </span>
+      <span class="post-time"> 2021-12-17 </span>
       
     </div>
   </header>
@@ -136,11 +136,55 @@
   <div class="post-content">
     
     <div class="post-summary">
-      <p>首先，<strong>粘包并不是 TCP 的问题</strong>。搜索引擎中列出的各种关于“TCP 粘包问题”的文章，所讲的其实是采用 TCP 传输数据的应用层协议设计不合理导致的粘包问题，并不是 TCP 的锅。</p>
-<p>TCP 是流协议，没有粘包这个概念。</p>
-<p>所谓粘包问题，是指发送方的多条消息在传输到接收方时，由于被拼接在一起而导致无法解析的情况。要解决这一问题，需要合理设计应用层协议，约定好消息边界，以便即使多条消息被拼接在一起，也能够按照协议找到消息边界从而正确解析。</p>
-<p>之所以很多人将粘包问题看作是 TCP 造成的，是因为“拼接”这一行为发生在 TCP 层。通过 TCP 发送和接收的数据，均为数据流格式。当应用层协议使用 TCP 协议传输数据时，TCP 协议很可能将应用层发送的消息分成多个包依次发送或将多条消息组合后发送，这就会出现接收方收到的一个数据段可能由多条消息组成，即粘包。</p>
-<p>而实际情况是，TCP 本就是基于字节流而不是消息包的协议，它保证的是字节流的次序到达，对于字节流的解析应该是由应用层协议来完成的，所以<strong>粘包问题，实际上描述的是“如何设计应用层协议”的问题</strong>。</p>
+      <p>ES6（ECMAScript 2015 或 ECMAScript6）与 ES5 主要区别：</p>
+<h3 id="1-变量声明">1. 变量声明</h3>
+<ul>
+<li><strong>ES5</strong>: 只有 <code>var</code> 关键字用于变量声明，它有函数作用域或全局作用域。</li>
+<li><strong>ES6</strong>: 引入了 <code>let</code> 和 <code>const</code> 关键字，提供了块级作用域（block scope）支持。<code>let</code> 用于声明变量，<code>const</code> 用于声明常量。</li>
+</ul>
+<h3 id="2-箭头函数">2. 箭头函数</h3>
+<ul>
+<li><strong>ES5</strong>: 不支持箭头函数，通常使用匿名函数表达式。</li>
+<li><strong>ES6</strong>: 引入了箭头函数，提供了更简洁的函数写法，并改变了 <code>this</code> 绑定的方式。</li>
+</ul>
+<h3 id="3-类">3. 类</h3>
+<ul>
+<li><strong>ES5</strong>: 使用函数和原型来实现类和继承。</li>
+<li><strong>ES6</strong>: 引入了 <code>class</code> 和 <code>extends</code> 关键字，提供了更接近传统面向对象编程的类声明方式。</li>
+</ul>
+<h3 id="4-模板字符串">4. 模板字符串</h3>
+<ul>
+<li><strong>ES5</strong>: 拼接字符串需要使用加号 (<code>+</code>) 运算符。</li>
+<li><strong>ES6</strong>: 引入了模板字符串，使用反引号 (<code>) 来定义，可以包含占位符 </code>${expression}`，使得字符串拼接更加简洁。</li>
+</ul>
+<h3 id="5-默认参数剩余参数和展开运算符">5. 默认参数、剩余参数和展开运算符</h3>
+<ul>
+<li><strong>ES5</strong>: 实现默认参数需要在函数体内部手动指定；没有直接的剩余参数或展开运算符支持。</li>
+<li><strong>ES6</strong>: 直接在函数声明时支持默认参数；引入了剩余参数 (<code>...args</code>) 和展开运算符 (<code>...</code>)。</li>
+</ul>
+<h3 id="6-解构赋值">6. 解构赋值</h3>
+<ul>
+<li><strong>ES5</strong>: 不支持解构赋值。</li>
+<li><strong>ES6</strong>: 引入了解构赋值，允许从数组或对象中提取值，并赋值给多个变量。</li>
+</ul>
+<h3 id="7-模块">7. 模块</h3>
+<ul>
+<li><strong>ES5</strong>: 不原生支持模块，使用库（如 CommonJS、AMD）来实现模块功能。</li>
+<li><strong>ES6</strong>: 原生支持模块导入（<code>import</code>）和导出（<code>export</code>）。</li>
+</ul>
+<h3 id="8-promises">8. Promises</h3>
+<ul>
+<li><strong>ES5</strong>: 异步编程依赖回调函数，容易导致回调地狱。</li>
+<li><strong>ES6</strong>: 引入了 Promise 对象，使得异步编程更加简洁和易于管理。</li>
+</ul>
+<h3 id="9-新的数据结构">9. 新的数据结构</h3>
+<ul>
+<li><strong>ES6</strong>: 引入了新的数据结构，如 <code>Map</code>、<code>Set</code>，以及对应的 <code>WeakMap</code> 和 <code>WeakSet</code>。</li>
+</ul>
+<h3 id="10-迭代器和生成器">10. 迭代器和生成器</h3>
+<ul>
+<li><strong>ES6</strong>: 引入了迭代器 (<code>Iterator</code>) 和生成器 (<code>Generator</code>)，提供了新的遍历集合的方法。</li>
+</ul>
 
     </div>
     

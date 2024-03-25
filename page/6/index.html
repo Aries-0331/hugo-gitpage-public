@@ -126,9 +126,9 @@
           <section id="posts" class="posts">
   <article class="post">
   <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/javsscript-%E5%8E%9F%E5%9E%8B%E9%93%BE/">JavsScript 原型链</a></h1>
+    <h1 class="post-title"><a class="post-link" href="/post/go-package---gorm/">Go Package - gorm</a></h1>
     <div class="post-meta">
-      <span class="post-time"> 2022-11-24 </span>
+      <span class="post-time"> 2023-03-12 </span>
       
     </div>
   </header>
@@ -136,94 +136,21 @@
   <div class="post-content">
     
     <div class="post-summary">
-      <p>每个 JavaScript 对象都有一个指向其他对象的链接，这个链接就是我们所说的“原型”。当我们试图访问一个对象的属性或方法时，如果它自身没有这个属性或方法，JavaScript 就会沿着这条原型链向上查找，直到找到为止，这就是原型链。</p>
-<p>初次接触这一概念时，很容易想到 C++ 之类 OOP 语言中的继承，对于这类语言严格区分类和实例，继承实际上是类的扩展。但是 JavaScript 的面向对象编程方式和其它大多语言都不太一样，JavaScript 不区分类和实例的概念，而是通过原型（prototype）来实现面向对象编程。</p>
-<p>每个 JavaScript 对象都有一个内置的 <code>__proto__</code> 属性（非标准，但广泛支持），指向创建它的构造函数的原型对象 <code>prototype</code>。使用构造函数创建一个对象时，新对象的 <code>__proto__</code> 会指向构造函数的 <code>prototype</code> 属性，这是原型链的基础。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">Person</span><span class="p">(</span><span class="nx">name</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="nx">name</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="nx">Person</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">sayName</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">name</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl"><span class="p">};</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">person1</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Person</span><span class="p">(</span><span class="s1">&#39;Alice&#39;</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl"><span class="nx">person1</span><span class="p">.</span><span class="nx">sayName</span><span class="p">();</span> <span class="c1">// Alice
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">person1</span><span class="p">.</span><span class="nx">__proto__</span> <span class="o">===</span> <span class="nx">Person</span><span class="p">.</span><span class="nx">prototype</span><span class="p">);</span> <span class="c1">// true
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><p>在这个例子中，<code>Person.prototype</code> 是 <code>person1</code> 的原型。当我们调用 <code>person1.sayName()</code> 时，虽然 <code>person1</code> 自己没有 <code>sayName</code> 方法，但它会通过原型链在 <code>Person.prototype</code> 中找到这个方法。</p>
-<p>原型链的一个重要应用是实现对象之间的继承。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">Employee</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span> <span class="nx">jobTitle</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="nx">Person</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="nx">name</span><span class="p">);</span> <span class="c1">// 调用 Person 构造函数
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="k">this</span><span class="p">.</span><span class="nx">jobTitle</span> <span class="o">=</span> <span class="nx">jobTitle</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">// 继承 Person
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">Employee</span><span class="p">.</span><span class="nx">prototype</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">Person</span><span class="p">.</span><span class="nx">prototype</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl"><span class="nx">Employee</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">constructor</span> <span class="o">=</span> <span class="nx">Employee</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="nx">Employee</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">sayJob</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">jobTitle</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl"><span class="p">};</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">employee1</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Employee</span><span class="p">(</span><span class="s1">&#39;Bob&#39;</span><span class="p">,</span> <span class="s1">&#39;Developer&#39;</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl"><span class="nx">employee1</span><span class="p">.</span><span class="nx">sayName</span><span class="p">();</span> <span class="c1">// Bob
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">employee1</span><span class="p">.</span><span class="nx">sayJob</span><span class="p">();</span> <span class="c1">// Developer
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><p>这个示例中实现了使用 <code>Employee</code> 从 <code>Person</code> 的继承，将 <code>Employee.prototype</code> 设置为 <code>Person.prototype</code> 的一个实例，这样 <code>Employee</code> 的实例就可以访问 <code>Person</code> 原型上的方法。</p>
-<p>总的来说，JavaScript 的原型链主要用于实现继承、多态、给对象添加方法、实现一些性能优化（比如通过原型共享方法、减少每个实例的内存占用）等。</p>
-<p>另外，需要注意避免链过长和原型污染。链过长可能导致性能问题，而多个实例共享同一个原型时，对原型对象的修改会影响所有通过这个原型创建的对象，可能会导致意想不到的问题，需谨慎使用。</p>
-<p>对于 <code>__proto__</code> 属性来说，它允许对一个对象的原型进行读/写访问。这是一个非常强大的特性，因为它让开发者可以直接操作对象的原型链。不过，正因为它这么强大，直接操作<code>__proto__</code>也可能引发代码的可维护性和性能问题，这也是为什么它不被包含在ECMAScript 2015（ES6）及以后版本的标准中的原因之一。</p>
-<p>尽管如此，考虑到现有代码库中广泛使用了<code>__proto__</code>，以及它在一些特定情况下的用途，大多数现代JavaScript环境仍然支持它。但是，官方推荐使用<code>Object.getPrototypeOf()</code>和<code>Object.setPrototypeOf()</code>这两个方法来代替直接访问<code>__proto__</code>属性，因为这两个方法是标准中定义的，因此使用它们编写的代码会更加可靠和兼容。</p>
-<hr>
+      <p>GORM is a popular Object-Relational Mapping (ORM) package for Go, designed to simplify database operations and improve developer productivity. It provides a robust and expressive API for interacting with various databases, including PostgreSQL, MySQL, SQLite, and more. With GORM, you can focus on your application&rsquo;s logic while it handles the complexities of database management.</p>
+<p>Main Usage of GORM:</p>
 <ol>
-<li>
-<p><a href="https://zh.wikipedia.org/wiki/%E5%9F%BA%E4%BA%8E%E5%8E%9F%E5%9E%8B%E7%BC%96%E7%A8%8B">https://zh.wikipedia.org/wiki/%E5%9F%BA%E4%BA%8E%E5%8E%9F%E5%9E%8B%E7%BC%96%E7%A8%8B</a></p>
-</li>
-<li>
-<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Inheritance_and_the_prototype_chain#%E5%9F%BA%E4%BA%8E%E5%8E%9F%E5%9E%8B%E9%93%BE%E7%9A%84%E7%BB%A7%E6%89%BF">https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Inheritance_and_the_prototype_chain#%E5%9F%BA%E4%BA%8E%E5%8E%9F%E5%9E%8B%E9%93%BE%E7%9A%84%E7%BB%A7%E6%89%BF</a></p>
-</li>
-<li>
-<p><a href="https://www.liaoxuefeng.com/wiki/1022910821149312/1023021997355072">https://www.liaoxuefeng.com/wiki/1022910821149312/1023021997355072</a></p>
-</li>
+<li>Model Definition: GORM allows you to define models, which are Go structs representing database tables. By leveraging struct tags, you can specify table names, column names, data types, constraints, and relationships with other models. GORM automates the mapping between these models and database tables, eliminating manual SQL queries.</li>
+<li>CRUD Operations: GORM simplifies database operations with its intuitive API. Perform Create, Read, Update, and Delete (CRUD) operations effortlessly using GORM&rsquo;s methods. Insert records, retrieve data based on conditions, update existing records, and delete data from the database with ease.</li>
+<li>Querying: GORM provides a powerful query builder that enables you to construct complex database queries using a chainable syntax. Leverage conditions, aggregations, joins, sorting, and pagination to retrieve the exact data you need from your database. GORM&rsquo;s query builder abstracts away the underlying SQL, making it easier to write and maintain complex queries.</li>
+<li>Relationships and Associations: GORM simplifies working with relationships between database tables. Define associations like one-to-one, one-to-many, and many-to-many relationships in your models using struct tags. GORM handles the necessary join queries and provides convenient methods to access related data.</li>
 </ol>
+<p>Application Scenarios:</p>
+<ol>
+<li>Web Applications: GORM is well-suited for building web applications that require efficient database interactions. Whether you&rsquo;re building an e-commerce platform, a content management system, or a social media application, GORM&rsquo;s simplicity and performance make it an excellent choice for managing your application&rsquo;s data layer.</li>
+<li>Microservices: As Go gains popularity in microservice architectures, GORM proves to be a valuable tool for managing database interactions in distributed systems. Use GORM to handle data storage and retrieval across different microservices, ensuring consistency and efficiency in your overall architecture.</li>
+<li>Data-Driven APIs: GORM&rsquo;s ease of use and powerful query builder make it ideal for developing data-driven APIs. Retrieve data based on user-defined filters, perform aggregations, and efficiently handle large datasets with GORM&rsquo;s optimized database operations. Build robust APIs that deliver data seamlessly to your frontend or other consuming applications.</li>
+</ol>
+<p>Conclusion: GORM simplifies database interactions in Go applications, enabling developers to focus on business logic rather than database management. By utilizing GORM&rsquo;s model definition, CRUD operations, querying capabilities, and support for relationships, you can streamline database interactions and improve productivity. Whether you&rsquo;re building web applications, microservices, or data-driven APIs, GORM empowers you to handle database operations efficiently and effectively.</p>
 
     </div>
     

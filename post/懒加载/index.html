@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>懒加载 - Aries notebook</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="" /><meta name="description" content="懒加载（Lazy Loading），也称为延迟加载，是 Web 开发中常用的优化技术。其基本原理是延迟加载页面上的资源（如图片、脚本、样式表等），直到" /><meta name="keywords" content="Aries, blog, hugo" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.124.1 with theme even" />
+
+
+<link rel="canonical" href="https://urchinzhou.com/post/%E6%87%92%E5%8A%A0%E8%BD%BD/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
+
+
+
+<meta property="og:title" content="懒加载" />
+<meta property="og:description" content="懒加载（Lazy Loading），也称为延迟加载，是 Web 开发中常用的优化技术。其基本原理是延迟加载页面上的资源（如图片、脚本、样式表等），直到" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://urchinzhou.com/post/%E6%87%92%E5%8A%A0%E8%BD%BD/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2022-03-30T10:09:28+08:00" />
+<meta property="article:modified_time" content="2022-03-30T10:09:28+08:00" />
+<meta itemprop="name" content="懒加载">
+<meta itemprop="description" content="懒加载（Lazy Loading），也称为延迟加载，是 Web 开发中常用的优化技术。其基本原理是延迟加载页面上的资源（如图片、脚本、样式表等），直到"><meta itemprop="datePublished" content="2022-03-30T10:09:28+08:00" />
+<meta itemprop="dateModified" content="2022-03-30T10:09:28+08:00" />
+<meta itemprop="wordCount" content="1387">
+<meta itemprop="keywords" content="javascript,懒加载,性能优化,前端," /><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="懒加载"/>
+<meta name="twitter:description" content="懒加载（Lazy Loading），也称为延迟加载，是 Web 开发中常用的优化技术。其基本原理是延迟加载页面上的资源（如图片、脚本、样式表等），直到"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-XXXXXXXXX-X"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-XXXXXXXXX-X');
+</script>
+
+
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Aries</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a>
+  </ul>
+
+  
+
+
+</nav>
+
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Aries</a>
+</div>
+
+
+
+
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li>
+  </ul>
+</nav>
+
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">懒加载</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2022-03-30 </span>
+        
+        
+      </div>
+    </header>
+
+    
+    <div class="post-content">
+      <p>懒加载（Lazy Loading），也称为延迟加载，是 Web 开发中常用的优化技术。其基本原理是延迟加载页面上的资源（如图片、脚本、样式表等），直到这些资源真正需要显示或使用时才进行加载。这种技术可以显著提升页面的加载速度，减少初始加载时的网络流量，提高用户体验。</p>
+<p>核心思想是最开始只加载对用户可见或即将可见的内容，其他内容则等到用户滚动页面到达相应位置时再加载。对于图片、视频等媒体资源，这意味着当它们即将进入视口（viewport）时才开始加载；对于 JavaScript 或 CSS 文件，可以在满足某些条件（如用户交互）后再加载和执行。</p>
+<p>实际应用时，对于图片资源，建议使用 <code>Intersection Observer</code> API，用于异步观察目标元素与其祖先元素或顶级文档视窗的交叉状态。在 HTML 中，图片的 <code>src</code> 属性最开始设置为空，或一个轻量级的占位图，真是的图片 URL 放在 <code>data-src</code> 属性中。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">observer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">IntersectionObserver</span><span class="p">((</span><span class="nx">entries</span><span class="p">,</span> <span class="nx">observer</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">entries</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">entry</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="nx">entry</span><span class="p">.</span><span class="nx">isIntersecting</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="kr">const</span> <span class="nx">img</span> <span class="o">=</span> <span class="nx">entry</span><span class="p">.</span><span class="nx">target</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">img</span><span class="p">.</span><span class="nx">src</span> <span class="o">=</span> <span class="nx">img</span><span class="p">.</span><span class="nx">dataset</span><span class="p">.</span><span class="nx">src</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">observer</span><span class="p">.</span><span class="nx">unobserve</span><span class="p">(</span><span class="nx">img</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">});</span>
+</span></span><span class="line"><span class="cl"><span class="p">});</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">document</span><span class="p">.</span><span class="nx">querySelectorAll</span><span class="p">(</span><span class="s1">&#39;img[data-src]&#39;</span><span class="p">).</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">img</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">observer</span><span class="p">.</span><span class="nx">observe</span><span class="p">(</span><span class="nx">img</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">});</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>在这段示例中，首先创建一个 <code>IntersectionObserver</code> 实例。<code>IntersectionObserver</code>接受一个回调函数作为参数，该回调函数会在观察的元素进入或退出视口时被调用。此外，回调函数接收两个参数：<code>entries</code>和<code>observer</code>。<code>entries</code>是一个数组，包含了所有被观察元素的 <code>IntersectionObserverEntry</code> 对象。<code>observer</code> 是观察者实例本身。</p>
+<p>回调函数遍历<code>entries</code>数组，对每个<code>entry</code>，检查其<code>isIntersecting</code>属性是否为<code>true</code>，即该元素是否进入了视口。</p>
+<p>如果 <code>true</code>，说明元素已经进入视口或在视口中，此时会执行以下操作：</p>
+<ul>
+<li>从 <code>entry.target</code> 获取当前被观察的元素（在这个场景中是<code>&lt;img&gt;</code>元素）。</li>
+<li>将 <code>&lt;img&gt;</code> 元素的<code>src</code>属性设置为 <code>data-src</code> 属性中存储的真实图片URL。<code>data-src</code>属性在HTML中预先定义，存储了图片的实际路径。</li>
+<li>调用<code>observer.unobserve(img)</code>停止观察当前元素，避免重复加载图片。</li>
+</ul>
+<p>最后，使用 <code>document.querySelectorAll</code> 选择页面上所有带有 <code>data-src</code> 属性的 <code>&lt;img&gt;</code> 元素，这个属性存储了要懒加载图片的 URL。然后，遍历这些图片元素，并使用前面创建的 <code>IntersectionObserver</code> 实例开始观察它们。这样，一旦这些图片即将进入视口，就会自动加载它们的图片资源。</p>
+<p>不过在使用懒加载时要注意，为了获得更好的视觉观感，需要考虑以下几点：</p>
+<ol>
+<li><strong>加载占位符</strong>：在图片资源实际加载完成前，最好使用一个占位图或加载动画。这可以提供更平滑的用户体验，避免页面布局突然变化导致的视觉闪烁。占位符可以是一个轻量级的图片、一个纯色背景、或者是表示加载中状态的动画。</li>
+<li><strong>图片尺寸</strong>：如果图片的尺寸在页面上已经预留，即使图片还未加载，页面布局也不会发生变化，这样就不会影响到用户的视觉体验。可以通过CSS预设图片容器的宽高来实现这一点。</li>
+<li><strong>渐进式加载</strong>：对于较大的图片，使用渐进式 JPEG 格式可以在图片下载过程中逐步显示，而不是一开始什么都不显示直到完全加载完毕。这样的加载方式虽然不是传统意义上的懒加载，但可以在图片尚未完全下载时提供更好的视觉体验。</li>
+</ol>
+<p>对于 JavaScript 和 CSS。JavaScript 可以使用动态导入，CSS 则可以通过 JavaScript 动态创建 <code>&lt;link&gt;</code> 标签，并将其插入到 <code>&lt;head&gt;</code> 中，从而实现 CSS 的懒加载。</p>
+<p>ES6 引入的 <code>import()</code> 语法提供了原生方法来实现 JavaScript 代码的动态导入。<code>import()</code> 返回一个 Promise，使其可以与 <code>async</code> 和 <code>await</code> 一起使用，简化异步代码的编写，例如：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="nx">button</span><span class="p">.</span><span class="nx">onclick</span> <span class="o">=</span> <span class="kr">async</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="nx">module</span> <span class="o">=</span> <span class="kr">await</span> <span class="kr">import</span><span class="p">(</span><span class="s1">&#39;./myModule.js&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">module</span><span class="p">.</span><span class="nx">doSomething</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>另外，Webpack 提供了对懒加载的支持，允许我们指定哪些模块或代码块应该懒加载。</p>
+
+    </div>
+
+    
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/javascript/">javascript</a>
+          <a href="/tags/%E6%87%92%E5%8A%A0%E8%BD%BD/">懒加载</a>
+          <a href="/tags/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/">性能优化</a>
+          <a href="/tags/%E5%89%8D%E7%AB%AF/">前端</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/javsscript-%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">JavsScript 高阶函数</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        <a class="next" href="/post/linux-ipc/">
+            <span class="next-text nav-default">Linux IPC</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:urchinzhou@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://twitter.com/AriesBlabla" class="iconfont icon-twitter" title="twitter"></a>
+      <a href="https://github.com/Aries-0331" class="iconfont icon-github" title="github"></a>
+  <a href="https://urchinzhou.com/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2020 - 
+    2024<span class="heart"><i class="iconfont icon-heart"></i></span><span></span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  
+
+
+
+<script type="text/javascript" src="/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex: {
+        }
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js" integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin="anonymous"></script>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-XXXXXXXXX-X"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-XXXXXXXXX-X');
+</script>
+
+
+
+
+
+
+
+
+</body>
+</html>

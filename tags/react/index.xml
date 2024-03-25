@@ -6,8 +6,36 @@
     <description>Recent content in React on Aries notebook</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 05 Feb 2020 15:58:02 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 11 Jan 2024 14:55:46 +0800</lastBuildDate>
     <atom:link href="https://urchinzhou.com/tags/react/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>React 设计模式</title>
+      <link>https://urchinzhou.com/post/react%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</link>
+      <pubDate>Thu, 11 Jan 2024 14:55:46 +0800</pubDate>
+      <guid>https://urchinzhou.com/post/react%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</guid>
+      <description>常见的 React 设计模式： 1. 组件化 将UI拆分成独立、可复用的组件是React开发的核心。每个组件只负责一部分的UI呈现，保持组件的职责单一。 原子设计</description>
+    </item>
+    <item>
+      <title>React 防止组件重新渲染</title>
+      <link>https://urchinzhou.com/post/react-%E9%98%B2%E6%AD%A2%E7%BB%84%E4%BB%B6%E9%87%8D%E6%96%B0%E6%B8%B2%E6%9F%93/</link>
+      <pubDate>Wed, 03 May 2023 18:33:42 +0800</pubDate>
+      <guid>https://urchinzhou.com/post/react-%E9%98%B2%E6%AD%A2%E7%BB%84%E4%BB%B6%E9%87%8D%E6%96%B0%E6%B8%B2%E6%9F%93/</guid>
+      <description>在React中，组件的重新渲染通常由状态（state）或属性（props）的变化触发。虽然React通过虚拟DOM和高效的对比算法（diff</description>
+    </item>
+    <item>
+      <title>React 状态管理常用策略</title>
+      <link>https://urchinzhou.com/post/react-%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86%E5%B8%B8%E7%94%A8%E7%AD%96%E7%95%A5/</link>
+      <pubDate>Mon, 09 Jan 2023 12:01:36 +0800</pubDate>
+      <guid>https://urchinzhou.com/post/react-%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86%E5%B8%B8%E7%94%A8%E7%AD%96%E7%95%A5/</guid>
+      <description>在 React 中，状态（State）是组件内部的数据结构，用于记录从挂载到卸载期间，可能会发生变化的数据。状态的更新会触发组件的重新渲染，因此合理地管</description>
+    </item>
+    <item>
+      <title>React Router</title>
+      <link>https://urchinzhou.com/post/react-router/</link>
+      <pubDate>Fri, 06 May 2022 14:31:14 +0800</pubDate>
+      <guid>https://urchinzhou.com/post/react-router/</guid>
+      <description>React Router 是一个用于React的路由库，它允许我们在React应用中实现客户端路由。这意味着用户可以在不重新加载页面的情况下导航到不同的URL，同</description>
+    </item>
     <item>
       <title>React Components and Props</title>
       <link>https://urchinzhou.com/post/react-basic---components-and-props/</link>

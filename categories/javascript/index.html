@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>Aries notebook</title>
+  <title>Javascript · Aries notebook</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -26,9 +26,9 @@
 <meta name="generator" content="Hugo 0.124.1 with theme even" />
 
 
-<link rel="canonical" href="https://urchinzhou.com/" />
-  <link href="https://urchinzhou.com/index.xml" rel="alternate" type="application/rss+xml" title="Aries notebook" />
-  <link href="https://urchinzhou.com/index.xml" rel="feed" type="application/rss+xml" title="Aries notebook" />
+<link rel="canonical" href="https://urchinzhou.com/categories/javascript/" />
+  <link href="https://urchinzhou.com/categories/javascript/index.xml" rel="alternate" type="application/rss+xml" title="Aries notebook" />
+  <link href="https://urchinzhou.com/categories/javascript/index.xml" rel="feed" type="application/rss+xml" title="Aries notebook" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -41,12 +41,12 @@
 
 
 
-<meta property="og:title" content="Aries notebook" />
+<meta property="og:title" content="Javascript" />
 <meta property="og:description" content="Aries notebook" />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="https://urchinzhou.com/" />
-<meta itemprop="name" content="Aries notebook">
-<meta itemprop="description" content="Aries notebook"><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Aries notebook"/>
+<meta property="og:url" content="https://urchinzhou.com/categories/javascript/" />
+<meta itemprop="name" content="Javascript">
+<meta itemprop="description" content="Aries notebook"><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Javascript"/>
 <meta name="twitter:description" content="Aries notebook"/>
 
 <!--[if lte IE 9]>
@@ -123,39 +123,26 @@
     <main id="main" class="main">
       <div class="content-wrapper">
         <div id="content" class="content">
-          <section id="posts" class="posts">
-  <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/%E5%85%B3%E4%BA%8E%E6%95%B0%E6%8D%AE%E5%88%86%E7%89%87%E4%B8%8E%E5%88%86%E6%AE%B5/">关于数据分片与分段</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2021-04-27 </span>
-      
-    </div>
-  </header>
-  
-  <div class="post-content">
-    
-    <div class="post-summary">
-      <p>链路层要求数据帧的长度最大值为 1500 字节，该特性被称为 MTU，即最大传输单元。当 IP 层的数据报大于 MTU 时，IP 层就需要进行分片，就是把数据报分成若干片，使每一片都小于 MTU。</p>
-<p>但是，对于采用 TCP 作为传输协议的数据而言，在 IP 层是不会分片的，因为 TCP 层有一个分段的特性 —— MSS，最大分段大小。为了达到最佳传输效能，TCP 在建立连接时会协商双方的 MSS 值，这个值通常是 1460（MTU1500 - IP包头20 - TCP包头20），对于大于 1460 的数据，当到达 TCP 层时便分段了，因此 IP 层就不用分片了。</p>
-<p>而 UDP 则会产生 IP 分片，因为没有类似于 TCP 的分段特性。</p>
-<p>分片发生在网络层，分段发生在传输层。</p>
+          <section id="archive" class="archive">
+  <div class="archive-title category">
+        <h2 class="archive-name">Javascript</h2>
+      </div>
 
+  <div class="archive-post">
+      <span class="archive-post-time">
+        2024-04-03
+      </span>
+      <span class="archive-post-title">
+        <a href="/post/object.is-in-javascript/" class="archive-post-link">
+          Object.is in JavaScript
+        </a>
+      </span>
     </div>
-    
-  </div>
-</article>
-  </section>
+</section>
 
 <nav class="pagination">
-  <a class="prev" href="/page/35/">
-    <i class="iconfont icon-left"></i>
-    <span class="prev-text">Prev</span>
-  </a>
-  <a class="next" href="/page/37/">
-    <span class="next-text">Next</span>
-    <i class="iconfont icon-right"></i>
-  </a>
+  
+  
 </nav>
         </div>
         
@@ -204,13 +191,6 @@
 
 
 <script type="text/javascript" src="/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js"></script>
-  <script type="text/javascript">
-    window.MathJax = {
-      tex: {
-        }
-    };
-  </script>
-  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js" integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin="anonymous"></script>
 
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-XXXXXXXXX-X"></script>
 <script>

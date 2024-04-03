@@ -6,8 +6,15 @@
     <description>Recent content on Aries notebook</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 03 Apr 2024 17:56:05 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 03 Apr 2024 21:48:56 +0800</lastBuildDate>
     <atom:link href="https://urchinzhou.com/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Flex Shrink &amp; Flex Grow</title>
+      <link>https://urchinzhou.com/post/flex-shrink--flex-grow/</link>
+      <pubDate>Wed, 03 Apr 2024 21:48:56 +0800</pubDate>
+      <guid>https://urchinzhou.com/post/flex-shrink--flex-grow/</guid>
+      <description>flex-shrink flex-shrink 是 CSS Flexbox 布局中的一个属性，它定义了当父容器的空间不足以容纳所有子项时，子项（flex项）如何收缩。简而言之，flex-shrink 控制了f</description>
+    </item>
     <item>
       <title>Object.is in JavaScript</title>
       <link>https://urchinzhou.com/post/object.is-in-javascript/</link>

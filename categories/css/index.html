@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>Aries notebook</title>
+  <title>Css · Aries notebook</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -26,9 +26,9 @@
 <meta name="generator" content="Hugo 0.124.1 with theme even" />
 
 
-<link rel="canonical" href="https://urchinzhou.com/" />
-  <link href="https://urchinzhou.com/index.xml" rel="alternate" type="application/rss+xml" title="Aries notebook" />
-  <link href="https://urchinzhou.com/index.xml" rel="feed" type="application/rss+xml" title="Aries notebook" />
+<link rel="canonical" href="https://urchinzhou.com/categories/css/" />
+  <link href="https://urchinzhou.com/categories/css/index.xml" rel="alternate" type="application/rss+xml" title="Aries notebook" />
+  <link href="https://urchinzhou.com/categories/css/index.xml" rel="feed" type="application/rss+xml" title="Aries notebook" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -41,12 +41,12 @@
 
 
 
-<meta property="og:title" content="Aries notebook" />
+<meta property="og:title" content="Css" />
 <meta property="og:description" content="Aries notebook" />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="https://urchinzhou.com/" />
-<meta itemprop="name" content="Aries notebook">
-<meta itemprop="description" content="Aries notebook"><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Aries notebook"/>
+<meta property="og:url" content="https://urchinzhou.com/categories/css/" />
+<meta itemprop="name" content="Css">
+<meta itemprop="description" content="Aries notebook"><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Css"/>
 <meta name="twitter:description" content="Aries notebook"/>
 
 <!--[if lte IE 9]>
@@ -123,63 +123,26 @@
     <main id="main" class="main">
       <div class="content-wrapper">
         <div id="content" class="content">
-          <section id="posts" class="posts">
-  <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/react-%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86%E5%B8%B8%E7%94%A8%E7%AD%96%E7%95%A5/">React 状态管理常用策略</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2023-01-09 </span>
-      
-    </div>
-  </header>
-  
-  <div class="post-content">
-    
-    <div class="post-summary">
-      <p>在 React 中，状态（State）是组件内部的数据结构，用于记录从挂载到卸载期间，可能会发生变化的数据。状态的更新会触发组件的重新渲染，因此合理地管理状态非常重要。</p>
-<p>React 原生的状态管理，主要通过 <code>useState</code>、<code>useEffect</code> 和 <code>Context API</code> 实现，三者分别应用于不同的场景：</p>
-<ul>
-<li>
-<p><strong>局部状态管理</strong>：使用<code>useState</code>（函数组件）或<code>this.state</code>（类组件）管理局部状态。适用于组件内部的状态逻辑，如表单输入、开关状态等。</p>
-</li>
-<li>
-<p><strong>生命周期和副作用</strong>：<code>useEffect</code>（函数组件）和生命周期方法（类组件）允许在状态更新时执行副作用操作，如数据获取、订阅或手动DOM操作。</p>
-</li>
-<li>
-<p><strong>跨组件状态共享</strong>：<code>Context API</code> 允许跨组件共享状态，而无需通过每个组件手动传递 <code>props</code>。适用于主题切换、用户认证等全局数据。</p>
-</li>
-</ul>
-<p>对于比较复杂的状态，建议还是引入外部库来集中管理状态，毕竟随着代码量增多，随处可见的 <code>useState</code> 很难处理，<code>Context API</code> 也很难维护，且容易出错，而引入外部库则能显著提升开发效率，将更多精力放在模块化和逻辑优化上。</p>
-<p>目前以 Redux 最为流行，另外 Mobx 和 zustand 也很受欢迎，社区普遍认为其相对于 Redux 而言，易用性和可维护性更好。以目前使用 Redux 的感受来看，有这三个优势：</p>
-<ol>
-<li>单一数据源，且是树形结构，支持回溯，方便调试;</li>
-<li>有成熟的开发调试工具 redux devtools；</li>
-<li>有成熟的社区，一般遇到的疑难杂症，在社区通常都能找到解决方案；</li>
-</ol>
-<p>由于只使用过 Redux，因此很难和其他库进行对比，而 React 的状态管理库又是五花八门，实在是卷得很，要想逐一了解，学习成本实在太高，还是选择较为流行的一两个就好。不过无论采取什么方式管理 React 状态，其基本思路是一致的：</p>
-<ol>
-<li><strong>最小化状态</strong>：尽可能减少状态数量，仅将那些需要根据用户交互或时间变化而变化的数据作为状态。</li>
-<li><strong>单一数据源</strong>：尽可能让状态在组件树中有单一的“真实来源”，避免不同组件间的状态不一致。</li>
-<li><strong>提升状态</strong>：当多个组件需要共享状态时，将状态提升到它们共同的父组件中管理。</li>
-<li><strong>不可变数据</strong>：在更新状态时，避免直接修改状态，而是通过设置新的状态值来创建新的状态对象。</li>
-<li><strong>组件化和复用</strong>：通过封装管理自己状态的组件，实现逻辑的复用和分离。</li>
-</ol>
+          <section id="archive" class="archive">
+  <div class="archive-title category">
+        <h2 class="archive-name">Css</h2>
+      </div>
 
+  <div class="archive-post">
+      <span class="archive-post-time">
+        2024-04-03
+      </span>
+      <span class="archive-post-title">
+        <a href="/post/flex-shrink--flex-grow/" class="archive-post-link">
+          Flex Shrink &amp; Flex Grow
+        </a>
+      </span>
     </div>
-    
-  </div>
-</article>
-  </section>
+</section>
 
 <nav class="pagination">
-  <a class="prev" href="/page/12/">
-    <i class="iconfont icon-left"></i>
-    <span class="prev-text">Prev</span>
-  </a>
-  <a class="next" href="/page/14/">
-    <span class="next-text">Next</span>
-    <i class="iconfont icon-right"></i>
-  </a>
+  
+  
 </nav>
         </div>
         
@@ -228,13 +191,6 @@
 
 
 <script type="text/javascript" src="/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js"></script>
-  <script type="text/javascript">
-    window.MathJax = {
-      tex: {
-        }
-    };
-  </script>
-  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js" integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin="anonymous"></script>
 
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-XXXXXXXXX-X"></script>
 <script>

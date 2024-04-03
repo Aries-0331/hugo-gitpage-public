@@ -126,9 +126,9 @@
           <section id="posts" class="posts">
   <article class="post">
   <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/%E9%85%8D%E7%BD%AE%E5%A4%9A%E4%B8%AAgit%E4%BB%93%E5%BA%93%E7%9A%84ssh%E6%9D%83%E9%99%90/">在新环境中配置多 Git 仓库的 ssh 权限</a></h1>
+    <h1 class="post-title"><a class="post-link" href="/post/how_to_learn_new_programming_languages_and_frameworks_quickly/">How to learn new programming languages and frameworks quickly</a></h1>
     <div class="post-meta">
-      <span class="post-time"> 2020-11-11 </span>
+      <span class="post-time"> 2020-12-21 </span>
       
     </div>
   </header>
@@ -136,55 +136,38 @@
   <div class="post-content">
     
     <div class="post-summary">
-      <h1 id="配置多个-git-仓库的-ssh-权限">配置多个 Git 仓库的 ssh 权限</h1>
-<ol>
-<li>跳转至 ssh 配置路径，通常默认为 <code>~/.ssh</code></li>
-<li>创建 ssh 密钥对，按照提示创建文件名（eg:repo1-deploy-key、repo2-deploy-key），简易命令用 <code>./ssh-keygen</code> 即可，默认创建 rsa 密钥对，也可以通过参数自定义，例如 <code>./ssh-keygen -t ed25519  -C  username</code> 等</li>
-<li>eval <code>ssh-agent -s</code></li>
-<li>ssh-add repo1-deploy-key repo2-deploy-key</li>
-<li>复制 filename.pub 中的内容</li>
-<li>粘贴至 Git 仓库的 Settings&ndash;Deploy Keys&ndash;Add deploy key 中</li>
-<li>修改<code>~/.ssh/config</code>，参考如下</li>
-</ol>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span><span class="lnt">9
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Host repo1.github.com
-</span></span><span class="line"><span class="cl">        HostName github.com
-</span></span><span class="line"><span class="cl">        AddKeysToAgent yes
-</span></span><span class="line"><span class="cl">        IdentityFile ~/.ssh/repo1-deploy-key
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">Host repo2.github.com
-</span></span><span class="line"><span class="cl">        HostName github.com
-</span></span><span class="line"><span class="cl">        AddKeysToAgent yes
-</span></span><span class="line"><span class="cl">        IdentityFile ~/.ssh/blog-repo
-</span></span></code></pre></td></tr></table>
-</div>
-</div><ol start="8">
-<li>分别修改 repo1、repo2 目录下 <code>.git/config</code> 中的 url，参考如下</li>
-</ol>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="c1">//url = git@github.com:username/repo1.git
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">url</span> <span class="o">=</span> <span class="n">git</span><span class="err">@</span><span class="n">repo1</span><span class="p">.</span><span class="n">github</span><span class="p">.</span><span class="nl">com</span><span class="p">:</span><span class="n">username</span><span class="o">/</span><span class="n">repo1</span><span class="p">.</span><span class="n">git</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h2 id="failed-to-connect-to-githubcom-port-443-timed-out">Failed to connect to github.com port 443: Timed out</h2>
-<p>将 .git/config 文件中的 https url 修改为 Git 仓库的 ssh rul。</p>
+      <blockquote>
+<p>An excerpt from <a href="https://www.quastor.org/p/how-whatsapp-scaled-to-1-billion">how-whatsapp-scaled-to-1-billion</a></p>
+</blockquote>
+<p><a href="https://news.ycombinator.com/item?id=28017289">This</a> is an interesting discussion on Hacker News for a process to learn new things quickly.</p>
+<p>Here are some of the top answers summarized.</p>
+<ul>
+<li>
+<p>For a new programming language, there are a couple of standard things you should try to implement.</p>
+<p>Write several programs where you</p>
+<ul>
+<li>Read/write to a file</li>
+<li>Turn a structured object into JSON</li>
+<li>Parse JSON into an object</li>
+<li>A basic script that can be run from the CLI, parses flags/args, reads stdin</li>
+<li>Send a HTTP request</li>
+<li>Implement a very basic web server</li>
+</ul>
+<p>When you’re doing these exercises, <strong>do not copy/paste any code</strong>.</p>
+<p>You should be typing out the code yourself.</p>
+</li>
+<li>
+<p>Try to bias towards reading (blogs, documentation, code, books, etc.) over watching video tutorials. Reading is a lot faster than watching video and you can be far more efficient with your time.</p>
+</li>
+<li>
+<p>A 3 step process for learning new frameworks is to divide it up into a week’s work (10 - 15 hour total commitment)</p>
+<ul>
+<li><em>Prepare</em> - Spend 1 hour Monday through Thursday reading documentation, books, and watching content. This way you’ll have time to sleep on the concepts.</li>
+<li><em>Plan</em> - On Friday, spend 1 hour preparing a small project idea for the weekend that will use all the concepts you learned over the week.</li>
+<li><em>Project</em> - Spend 4 - 6 hours building the project over the weekend.</li>
+</ul>
+</li>
+</ul>
 
     </div>
     

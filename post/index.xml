@@ -37,6 +37,13 @@
       <description>搜索引擎优化（SEO）是一种提高网站在搜索引擎中的可见度的过程，使其更有可能吸引潜在客户和访问者。SEO主要关注提升网站在非付费搜索结果中的</description>
     </item>
     <item>
+      <title>CSS Units</title>
+      <link>https://urchinzhou.com/post/css-units/</link>
+      <pubDate>Mon, 19 Jun 2023 11:07:43 +0800</pubDate>
+      <guid>https://urchinzhou.com/post/css-units/</guid>
+      <description>Recommendations Media Recommended Occasional use Infrequent use Not recommended Screen em, rem, % px ch, ex, vw, vh, vmin, vmax cm, mm, in, pt, pc Print em, rem, % cm, mm, in, pt, pc ch, ex px, vw, vh, vmin, vmax Relative Units rem The rem unit in CSS stands for &amp;ldquo;root em&amp;rdquo;. It is a relative unit of measurement that is relative to the font size of the root element.</description>
+    </item>
+    <item>
       <title>React 防止组件重新渲染</title>
       <link>https://urchinzhou.com/post/react-%E9%98%B2%E6%AD%A2%E7%BB%84%E4%BB%B6%E9%87%8D%E6%96%B0%E6%B8%B2%E6%9F%93/</link>
       <pubDate>Wed, 03 May 2023 18:33:42 +0800</pubDate>

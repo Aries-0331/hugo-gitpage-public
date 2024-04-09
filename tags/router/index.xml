@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Router on Aries notebook</title>
+    <link>https://urchinzhou.com/tags/router/</link>
+    <description>Recent content in Router on Aries notebook</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 06 May 2022 14:31:14 +0800</lastBuildDate>
+    <atom:link href="https://urchinzhou.com/tags/router/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>React Router</title>
+      <link>https://urchinzhou.com/post/react-router/</link>
+      <pubDate>Fri, 06 May 2022 14:31:14 +0800</pubDate>
+      <guid>https://urchinzhou.com/post/react-router/</guid>
+      <description>React Router 是一个用于React的路由库，它允许我们在React应用中实现客户端路由。这意味着用户可以在不重新加载页面的情况下导航到不同的URL，同</description>
+    </item>
+  </channel>
+</rss>

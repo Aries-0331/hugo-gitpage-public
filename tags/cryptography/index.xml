@@ -43,5 +43,12 @@
       <guid>https://urchinzhou.com/post/%E5%85%B3%E4%BA%8Exlog%E5%8A%A0%E5%AF%86%E5%A4%84%E7%90%86%E5%88%86%E6%9E%90/</guid>
       <description>xlog 使用微型加密算法（TEA，Tiny Encryption Algorithm）对日志数据进行加密，使用 ECDH 密钥交换算法进行对称密钥的协商，对称密钥以数组形式存储在</description>
     </item>
+    <item>
+      <title>TLS</title>
+      <link>https://urchinzhou.com/post/tls%E5%8D%8F%E8%AE%AE/</link>
+      <pubDate>Sun, 02 Feb 2020 22:24:45 +0800</pubDate>
+      <guid>https://urchinzhou.com/post/tls%E5%8D%8F%E8%AE%AE/</guid>
+      <description>TLS 协议的设计目标 构建一个安全传输层（Transport Layer Security），在基于连接的传输层（如 TCP）之上提供密码学安全，包括 机密性，信</description>
+    </item>
   </channel>
 </rss>

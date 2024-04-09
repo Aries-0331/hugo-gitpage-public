@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Prototype on Aries notebook</title>
+    <link>https://urchinzhou.com/tags/prototype/</link>
+    <description>Recent content in Prototype on Aries notebook</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 24 Oct 2022 20:36:26 +0800</lastBuildDate>
+    <atom:link href="https://urchinzhou.com/tags/prototype/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>JavsScript 原型链</title>
+      <link>https://urchinzhou.com/post/javsscript-%E5%8E%9F%E5%9E%8B%E9%93%BE/</link>
+      <pubDate>Mon, 24 Oct 2022 20:36:26 +0800</pubDate>
+      <guid>https://urchinzhou.com/post/javsscript-%E5%8E%9F%E5%9E%8B%E9%93%BE/</guid>
+      <description>每个 JavaScript 对象都有一个指向其他对象的链接，这个链接就是我们所说的“原型”。当我们试图访问一个对象的属性或方法时，如果它自身没有这个属性或方法，J</description>
+    </item>
+  </channel>
+</rss>

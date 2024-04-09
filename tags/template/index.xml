@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Template on Aries notebook</title>
+    <link>https://urchinzhou.com/tags/template/</link>
+    <description>Recent content in Template on Aries notebook</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 30 Dec 2022 11:06:43 +0800</lastBuildDate>
+    <atom:link href="https://urchinzhou.com/tags/template/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>JavaScript 模板</title>
+      <link>https://urchinzhou.com/post/javascript-%E6%A8%A1%E6%9D%BF/</link>
+      <pubDate>Fri, 30 Dec 2022 11:06:43 +0800</pubDate>
+      <guid>https://urchinzhou.com/post/javascript-%E6%A8%A1%E6%9D%BF/</guid>
+      <description>在JavaScript中，模板是指结合数据来生成 HTML 标记或其他文本的技术，模板通过声明式的标记语法允许你指定如何将对象属性插入到文档中。这种方</description>
+    </item>
+  </channel>
+</rss>

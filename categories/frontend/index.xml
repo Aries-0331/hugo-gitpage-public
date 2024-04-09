@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Frontend on Aries notebook</title>
+    <link>https://urchinzhou.com/categories/frontend/</link>
+    <description>Recent content in Frontend on Aries notebook</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 03 Apr 2024 21:48:56 +0800</lastBuildDate>
+    <atom:link href="https://urchinzhou.com/categories/frontend/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Flex Shrink &amp; Flex Grow</title>
+      <link>https://urchinzhou.com/post/flex-shrink--flex-grow/</link>
+      <pubDate>Wed, 03 Apr 2024 21:48:56 +0800</pubDate>
+      <guid>https://urchinzhou.com/post/flex-shrink--flex-grow/</guid>
+      <description>flex-shrink flex-shrink 是 CSS Flexbox 布局中的一个属性，它定义了当父容器的空间不足以容纳所有子项时，子项（flex项）如何收缩。简而言之，flex-shrink 控制了f</description>
+    </item>
+    <item>
+      <title>Object.is in JavaScript</title>
+      <link>https://urchinzhou.com/post/object.is-in-javascript/</link>
+      <pubDate>Wed, 03 Apr 2024 17:56:05 +0800</pubDate>
+      <guid>https://urchinzhou.com/post/object.is-in-javascript/</guid>
+      <description>Object.is is a method introduced in ECMAScript 2015 (ES6) that determines whether two values are the same value. It&amp;rsquo;s a more precise comparison than the traditional == (loose equality) or === (strict equality) operators in JavaScript. Object.is aims to provide an accurate comparison algorithm, particularly useful for distinguishing between values like +0 and -0, and for correctly identifying NaN values, which traditional comparisons cannot.&#xA;Syntax 1 Object.is(value1, value2); value1: The first value to compare.</description>
+    </item>
+  </channel>
+</rss>

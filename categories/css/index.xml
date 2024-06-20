@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>css on Aries notebook</title>
+    <title>CSS on Aries notebook</title>
     <link>https://urchinzhou.com/categories/css/</link>
-    <description>Recent content in css on Aries notebook</description>
+    <description>Recent content in CSS on Aries notebook</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Wed, 03 Apr 2024 21:48:56 +0800</lastBuildDate>
@@ -18,6 +18,15 @@
       
       <guid>https://urchinzhou.com/post/flex-shrink-flex-grow/</guid>
       <description>flex-shrink flex-shrink 是 CSS Flexbox 布局中的一个属性，它定义了当父容器的空间不足以容纳所有子项时，子项（flex项）如何收缩。简而言之，flex-shrink 控制了f</description>
+    </item>
+    
+    <item>
+      <title>CSS Units</title>
+      <link>https://urchinzhou.com/post/css-units/</link>
+      <pubDate>Mon, 19 Jun 2023 11:07:43 +0800</pubDate>
+      
+      <guid>https://urchinzhou.com/post/css-units/</guid>
+      <description>Recommendations    Media Recommended Occasional use Infrequent use Not recommended     Screen em, rem, % px ch, ex, vw, vh, vmin, vmax cm, mm, in, pt, pc   Print em, rem, % cm, mm, in, pt, pc ch, ex px, vw, vh, vmin, vmax    Relative Units rem The rem unit in CSS stands for &amp;ldquo;root em&amp;rdquo;. It is a relative unit of measurement that is relative to the font size of the root element.</description>
     </item>
     
   </channel>

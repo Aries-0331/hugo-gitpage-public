@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>HTML on Aries notebook</title>
+    <link>https://urchinzhou.com/categories/html/</link>
+    <description>Recent content in HTML on Aries notebook</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 25 Nov 2021 14:14:09 +0800</lastBuildDate>
+    
+	<atom:link href="https://urchinzhou.com/categories/html/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Dom</title>
+      <link>https://urchinzhou.com/post/dom/</link>
+      <pubDate>Thu, 25 Nov 2021 14:14:09 +0800</pubDate>
+      
+      <guid>https://urchinzhou.com/post/dom/</guid>
+      <description>DOM（文档对象模型 Document Object Model）是一个跨平台和语言独立的接口，允许程序和脚本动态地访问和更新文档的内容、结构和样式。DOM将HTML和X</description>
+    </item>
+    
+  </channel>
+</rss>

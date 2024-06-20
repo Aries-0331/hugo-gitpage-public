@@ -89,8 +89,8 @@
         <li class="mobile-menu-item">Home</li>
       </a><a href="/post/">
         <li class="mobile-menu-item">Archives</li>
-      </a><a href="/tags/">
-        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
       </a>
   </ul>
 
@@ -116,7 +116,7 @@
       </li><li class="menu-item">
         <a class="menu-item-link" href="/post/">Archives</a>
       </li><li class="menu-item">
-        <a class="menu-item-link" href="/tags/">Tags</a>
+        <a class="menu-item-link" href="/categories/">Categories</a>
       </li>
   </ul>
 </nav>
@@ -129,20 +129,50 @@
           <section id="posts" class="posts">
   <article class="post">
   <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/%E5%85%B3%E4%BA%8E%E6%95%B0%E6%8D%AE%E5%88%86%E7%89%87%E4%B8%8E%E5%88%86%E6%AE%B5/">关于数据分片与分段</a></h1>
+    <h1 class="post-title"><a class="post-link" href="/post/how_to_learn_new_programming_languages_and_frameworks_quickly/">How to learn new programming languages and frameworks quickly</a></h1>
     <div class="post-meta">
-      <span class="post-time"> 2021-04-27 </span>
-      
+      <span class="post-time"> 2020-12-21 </span>
+      <div class="post-category">
+        <a href="/%20categories/notes/"> Notes </a>
+        </div>
     </div>
   </header>
   
   <div class="post-content">
     
     <div class="post-summary">
-      <p>链路层要求数据帧的长度最大值为 1500 字节，该特性被称为 MTU，即最大传输单元。当 IP 层的数据报大于 MTU 时，IP 层就需要进行分片，就是把数据报分成若干片，使每一片都小于 MTU。</p>
-<p>但是，对于采用 TCP 作为传输协议的数据而言，在 IP 层是不会分片的，因为 TCP 层有一个分段的特性 —— MSS，最大分段大小。为了达到最佳传输效能，TCP 在建立连接时会协商双方的 MSS 值，这个值通常是 1460（MTU1500 - IP包头20 - TCP包头20），对于大于 1460 的数据，当到达 TCP 层时便分段了，因此 IP 层就不用分片了。</p>
-<p>而 UDP 则会产生 IP 分片，因为没有类似于 TCP 的分段特性。</p>
-<p>分片发生在网络层，分段发生在传输层。</p>
+      <blockquote>
+<p>An excerpt from <a href="https://www.quastor.org/p/how-whatsapp-scaled-to-1-billion">how-whatsapp-scaled-to-1-billion</a></p>
+</blockquote>
+<p><a href="https://news.ycombinator.com/item?id=28017289">This</a> is an interesting discussion on Hacker News for a process to learn new things quickly.</p>
+<p>Here are some of the top answers summarized.</p>
+<ul>
+<li>
+<p>For a new programming language, there are a couple of standard things you should try to implement.</p>
+<p>Write several programs where you</p>
+<ul>
+<li>Read/write to a file</li>
+<li>Turn a structured object into JSON</li>
+<li>Parse JSON into an object</li>
+<li>A basic script that can be run from the CLI, parses flags/args, reads stdin</li>
+<li>Send a HTTP request</li>
+<li>Implement a very basic web server</li>
+</ul>
+<p>When you’re doing these exercises, <strong>do not copy/paste any code</strong>.</p>
+<p>You should be typing out the code yourself.</p>
+</li>
+<li>
+<p>Try to bias towards reading (blogs, documentation, code, books, etc.) over watching video tutorials. Reading is a lot faster than watching video and you can be far more efficient with your time.</p>
+</li>
+<li>
+<p>A 3 step process for learning new frameworks is to divide it up into a week’s work (10 - 15 hour total commitment)</p>
+<ul>
+<li><em>Prepare</em> - Spend 1 hour Monday through Thursday reading documentation, books, and watching content. This way you’ll have time to sleep on the concepts.</li>
+<li><em>Plan</em> - On Friday, spend 1 hour preparing a small project idea for the weekend that will use all the concepts you learned over the week.</li>
+<li><em>Project</em> - Spend 4 - 6 hours building the project over the weekend.</li>
+</ul>
+</li>
+</ul>
 
     </div>
     

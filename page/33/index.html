@@ -89,8 +89,8 @@
         <li class="mobile-menu-item">Home</li>
       </a><a href="/post/">
         <li class="mobile-menu-item">Archives</li>
-      </a><a href="/tags/">
-        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
       </a>
   </ul>
 
@@ -116,7 +116,7 @@
       </li><li class="menu-item">
         <a class="menu-item-link" href="/post/">Archives</a>
       </li><li class="menu-item">
-        <a class="menu-item-link" href="/tags/">Tags</a>
+        <a class="menu-item-link" href="/categories/">Categories</a>
       </li>
   </ul>
 </nav>
@@ -129,44 +129,156 @@
           <section id="posts" class="posts">
   <article class="post">
   <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/git%E4%BF%AE%E6%94%B9commit%E4%BF%A1%E6%81%AF/">Git 修改 commit 信息</a></h1>
+    <h1 class="post-title"><a class="post-link" href="/post/encryptedsharedpreferences%E5%88%86%E6%9E%90/">EncryptedSharedPreferences分析</a></h1>
     <div class="post-meta">
-      <span class="post-time"> 2021-07-20 </span>
-      
+      <span class="post-time"> 2021-07-01 </span>
+      <div class="post-category">
+        <a href="/%20categories/performance/"> Performance </a>
+        </div>
     </div>
   </header>
   
   <div class="post-content">
     
     <div class="post-summary">
-      <ul>
-<li>修改用户名/邮箱</li>
-</ul>
+      <p>EncryptedSharedPreferenes 是 androidx 下安全组件中的加密类，实现<code>SharedPreferences</code>的键值对加密。</p>
+<p>开发者文档中提供了<code>SharedPreferences</code>加密键值对的实例代码，其中使用<code>MasterKeys</code>来进行密钥管理，而在 <a href="https://developer.android.com/reference/androidx/security/crypto/MasterKeys?hl=zh-cn">MasterKeys</a> 的文档中提示该类已废弃，应使用<code>MasterKey.Builder</code>来管理主密钥（版本说明：基于 Jetpack Security 1.1.0-alpha01），示例如下</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span><span class="lnt">9
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">1. git rebase -i &#34;commit id&#34; //commit id 选择目标 commit 上一次的 commit ID
-
-2. 修改 pick 为 edit 后，保存退出
-
-3. git commit --amend --author=&#34;username &lt;useremail&gt;&#34;//eg: git commit --amend --author=&#34;hahaha &lt;hahaha@gmail.com&gt;&#34;
-
-4. git rebase --continue
-
-ps:如果想修改第一次commit的信息，则步骤1中参数 commit id 改为 --root，即 git rebase -i --root
+<pre class="chroma"><code class="language-java" data-lang="java"> <span class="c1">// this is equivalent to using deprecated MasterKeys.AES256_GCM_SPEC
+</span><span class="c1"></span> <span class="n">KeyGenParameterSpec</span> <span class="n">spec</span> <span class="o">=</span> <span class="k">new</span> <span class="n">KeyGenParameterSpec</span><span class="o">.</span><span class="na">Builder</span><span class="o">(</span>
+         <span class="n">MASTER_KEY_ALIAS</span><span class="o">,</span>
+         <span class="n">KeyProperties</span><span class="o">.</span><span class="na">PURPOSE_ENCRYPT</span> <span class="o">|</span> <span class="n">KeyProperties</span><span class="o">.</span><span class="na">PURPOSE_DECRYPT</span><span class="o">)</span>
+         <span class="o">.</span><span class="na">setBlockModes</span><span class="o">(</span><span class="n">KeyProperties</span><span class="o">.</span><span class="na">BLOCK_MODE_GCM</span><span class="o">)</span>
+         <span class="o">.</span><span class="na">setEncryptionPaddings</span><span class="o">(</span><span class="n">KeyProperties</span><span class="o">.</span><span class="na">ENCRYPTION_PADDING_NONE</span><span class="o">)</span>
+         <span class="o">.</span><span class="na">setKeySize</span><span class="o">(</span><span class="n">KEY_SIZE</span><span class="o">)</span>
+         <span class="o">.</span><span class="na">build</span><span class="o">();</span>
+ <span class="n">MasterKey</span> <span class="n">masterKey</span> <span class="o">=</span> <span class="k">new</span> <span class="n">MasterKey</span><span class="o">.</span><span class="na">Builder</span><span class="o">(</span><span class="n">MainActivity</span><span class="o">.</span><span class="na">this</span><span class="o">)</span>
+         <span class="o">.</span><span class="na">setKeyGenParameterSpec</span><span class="o">(</span><span class="n">spec</span><span class="o">)</span>
+         <span class="o">.</span><span class="na">build</span><span class="o">();</span>
+ <span class="n">EncryptedSharedPreferences</span><span class="o">.</span><span class="na">create</span><span class="o">(</span>
+         <span class="n">MainActivity</span><span class="o">.</span><span class="na">this</span><span class="o">,</span>
+         <span class="s">&#34;your-app-preferences-name&#34;</span><span class="o">,</span>
+         <span class="n">masterKey</span><span class="o">,</span> <span class="c1">// masterKey created above
+</span><span class="c1"></span>         <span class="n">EncryptedSharedPreferences</span><span class="o">.</span><span class="na">PrefKeyEncryptionScheme</span><span class="o">.</span><span class="na">AES256_SIV</span><span class="o">,</span>
+         <span class="n">EncryptedSharedPreferences</span><span class="o">.</span><span class="na">PrefValueEncryptionScheme</span><span class="o">.</span><span class="na">AES256_GCM</span><span class="o">);</span>
 </code></pre></td></tr></table>
 </div>
+</div><h3 id="密钥管理">密钥管理</h3>
+<p><code>KeyGenParameterSpec</code>是<code>android.security.keystore</code>中的类，用于指定密钥的参数，相当于先制定一个规范，规范中指明密钥别名、密钥用途、加密模式等密钥属性，然后在生成密钥的时候直接使用指定的规范。我们重点需要关注的是，主密钥的生成和存储，也就是下面调用的<code>MasterKey.Builder</code>方法。</p>
+<p><code>MasterKey.Builder</code>就是用于生成<code>MasterKey</code>的构建器，最终生成密钥的方法是构建器里的<code>build()</code>，那么在<code>build()</code>里面做了什么事情，需要深入到<a href="https://github.com/androidx/androidx/blob/androidx-master-dev/security/crypto/src/main/java/androidx/security/crypto/MasterKey.java">源码</a>里面去看看。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="cm">/**
+</span><span class="cm">* Builds a {@link MasterKey} from this builder.
+</span><span class="cm">* @return The master key.
+</span><span class="cm">*/</span>
+<span class="nd">@NonNull</span>
+<span class="kd">public</span> <span class="n">MasterKey</span> <span class="nf">build</span><span class="o">()</span> <span class="kd">throws</span> <span class="n">GeneralSecurityException</span><span class="o">,</span> <span class="n">IOException</span> <span class="o">{</span>
+	<span class="k">if</span> <span class="o">(</span><span class="n">Build</span><span class="o">.</span><span class="na">VERSION</span><span class="o">.</span><span class="na">SDK_INT</span> <span class="o">&gt;=</span> <span class="n">Build</span><span class="o">.</span><span class="na">VERSION_CODES</span><span class="o">.</span><span class="na">M</span><span class="o">)</span> <span class="o">{</span>
+		<span class="k">return</span> <span class="n">buildOnM</span><span class="o">();</span>
+	<span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+		<span class="k">return</span> <span class="k">new</span> <span class="n">MasterKey</span><span class="o">(</span><span class="n">mKeyAlias</span><span class="o">,</span> <span class="kc">null</span><span class="o">);</span>
+	<span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">private</span> <span class="n">MasterKey</span> <span class="nf">buildOnM</span><span class="o">()</span> <span class="kd">throws</span> <span class="n">GeneralSecurityException</span><span class="o">,</span> <span class="n">IOException</span> <span class="o">{</span>
+  <span class="o">...</span>
+  <span class="k">if</span> <span class="o">(</span><span class="n">Build</span><span class="o">.</span><span class="na">VERSION</span><span class="o">.</span><span class="na">SDK_INT</span> <span class="o">&gt;=</span> <span class="n">Build</span><span class="o">.</span><span class="na">VERSION_CODES</span><span class="o">.</span><span class="na">P</span> <span class="o">&amp;&amp;</span> <span class="n">mRequestStrongBoxBacked</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">mContext</span><span class="o">.</span><span class="na">getPackageManager</span><span class="o">().</span><span class="na">hasSystemFeature</span><span class="o">(</span>
+      <span class="n">PackageManager</span><span class="o">.</span><span class="na">FEATURE_STRONGBOX_KEYSTORE</span><span class="o">))</span> <span class="o">{</span>
+      <span class="n">builder</span><span class="o">.</span><span class="na">setIsStrongBoxBacked</span><span class="o">(</span><span class="kc">true</span><span class="o">);</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+  <span class="n">mKeyGenParameterSpec</span> <span class="o">=</span> <span class="n">builder</span><span class="o">.</span><span class="na">build</span><span class="o">();</span><span class="c1">//完成KeyGenParameterSpec的构建
+</span><span class="c1"></span>  <span class="o">...</span>
+  <span class="nd">@SuppressWarnings</span><span class="o">(</span><span class="s">&#34;deprecation&#34;</span><span class="o">)</span>
+    <span class="n">String</span> <span class="n">keyAlias</span> <span class="o">=</span> <span class="n">MasterKeys</span><span class="o">.</span><span class="na">getOrCreate</span><span class="o">(</span><span class="n">mKeyGenParameterSpec</span><span class="o">);</span><span class="c1">//按照Spec指定的参数创建密钥
+</span><span class="c1"></span>  <span class="k">return</span> <span class="k">new</span> <span class="n">MasterKey</span><span class="o">(</span><span class="n">keyAlias</span><span class="o">,</span> <span class="n">mKeyGenParameterSpec</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
 </div>
+</div><p>我们以 Android 9.0 为参考，<code>build</code>中调用的是 <code>buildOnM()</code>，而在<code>buildOnM()</code>中会检查系统是否支持基于硬件的 StrongBox Keystore，如果支持，则调用<code>setIsStrongBoxBacked(true)</code>以设置该密钥由 StrongBox 安全芯片保护，至此密钥参数设置的最后一步完成，并返回一个<code>KeyGenParameterSpec</code>的实例，<code>build()</code>内容很简单，直接返回一个<code>KeyGenParameterSpec</code>实例，如下</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">public KeyGenParameterSpec build() {
+	return new KeyGenParameterSpec(
+    mKeystoreAlias,
+    mNamespace,
+    mKeySize,
+    ......
+    mIsStrongBoxBacked,
+    mUserConfirmationRequired,
+    mUnlockedDeviceRequired,
+    mCriticalToDeviceEncryption);
+  }
+}
+</code></pre></td></tr></table>
+</div>
+</div><p>而后返回到<code>buildOnM()</code>中，调用<code>MasterKeys.getOrCreate(mKeyGenParameterSpec)</code>创建主密钥并返回密钥别名字符串，然后逐级返回上层调用方法。</p>
+
     </div>
     
   </div>

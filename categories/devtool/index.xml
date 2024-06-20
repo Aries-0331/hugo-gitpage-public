@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Devtool on Aries notebook</title>
+    <link>https://urchinzhou.com/categories/devtool/</link>
+    <description>Recent content in Devtool on Aries notebook</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 20 Jul 2021 15:19:14 +0800</lastBuildDate>
+    
+	<atom:link href="https://urchinzhou.com/categories/devtool/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Git 修改 commit 信息</title>
+      <link>https://urchinzhou.com/post/git%E4%BF%AE%E6%94%B9commit%E4%BF%A1%E6%81%AF/</link>
+      <pubDate>Tue, 20 Jul 2021 15:19:14 +0800</pubDate>
+      
+      <guid>https://urchinzhou.com/post/git%E4%BF%AE%E6%94%B9commit%E4%BF%A1%E6%81%AF/</guid>
+      <description>修改用户名/邮箱 1 2 3 4 5 6 7 8 9 1. git rebase -i &amp;#34;commit id&amp;#34; //commit id 选择目标 commit 上一次的 commit ID 2. 修改 pick 为 edit 后，保存退出 3. git commit --amend --author=&amp;#34;username &amp;lt;useremail&amp;gt;&amp;#34;//eg: git commit --amend --author=&amp;#34;hahaha &amp;lt;hahaha@gmail.com&amp;gt;&amp;#34; 4. git rebase --continue ps:如果想修</description>
+    </item>
+    
+    <item>
+      <title>关于gcc编译时函数符号导出的问题</title>
+      <link>https://urchinzhou.com/post/%E5%85%B3%E4%BA%8Egcc%E7%BC%96%E8%AF%91%E6%97%B6%E5%87%BD%E6%95%B0%E7%AC%A6%E5%8F%B7%E5%AF%BC%E5%87%BA%E7%9A%84%E9%97%AE%E9%A2%98/</link>
+      <pubDate>Sat, 10 Apr 2021 22:26:17 +0800</pubDate>
+      
+      <guid>https://urchinzhou.com/post/%E5%85%B3%E4%BA%8Egcc%E7%BC%96%E8%AF%91%E6%97%B6%E5%87%BD%E6%95%B0%E7%AC%A6%E5%8F%B7%E5%AF%BC%E5%87%BA%E7%9A%84%E9%97%AE%E9%A2%98/</guid>
+      <description>&lt;p&gt;背景：在 Android P liblog 模块中增加一个功能，涉及外部函数调用。如在 &lt;code&gt;A.c&lt;/code&gt; 中定义函数 &lt;code&gt;fun&lt;/code&gt;，在 &lt;code&gt;A.h&lt;/code&gt; 中声明函数 &lt;code&gt;fun&lt;/code&gt;，在 &lt;code&gt;B.c&lt;/code&gt; 中包含 &lt;code&gt;A.h&lt;/code&gt; 后调用 &lt;code&gt;fun&lt;/code&gt;，文件名、路径等均没有问题，但编译时会触发 &lt;code&gt;error:undefined reference to &lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;分析：函数显然是定义了的，提示未定义应该是出于某种原因未找到。后发现 &lt;code&gt;logprint.c&lt;/code&gt; 文件中部分函数带有前缀 &lt;code&gt;LIBLOG_ABI_PUBLIC&lt;/code&gt;，该宏定义为 &lt;code&gt;#define LIBLOG_ABI_PUBLIC __attribute__((visibility(&amp;quot;default&amp;quot;)))&lt;/code&gt;，作用是设置符号的可见性属性，查看 liblog 的 Android.bp 文件，发现编译选项设置为&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-c&#34; data-lang=&#34;c&#34;&gt;&lt;span class=&#34;nl&#34;&gt;cflags&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;
+        &lt;span class=&#34;s&#34;&gt;&amp;#34;-Werror&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+        &lt;span class=&#34;s&#34;&gt;&amp;#34;-fvisibility=hidden&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+  &lt;span class=&#34;p&#34;&gt;......&lt;/span&gt;
+  &lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;可见性属性会覆盖编译时通过 &lt;code&gt;-fvisibility&lt;/code&gt; 选项指定的值，&lt;code&gt;default&lt;/code&gt; 可见性属性会使符号在所有情况下都被输出，&lt;code&gt;hidden&lt;/code&gt; 可见性属性会隐藏相应的符号。&lt;/p&gt;
+&lt;p&gt;结论：该模块在编译时，通过编译选项 &lt;code&gt;&amp;quot;-fvisibility=hidden&amp;quot;&lt;/code&gt; 将符号的默认可见性属性设置为不可见，因此，对于源文件中没有显示声明为可见的函数或变量，无法被共享库的其它文件访问，从而导致编译时触发 &lt;code&gt;error:undefined reference to &lt;/code&gt;，解决办法是将需要对外共享的函数、变量的可见性属性标识为 &lt;code&gt;default&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;参考阅读：&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://my.huhoo.net/archives/2010/03/post_52.html&#34;&gt;控制符号的可见性&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>在新环境中配置多 Git 仓库的 ssh 权限</title>
+      <link>https://urchinzhou.com/post/%E9%85%8D%E7%BD%AE%E5%A4%9A%E4%B8%AAgit%E4%BB%93%E5%BA%93%E7%9A%84ssh%E6%9D%83%E9%99%90/</link>
+      <pubDate>Wed, 11 Nov 2020 16:21:12 +0800</pubDate>
+      
+      <guid>https://urchinzhou.com/post/%E9%85%8D%E7%BD%AE%E5%A4%9A%E4%B8%AAgit%E4%BB%93%E5%BA%93%E7%9A%84ssh%E6%9D%83%E9%99%90/</guid>
+      <description>配置多个 Git 仓库的 ssh 权限 跳转至 ssh 配置路径，通常默认为 ~/.ssh 创建 ssh 密钥对，按照提示创建文件名（eg:repo1-deploy-key、repo2-d</description>
+    </item>
+    
+  </channel>
+</rss>

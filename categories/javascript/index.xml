@@ -1,19 +1,25 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Javascript on Aries notebook</title>
+    <title>javascript on Aries notebook</title>
     <link>https://urchinzhou.com/categories/javascript/</link>
-    <description>Recent content in Javascript on Aries notebook</description>
+    <description>Recent content in javascript on Aries notebook</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Wed, 03 Apr 2024 17:56:05 +0800</lastBuildDate>
-    <atom:link href="https://urchinzhou.com/categories/javascript/index.xml" rel="self" type="application/rss+xml" />
+    
+	<atom:link href="https://urchinzhou.com/categories/javascript/index.xml" rel="self" type="application/rss+xml" />
+    
+    
     <item>
       <title>Object.is in JavaScript</title>
       <link>https://urchinzhou.com/post/object.is-in-javascript/</link>
       <pubDate>Wed, 03 Apr 2024 17:56:05 +0800</pubDate>
+      
       <guid>https://urchinzhou.com/post/object.is-in-javascript/</guid>
-      <description>Object.is is a method introduced in ECMAScript 2015 (ES6) that determines whether two values are the same value. It&amp;rsquo;s a more precise comparison than the traditional == (loose equality) or === (strict equality) operators in JavaScript. Object.is aims to provide an accurate comparison algorithm, particularly useful for distinguishing between values like +0 and -0, and for correctly identifying NaN values, which traditional comparisons cannot.&#xA;Syntax 1 Object.is(value1, value2); value1: The first value to compare.</description>
+      <description>Object.is is a method introduced in ECMAScript 2015 (ES6) that determines whether two values are the same value. It&amp;rsquo;s a more precise comparison than the traditional == (loose equality) or === (strict equality) operators in JavaScript. Object.is aims to provide an accurate comparison algorithm, particularly useful for distinguishing between values like +0 and -0, and for correctly identifying NaN values, which traditional comparisons cannot.
+Syntax 1  Object.is(value1, value2);    value1: The first value to compare.</description>
     </item>
+    
   </channel>
 </rss>

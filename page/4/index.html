@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.124.1 with theme even" />
+<meta name="generator" content="Hugo 0.74.3 with theme even" />
 
 
 <link rel="canonical" href="https://urchinzhou.com/" />
@@ -37,7 +37,7 @@
 
 
 
-<link href="/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
+<link href="/sass/main.min.2e81bbed97b8b282c1aeb57488cc71c8d8c8ec559f3931531bd396bf31e0d4dd.css" rel="stylesheet">
 
 
 
@@ -45,8 +45,11 @@
 <meta property="og:description" content="Aries notebook" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://urchinzhou.com/" />
+<meta property="og:updated_time" content="2024-04-03T21:48:56+08:00" />
 <meta itemprop="name" content="Aries notebook">
-<meta itemprop="description" content="Aries notebook"><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Aries notebook"/>
+<meta itemprop="description" content="Aries notebook">
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Aries notebook"/>
 <meta name="twitter:description" content="Aries notebook"/>
 
 <!--[if lte IE 9]>
@@ -126,9 +129,9 @@
           <section id="posts" class="posts">
   <article class="post">
   <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/seo/">初步了解 SEO</a></h1>
+    <h1 class="post-title"><a class="post-link" href="/post/react%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">React 设计模式</a></h1>
     <div class="post-meta">
-      <span class="post-time"> 2024-01-02 </span>
+      <span class="post-time"> 2024-01-11 </span>
       
     </div>
   </header>
@@ -136,52 +139,323 @@
   <div class="post-content">
     
     <div class="post-summary">
-      <p>搜索引擎优化（SEO）是一种提高网站在搜索引擎中的可见度的过程，使其更有可能吸引潜在客户和访问者。SEO主要关注提升网站在非付费搜索结果中的排名。SEO既是一种艺术也是一种科学，因为它既包括创造性的策略，也包括系统的实践。</p>
-<h3 id="seo的关键元素">SEO的关键元素</h3>
-<ol>
-<li><strong>关键词研究</strong>：找出目标受众在搜索引擎中搜索的词汇。关键词应该精确地反映你的网站内容和服务。</li>
-<li><strong>内容优化</strong>：创建高质量、相关性强的内容，确保内容围绕目标关键词构建。内容不仅要对搜索引擎友好，更重要的是要对用户有价值。</li>
-<li><strong>技术SEO</strong>：涉及网站的技术方面，以确保搜索引擎可以轻松地抓取和索引网站。这包括网站结构、URL结构、使用robots.txt文件和sitemap.xml文件等。</li>
-<li><strong>页面优化</strong>：确保每个页面的元素（如标题标签、元描述标签、ALT标签等）都被优化，以突出重要的关键词。</li>
-<li><strong>移动优化</strong>：随着移动搜索的增加，确保网站在移动设备上表现良好变得尤为重要。这包括响应式设计、加载速度优化等。</li>
-<li><strong>用户体验（UX）</strong>：提供良好的用户体验，包括网站的导航、页面加载速度、可用性和内容质量，这些因素都会影响网站的排名。</li>
-<li><strong>外链建设</strong>：获得来自其他网站的高质量链接。外链是搜索引擎用来衡量网站权威性的关键指标。</li>
-<li><strong>社交信号</strong>：虽然社交媒体直接影响排名的证据不足，但社交媒体活动可以提高内容的曝光率，间接影响SEO。</li>
-</ol>
-<h3 id="最佳实践">最佳实践</h3>
-<h4 id="1-确保网站的可爬取性">1. 确保网站的可爬取性</h4>
-<p><strong>使用robots.txt文件</strong>：正确配置<code>robots.txt</code>文件来指示搜索引擎哪些页面应该被爬取，哪些不应该。</p>
-<p><strong>生成并提交网站地图</strong>：创建XML网站地图并通过Google Search Console等工具提交，帮助搜索引擎发现网站上的所有页面。</p>
-<h4 id="2-提高网站速度">2. 提高网站速度</h4>
-<p><strong>优化图片</strong>：压缩图片大小而不损失质量，使用现代格式如WebP。</p>
-<p><strong>减少HTTP请求</strong>：合并CSS和JavaScript文件，减少页面加载时的请求次数。</p>
-<p><strong>使用浏览器缓存</strong>：通过配置HTTP缓存头，使浏览器存储已加载资源的副本，减少未来请求的加载时间。</p>
-<p><strong>利用CDN</strong>：使用内容分发网络（CDN）可以减少资源的加载时间，特别是对于地理位置分散的访问者。</p>
-<h4 id="3-实现响应式设计">3. 实现响应式设计</h4>
+      <p>常见的 React 设计模式：</p>
+<h3 id="1-组件化">1. 组件化</h3>
+<p>将UI拆分成独立、可复用的组件是React开发的核心。每个组件只负责一部分的UI呈现，保持组件的职责单一。</p>
 <ul>
-<li><strong>使用媒体查询</strong>：确保你的网站在不同设备上都能良好展示。</li>
-<li><strong>优化布局</strong>：使内容在小屏设备上易于阅读，避免用户需要缩放或水平滚动。</li>
+<li><strong>原子设计</strong>：将UI拆分成最小单元（原子），然后组合成复杂的UI结构（分子和生物）。</li>
 </ul>
-<h4 id="4-改善网站结构和url">4. 改善网站结构和URL</h4>
-<p><strong>简洁明了的URL</strong>：使用易于理解和描述内容的URL结构。</p>
-<p><strong>合理的站点架构</strong>：使网站的结构逻辑清晰，确保重要的页面不会埋得太深，一般来说，从主页到任何页面的点击次数不应超过三次。</p>
-<h4 id="5-提升网站安全性">5. 提升网站安全性</h4>
-<p><strong>使用HTTPS</strong>：Google已将HTTPS作为排名因素，确保你的网站使用安全的连接。</p>
-<h4 id="6-提高用户体验">6. 提高用户体验</h4>
-<p><strong>减少弹窗和干扰</strong>：过多的弹窗和广告会影响用户体验，从而间接影响SEO。</p>
-<p><strong>清晰的导航</strong>：确保网站有直观的导航菜单，帮助用户和搜索引擎了解和访问网站结构。</p>
-<h4 id="7-使用结构化数据标记">7. 使用结构化数据标记</h4>
-<p><strong>Schema标记</strong>：通过Schema.org提供的结构化数据，帮助搜索引擎理解页面内容，并可能在搜索结果中获得富摘要。</p>
-<h4 id="8-优化核心web指标core-web-vitals">8. 优化核心Web指标（Core Web Vitals）</h4>
-<p><strong>注意LCP、FID和CLS</strong>：这些是Google评估页面用户体验的三个关键指标，分别代表加载性能、交互性和视觉稳定性。</p>
-<h4 id="9-移动优先索引">9. 移动优先索引</h4>
-<p><strong>优先考虑移动端</strong>：由于Google已全面启用移动优先索引，确保你的网站在移动设备上也能提供良好的用户体验。</p>
-<h3 id="常见误区">常见误区</h3>
+<h3 id="2-容器组件和展示组件">2. 容器组件和展示组件</h3>
+<p>这种模式通过将业务逻辑和UI呈现分离到两类不同的组件中来提高组件的复用性和可维护性。</p>
 <ul>
-<li><strong>即时结果的期望</strong>：SEO是长期战略，通常需要数月时间才能看到显著的效果。</li>
-<li><strong>忽视内容质量</strong>：高质量的、原创的、对用户有价值的内容是SEO成功的关键。</li>
-<li><strong>忽略网站技术健康</strong>：网站的技术问题，如破损的链接、缓慢的加载速度等，可以严重影响SEO效果。</li>
+<li><strong>展示组件</strong>：关注于如何展示，通常只包含UI呈现逻辑。</li>
+<li><strong>容器组件</strong>：关注于如何工作，包含业务逻辑和数据处理。</li>
 </ul>
+<h3 id="3-高阶组件hoc">3. 高阶组件（HOC）</h3>
+<p>高阶组件是参数为组件，返回值为新组件的函数。HOC用于复用组件逻辑。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-jsx" data-lang="jsx"><span class="kd">function</span> <span class="nx">withSubscription</span><span class="p">(</span><span class="nx">WrappedComponent</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="kr">class</span> <span class="kr">extends</span> <span class="nx">React</span><span class="p">.</span><span class="nx">Component</span> <span class="p">{</span>
+    <span class="cm">/* ... */</span>
+    <span class="nx">render</span><span class="p">()</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="p">&lt;</span><span class="nt">WrappedComponent</span> <span class="na">data</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">data</span><span class="p">}</span> <span class="p">{</span><span class="na">...this.props</span><span class="p">}</span> <span class="p">/&gt;;</span>
+    <span class="p">}</span>
+  <span class="p">};</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="4-函数作为子组件function-as-child-componentfacc">4. 函数作为子组件（Function as Child Component，FACC）</h3>
+<p>这种模式利用了React组件的<code>children</code>属性可以是任何类型，包括函数。这允许父组件向子组件传递数据和逻辑，而不是通过props。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-jsx" data-lang="jsx"><span class="p">&lt;</span><span class="nt">Mouse</span> <span class="na">render</span><span class="o">=</span><span class="p">{</span><span class="nx">mouse</span> <span class="p">=&gt;</span> <span class="p">(</span>
+  <span class="p">&lt;</span><span class="nt">Cat</span> <span class="na">mouse</span><span class="o">=</span><span class="p">{</span><span class="nx">mouse</span><span class="p">}</span> <span class="p">/&gt;</span>
+<span class="p">)}/&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="5-渲染道具render-props">5. 渲染道具（Render Props）</h3>
+<p>渲染道具是一种技术，通过一个函数prop（通常称为<code>render</code>），将组件的内部状态或逻辑传递给子组件。这与FACC非常相似，但更通用。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-jsx" data-lang="jsx"><span class="p">&lt;</span><span class="nt">DataProvider</span> <span class="na">render</span><span class="o">=</span><span class="p">{</span><span class="nx">data</span> <span class="p">=&gt;</span> <span class="p">(</span>
+  <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;{</span><span class="nx">data</span><span class="p">.</span><span class="nx">title</span><span class="p">}&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+<span class="p">)}/&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="6-钩子hooks">6. 钩子（Hooks）</h3>
+<p>自React 16.8起，Hooks允许在无状态组件中使用状态和其他React特性，如<code>useState</code>和<code>useEffect</code>等。</p>
+<p><code>useState</code>允许函数组件拥有自己的状态。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-jsx" data-lang="jsx"><span class="kr">import</span> <span class="nx">React</span><span class="p">,</span> <span class="p">{</span> <span class="nx">useState</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;react&#39;</span><span class="p">;</span>
+
+<span class="kd">function</span> <span class="nx">Counter</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kr">const</span> <span class="p">[</span><span class="nx">count</span><span class="p">,</span> <span class="nx">setCount</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useState</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+
+  <span class="k">return</span> <span class="p">(</span>
+    <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span><span class="nx">You</span> <span class="nx">clicked</span> <span class="p">{</span><span class="nx">count</span><span class="p">}</span> <span class="nx">times</span><span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">button</span> <span class="na">onClick</span><span class="o">=</span><span class="p">{()</span> <span class="p">=&gt;</span> <span class="nx">setCount</span><span class="p">(</span><span class="nx">count</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)}&gt;</span><span class="nx">Click</span> <span class="nx">me</span><span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+  <span class="p">);</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><code>useEffect</code>使得我们能够执行副作用操作，等同于类组件中的生命周期方法<code>componentDidMount</code>、<code>componentDidUpdate</code>和<code>componentWillUnmount</code>的组合。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-jsx" data-lang="jsx"><span class="kr">import</span> <span class="nx">React</span><span class="p">,</span> <span class="p">{</span> <span class="nx">useState</span><span class="p">,</span> <span class="nx">useEffect</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;react&#39;</span><span class="p">;</span>
+
+<span class="kd">function</span> <span class="nx">Example</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kr">const</span> <span class="p">[</span><span class="nx">count</span><span class="p">,</span> <span class="nx">setCount</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useState</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+
+  <span class="c1">// 类似于componentDidMount 和 componentDidUpdate:
+</span><span class="c1"></span>  <span class="nx">useEffect</span><span class="p">(()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="c1">// 更新文档的标题
+</span><span class="c1"></span>    <span class="nb">document</span><span class="p">.</span><span class="nx">title</span> <span class="o">=</span> <span class="sb">`You clicked </span><span class="si">${</span><span class="nx">count</span><span class="si">}</span><span class="sb"> times`</span><span class="p">;</span>
+  <span class="p">});</span>
+
+  <span class="k">return</span> <span class="p">(</span>
+    <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span><span class="nx">You</span> <span class="nx">clicked</span> <span class="p">{</span><span class="nx">count</span><span class="p">}</span> <span class="nx">times</span><span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">button</span> <span class="na">onClick</span><span class="o">=</span><span class="p">{()</span> <span class="p">=&gt;</span> <span class="nx">setCount</span><span class="p">(</span><span class="nx">count</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)}&gt;</span><span class="nx">Click</span> <span class="nx">me</span><span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+  <span class="p">);</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><code>useContext</code>让我们能够在函数组件中使用React的Context API来实现跨组件的数据传递。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-jsx" data-lang="jsx"><span class="kr">import</span> <span class="nx">React</span><span class="p">,</span> <span class="p">{</span> <span class="nx">useContext</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;react&#39;</span><span class="p">;</span>
+<span class="kr">const</span> <span class="nx">ThemeContext</span> <span class="o">=</span> <span class="nx">React</span><span class="p">.</span><span class="nx">createContext</span><span class="p">(</span><span class="s1">&#39;light&#39;</span><span class="p">);</span>
+
+<span class="kd">function</span> <span class="nx">ThemedButton</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kr">const</span> <span class="nx">theme</span> <span class="o">=</span> <span class="nx">useContext</span><span class="p">(</span><span class="nx">ThemeContext</span><span class="p">);</span>
+  <span class="k">return</span> <span class="p">&lt;</span><span class="nt">button</span> <span class="na">theme</span><span class="o">=</span><span class="p">{</span><span class="nx">theme</span><span class="p">}&gt;</span><span class="nx">I</span> <span class="nx">am</span> <span class="nx">styled</span> <span class="nx">by</span> <span class="nx">theme</span> <span class="nx">context</span><span class="o">!</span><span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;;</span>
+<span class="p">}</span>
+
+</code></pre></td></tr></table>
+</div>
+</div><p>自定义钩子允许我们将组件逻辑提取到可重用的函数中。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-jsx" data-lang="jsx"><span class="kr">import</span> <span class="nx">React</span><span class="p">,</span> <span class="p">{</span> <span class="nx">useState</span><span class="p">,</span> <span class="nx">useEffect</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;react&#39;</span><span class="p">;</span>
+
+<span class="kd">function</span> <span class="nx">useCounter</span><span class="p">(</span><span class="nx">initialCount</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kr">const</span> <span class="p">[</span><span class="nx">count</span><span class="p">,</span> <span class="nx">setCount</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useState</span><span class="p">(</span><span class="nx">initialCount</span><span class="p">);</span>
+
+  <span class="nx">useEffect</span><span class="p">(()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nb">document</span><span class="p">.</span><span class="nx">title</span> <span class="o">=</span> <span class="sb">`Count: </span><span class="si">${</span><span class="nx">count</span><span class="si">}</span><span class="sb">`</span><span class="p">;</span>
+  <span class="p">});</span>
+
+  <span class="k">return</span> <span class="p">[</span><span class="nx">count</span><span class="p">,</span> <span class="nx">setCount</span><span class="p">];</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">Counter</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kr">const</span> <span class="p">[</span><span class="nx">count</span><span class="p">,</span> <span class="nx">setCount</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useCounter</span><span class="p">();</span>
+
+  <span class="k">return</span> <span class="p">(</span>
+    <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;{</span><span class="nx">count</span><span class="p">}&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">button</span> <span class="na">onClick</span><span class="o">=</span><span class="p">{()</span> <span class="p">=&gt;</span> <span class="nx">setCount</span><span class="p">(</span><span class="nx">count</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)}&gt;</span><span class="nx">Increment</span><span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+  <span class="p">);</span>
+<span class="p">}</span>
+
+</code></pre></td></tr></table>
+</div>
+</div><p>React Hooks 不仅仅是一种语法糖，它们引入了一种全新的组件设计模式，使得状态和逻辑更容易在组件之间共享。通过自定义钩子，开发者可以构建高度复用的逻辑单元，从而使代码更加干净和模块化。这种模式减少了高阶组件（HOC）和渲染道具（Render Props）模式的需要，提供了一种更简单直观的方式来共享逻辑。</p>
+<h3 id="7-上下文contextapi">7. 上下文（Context）API</h3>
+<p>Context提供了一种在组件树中传递数据的方式，无需通过每层组件显式传递props。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-jsx" data-lang="jsx"><span class="p">&lt;</span><span class="nt">UserContext.Provider</span> <span class="na">value</span><span class="o">=</span><span class="p">{</span><span class="nx">user</span><span class="p">}&gt;</span>
+  <span class="p">&lt;</span><span class="nt">Component</span> <span class="p">/&gt;</span>
+<span class="p">&lt;/</span><span class="nt">UserContext.Provider</span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="8-受控组件和非受控组件">8. 受控组件和非受控组件</h3>
+<p>在React中处理表单输入时，受控组件通过React的状态来管理输入的值，而非受控组件则使用DOM本身的状态。</p>
+<h3 id="9-组件复合composition">9. 组件复合（Composition）</h3>
+<p>通过组合而非继承来构建组件之间的关系，以实现更灵活的代码复用。这通常涉及到将子组件作为props传递给父组件。</p>
+<p>假设我们有几个基础UI组件：<code>Button</code>、<code>Dialog</code>。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-jsx" data-lang="jsx"><span class="c1">// Button 组件
+</span><span class="c1"></span><span class="kd">function</span> <span class="nx">Button</span><span class="p">({</span> <span class="nx">children</span><span class="p">,</span> <span class="nx">onClick</span> <span class="p">})</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="p">(</span>
+    <span class="p">&lt;</span><span class="nt">button</span> <span class="na">onClick</span><span class="o">=</span><span class="p">{</span><span class="nx">onClick</span><span class="p">}&gt;{</span><span class="nx">children</span><span class="p">}&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+  <span class="p">);</span>
+<span class="p">}</span>
+
+<span class="c1">// Dialog 组件
+</span><span class="c1"></span><span class="kd">function</span> <span class="nx">Dialog</span><span class="p">({</span> <span class="nx">children</span> <span class="p">})</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="p">(</span>
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">className</span><span class="o">=</span><span class="s">&#34;dialog&#34;</span><span class="p">&gt;</span>
+      <span class="p">{</span><span class="nx">children</span><span class="p">}</span>
+    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+  <span class="p">);</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>现在，我们想要创建一个<code>WelcomeDialog</code>组件，它使用<code>Dialog</code>组件来展示欢迎信息，并且包含一个关闭按钮。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-jsx" data-lang="jsx"><span class="kd">function</span> <span class="nx">WelcomeDialog</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kr">const</span> <span class="nx">handleClose</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="nx">alert</span><span class="p">(</span><span class="s1">&#39;Dialog will close now.&#39;</span><span class="p">);</span>
+  
+  <span class="k">return</span> <span class="p">(</span>
+    <span class="p">&lt;</span><span class="nt">Dialog</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span><span class="nx">Welcome</span><span class="o">!</span><span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span><span class="nx">Thank</span> <span class="nx">you</span> <span class="k">for</span> <span class="nx">visiting</span> <span class="nx">our</span> <span class="nx">spacecraft</span><span class="o">!</span><span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">Button</span> <span class="na">onClick</span><span class="o">=</span><span class="p">{</span><span class="nx">handleClose</span><span class="p">}&gt;</span><span class="nx">Close</span><span class="p">&lt;/</span><span class="nt">Button</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">Dialog</span><span class="p">&gt;</span>
+  <span class="p">);</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>在这个例子中，<code>WelcomeDialog</code>组件通过将<code>Button</code>组件作为子组件传递给<code>Dialog</code>组件来复合它们。这展示了组件复合的基本思想：通过将子组件嵌入到父组件中来构建复杂的组件。</p>
+<h3 id="10-错误边界error-boundaries">10. 错误边界（Error Boundaries）</h3>
+<p>错误边界是React组件，它可以捕获其子组件树中JavaScript错误，记录这些错误，并显示一个备用UI。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-jsx" data-lang="jsx"><span class="p">&lt;</span><span class="nt">ErrorBoundary</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">MyComponent</span> <span class="p">/&gt;</span>
+<span class="p">&lt;/</span><span class="nt">ErrorBoundary</span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>这些设计模式并不是孤立使用的，实际工作中需要灵活选择结合使用。</p>
 
     </div>
     
@@ -245,7 +519,7 @@
 
 
 
-<script type="text/javascript" src="/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js"></script>
+<script type="text/javascript" src="/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
   <script type="text/javascript">
     window.MathJax = {
       tex: {

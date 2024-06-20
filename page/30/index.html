@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.124.1 with theme even" />
+<meta name="generator" content="Hugo 0.74.3 with theme even" />
 
 
 <link rel="canonical" href="https://urchinzhou.com/" />
@@ -37,7 +37,7 @@
 
 
 
-<link href="/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
+<link href="/sass/main.min.2e81bbed97b8b282c1aeb57488cc71c8d8c8ec559f3931531bd396bf31e0d4dd.css" rel="stylesheet">
 
 
 
@@ -45,8 +45,11 @@
 <meta property="og:description" content="Aries notebook" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://urchinzhou.com/" />
+<meta property="og:updated_time" content="2024-04-03T21:48:56+08:00" />
 <meta itemprop="name" content="Aries notebook">
-<meta itemprop="description" content="Aries notebook"><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Aries notebook"/>
+<meta itemprop="description" content="Aries notebook">
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Aries notebook"/>
 <meta name="twitter:description" content="Aries notebook"/>
 
 <!--[if lte IE 9]>
@@ -126,9 +129,9 @@
           <section id="posts" class="posts">
   <article class="post">
   <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/%E5%AF%86%E7%A0%81%E5%BA%94%E7%94%A8%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">密码应用基础知识</a></h1>
+    <h1 class="post-title"><a class="post-link" href="/post/https%E4%B8%8Ehttp/">HTTPS与HTTP</a></h1>
     <div class="post-meta">
-      <span class="post-time"> 2021-09-12 </span>
+      <span class="post-time"> 2021-10-22 </span>
       
     </div>
   </header>
@@ -136,156 +139,19 @@
   <div class="post-content">
     
     <div class="post-summary">
-      <h1 id="对称算法">对称算法</h1>
-<p>加密密钥能够从解密密钥中推算出来，反过来也成立。在大多数对称算法中，加密解密<strong>密钥是相同的</strong>。这些算法也叫<strong>秘密密钥算法</strong>或<strong>单密钥算法</strong>，它要求发送者和接受者在安全通信之前，商定一个密钥。</p>
-<p>对称算法的安全性依赖于密钥，泄露密钥就意味着任何人都能对消息进行加密解密。</p>
-<p><strong>分组算法</strong></p>
-<p>对数据块运算，如果数据长度不够一块，则需要填充；加密之后数据长度可能会变长，某些场景下不适用；需要对数据进行缓存，某些场景下不适用。</p>
-<p><strong>分组算法的工作模式</strong></p>
-<ul>
-<li>ECB 模式，最简单，加密长数据有风险；</li>
-<li>CBC 模式，<strong>最常用的工作模式</strong>，但本身并没有什么优势，单纯因为过去用的人多，属于历史遗留问题；</li>
-<li>OFB 模式，效果类似于流密码，适合处理音视频数据；</li>
-<li>CFB 模式，效果类似于流密码，几乎没人用；</li>
-<li>CTR 模式，可并行加速，只要有条件就推荐使用，广泛应用于 ATM 网络安全和 IPSec 应用中；</li>
-<li>GCM、CCM 认证加密模式，既能加密又能防篡改防重放；</li>
-<li>XTS 存储加密模式，适合随机读写模式；</li>
-</ul>
-<p><strong>流密码算法</strong></p>
-<p>对数据一位一位的运算，不需要填充；加密之后数据长度不变；不需要对数据进行缓存。</p>
-<p><strong>常见对称算法</strong></p>
-<p>商用算法（国产的）</p>
-<ul>
-<li>
-<p>SM1，保密算法，常用于特殊行业，如社保卡、电力行业；</p>
-</li>
-<li>
-<p><strong>SM4，公开算法，最常用的商密对称算法</strong>；</p>
-</li>
-<li>
-<p>SM7，保密算法，轻量级算法，RFID 电子标签常用，如地铁卡；</p>
-</li>
-<li>
-<p>ZUC，流密码算法，4G 通信可用；</p>
-</li>
-</ul>
-<p>国际算法（国际的）</p>
-<ul>
-<li>
-<p><strong>AES，应用最广泛的算法，设计精良</strong>；</p>
-</li>
-<li>
-<p>DES，历史遗留算法，强度有限，不推荐；</p>
-</li>
-<li>
-<p>RC4，历史遗留算法，强度有限，不推荐；</p>
-</li>
-<li>
-<p>MD5，历史遗留算法，不是对称算法；</p>
-</li>
-<li>
-<p>Snow3G，流密码算法，3G、4G 通信使用；</p>
-</li>
-</ul>
-<p><strong>对称算法的特点</strong></p>
-<p>运算速度快，适合对大量数据进行加密解密，以及完整性保护（防篡改）；需要解决密钥管理问题——如何确保通信双方使用相同的密钥进行加解密；</p>
-<h1 id="非对称算法">非对称算法</h1>
-<p>指一个加密算法的加密密钥和解密密钥是不一样的，或者来说不能由其中一个密钥推导出另一个密钥。它是用两个数学相关的密钥对信息进行编码，在此系统中，其中一个密钥叫公钥，可随意发给期望同密钥持有者进行安全通信的人。公钥用于对信息进行加密。第二个密钥是私钥，属于密钥持有者，此人要安全保存私有密钥。密钥持有者用私钥对收到的加密信息进行解密。</p>
-<p><strong>公钥加密私钥解密</strong></p>
-<p>任何人都知道公钥，都可以做加密运算，只有持有私钥的人能解密，密钥管理非常简单，实际场景如下：A 要向 B 发送信息</p>
-<ol>
-<li>A 使用 B 的公钥对信息加密，生成密文；</li>
-<li>A 将密文发送给 B；</li>
-<li>B 接收到来自 A 的密文后，使用自己的<strong>私钥</strong>对密文进行解密，获取信息；</li>
-</ol>
-<p><strong>私钥签名公钥验证签名</strong></p>
-<p>只有持有私钥的人能签名，任何人都知道公钥，都可以验证签名，密钥管理非常简单，通常用于<strong>验证数据来源</strong>并对数据进行<strong>完整性保护</strong>，实际场景如下：A 要向 B 发送信息</p>
-<ol>
-<li>A 先对信息进行哈希运算得到 hash 值，称为<strong>摘要</strong>，命名为 h0；</li>
-<li>A 用自己的<strong>私钥</strong>对摘要进行加密，生成<strong>数字签名</strong>；</li>
-<li>A 将数字签名加在信息后面，一起发送给 B；</li>
-<li>B 收到信息后，用 A 的<strong>公钥</strong>对数字签名解密，解密成功则代表信息确实来自 A，失败则说明有人冒充 A 发送该信息；</li>
-<li>B 对信息进行哈希运算得到 hash 值，命名 h1；</li>
-<li>B 对比 h1 和 h0，一致则说明邮件未被篡改。</li>
-</ol>
-<p><strong>特点和应用场景</strong></p>
-<ul>
-<li>
-<p>用法独特，密钥管理简单；</p>
-</li>
-<li>
-<p>运算复杂，速度慢，功耗高，很多场景不适用；</p>
-</li>
-<li>
-<p>典型用法：与对称算法搭配使用</p>
-<ol>
-<li>A 使用 B的公钥加密一个对称算法的密钥 K，发送给 B；</li>
-<li>B 使用自己的私钥解密，获得密钥 K；</li>
-<li>A 和 B 使用密钥 K 进行对称算法的加密、解密；</li>
-</ol>
-</li>
-<li>
-<p>存在公钥被冒用的风险，比如 A 和 B 通信时，B 的公钥被替换成 C 的公钥</p>
-<ul>
-<li>A 想使用 B 的公钥加密一个对称算法的密钥 K，却被替换成了 C 的公钥，加密后发送给了 B；</li>
-<li>B 使用自己的私钥解密，获得密钥乱码；</li>
-<li>C 使用自己的私钥解密，获得密钥 K；</li>
-<li>A 和 B 使用密钥 K 进行对称算法的加解密，通信失败；</li>
-<li>C 截获 A 发送的信息，使用密钥 K 解密获得正确的明文；</li>
-</ul>
-</li>
-</ul>
-<p><strong>常见非对称算法</strong></p>
-<p>商用算法</p>
-<ul>
-<li>SM2，公开算法，国内最常用</li>
-<li>SM9，公开算法，“基于标识的非对称算法”，特殊用处，运算复杂；</li>
-</ul>
-<p>国际算法</p>
-<ul>
-<li>RSA，应用广泛，但性能并不好，同等效果下密钥长度是 SM2 的 8 倍；</li>
-<li>ECC，未来会逐渐取代 RSA，与 SM2 原理一致；</li>
-</ul>
-<h1 id="摘要算法">摘要算法</h1>
-<p>也称为杂凑算法、哈希算法，是一种单向算法，要由散列函数输出的结果，回推输入的资料是什么，是非常困难的。这种散列函数的输入资料，通常被称为讯息，而它的输出结果，经常被成为讯息摘要或<strong>摘要</strong>，也被称为<strong>数字指纹</strong>。</p>
-<ul>
-<li>不需要密钥参与运算，因此不具备加密解密能力，不能保护数据的机密性；</li>
-<li>杂凑算法也被称为“哈希（Hash）算法”；</li>
-<li>把任意长度的数据变为固定长度的“杂凑值”；</li>
-<li>常与非对称算法搭配，用于降低数字签名运算的数据长度；</li>
-<li>在密码应用中不起眼，但其“单向性”有许多妙用；</li>
-</ul>
-<p><strong>常见杂凑算法</strong></p>
-<p>商用算法</p>
-<ul>
-<li>SM3，公开算法；</li>
-</ul>
-<p>国际算法</p>
-<ul>
-<li>SHA3，性能出色，应用较少；</li>
-<li>SHA256，未来会逐渐成为主流；</li>
-<li>SHA1，曾经是主流算法，目前被认为强度有限，慎用；</li>
-</ul>
-<h1 id="总结">总结</h1>
-<p><strong>对称算法</strong></p>
-<ul>
-<li>1 个密钥，大量数据加解密与完整性保护；</li>
-<li>典型算法 SM4/AES；</li>
-</ul>
-<p><strong>非对称算法</strong></p>
-<ul>
-<li>2 个密钥，数字签名或公钥加密分发对称密钥；</li>
-<li>典型算法 SM2/ECC</li>
-</ul>
-<p><strong>杂凑算法</strong></p>
-<ul>
-<li>0 个密钥，单向性使其适用于部分特殊场景，如验证消息完整性、辅助数字签名；</li>
-<li>典型算法 SM3/SHA256</li>
-</ul>
-<p><strong>推荐阅读</strong></p>
-<ul>
-<li>《应用密码学：协议、算法与C源程序》，作者：（美）Bruce Schneier</li>
-</ul>
+      <blockquote>
+<p>概念上理清 HTTPS 与 HTTP 的区别。</p>
+</blockquote>
+<p>在<a href="https://zh.wikipedia.org/wiki/TCP/IP%E5%8D%8F%E8%AE%AE%E6%97%8F">互联网协议套件</a>中，将网络协议分为四层，从下至上依次为<strong>链路层-网络层-传输层-应用层</strong>，HTTP 属于应用层协议。中文名为超文本传输协议，其设计初衷是为了传输 HTML 页面。</p>
+<p>HTTP 主要规定了客户端和服务器之间的通信格式，并不涉及数据包的传输，传输依赖于 TCP/IP 协议。</p>
+<p>简单理解就是，将需要传递的数据按照 HTTP 的要求格式化（<em>挖坑，数据格式</em>），然后剩下的交给协议栈中的 TCP/IP 层。</p>
+<p>因此基于 HTTP 协议的数据传输，其发送阶段的数据处理流程为，应用层格式化，TCP 封装，IP 封装，过程中不涉及数据的加解密，数据为明文形式传输。</p>
+<p>而 HTTPS 就是在这一流程基础上增加了安全性功能。通常可以这么理解 HTTPS， HTTPS = HTTP over TLS。（<em>由于安全问题，普遍已经抛弃 SSL，因此这里就直接按 TLS 写了</em>）</p>
+<p>TLS 表示传输层安全，从 SSL 演进而来，属于应用层与 TCP 层之间的一个协议，其目的是为互联网通信提供安全及数据完整性保障（挖坑，数据完整性），说白了就是确保数据加密传输，以及确保如果数据被篡改了，接收方能察觉到。</p>
+<p>那么 TLS 做了什么？</p>
+<p>由于要实现数据加解密，因此 TLS 要实现数据的对称加密，不用非对称加密主要是考虑到性能问题。</p>
+<p>通信双方进行数据的对称加密传输前，需要验证对端的身份，即身份认证，这一点 TLS 通过数字证书来实现（<em>挖坑，实现原理</em>）。</p>
+<p>因此基于 HTTPS 协议的数据传输，其发送阶段的数据处理流程为，应用层格式化，TLS 封装，TCP 封装，IP 封装，相较于 HTTP，流程中增加了 TLS 的处理，包括身份认证、数据加解密等。</p>
 
     </div>
     
@@ -349,7 +215,7 @@
 
 
 
-<script type="text/javascript" src="/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js"></script>
+<script type="text/javascript" src="/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
   <script type="text/javascript">
     window.MathJax = {
       tex: {

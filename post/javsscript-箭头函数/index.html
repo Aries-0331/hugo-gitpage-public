@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.124.1 with theme even" />
+<meta name="generator" content="Hugo 0.74.3 with theme even" />
 
 
 <link rel="canonical" href="https://urchinzhou.com/post/javsscript-%E7%AE%AD%E5%A4%B4%E5%87%BD%E6%95%B0/" />
@@ -35,21 +35,27 @@
 
 
 
-<link href="/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
+<link href="/sass/main.min.2e81bbed97b8b282c1aeb57488cc71c8d8c8ec559f3931531bd396bf31e0d4dd.css" rel="stylesheet">
 
 
 
 <meta property="og:title" content="JavsScript 箭头函数" />
 <meta property="og:description" content="箭头函数 箭头函数是 ES6 (ECMAScript 2015) 引入的一个新增特性，提供了一种更简洁的方式来写函数表达式。它不仅语法简短，而且还有其他几个特别之处，特别是与this" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://urchinzhou.com/post/javsscript-%E7%AE%AD%E5%A4%B4%E5%87%BD%E6%95%B0/" /><meta property="article:section" content="post" />
+<meta property="og:url" content="https://urchinzhou.com/post/javsscript-%E7%AE%AD%E5%A4%B4%E5%87%BD%E6%95%B0/" />
 <meta property="article:published_time" content="2022-01-24T21:40:30+08:00" />
 <meta property="article:modified_time" content="2022-01-24T21:40:30+08:00" />
 <meta itemprop="name" content="JavsScript 箭头函数">
-<meta itemprop="description" content="箭头函数 箭头函数是 ES6 (ECMAScript 2015) 引入的一个新增特性，提供了一种更简洁的方式来写函数表达式。它不仅语法简短，而且还有其他几个特别之处，特别是与this"><meta itemprop="datePublished" content="2022-01-24T21:40:30+08:00" />
+<meta itemprop="description" content="箭头函数 箭头函数是 ES6 (ECMAScript 2015) 引入的一个新增特性，提供了一种更简洁的方式来写函数表达式。它不仅语法简短，而且还有其他几个特别之处，特别是与this">
+<meta itemprop="datePublished" content="2022-01-24T21:40:30+08:00" />
 <meta itemprop="dateModified" content="2022-01-24T21:40:30+08:00" />
 <meta itemprop="wordCount" content="1262">
-<meta itemprop="keywords" content="javascript,frontend," /><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="JavsScript 箭头函数"/>
+
+
+
+<meta itemprop="keywords" content="javascript,frontend," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="JavsScript 箭头函数"/>
 <meta name="twitter:description" content="箭头函数 箭头函数是 ES6 (ECMAScript 2015) 引入的一个新增特性，提供了一种更简洁的方式来写函数表达式。它不仅语法简短，而且还有其他几个特别之处，特别是与this"/>
 
 <!--[if lte IE 9]>
@@ -145,43 +151,43 @@
 <p>箭头函数的基本语法如下：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="k">const</span> <span class="n">functionName</span> <span class="o">=</span> <span class="p">(</span><span class="n">arg1</span><span class="p">,</span> <span class="n">arg2</span><span class="p">,</span> <span class="o">...</span><span class="n">argN</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="o">//</span> <span class="err">函数体</span>
-</span></span><span class="line"><span class="cl"><span class="p">};</span>
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">const functionName = (arg1, arg2, ...argN) =&gt; {
+  // 函数体
+};
+</code></pre></td></tr></table>
 </div>
 </div><p>如果箭头函数直接返回一个值，可以省略花括号和<code>return</code>关键字：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="k">const</span> <span class="n">functionName</span> <span class="o">=</span> <span class="p">(</span><span class="n">arg1</span><span class="p">,</span> <span class="n">arg2</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="n">arg1</span> <span class="o">+</span> <span class="n">arg2</span><span class="p">;</span>
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">
+const functionName = (arg1, arg2) =&gt; arg1 + arg2;
+</code></pre></td></tr></table>
 </div>
 </div><p>如果只有一个参数，还可以省略参数周围的括号：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="k">const</span> <span class="n">functionName</span> <span class="o">=</span> <span class="n">arg</span> <span class="o">=&gt;</span> <span class="n">arg</span> <span class="o">*</span> <span class="mi">2</span><span class="p">;</span>
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">
+const functionName = arg =&gt; arg * 2;
+</code></pre></td></tr></table>
 </div>
 </div><h3 id="this的绑定"><code>this</code>的绑定</h3>
 <p>箭头函数不绑定自己的<code>this</code>，它会捕获其所在上下文的<code>this</code>值作为自己的<code>this</code>值，这使得在回调函数和闭包中处理<code>this</code>变得更加容易。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -190,14 +196,14 @@
 </span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">function Counter() {
-</span></span><span class="line"><span class="cl">  this.count = 0;
-</span></span><span class="line"><span class="cl">  setInterval(() =&gt; {
-</span></span><span class="line"><span class="cl">    this.count++;
-</span></span><span class="line"><span class="cl">    console.log(this.count);
-</span></span><span class="line"><span class="cl">  }, 1000);
-</span></span><span class="line"><span class="cl">}
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">function Counter() {
+  this.count = 0;
+  setInterval(() =&gt; {
+    this.count++;
+    console.log(this.count);
+  }, 1000);
+}
+</code></pre></td></tr></table>
 </div>
 </div><p>在这个例子中，<code>setInterval</code>内部的箭头函数没有自己的<code>this</code>绑定，因此它可以直接访问外围<code>Counter</code>函数中的<code>this</code>对象。</p>
 <h3 id="使用限制">使用限制</h3>
@@ -213,31 +219,31 @@
 <p><strong>箭头函数</strong> 提供了一种更简洁的函数写法。通常用于单行表达式，但也可以用于更复杂的场景。箭头函数没有自己的 <code>this</code>, <code>arguments</code>, <code>super</code>, 或 <code>new.target</code> 绑定。这些值由外围最近一层非箭头函数决定。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="k">const</span> <span class="n">arrowFunction</span> <span class="o">=</span> <span class="p">(</span><span class="n">arg1</span><span class="p">,</span> <span class="n">arg2</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="n">arg1</span> <span class="o">+</span> <span class="n">arg2</span><span class="p">;</span>
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">const arrowFunction = (arg1, arg2) =&gt; arg1 + arg2;
+</code></pre></td></tr></table>
 </div>
 </div><p>如果箭头函数体包含了一个表达式，那么该表达式的结果会被自动返回。对于更复杂的逻辑，可以使用花括号 <code>{}</code> 来包围函数体，并且需要显式返回一个值（如果需要的话）。</p>
 <p><strong>匿名函数</strong> 是一种没有名称的函数表达式，通常用于传递给其他函数作为参数，或者定义立即执行的函数表达式（IIFE）。匿名函数可以有自己的 <code>this</code>, <code>arguments</code>, <code>super</code>, 和 <code>new.target</code> 绑定。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="k">const</span> <span class="n">anonymousFunction</span> <span class="o">=</span> <span class="n">function</span><span class="p">(</span><span class="n">arg1</span><span class="p">,</span> <span class="n">arg2</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="n">arg1</span> <span class="o">+</span> <span class="n">arg2</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="p">};</span>
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">const anonymousFunction = function(arg1, arg2) {
+  return arg1 + arg2;
+};
+</code></pre></td></tr></table>
 </div>
 </div><h3 id="this-绑定的差异"><code>this</code> 绑定的差异</h3>
 <p><strong>箭头函数</strong> 没有自己的 <code>this</code> 值。箭头函数内的 <code>this</code> 值由外围最近一层非箭头函数的执行上下文决定。这使得箭头函数非常适合用作回调函数，尤其是在需要对 <code>this</code> 绑定进行词法跟踪的场合。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -246,19 +252,19 @@
 </span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-mysql" data-lang="mysql"><span class="line"><span class="cl"><span class="n">function</span><span class="w"> </span><span class="nf">Counter</span><span class="p">()</span><span class="w"> </span><span class="err">{</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">this</span><span class="p">.</span><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nf">setInterval</span><span class="p">(()</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="err">{</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">this</span><span class="p">.</span><span class="n">count</span><span class="o">++</span><span class="p">;</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="o">`</span><span class="n">this</span><span class="o">`</span><span class="w"> </span><span class="err">与外围函数的</span><span class="w"> </span><span class="o">`</span><span class="n">this</span><span class="o">`</span><span class="w"> </span><span class="err">相同</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="n">this</span><span class="p">.</span><span class="n">count</span><span class="p">);</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="err">}</span><span class="p">,</span><span class="w"> </span><span class="mi">1000</span><span class="p">);</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="err">}</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">function Counter() {
+  this.count = 0;
+  setInterval(() =&gt; {
+    this.count++; // `this` 与外围函数的 `this` 相同
+    console.log(this.count);
+  }, 1000);
+}
+</code></pre></td></tr></table>
 </div>
 </div><p><strong>匿名函数</strong> 有自己的 <code>this</code> 绑定。如果匿名函数被一个对象调用，<code>this</code> 将指向那个对象。在全局作用域中调用时，<code>this</code> 会指向全局对象（在非严格模式下）或者是 <code>undefined</code>（在严格模式下）。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -267,14 +273,14 @@
 </span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-mysql" data-lang="mysql"><span class="line"><span class="cl"><span class="n">function</span><span class="w"> </span><span class="nf">Counter</span><span class="p">()</span><span class="w"> </span><span class="err">{</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">this</span><span class="p">.</span><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nf">setInterval</span><span class="p">(</span><span class="nf">function</span><span class="p">()</span><span class="w"> </span><span class="err">{</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">this</span><span class="p">.</span><span class="n">count</span><span class="o">++</span><span class="p">;</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="o">`</span><span class="n">this</span><span class="o">`</span><span class="w"> </span><span class="err">不指向</span><span class="w"> </span><span class="n">Counter</span><span class="w"> </span><span class="err">实例，除非显式绑定</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="n">this</span><span class="p">.</span><span class="n">count</span><span class="p">);</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="err">}</span><span class="p">,</span><span class="w"> </span><span class="mi">1000</span><span class="p">);</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="err">}</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">function Counter() {
+  this.count = 0;
+  setInterval(function() {
+    this.count++; // `this` 不指向 Counter 实例，除非显式绑定
+    console.log(this.count);
+  }, 1000);
+}
+</code></pre></td></tr></table>
 </div>
 </div><h3 id="用途和选择">用途和选择</h3>
 <ul>
@@ -354,7 +360,7 @@
 
 
 
-<script type="text/javascript" src="/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js"></script>
+<script type="text/javascript" src="/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
   <script type="text/javascript">
     window.MathJax = {
       tex: {

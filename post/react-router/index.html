@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.124.1 with theme even" />
+<meta name="generator" content="Hugo 0.74.3 with theme even" />
 
 
 <link rel="canonical" href="https://urchinzhou.com/post/react-router/" />
@@ -35,21 +35,27 @@
 
 
 
-<link href="/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
+<link href="/sass/main.min.2e81bbed97b8b282c1aeb57488cc71c8d8c8ec559f3931531bd396bf31e0d4dd.css" rel="stylesheet">
 
 
 
 <meta property="og:title" content="React Router" />
 <meta property="og:description" content="React Router 是一个用于React的路由库，它允许我们在React应用中实现客户端路由。这意味着用户可以在不重新加载页面的情况下导航到不同的URL，同" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://urchinzhou.com/post/react-router/" /><meta property="article:section" content="post" />
+<meta property="og:url" content="https://urchinzhou.com/post/react-router/" />
 <meta property="article:published_time" content="2022-05-06T14:31:14+08:00" />
 <meta property="article:modified_time" content="2022-05-06T14:31:14+08:00" />
 <meta itemprop="name" content="React Router">
-<meta itemprop="description" content="React Router 是一个用于React的路由库，它允许我们在React应用中实现客户端路由。这意味着用户可以在不重新加载页面的情况下导航到不同的URL，同"><meta itemprop="datePublished" content="2022-05-06T14:31:14+08:00" />
+<meta itemprop="description" content="React Router 是一个用于React的路由库，它允许我们在React应用中实现客户端路由。这意味着用户可以在不重新加载页面的情况下导航到不同的URL，同">
+<meta itemprop="datePublished" content="2022-05-06T14:31:14+08:00" />
 <meta itemprop="dateModified" content="2022-05-06T14:31:14+08:00" />
 <meta itemprop="wordCount" content="1045">
-<meta itemprop="keywords" content="react,router,frontend," /><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="React Router"/>
+
+
+
+<meta itemprop="keywords" content="react,router,frontend," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="React Router"/>
 <meta name="twitter:description" content="React Router 是一个用于React的路由库，它允许我们在React应用中实现客户端路由。这意味着用户可以在不重新加载页面的情况下导航到不同的URL，同"/>
 
 <!--[if lte IE 9]>
@@ -154,20 +160,20 @@
 <p>React Router 允许通过在路径定义中使用<code>:</code>后跟参数名来指定动态片段。然后，你可以在组件中通过<code>match.params</code>属性访问这些参数。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">&lt;Route path=&#34;/user/:userId&#34; component={User} /&gt;
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">
+&lt;Route path=&#34;/user/:userId&#34; component={User} /&gt;
+</code></pre></td></tr></table>
 </div>
 </div><p>在这个例子中，任何匹配<code>/user/:userId</code>形式的路径都会渲染<code>User</code>组件，其中<code>:userId</code>是一个动态参数，可以在<code>User</code>组件内通过<code>this.props.match.params.userId</code>访问。</p>
 <h3 id="编程式导航">编程式导航</h3>
 <p>除了使用<code>&lt;Link&gt;</code>和<code>&lt;NavLink&gt;</code>组件进行声明式导航外，React Router还提供了编程式导航的能力。这可以通过访问<code>history</code>对象来实现，它作为props传递给所有由<code>&lt;Route&gt;</code>渲染的组件。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -180,18 +186,18 @@
 </span><span class="lnt">11
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="k">class</span> <span class="n">Home</span> <span class="k">extends</span> <span class="n">React</span><span class="o">.</span><span class="n">Component</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="n">handleClick</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="n">this</span><span class="o">.</span><span class="n">props</span><span class="o">.</span><span class="n">history</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="s2">&#34;/about&#34;</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">  <span class="p">};</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">  <span class="n">render</span><span class="p">()</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="p">(</span>
-</span></span><span class="line"><span class="cl">      <span class="o">&lt;</span><span class="n">button</span> <span class="n">onClick</span><span class="o">=</span><span class="p">{</span><span class="n">this</span><span class="o">.</span><span class="n">handleClick</span><span class="p">}</span><span class="o">&gt;</span><span class="n">Go</span> <span class="n">to</span> <span class="n">About</span><span class="o">&lt;/</span><span class="n">button</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl">    <span class="p">);</span>
-</span></span><span class="line"><span class="cl">  <span class="p">}</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">class Home extends React.Component {
+  handleClick = () =&gt; {
+    this.props.history.push(&#34;/about&#34;);
+  };
+
+  render() {
+    return (
+      &lt;button onClick={this.handleClick}&gt;Go to About&lt;/button&gt;
+    );
+  }
+}
+</code></pre></td></tr></table>
 </div>
 </div><p>在这个例子中，点击按钮将会使用<code>history.push</code>方法导航到<code>/about</code>路径。</p>
 <h3 id="嵌套路由">嵌套路由</h3>
@@ -200,13 +206,13 @@
 <p><code>&lt;Redirect&gt;</code>组件用于路由的重定向，它可以将用户从一个路径自动导航到另一个路径。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">&lt;Redirect from=&#34;/old-path&#34; to=&#34;/new-path&#34; /&gt;
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">
+&lt;Redirect from=&#34;/old-path&#34; to=&#34;/new-path&#34; /&gt;
+</code></pre></td></tr></table>
 </div>
 </div><p>在这个例子中，任何访问<code>/old-path</code>的请求都会被重定向到<code>/new-path</code>。</p>
 
@@ -283,7 +289,7 @@
 
 
 
-<script type="text/javascript" src="/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js"></script>
+<script type="text/javascript" src="/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
   <script type="text/javascript">
     window.MathJax = {
       tex: {

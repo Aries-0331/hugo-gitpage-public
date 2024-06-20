@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.124.1 with theme even" />
+<meta name="generator" content="Hugo 0.74.3 with theme even" />
 
 
 <link rel="canonical" href="https://urchinzhou.com/post/javsscript-%E5%8E%9F%E5%9E%8B%E9%93%BE/" />
@@ -35,21 +35,27 @@
 
 
 
-<link href="/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
+<link href="/sass/main.min.2e81bbed97b8b282c1aeb57488cc71c8d8c8ec559f3931531bd396bf31e0d4dd.css" rel="stylesheet">
 
 
 
 <meta property="og:title" content="JavsScript 原型链" />
 <meta property="og:description" content="每个 JavaScript 对象都有一个指向其他对象的链接，这个链接就是我们所说的“原型”。当我们试图访问一个对象的属性或方法时，如果它自身没有这个属性或方法，J" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://urchinzhou.com/post/javsscript-%E5%8E%9F%E5%9E%8B%E9%93%BE/" /><meta property="article:section" content="post" />
+<meta property="og:url" content="https://urchinzhou.com/post/javsscript-%E5%8E%9F%E5%9E%8B%E9%93%BE/" />
 <meta property="article:published_time" content="2022-10-24T20:36:26+08:00" />
 <meta property="article:modified_time" content="2022-10-24T20:36:26+08:00" />
 <meta itemprop="name" content="JavsScript 原型链">
-<meta itemprop="description" content="每个 JavaScript 对象都有一个指向其他对象的链接，这个链接就是我们所说的“原型”。当我们试图访问一个对象的属性或方法时，如果它自身没有这个属性或方法，J"><meta itemprop="datePublished" content="2022-10-24T20:36:26+08:00" />
+<meta itemprop="description" content="每个 JavaScript 对象都有一个指向其他对象的链接，这个链接就是我们所说的“原型”。当我们试图访问一个对象的属性或方法时，如果它自身没有这个属性或方法，J">
+<meta itemprop="datePublished" content="2022-10-24T20:36:26+08:00" />
 <meta itemprop="dateModified" content="2022-10-24T20:36:26+08:00" />
 <meta itemprop="wordCount" content="1052">
-<meta itemprop="keywords" content="javascript,prototype," /><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="JavsScript 原型链"/>
+
+
+
+<meta itemprop="keywords" content="javascript,prototype," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="JavsScript 原型链"/>
 <meta name="twitter:description" content="每个 JavaScript 对象都有一个指向其他对象的链接，这个链接就是我们所说的“原型”。当我们试图访问一个对象的属性或方法时，如果它自身没有这个属性或方法，J"/>
 
 <!--[if lte IE 9]>
@@ -145,7 +151,7 @@
 <p>每个 JavaScript 对象都有一个内置的 <code>__proto__</code> 属性（非标准，但广泛支持），指向创建它的构造函数的原型对象 <code>prototype</code>。使用构造函数创建一个对象时，新对象的 <code>__proto__</code> 会指向构造函数的 <code>prototype</code> 属性，这是原型链的基础。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -158,24 +164,24 @@
 </span><span class="lnt">11
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">Person</span><span class="p">(</span><span class="nx">name</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="nx">name</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="nx">Person</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">sayName</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">name</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl"><span class="p">};</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">person1</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Person</span><span class="p">(</span><span class="s1">&#39;Alice&#39;</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl"><span class="nx">person1</span><span class="p">.</span><span class="nx">sayName</span><span class="p">();</span> <span class="c1">// Alice
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">person1</span><span class="p">.</span><span class="nx">__proto__</span> <span class="o">===</span> <span class="nx">Person</span><span class="p">.</span><span class="nx">prototype</span><span class="p">);</span> <span class="c1">// true
-</span></span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">function</span> <span class="nx">Person</span><span class="p">(</span><span class="nx">name</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="nx">name</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nx">Person</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">sayName</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">name</span><span class="p">);</span>
+<span class="p">};</span>
+
+<span class="kr">const</span> <span class="nx">person1</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Person</span><span class="p">(</span><span class="s1">&#39;Alice&#39;</span><span class="p">);</span>
+<span class="nx">person1</span><span class="p">.</span><span class="nx">sayName</span><span class="p">();</span> <span class="c1">// Alice
+</span><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">person1</span><span class="p">.</span><span class="nx">__proto__</span> <span class="o">===</span> <span class="nx">Person</span><span class="p">.</span><span class="nx">prototype</span><span class="p">);</span> <span class="c1">// true
+</span></code></pre></td></tr></table>
 </div>
 </div><p>在这个例子中，<code>Person.prototype</code> 是 <code>person1</code> 的原型。当我们调用 <code>person1.sayName()</code> 时，虽然 <code>person1</code> 自己没有 <code>sayName</code> 方法，但它会通过原型链在 <code>Person.prototype</code> 中找到这个方法。</p>
 <p>原型链的一个重要应用是实现对象之间的继承。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -193,23 +199,23 @@
 </span><span class="lnt">16
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">Employee</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span> <span class="nx">jobTitle</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="nx">Person</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="nx">name</span><span class="p">);</span> <span class="c1">// 调用 Person 构造函数
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="k">this</span><span class="p">.</span><span class="nx">jobTitle</span> <span class="o">=</span> <span class="nx">jobTitle</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">// 继承 Person
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">Employee</span><span class="p">.</span><span class="nx">prototype</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">Person</span><span class="p">.</span><span class="nx">prototype</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl"><span class="nx">Employee</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">constructor</span> <span class="o">=</span> <span class="nx">Employee</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="nx">Employee</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">sayJob</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">jobTitle</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl"><span class="p">};</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">employee1</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Employee</span><span class="p">(</span><span class="s1">&#39;Bob&#39;</span><span class="p">,</span> <span class="s1">&#39;Developer&#39;</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl"><span class="nx">employee1</span><span class="p">.</span><span class="nx">sayName</span><span class="p">();</span> <span class="c1">// Bob
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">employee1</span><span class="p">.</span><span class="nx">sayJob</span><span class="p">();</span> <span class="c1">// Developer
-</span></span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">function</span> <span class="nx">Employee</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span> <span class="nx">jobTitle</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">Person</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="nx">name</span><span class="p">);</span> <span class="c1">// 调用 Person 构造函数
+</span><span class="c1"></span>  <span class="k">this</span><span class="p">.</span><span class="nx">jobTitle</span> <span class="o">=</span> <span class="nx">jobTitle</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// 继承 Person
+</span><span class="c1"></span><span class="nx">Employee</span><span class="p">.</span><span class="nx">prototype</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">Person</span><span class="p">.</span><span class="nx">prototype</span><span class="p">);</span>
+<span class="nx">Employee</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">constructor</span> <span class="o">=</span> <span class="nx">Employee</span><span class="p">;</span>
+
+<span class="nx">Employee</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">sayJob</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">jobTitle</span><span class="p">);</span>
+<span class="p">};</span>
+
+<span class="kr">const</span> <span class="nx">employee1</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Employee</span><span class="p">(</span><span class="s1">&#39;Bob&#39;</span><span class="p">,</span> <span class="s1">&#39;Developer&#39;</span><span class="p">);</span>
+<span class="nx">employee1</span><span class="p">.</span><span class="nx">sayName</span><span class="p">();</span> <span class="c1">// Bob
+</span><span class="c1"></span><span class="nx">employee1</span><span class="p">.</span><span class="nx">sayJob</span><span class="p">();</span> <span class="c1">// Developer
+</span></code></pre></td></tr></table>
 </div>
 </div><p>这个示例中实现了使用 <code>Employee</code> 从 <code>Person</code> 的继承，将 <code>Employee.prototype</code> 设置为 <code>Person.prototype</code> 的一个实例，这样 <code>Employee</code> 的实例就可以访问 <code>Person</code> 原型上的方法。</p>
 <p>总的来说，JavaScript 的原型链主要用于实现继承、多态、给对象添加方法、实现一些性能优化（比如通过原型共享方法、减少每个实例的内存占用）等。</p>
@@ -301,7 +307,7 @@
 
 
 
-<script type="text/javascript" src="/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js"></script>
+<script type="text/javascript" src="/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
   <script type="text/javascript">
     window.MathJax = {
       tex: {

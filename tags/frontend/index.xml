@@ -1,103 +1,134 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Frontend on Aries notebook</title>
+    <title>frontend on Aries notebook</title>
     <link>https://urchinzhou.com/tags/frontend/</link>
-    <description>Recent content in Frontend on Aries notebook</description>
+    <description>Recent content in frontend on Aries notebook</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 25 Mar 2024 14:14:09 +0800</lastBuildDate>
-    <atom:link href="https://urchinzhou.com/tags/frontend/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 02 Jan 2024 14:44:13 +0800</lastBuildDate>
+    
+	<atom:link href="https://urchinzhou.com/tags/frontend/index.xml" rel="self" type="application/rss+xml" />
+    
+    
     <item>
       <title>初步了解 SEO</title>
       <link>https://urchinzhou.com/post/seo/</link>
       <pubDate>Tue, 02 Jan 2024 14:44:13 +0800</pubDate>
+      
       <guid>https://urchinzhou.com/post/seo/</guid>
       <description>搜索引擎优化（SEO）是一种提高网站在搜索引擎中的可见度的过程，使其更有可能吸引潜在客户和访问者。SEO主要关注提升网站在非付费搜索结果中的</description>
     </item>
+    
     <item>
       <title>CSS Units</title>
       <link>https://urchinzhou.com/post/css-units/</link>
       <pubDate>Mon, 19 Jun 2023 11:07:43 +0800</pubDate>
+      
       <guid>https://urchinzhou.com/post/css-units/</guid>
-      <description>Recommendations Media Recommended Occasional use Infrequent use Not recommended Screen em, rem, % px ch, ex, vw, vh, vmin, vmax cm, mm, in, pt, pc Print em, rem, % cm, mm, in, pt, pc ch, ex px, vw, vh, vmin, vmax Relative Units rem The rem unit in CSS stands for &amp;ldquo;root em&amp;rdquo;. It is a relative unit of measurement that is relative to the font size of the root element.</description>
+      <description>Recommendations    Media Recommended Occasional use Infrequent use Not recommended     Screen em, rem, % px ch, ex, vw, vh, vmin, vmax cm, mm, in, pt, pc   Print em, rem, % cm, mm, in, pt, pc ch, ex px, vw, vh, vmin, vmax    Relative Units rem The rem unit in CSS stands for &amp;ldquo;root em&amp;rdquo;. It is a relative unit of measurement that is relative to the font size of the root element.</description>
     </item>
+    
     <item>
       <title>React 防止组件重新渲染</title>
       <link>https://urchinzhou.com/post/react-%E9%98%B2%E6%AD%A2%E7%BB%84%E4%BB%B6%E9%87%8D%E6%96%B0%E6%B8%B2%E6%9F%93/</link>
       <pubDate>Wed, 03 May 2023 18:33:42 +0800</pubDate>
+      
       <guid>https://urchinzhou.com/post/react-%E9%98%B2%E6%AD%A2%E7%BB%84%E4%BB%B6%E9%87%8D%E6%96%B0%E6%B8%B2%E6%9F%93/</guid>
       <description>在React中，组件的重新渲染通常由状态（state）或属性（props）的变化触发。虽然React通过虚拟DOM和高效的对比算法（diff</description>
     </item>
+    
     <item>
       <title>前端性能优化常用策略</title>
       <link>https://urchinzhou.com/post/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E5%B8%B8%E7%94%A8%E7%AD%96%E7%95%A5/</link>
       <pubDate>Sat, 25 Mar 2023 10:48:29 +0800</pubDate>
+      
       <guid>https://urchinzhou.com/post/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E5%B8%B8%E7%94%A8%E7%AD%96%E7%95%A5/</guid>
       <description>最佳实践： 资源压缩和合并：使用工具（如Webpack）压缩JavaScript、CSS和图片文件，减少文件大小，提高加载速度。合并资源减少H</description>
     </item>
+    
     <item>
       <title>React 状态管理常用策略</title>
       <link>https://urchinzhou.com/post/react-%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86%E5%B8%B8%E7%94%A8%E7%AD%96%E7%95%A5/</link>
       <pubDate>Mon, 09 Jan 2023 12:01:36 +0800</pubDate>
+      
       <guid>https://urchinzhou.com/post/react-%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86%E5%B8%B8%E7%94%A8%E7%AD%96%E7%95%A5/</guid>
       <description>在 React 中，状态（State）是组件内部的数据结构，用于记录从挂载到卸载期间，可能会发生变化的数据。状态的更新会触发组件的重新渲染，因此合理地管</description>
     </item>
+    
     <item>
       <title>JavaScript 模板</title>
       <link>https://urchinzhou.com/post/javascript-%E6%A8%A1%E6%9D%BF/</link>
       <pubDate>Fri, 30 Dec 2022 11:06:43 +0800</pubDate>
+      
       <guid>https://urchinzhou.com/post/javascript-%E6%A8%A1%E6%9D%BF/</guid>
       <description>在JavaScript中，模板是指结合数据来生成 HTML 标记或其他文本的技术，模板通过声明式的标记语法允许你指定如何将对象属性插入到文档中。这种方</description>
     </item>
+    
     <item>
       <title>React Router</title>
       <link>https://urchinzhou.com/post/react-router/</link>
       <pubDate>Fri, 06 May 2022 14:31:14 +0800</pubDate>
+      
       <guid>https://urchinzhou.com/post/react-router/</guid>
       <description>React Router 是一个用于React的路由库，它允许我们在React应用中实现客户端路由。这意味着用户可以在不重新加载页面的情况下导航到不同的URL，同</description>
     </item>
+    
     <item>
       <title>JavsScript 高阶函数</title>
       <link>https://urchinzhou.com/post/javsscript-%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0/</link>
       <pubDate>Sun, 24 Apr 2022 21:14:54 +0800</pubDate>
+      
       <guid>https://urchinzhou.com/post/javsscript-%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0/</guid>
       <description>在 JavaScript 中，如果一个函数能接收一个或多个函数作为参数，或返回另一个函数，那么该函数被称为高阶函数。 高阶函数是函数式编程的一个重要概念，提供了极大</description>
     </item>
+    
     <item>
       <title>懒加载</title>
       <link>https://urchinzhou.com/post/%E6%87%92%E5%8A%A0%E8%BD%BD/</link>
       <pubDate>Wed, 30 Mar 2022 10:09:28 +0800</pubDate>
+      
       <guid>https://urchinzhou.com/post/%E6%87%92%E5%8A%A0%E8%BD%BD/</guid>
       <description>懒加载（Lazy Loading），也称为延迟加载，是 Web 开发中常用的优化技术。其基本原理是延迟加载页面上的资源（如图片、脚本、样式表等），直到</description>
     </item>
+    
     <item>
       <title>JavsScript 箭头函数</title>
       <link>https://urchinzhou.com/post/javsscript-%E7%AE%AD%E5%A4%B4%E5%87%BD%E6%95%B0/</link>
       <pubDate>Mon, 24 Jan 2022 21:40:30 +0800</pubDate>
+      
       <guid>https://urchinzhou.com/post/javsscript-%E7%AE%AD%E5%A4%B4%E5%87%BD%E6%95%B0/</guid>
       <description>箭头函数 箭头函数是 ES6 (ECMAScript 2015) 引入的一个新增特性，提供了一种更简洁的方式来写函数表达式。它不仅语法简短，而且还有其他几个特别之处，特别是与this</description>
     </item>
+    
     <item>
       <title>虚拟Dom</title>
       <link>https://urchinzhou.com/post/%E8%99%9A%E6%8B%9Fdom/</link>
       <pubDate>Fri, 07 Jan 2022 14:19:18 +0800</pubDate>
+      
       <guid>https://urchinzhou.com/post/%E8%99%9A%E6%8B%9Fdom/</guid>
       <description>虚拟DOM（Virtual DOM）是一个编程概念，其中UI的表示形式保持在内存中，并通过某种库（如React）与“真实”的DOM（Docum</description>
     </item>
+    
     <item>
       <title>Dom</title>
       <link>https://urchinzhou.com/post/dom/</link>
       <pubDate>Thu, 25 Nov 2021 14:14:09 +0800</pubDate>
+      
       <guid>https://urchinzhou.com/post/dom/</guid>
       <description>DOM（文档对象模型 Document Object Model）是一个跨平台和语言独立的接口，允许程序和脚本动态地访问和更新文档的内容、结构和样式。DOM将HTML和X</description>
     </item>
+    
     <item>
       <title>React Components and Props</title>
-      <link>https://urchinzhou.com/post/react-basic---components-and-props/</link>
+      <link>https://urchinzhou.com/post/react-basic-components-and-props/</link>
       <pubDate>Wed, 05 Feb 2020 15:58:02 +0800</pubDate>
-      <guid>https://urchinzhou.com/post/react-basic---components-and-props/</guid>
-      <description>Components What is components? Components are one of the core concepts of React. They are the foundation upon which we build user interfaces(UI) - UI building blocks.&#xA;Taking traditional Web development as an example, HTML lets us create rich structured documents with its built-in set of tags like &amp;lt;h1&amp;gt; and &amp;lt;li&amp;gt;:&#xA;1 2 3 4 5 6 7 8 &amp;lt;article&amp;gt; &amp;lt;h1&amp;gt;My First Component&amp;lt;/h1&amp;gt; &amp;lt;ol&amp;gt; &amp;lt;li&amp;gt;Components: UI Building Blocks&amp;lt;/li&amp;gt; &amp;lt;li&amp;gt;Defining a Component&amp;lt;/li&amp;gt; &amp;lt;li&amp;gt;Using a Component&amp;lt;/li&amp;gt; &amp;lt;/ol&amp;gt; &amp;lt;/article&amp;gt; This markup combined with CSS for style, and then JavaScript for interactivity, lies behind every sidebar, avatar, modal, dropdown &amp;ndash; every piece of UI we see on the Web.</description>
+      
+      <guid>https://urchinzhou.com/post/react-basic-components-and-props/</guid>
+      <description>Components What is components? Components are one of the core concepts of React. They are the foundation upon which we build user interfaces(UI) - UI building blocks.
+Taking traditional Web development as an example, HTML lets us create rich structured documents with its built-in set of tags like &amp;lt;h1&amp;gt; and &amp;lt;li&amp;gt;:
+1 2 3 4 5 6 7 8  &amp;lt;article&amp;gt; &amp;lt;h1&amp;gt;My First Component&amp;lt;/h1&amp;gt; &amp;lt;ol&amp;gt; &amp;lt;li&amp;gt;Components: UI Building Blocks&amp;lt;/li&amp;gt; &amp;lt;li&amp;gt;Defining a Component&amp;lt;/li&amp;gt; &amp;lt;li&amp;gt;Using a Component&amp;lt;/li&amp;gt; &amp;lt;/ol&amp;gt; &amp;lt;/article&amp;gt;   This markup combined with CSS for style, and then JavaScript for interactivity, lies behind every sidebar, avatar, modal, dropdown &amp;ndash; every piece of UI we see on the Web.</description>
     </item>
+    
   </channel>
 </rss>

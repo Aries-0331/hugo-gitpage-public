@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.124.1 with theme even" />
+<meta name="generator" content="Hugo 0.74.3 with theme even" />
 
 
 <link rel="canonical" href="https://urchinzhou.com/post/svg-%E4%B8%8E-canvas/" />
@@ -35,21 +35,27 @@
 
 
 
-<link href="/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
+<link href="/sass/main.min.2e81bbed97b8b282c1aeb57488cc71c8d8c8ec559f3931531bd396bf31e0d4dd.css" rel="stylesheet">
 
 
 
 <meta property="og:title" content="SVG 与 Canvas" />
 <meta property="og:description" content="SVG（Scalable Vector Graphics）和Canvas是两种主要的 Web 技术，用于在网页上绘制图形，但它们在使用方式、性能和适用场景上有所不" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://urchinzhou.com/post/svg-%E4%B8%8E-canvas/" /><meta property="article:section" content="post" />
+<meta property="og:url" content="https://urchinzhou.com/post/svg-%E4%B8%8E-canvas/" />
 <meta property="article:published_time" content="2023-03-29T14:38:32+08:00" />
 <meta property="article:modified_time" content="2023-03-29T14:38:32+08:00" />
 <meta itemprop="name" content="SVG 与 Canvas">
-<meta itemprop="description" content="SVG（Scalable Vector Graphics）和Canvas是两种主要的 Web 技术，用于在网页上绘制图形，但它们在使用方式、性能和适用场景上有所不"><meta itemprop="datePublished" content="2023-03-29T14:38:32+08:00" />
+<meta itemprop="description" content="SVG（Scalable Vector Graphics）和Canvas是两种主要的 Web 技术，用于在网页上绘制图形，但它们在使用方式、性能和适用场景上有所不">
+<meta itemprop="datePublished" content="2023-03-29T14:38:32+08:00" />
 <meta itemprop="dateModified" content="2023-03-29T14:38:32+08:00" />
 <meta itemprop="wordCount" content="1180">
-<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="SVG 与 Canvas"/>
+
+
+
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="SVG 与 Canvas"/>
 <meta name="twitter:description" content="SVG（Scalable Vector Graphics）和Canvas是两种主要的 Web 技术，用于在网页上绘制图形，但它们在使用方式、性能和适用场景上有所不"/>
 
 <!--[if lte IE 9]>
@@ -146,7 +152,7 @@
 <p>SVG在React中的使用非常直观，因为SVG元素可以直接在JSX中声明，就像其他任何React元素一样。这意味着可以很容易地将SVG图形集成到我们的组件中，还可以利用React的状态和属性来动态更新SVG的属性，从而实现丰富的交互效果，例如：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -157,16 +163,16 @@
 </span><span class="lnt">9
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">MyComponent</span><span class="p">()</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="p">[</span><span class="nx">color</span><span class="p">,</span> <span class="nx">setColor</span><span class="p">]</span> <span class="o">=</span> <span class="nx">React</span><span class="p">.</span><span class="nx">useState</span><span class="p">(</span><span class="s1">&#39;blue&#39;</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="p">(</span>
-</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">svg</span> <span class="na">width</span><span class="o">=</span><span class="s">&#34;100&#34;</span> <span class="na">height</span><span class="o">=</span><span class="s">&#34;100&#34;</span> <span class="na">onClick</span><span class="o">=</span><span class="p">{()</span> <span class="p">=&gt;</span> <span class="nx">setColor</span><span class="p">(</span><span class="s1">&#39;red&#39;</span><span class="p">)}&gt;</span>
-</span></span><span class="line"><span class="cl">      <span class="p">&lt;</span><span class="nt">circle</span> <span class="na">cx</span><span class="o">=</span><span class="s">&#34;50&#34;</span> <span class="na">cy</span><span class="o">=</span><span class="s">&#34;50&#34;</span> <span class="na">r</span><span class="o">=</span><span class="s">&#34;40&#34;</span> <span class="na">stroke</span><span class="o">=</span><span class="s">&#34;black&#34;</span> <span class="na">strokeWidth</span><span class="o">=</span><span class="s">&#34;3&#34;</span> <span class="na">fill</span><span class="o">=</span><span class="p">{</span><span class="nx">color</span><span class="p">}</span> <span class="p">/&gt;</span>
-</span></span><span class="line"><span class="cl">    <span class="p">&lt;/</span><span class="nt">svg</span><span class="p">&gt;</span>
-</span></span><span class="line"><span class="cl">  <span class="p">);</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-jsx" data-lang="jsx"><span class="kd">function</span> <span class="nx">MyComponent</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kr">const</span> <span class="p">[</span><span class="nx">color</span><span class="p">,</span> <span class="nx">setColor</span><span class="p">]</span> <span class="o">=</span> <span class="nx">React</span><span class="p">.</span><span class="nx">useState</span><span class="p">(</span><span class="s1">&#39;blue&#39;</span><span class="p">);</span>
+
+  <span class="k">return</span> <span class="p">(</span>
+    <span class="p">&lt;</span><span class="nt">svg</span> <span class="na">width</span><span class="o">=</span><span class="s">&#34;100&#34;</span> <span class="na">height</span><span class="o">=</span><span class="s">&#34;100&#34;</span> <span class="na">onClick</span><span class="o">=</span><span class="p">{()</span> <span class="p">=&gt;</span> <span class="nx">setColor</span><span class="p">(</span><span class="s1">&#39;red&#39;</span><span class="p">)}&gt;</span>
+      <span class="p">&lt;</span><span class="nt">circle</span> <span class="na">cx</span><span class="o">=</span><span class="s">&#34;50&#34;</span> <span class="na">cy</span><span class="o">=</span><span class="s">&#34;50&#34;</span> <span class="na">r</span><span class="o">=</span><span class="s">&#34;40&#34;</span> <span class="na">stroke</span><span class="o">=</span><span class="s">&#34;black&#34;</span> <span class="na">strokeWidth</span><span class="o">=</span><span class="s">&#34;3&#34;</span> <span class="na">fill</span><span class="o">=</span><span class="p">{</span><span class="nx">color</span><span class="p">}</span> <span class="p">/&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">svg</span><span class="p">&gt;</span>
+  <span class="p">);</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
 </div><p>在这个示例中，一个圆形的颜色会在点击后从蓝色变为红色。React的状态和事件处理使得与SVG的交互变得简单。</p>
 <p><strong>优点</strong>：</p>
@@ -185,7 +191,7 @@
 <p>相比SVG，Canvas在React中的使用稍微复杂一些，因为Canvas是通过命令式的API进行绘图的。通常，需要在组件的生命周期方法中或使用<code>useEffect</code>钩子来处理Canvas的绘图逻辑，例如：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -201,21 +207,21 @@
 </span><span class="lnt">14
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">MyCanvasComponent</span><span class="p">()</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="nx">canvasRef</span> <span class="o">=</span> <span class="nx">React</span><span class="p">.</span><span class="nx">useRef</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">  <span class="nx">React</span><span class="p">.</span><span class="nx">useEffect</span><span class="p">(()</span> <span class="p">=&gt;</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="kr">const</span> <span class="nx">canvas</span> <span class="o">=</span> <span class="nx">canvasRef</span><span class="p">.</span><span class="nx">current</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="kr">const</span> <span class="nx">context</span> <span class="o">=</span> <span class="nx">canvas</span><span class="p">.</span><span class="nx">getContext</span><span class="p">(</span><span class="s1">&#39;2d&#39;</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="c1">// 绘制蓝色矩形
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">context</span><span class="p">.</span><span class="nx">fillStyle</span> <span class="o">=</span> <span class="s1">&#39;blue&#39;</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">context</span><span class="p">.</span><span class="nx">fillRect</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">  <span class="p">},</span> <span class="p">[]);</span> <span class="c1">// 依赖数组为空，表示仅在组件挂载时执行
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
-</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="p">&lt;</span><span class="nt">canvas</span> <span class="na">ref</span><span class="o">=</span><span class="p">{</span><span class="nx">canvasRef</span><span class="p">}</span> <span class="na">width</span><span class="o">=</span><span class="s">&#34;170&#34;</span> <span class="na">height</span><span class="o">=</span><span class="s">&#34;120&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">canvas</span><span class="p">&gt;;</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-jsx" data-lang="jsx"><span class="kd">function</span> <span class="nx">MyCanvasComponent</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kr">const</span> <span class="nx">canvasRef</span> <span class="o">=</span> <span class="nx">React</span><span class="p">.</span><span class="nx">useRef</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
+
+  <span class="nx">React</span><span class="p">.</span><span class="nx">useEffect</span><span class="p">(()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="kr">const</span> <span class="nx">canvas</span> <span class="o">=</span> <span class="nx">canvasRef</span><span class="p">.</span><span class="nx">current</span><span class="p">;</span>
+    <span class="kr">const</span> <span class="nx">context</span> <span class="o">=</span> <span class="nx">canvas</span><span class="p">.</span><span class="nx">getContext</span><span class="p">(</span><span class="s1">&#39;2d&#39;</span><span class="p">);</span>
+
+    <span class="c1">// 绘制蓝色矩形
+</span><span class="c1"></span>    <span class="nx">context</span><span class="p">.</span><span class="nx">fillStyle</span> <span class="o">=</span> <span class="s1">&#39;blue&#39;</span><span class="p">;</span>
+    <span class="nx">context</span><span class="p">.</span><span class="nx">fillRect</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
+  <span class="p">},</span> <span class="p">[]);</span> <span class="c1">// 依赖数组为空，表示仅在组件挂载时执行
+</span><span class="c1"></span>
+  <span class="k">return</span> <span class="p">&lt;</span><span class="nt">canvas</span> <span class="na">ref</span><span class="o">=</span><span class="p">{</span><span class="nx">canvasRef</span><span class="p">}</span> <span class="na">width</span><span class="o">=</span><span class="s">&#34;170&#34;</span> <span class="na">height</span><span class="o">=</span><span class="s">&#34;120&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">canvas</span><span class="p">&gt;;</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
 </div><p><strong>优点</strong>：</p>
 <ul>
@@ -304,7 +310,7 @@
 
 
 
-<script type="text/javascript" src="/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js"></script>
+<script type="text/javascript" src="/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
   <script type="text/javascript">
     window.MathJax = {
       tex: {

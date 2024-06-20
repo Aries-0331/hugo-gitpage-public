@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.124.1 with theme even" />
+<meta name="generator" content="Hugo 0.74.3 with theme even" />
 
 
 <link rel="canonical" href="https://urchinzhou.com/" />
@@ -37,7 +37,7 @@
 
 
 
-<link href="/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
+<link href="/sass/main.min.2e81bbed97b8b282c1aeb57488cc71c8d8c8ec559f3931531bd396bf31e0d4dd.css" rel="stylesheet">
 
 
 
@@ -45,8 +45,11 @@
 <meta property="og:description" content="Aries notebook" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://urchinzhou.com/" />
+<meta property="og:updated_time" content="2024-04-03T21:48:56+08:00" />
 <meta itemprop="name" content="Aries notebook">
-<meta itemprop="description" content="Aries notebook"><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Aries notebook"/>
+<meta itemprop="description" content="Aries notebook">
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Aries notebook"/>
 <meta name="twitter:description" content="Aries notebook"/>
 
 <!--[if lte IE 9]>
@@ -126,9 +129,9 @@
           <section id="posts" class="posts">
   <article class="post">
   <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/go-basic---interface-as-parameter-to-function/">Go Basic - Interface as Parameter to Function</a></h1>
+    <h1 class="post-title"><a class="post-link" href="/post/go-package-gorm/">Go Package - gorm</a></h1>
     <div class="post-meta">
-      <span class="post-time"> 2023-03-01 </span>
+      <span class="post-time"> 2023-03-12 </span>
       
     </div>
   </header>
@@ -136,62 +139,21 @@
   <div class="post-content">
     
     <div class="post-summary">
-      <blockquote>
-<p><a href="https://stackoverflow.com/questions/20314604/go-syntax-and-interface-as-parameter-to-function">https://stackoverflow.com/questions/20314604/go-syntax-and-interface-as-parameter-to-function</a></p>
-</blockquote>
-<p>Go uses interfaces for generalization of types. So if you want a function that takes a specific interface you write</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-golang" data-lang="golang"><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">MyFunction</span><span class="p">(</span><span class="nx">t</span> <span class="nx">SomeInterface</span><span class="p">)</span> <span class="p">{</span><span class="o">...</span><span class="p">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>Every type that satisfies <code>SomeInterface</code> can be passed to <code>MyFunction</code>.</p>
-<p>Now, <code>SomeInterface</code> can look like this:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-golang" data-lang="golang"><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">SomeInterface</span> <span class="kd">interface</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="nf">SomeFunction</span><span class="p">()</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>To satisfy <code>SomeInterface</code>, the type implementing it must implement <code>SomeFunction()</code>.</p>
-<p>If you, however, require an empty interface (<code>interface{}</code>) the object does not need to implement any method to be passed to the function:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-golang" data-lang="golang"><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">MyFunction</span><span class="p">(</span><span class="nx">t</span> <span class="kd">interface</span><span class="p">{})</span> <span class="p">{</span> <span class="o">...</span> <span class="p">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>This function above will take every type as <a href="http://golang.org/ref/spec#Interface_types">all types implement the empty interface</a>.</p>
-<h3 id="getting-the-type-back">Getting the type back</h3>
-<p>Now that you can have every possible type, the question is how to get the type back that was actually put in before. The empty interface does not provide any methods, thus you can&rsquo;t call anything on such a value.</p>
-<p>For this you need type assertions: let the runtime check whether there is type X in value Y and convert it to that type if so.</p>
-<p>Example:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-golang" data-lang="golang"><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">MyFunction</span><span class="p">(</span><span class="nx">t</span> <span class="kd">interface</span><span class="p">{})</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">v</span><span class="p">,</span> <span class="nx">ok</span> <span class="o">:=</span> <span class="nx">t</span><span class="p">.(</span><span class="nx">SomeConcreteType</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="c1">// ...
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>In this example the input parameter <code>t</code> is asserted to be of type <code>SomeConcreteType</code>. If <code>t</code> is in fact of type <code>SomeConcreteType</code>, <code>v</code> will hold the instance of that type and <code>ok</code> will be true. Otherwise, <code>ok</code> will be false. See <a href="http://golang.org/ref/spec#Type_assertions">the spec on type assertions</a> for details.</p>
+      <p>GORM is a popular Object-Relational Mapping (ORM) package for Go, designed to simplify database operations and improve developer productivity. It provides a robust and expressive API for interacting with various databases, including PostgreSQL, MySQL, SQLite, and more. With GORM, you can focus on your application&rsquo;s logic while it handles the complexities of database management.</p>
+<p>Main Usage of GORM:</p>
+<ol>
+<li>Model Definition: GORM allows you to define models, which are Go structs representing database tables. By leveraging struct tags, you can specify table names, column names, data types, constraints, and relationships with other models. GORM automates the mapping between these models and database tables, eliminating manual SQL queries.</li>
+<li>CRUD Operations: GORM simplifies database operations with its intuitive API. Perform Create, Read, Update, and Delete (CRUD) operations effortlessly using GORM&rsquo;s methods. Insert records, retrieve data based on conditions, update existing records, and delete data from the database with ease.</li>
+<li>Querying: GORM provides a powerful query builder that enables you to construct complex database queries using a chainable syntax. Leverage conditions, aggregations, joins, sorting, and pagination to retrieve the exact data you need from your database. GORM&rsquo;s query builder abstracts away the underlying SQL, making it easier to write and maintain complex queries.</li>
+<li>Relationships and Associations: GORM simplifies working with relationships between database tables. Define associations like one-to-one, one-to-many, and many-to-many relationships in your models using struct tags. GORM handles the necessary join queries and provides convenient methods to access related data.</li>
+</ol>
+<p>Application Scenarios:</p>
+<ol>
+<li>Web Applications: GORM is well-suited for building web applications that require efficient database interactions. Whether you&rsquo;re building an e-commerce platform, a content management system, or a social media application, GORM&rsquo;s simplicity and performance make it an excellent choice for managing your application&rsquo;s data layer.</li>
+<li>Microservices: As Go gains popularity in microservice architectures, GORM proves to be a valuable tool for managing database interactions in distributed systems. Use GORM to handle data storage and retrieval across different microservices, ensuring consistency and efficiency in your overall architecture.</li>
+<li>Data-Driven APIs: GORM&rsquo;s ease of use and powerful query builder make it ideal for developing data-driven APIs. Retrieve data based on user-defined filters, perform aggregations, and efficiently handle large datasets with GORM&rsquo;s optimized database operations. Build robust APIs that deliver data seamlessly to your frontend or other consuming applications.</li>
+</ol>
+<p>Conclusion: GORM simplifies database interactions in Go applications, enabling developers to focus on business logic rather than database management. By utilizing GORM&rsquo;s model definition, CRUD operations, querying capabilities, and support for relationships, you can streamline database interactions and improve productivity. Whether you&rsquo;re building web applications, microservices, or data-driven APIs, GORM empowers you to handle database operations efficiently and effectively.</p>
 
     </div>
     
@@ -255,7 +217,7 @@
 
 
 
-<script type="text/javascript" src="/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js"></script>
+<script type="text/javascript" src="/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
   <script type="text/javascript">
     window.MathJax = {
       tex: {

@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.124.1 with theme even" />
+<meta name="generator" content="Hugo 0.74.3 with theme even" />
 
 
 <link rel="canonical" href="https://urchinzhou.com/post/%E6%87%92%E5%8A%A0%E8%BD%BD/" />
@@ -35,21 +35,27 @@
 
 
 
-<link href="/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
+<link href="/sass/main.min.2e81bbed97b8b282c1aeb57488cc71c8d8c8ec559f3931531bd396bf31e0d4dd.css" rel="stylesheet">
 
 
 
 <meta property="og:title" content="懒加载" />
 <meta property="og:description" content="懒加载（Lazy Loading），也称为延迟加载，是 Web 开发中常用的优化技术。其基本原理是延迟加载页面上的资源（如图片、脚本、样式表等），直到" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://urchinzhou.com/post/%E6%87%92%E5%8A%A0%E8%BD%BD/" /><meta property="article:section" content="post" />
+<meta property="og:url" content="https://urchinzhou.com/post/%E6%87%92%E5%8A%A0%E8%BD%BD/" />
 <meta property="article:published_time" content="2022-03-30T10:09:28+08:00" />
 <meta property="article:modified_time" content="2022-03-30T10:09:28+08:00" />
 <meta itemprop="name" content="懒加载">
-<meta itemprop="description" content="懒加载（Lazy Loading），也称为延迟加载，是 Web 开发中常用的优化技术。其基本原理是延迟加载页面上的资源（如图片、脚本、样式表等），直到"><meta itemprop="datePublished" content="2022-03-30T10:09:28+08:00" />
+<meta itemprop="description" content="懒加载（Lazy Loading），也称为延迟加载，是 Web 开发中常用的优化技术。其基本原理是延迟加载页面上的资源（如图片、脚本、样式表等），直到">
+<meta itemprop="datePublished" content="2022-03-30T10:09:28+08:00" />
 <meta itemprop="dateModified" content="2022-03-30T10:09:28+08:00" />
 <meta itemprop="wordCount" content="1387">
-<meta itemprop="keywords" content="javascript,performance,frontend," /><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="懒加载"/>
+
+
+
+<meta itemprop="keywords" content="javascript,performance,frontend," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="懒加载"/>
 <meta name="twitter:description" content="懒加载（Lazy Loading），也称为延迟加载，是 Web 开发中常用的优化技术。其基本原理是延迟加载页面上的资源（如图片、脚本、样式表等），直到"/>
 
 <!--[if lte IE 9]>
@@ -145,7 +151,7 @@
 <p>实际应用时，对于图片资源，建议使用 <code>Intersection Observer</code> API，用于异步观察目标元素与其祖先元素或顶级文档视窗的交叉状态。在 HTML 中，图片的 <code>src</code> 属性最开始设置为空，或一个轻量级的占位图，真是的图片 URL 放在 <code>data-src</code> 属性中。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -160,20 +166,20 @@
 </span><span class="lnt">13
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">observer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">IntersectionObserver</span><span class="p">((</span><span class="nx">entries</span><span class="p">,</span> <span class="nx">observer</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="nx">entries</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">entry</span> <span class="p">=&gt;</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="nx">entry</span><span class="p">.</span><span class="nx">isIntersecting</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">      <span class="kr">const</span> <span class="nx">img</span> <span class="o">=</span> <span class="nx">entry</span><span class="p">.</span><span class="nx">target</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">      <span class="nx">img</span><span class="p">.</span><span class="nx">src</span> <span class="o">=</span> <span class="nx">img</span><span class="p">.</span><span class="nx">dataset</span><span class="p">.</span><span class="nx">src</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">      <span class="nx">observer</span><span class="p">.</span><span class="nx">unobserve</span><span class="p">(</span><span class="nx">img</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl">  <span class="p">});</span>
-</span></span><span class="line"><span class="cl"><span class="p">});</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="nb">document</span><span class="p">.</span><span class="nx">querySelectorAll</span><span class="p">(</span><span class="s1">&#39;img[data-src]&#39;</span><span class="p">).</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">img</span> <span class="p">=&gt;</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="nx">observer</span><span class="p">.</span><span class="nx">observe</span><span class="p">(</span><span class="nx">img</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl"><span class="p">});</span>
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="kr">const</span> <span class="nx">observer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">IntersectionObserver</span><span class="p">((</span><span class="nx">entries</span><span class="p">,</span> <span class="nx">observer</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="nx">entries</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">entry</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">entry</span><span class="p">.</span><span class="nx">isIntersecting</span><span class="p">)</span> <span class="p">{</span>
+      <span class="kr">const</span> <span class="nx">img</span> <span class="o">=</span> <span class="nx">entry</span><span class="p">.</span><span class="nx">target</span><span class="p">;</span>
+      <span class="nx">img</span><span class="p">.</span><span class="nx">src</span> <span class="o">=</span> <span class="nx">img</span><span class="p">.</span><span class="nx">dataset</span><span class="p">.</span><span class="nx">src</span><span class="p">;</span>
+      <span class="nx">observer</span><span class="p">.</span><span class="nx">unobserve</span><span class="p">(</span><span class="nx">img</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">});</span>
+<span class="p">});</span>
+
+<span class="nb">document</span><span class="p">.</span><span class="nx">querySelectorAll</span><span class="p">(</span><span class="s1">&#39;img[data-src]&#39;</span><span class="p">).</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">img</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="nx">observer</span><span class="p">.</span><span class="nx">observe</span><span class="p">(</span><span class="nx">img</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre></td></tr></table>
 </div>
 </div><p>在这段示例中，首先创建一个 <code>IntersectionObserver</code> 实例。<code>IntersectionObserver</code>接受一个回调函数作为参数，该回调函数会在观察的元素进入或退出视口时被调用。此外，回调函数接收两个参数：<code>entries</code>和<code>observer</code>。<code>entries</code>是一个数组，包含了所有被观察元素的 <code>IntersectionObserverEntry</code> 对象。<code>observer</code> 是观察者实例本身。</p>
 <p>回调函数遍历<code>entries</code>数组，对每个<code>entry</code>，检查其<code>isIntersecting</code>属性是否为<code>true</code>，即该元素是否进入了视口。</p>
@@ -194,17 +200,17 @@
 <p>ES6 引入的 <code>import()</code> 语法提供了原生方法来实现 JavaScript 代码的动态导入。<code>import()</code> 返回一个 Promise，使其可以与 <code>async</code> 和 <code>await</code> 一起使用，简化异步代码的编写，例如：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="nx">button</span><span class="p">.</span><span class="nx">onclick</span> <span class="o">=</span> <span class="kr">async</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="nx">module</span> <span class="o">=</span> <span class="kr">await</span> <span class="kr">import</span><span class="p">(</span><span class="s1">&#39;./myModule.js&#39;</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">  <span class="nx">module</span><span class="p">.</span><span class="nx">doSomething</span><span class="p">();</span>
-</span></span><span class="line"><span class="cl"><span class="p">};</span>
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">button</span><span class="p">.</span><span class="nx">onclick</span> <span class="o">=</span> <span class="nx">async</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="kr">const</span> <span class="nx">module</span> <span class="o">=</span> <span class="nx">await</span> <span class="kr">import</span><span class="p">(</span><span class="s1">&#39;./myModule.js&#39;</span><span class="p">);</span>
+  <span class="nx">module</span><span class="p">.</span><span class="nx">doSomething</span><span class="p">();</span>
+<span class="p">};</span>
+</code></pre></td></tr></table>
 </div>
 </div><p>另外，Webpack 提供了对懒加载的支持，允许我们指定哪些模块或代码块应该懒加载。</p>
 
@@ -281,7 +287,7 @@
 
 
 
-<script type="text/javascript" src="/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js"></script>
+<script type="text/javascript" src="/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
   <script type="text/javascript">
     window.MathJax = {
       tex: {

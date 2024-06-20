@@ -1,19 +1,24 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Css on Aries notebook</title>
+    <title>css on Aries notebook</title>
     <link>https://urchinzhou.com/tags/css/</link>
-    <description>Recent content in Css on Aries notebook</description>
+    <description>Recent content in css on Aries notebook</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Mon, 19 Jun 2023 11:07:43 +0800</lastBuildDate>
-    <atom:link href="https://urchinzhou.com/tags/css/index.xml" rel="self" type="application/rss+xml" />
+    
+	<atom:link href="https://urchinzhou.com/tags/css/index.xml" rel="self" type="application/rss+xml" />
+    
+    
     <item>
       <title>CSS Units</title>
       <link>https://urchinzhou.com/post/css-units/</link>
       <pubDate>Mon, 19 Jun 2023 11:07:43 +0800</pubDate>
+      
       <guid>https://urchinzhou.com/post/css-units/</guid>
-      <description>Recommendations Media Recommended Occasional use Infrequent use Not recommended Screen em, rem, % px ch, ex, vw, vh, vmin, vmax cm, mm, in, pt, pc Print em, rem, % cm, mm, in, pt, pc ch, ex px, vw, vh, vmin, vmax Relative Units rem The rem unit in CSS stands for &amp;ldquo;root em&amp;rdquo;. It is a relative unit of measurement that is relative to the font size of the root element.</description>
+      <description>Recommendations    Media Recommended Occasional use Infrequent use Not recommended     Screen em, rem, % px ch, ex, vw, vh, vmin, vmax cm, mm, in, pt, pc   Print em, rem, % cm, mm, in, pt, pc ch, ex px, vw, vh, vmin, vmax    Relative Units rem The rem unit in CSS stands for &amp;ldquo;root em&amp;rdquo;. It is a relative unit of measurement that is relative to the font size of the root element.</description>
     </item>
+    
   </channel>
 </rss>

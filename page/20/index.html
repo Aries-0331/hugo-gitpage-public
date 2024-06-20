@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.124.1 with theme even" />
+<meta name="generator" content="Hugo 0.74.3 with theme even" />
 
 
 <link rel="canonical" href="https://urchinzhou.com/" />
@@ -37,7 +37,7 @@
 
 
 
-<link href="/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
+<link href="/sass/main.min.2e81bbed97b8b282c1aeb57488cc71c8d8c8ec559f3931531bd396bf31e0d4dd.css" rel="stylesheet">
 
 
 
@@ -45,8 +45,11 @@
 <meta property="og:description" content="Aries notebook" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://urchinzhou.com/" />
+<meta property="og:updated_time" content="2024-04-03T21:48:56+08:00" />
 <meta itemprop="name" content="Aries notebook">
-<meta itemprop="description" content="Aries notebook"><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Aries notebook"/>
+<meta itemprop="description" content="Aries notebook">
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Aries notebook"/>
 <meta name="twitter:description" content="Aries notebook"/>
 
 <!--[if lte IE 9]>
@@ -126,9 +129,9 @@
           <section id="posts" class="posts">
   <article class="post">
   <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/javsscript-%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0/">JavsScript 高阶函数</a></h1>
+    <h1 class="post-title"><a class="post-link" href="/post/react-router/">React Router</a></h1>
     <div class="post-meta">
-      <span class="post-time"> 2022-04-24 </span>
+      <span class="post-time"> 2022-05-06 </span>
       
     </div>
   </header>
@@ -136,61 +139,34 @@
   <div class="post-content">
     
     <div class="post-summary">
-      <p>在 JavaScript 中，如果一个函数能接收一个或多个函数作为参数，或返回另一个函数，那么该函数被称为<strong>高阶函数</strong>。</p>
-<p>高阶函数是函数式编程的一个重要概念，提供了极大的灵活性和表达力。以下是 JavaScript 中常见的高阶函数：</p>
-<h3 id="arrayprototypemap">Array.prototype.map</h3>
-<p><code>map</code> 方法创建一个新数组，该数组中的每个元素是调用对象中每个元素调用一次提供的函数后的返回值。</p>
+      <p>React Router 是一个用于React的路由库，它允许我们在React应用中实现客户端路由。这意味着用户可以在不重新加载页面的情况下导航到不同的URL，同时应用的状态会相应更新以反映新的位置。这是单页面应用（SPA）的一个核心特性，能够提供更快的用户体验和更流畅的页面切换效果。</p>
+<h3 id="核心组件">核心组件</h3>
+<p>React Router 提供了几个核心组件来定义和管理路由：</p>
+<ul>
+<li><strong>BrowserRouter</strong>：一个使用HTML5 history API的Router，用于支持干净的URL。</li>
+<li><strong>HashRouter</strong>：一个使用URL的hash部分（#）来保持UI和URL同步的Router，主要用于不支持HTML5 history API的旧版浏览器。</li>
+<li><strong>Route</strong>：用于定义UI和路径之间的映射关系。它接受一个<code>path</code>属性和一个渲染方法（如<code>component</code>、<code>render</code>或<code>children</code>），当路径匹配时渲染相应的UI。</li>
+<li><strong>Switch</strong>：仅渲染第一个与当前路径匹配的<code>&lt;Route&gt;</code>或<code>&lt;Redirect&gt;</code>。在包含多个<code>&lt;Route&gt;</code>的情况下非常有用，可以确保一次只渲染一个路由。</li>
+<li><strong>Link</strong> 和 <strong>NavLink</strong>：允许在应用内导航到不同的路径。<code>NavLink</code>是<code>Link</code>的一个特殊版本，它可以为当前匹配的路由添加样式。</li>
+</ul>
+<h3 id="路由参数">路由参数</h3>
+<p>React Router 允许通过在路径定义中使用<code>:</code>后跟参数名来指定动态片段。然后，你可以在组件中通过<code>match.params</code>属性访问这些参数。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="k">const</span> <span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">];</span>
-</span></span><span class="line"><span class="cl"><span class="k">const</span> <span class="n">doubled</span> <span class="o">=</span> <span class="n">numbers</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">x</span> <span class="o">=&gt;</span> <span class="n">x</span> <span class="o">*</span> <span class="mi">2</span><span class="p">);</span> <span class="o">//</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">]</span>
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">
+&lt;Route path=&#34;/user/:userId&#34; component={User} /&gt;
+</code></pre></td></tr></table>
 </div>
-</div><h3 id="arrayprototypefilter">Array.prototype.filter</h3>
-<p><code>filter</code> 方法创建一个新数组，包含通过所提供函数实现的测试的所有元素。</p>
+</div><p>在这个例子中，任何匹配<code>/user/:userId</code>形式的路径都会渲染<code>User</code>组件，其中<code>:userId</code>是一个动态参数，可以在<code>User</code>组件内通过<code>this.props.match.params.userId</code>访问。</p>
+<h3 id="编程式导航">编程式导航</h3>
+<p>除了使用<code>&lt;Link&gt;</code>和<code>&lt;NavLink&gt;</code>组件进行声明式导航外，React Router还提供了编程式导航的能力。这可以通过访问<code>history</code>对象来实现，它作为props传递给所有由<code>&lt;Route&gt;</code>渲染的组件。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="k">const</span> <span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">];</span>
-</span></span><span class="line"><span class="cl"><span class="k">const</span> <span class="n">evens</span> <span class="o">=</span> <span class="n">numbers</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">x</span> <span class="o">=&gt;</span> <span class="n">x</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">===</span> <span class="mi">0</span><span class="p">);</span> <span class="o">//</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="arrayprototypereduce">Array.prototype.reduce</h3>
-<p><code>reduce</code> 方法对数组中的每个元素执行一个由您提供的reducer函数(升序执行)，将其结果汇总为单个返回值。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="k">const</span> <span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">];</span>
-</span></span><span class="line"><span class="cl"><span class="k">const</span> <span class="n">sum</span> <span class="o">=</span> <span class="n">numbers</span><span class="o">.</span><span class="n">reduce</span><span class="p">((</span><span class="n">accumulator</span><span class="p">,</span> <span class="n">currentValue</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="n">accumulator</span> <span class="o">+</span> <span class="n">currentValue</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span> <span class="o">//</span> <span class="mi">10</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="arrayprototypeforeach">Array.prototype.forEach</h3>
-<p>虽然<code>forEach</code>不返回任何值（返回<code>undefined</code>），但它接收一个函数作为参数，对数组的每个元素执行该函数，因此可以被视为一个高阶函数。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="k">const</span> <span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">];</span>
-</span></span><span class="line"><span class="cl"><span class="n">numbers</span><span class="o">.</span><span class="n">forEach</span><span class="p">(</span><span class="n">x</span> <span class="o">=&gt;</span> <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">x</span><span class="p">));</span> <span class="o">//</span> <span class="err">依次打印</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="functionprototypebind">Function.prototype.bind</h3>
-<p><code>bind</code> 方法创建一个新的函数，在调用时设置<code>this</code>关键字为提供的值，并在调用新函数时前置给定的参数序列。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -201,40 +177,38 @@
 </span><span class="lnt"> 9
 </span><span class="lnt">10
 </span><span class="lnt">11
-</span><span class="lnt">12
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-mysql" data-lang="mysql"><span class="line"><span class="cl"><span class="n">const</span><span class="w"> </span><span class="n">module</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="err">{</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">x</span><span class="p">:</span><span class="w"> </span><span class="mi">42</span><span class="p">,</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">getX</span><span class="p">:</span><span class="w"> </span><span class="nf">function</span><span class="p">()</span><span class="w"> </span><span class="err">{</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">this</span><span class="p">.</span><span class="n">x</span><span class="p">;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="err">}</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="err">}</span><span class="p">;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">const</span><span class="w"> </span><span class="n">unboundGetX</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">module</span><span class="p">.</span><span class="n">getX</span><span class="p">;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nf">unboundGetX</span><span class="p">());</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="err">函数被调用在全局作用域中</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="err">返回</span><span class="w"> </span><span class="o">`</span><span class="n">undefined</span><span class="o">`</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">const</span><span class="w"> </span><span class="n">boundGetX</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">unboundGetX</span><span class="p">.</span><span class="nf">bind</span><span class="p">(</span><span class="n">module</span><span class="p">);</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nf">boundGetX</span><span class="p">());</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="mi">42</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">class Home extends React.Component {
+  handleClick = () =&gt; {
+    this.props.history.push(&#34;/about&#34;);
+  };
+
+  render() {
+    return (
+      &lt;button onClick={this.handleClick}&gt;Go to About&lt;/button&gt;
+    );
+  }
+}
+</code></pre></td></tr></table>
 </div>
-</div><h3 id="promisethen-和-promisecatch">Promise.then 和 Promise.catch</h3>
-<p>这些<code>Promise</code>的方法也是高阶函数，因为它们接收函数作为参数，并返回一个新的<code>Promise</code>。</p>
+</div><p>在这个例子中，点击按钮将会使用<code>history.push</code>方法导航到<code>/about</code>路径。</p>
+<h3 id="嵌套路由">嵌套路由</h3>
+<p>React Router 允许路由嵌套，这意味着一个路由的组件内部可以包含自己的<code>&lt;Route&gt;</code>组件来进一步定义更深层次的路径结构。</p>
+<h3 id="重定向">重定向</h3>
+<p><code>&lt;Redirect&gt;</code>组件用于路由的重定向，它可以将用户从一个路径自动导航到另一个路径。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Promise.resolve(1)
-</span></span><span class="line"><span class="cl">  .then(x =&gt; x + 1)
-</span></span><span class="line"><span class="cl">  .catch(err =&gt; console.error(err))
-</span></span><span class="line"><span class="cl">  .then(x =&gt; console.log(x)); // 2
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">
+&lt;Redirect from=&#34;/old-path&#34; to=&#34;/new-path&#34; /&gt;
+</code></pre></td></tr></table>
 </div>
-</div>
+</div><p>在这个例子中，任何访问<code>/old-path</code>的请求都会被重定向到<code>/new-path</code>。</p>
+
     </div>
     
   </div>
@@ -297,7 +271,7 @@
 
 
 
-<script type="text/javascript" src="/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js"></script>
+<script type="text/javascript" src="/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
   <script type="text/javascript">
     window.MathJax = {
       tex: {

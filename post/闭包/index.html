@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.124.1 with theme even" />
+<meta name="generator" content="Hugo 0.74.3 with theme even" />
 
 
 <link rel="canonical" href="https://urchinzhou.com/post/%E9%97%AD%E5%8C%85/" />
@@ -35,21 +35,27 @@
 
 
 
-<link href="/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
+<link href="/sass/main.min.2e81bbed97b8b282c1aeb57488cc71c8d8c8ec559f3931531bd396bf31e0d4dd.css" rel="stylesheet">
 
 
 
 <meta property="og:title" content="闭包" />
 <meta property="og:description" content="初步理解闭包 接触 JavaScript 的闭包概念前，我在阅读部分前端项目代码时，下意识带着阅读 C&#43;&#43; 代码时的思维惯性来分析 JavaScript 代码，从而造成对一些变量的值，做出错误判" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://urchinzhou.com/post/%E9%97%AD%E5%8C%85/" /><meta property="article:section" content="post" />
+<meta property="og:url" content="https://urchinzhou.com/post/%E9%97%AD%E5%8C%85/" />
 <meta property="article:published_time" content="2022-08-24T13:13:04+08:00" />
 <meta property="article:modified_time" content="2022-08-24T13:13:04+08:00" />
 <meta itemprop="name" content="闭包">
-<meta itemprop="description" content="初步理解闭包 接触 JavaScript 的闭包概念前，我在阅读部分前端项目代码时，下意识带着阅读 C&#43;&#43; 代码时的思维惯性来分析 JavaScript 代码，从而造成对一些变量的值，做出错误判"><meta itemprop="datePublished" content="2022-08-24T13:13:04+08:00" />
+<meta itemprop="description" content="初步理解闭包 接触 JavaScript 的闭包概念前，我在阅读部分前端项目代码时，下意识带着阅读 C&#43;&#43; 代码时的思维惯性来分析 JavaScript 代码，从而造成对一些变量的值，做出错误判">
+<meta itemprop="datePublished" content="2022-08-24T13:13:04+08:00" />
 <meta itemprop="dateModified" content="2022-08-24T13:13:04+08:00" />
 <meta itemprop="wordCount" content="3198">
-<meta itemprop="keywords" content="javascript,closure," /><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="闭包"/>
+
+
+
+<meta itemprop="keywords" content="javascript,closure," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="闭包"/>
 <meta name="twitter:description" content="初步理解闭包 接触 JavaScript 的闭包概念前，我在阅读部分前端项目代码时，下意识带着阅读 C&#43;&#43; 代码时的思维惯性来分析 JavaScript 代码，从而造成对一些变量的值，做出错误判"/>
 
 <!--[if lte IE 9]>
@@ -148,7 +154,7 @@
 <p>举个例子：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -160,17 +166,17 @@
 </span><span class="lnt">10
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">makeFunc</span><span class="p">()</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="kd">var</span> <span class="nx">name</span> <span class="o">=</span> <span class="s2">&#34;Mozilla&#34;</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">  <span class="kd">function</span> <span class="nx">displayName</span><span class="p">()</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">alert</span><span class="p">(</span><span class="nx">name</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">  <span class="p">}</span>
-</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="nx">displayName</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">myFunc</span> <span class="o">=</span> <span class="nx">makeFunc</span><span class="p">();</span>
-</span></span><span class="line"><span class="cl"><span class="nx">myFunc</span><span class="p">();</span>
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">function</span> <span class="nx">makeFunc</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">name</span> <span class="o">=</span> <span class="s2">&#34;Mozilla&#34;</span><span class="p">;</span>
+  <span class="kd">function</span> <span class="nx">displayName</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">alert</span><span class="p">(</span><span class="nx">name</span><span class="p">);</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="nx">displayName</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">var</span> <span class="nx">myFunc</span> <span class="o">=</span> <span class="nx">makeFunc</span><span class="p">();</span>
+<span class="nx">myFunc</span><span class="p">();</span>
+</code></pre></td></tr></table>
 </div>
 </div><p>第一眼看上去，也许不能直观地看出这段代码能够正常运行。在一些编程语言中，一个函数中的局部变量仅存在于此函数的执行期间。一旦 <code>makeFunc()</code> 执行完毕，我们可能会认为 <code>name</code> 变量将不能再被访问。然而，代码仍按预期运行，这便是闭包的效果。</p>
 <p>在 JavaScript 中，函数会形成闭包。在本例中，<code>myFunc</code> 是执行 <code>makeFunc</code> 时创建的 <code>displayName</code> 函数实例的引用。<code>displayName</code> 的实例维持了一个对它的词法环境（变量 <code>name</code> 存在于其中）的引用。因此，当 <code>myFunc</code> 被调用时，变量 <code>name</code> 仍然可用，其值 <code>Mozilla</code> 就被传递到<code>alert</code>中。</p>
@@ -179,7 +185,7 @@
 <p>实现闭包的关键在于理解函数作用域和词法作用域。在 JavaScript 中，函数可以嵌套定义，内部函数可以访问外部函数的变量。当内部函数被返回并在外部函数的作用域之外调用时，即使外部函数的执行上下文已经结束，内部函数仍然可以访问外部函数的变量，这就形成了闭包。例如：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -193,19 +199,19 @@
 </span><span class="lnt">12
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">outerFunction</span><span class="p">()</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="kd">let</span> <span class="nx">outerVariable</span> <span class="o">=</span> <span class="s1">&#39;I am outside!&#39;</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">  
-</span></span><span class="line"><span class="cl">  <span class="kd">function</span> <span class="nx">innerFunction</span><span class="p">()</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">outerVariable</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">  <span class="p">}</span>
-</span></span><span class="line"><span class="cl">  
-</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="nx">innerFunction</span><span class="p">;</span> <span class="c1">// 返回内部函数，创建闭包
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">myInnerFunction</span> <span class="o">=</span> <span class="nx">outerFunction</span><span class="p">();</span> <span class="c1">// 调用外部函数，获取内部函数
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">myInnerFunction</span><span class="p">();</span> <span class="c1">// 在外部调用内部函数，“I am outside!”被打印出来
-</span></span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">function</span> <span class="nx">outerFunction</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kd">let</span> <span class="nx">outerVariable</span> <span class="o">=</span> <span class="s1">&#39;I am outside!&#39;</span><span class="p">;</span>
+  
+  <span class="kd">function</span> <span class="nx">innerFunction</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">outerVariable</span><span class="p">);</span>
+  <span class="p">}</span>
+  
+  <span class="k">return</span> <span class="nx">innerFunction</span><span class="p">;</span> <span class="c1">// 返回内部函数，创建闭包
+</span><span class="c1"></span><span class="p">}</span>
+
+<span class="kr">const</span> <span class="nx">myInnerFunction</span> <span class="o">=</span> <span class="nx">outerFunction</span><span class="p">();</span> <span class="c1">// 调用外部函数，获取内部函数
+</span><span class="c1"></span><span class="nx">myInnerFunction</span><span class="p">();</span> <span class="c1">// 在外部调用内部函数，“I am outside!”被打印出来
+</span></code></pre></td></tr></table>
 </div>
 </div><ol>
 <li>
@@ -225,7 +231,7 @@
 <p>C++11 引入的 Lambda 表达式可以捕获变量的副本（值捕获）或引用（引用捕获），从而在函数对象的生命周期内保持对这些变量的访问，例如：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -246,33 +252,33 @@
 </span><span class="lnt">19
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
-</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;vector&gt;</span><span class="cp">
-</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;algorithm&gt;</span><span class="cp">
-</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
-</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">multiplier</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="k">auto</span> <span class="n">multiply</span> <span class="o">=</span> <span class="p">[</span><span class="n">multiplier</span><span class="p">](</span><span class="kt">int</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="n">n</span> <span class="o">*</span> <span class="n">multiplier</span><span class="p">;</span> <span class="p">};</span> <span class="c1">// 捕获multiplier的副本
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
-</span></span><span class="line"><span class="cl">    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">multiply</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span> <span class="c1">// 输出 50
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
-</span></span><span class="line"><span class="cl">    <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">numbers</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">};</span>
-</span></span><span class="line"><span class="cl">    <span class="n">std</span><span class="o">::</span><span class="n">transform</span><span class="p">(</span><span class="n">numbers</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">numbers</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span> <span class="n">numbers</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="p">[</span><span class="n">multiplier</span><span class="p">](</span><span class="kt">int</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="n">n</span> <span class="o">*</span> <span class="n">multiplier</span><span class="p">;</span> <span class="p">});</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="nl">n</span> <span class="p">:</span> <span class="n">numbers</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">n</span> <span class="o">&lt;&lt;</span> <span class="s">&#34; &#34;</span><span class="p">;</span> <span class="c1">// 输出 5 10 15 20 25
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="p">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;vector&gt;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;algorithm&gt;</span><span class="cp">
+</span><span class="cp"></span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">multiplier</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+    <span class="k">auto</span> <span class="n">multiply</span> <span class="o">=</span> <span class="p">[</span><span class="n">multiplier</span><span class="p">](</span><span class="kt">int</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="n">n</span> <span class="o">*</span> <span class="n">multiplier</span><span class="p">;</span> <span class="p">};</span> <span class="c1">// 捕获multiplier的副本
+</span><span class="c1"></span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">multiply</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span> <span class="c1">// 输出 50
+</span><span class="c1"></span>
+    <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">numbers</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">};</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">transform</span><span class="p">(</span><span class="n">numbers</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">numbers</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span> <span class="n">numbers</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="p">[</span><span class="n">multiplier</span><span class="p">](</span><span class="kt">int</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="n">n</span> <span class="o">*</span> <span class="n">multiplier</span><span class="p">;</span> <span class="p">});</span>
+
+    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="nl">n</span> <span class="p">:</span> <span class="n">numbers</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">n</span> <span class="o">&lt;&lt;</span> <span class="s">&#34; &#34;</span><span class="p">;</span> <span class="c1">// 输出 5 10 15 20 25
+</span><span class="c1"></span>    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
 </div><h2 id="闭包的应用">闭包的应用</h2>
 <h3 id="1-封装私有变量">1. 封装私有变量</h3>
 <p>在 JavaScript 中，闭包通常用于封装私有变量，提供一个公共的方法来访问和修改私有变量，从而实现封装和隐藏数据（这点类似于 OOP 语言中对于 <code>private</code> 成员的访问控制），例如：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -294,38 +300,40 @@
 </span><span class="lnt">20
 </span><span class="lnt">21
 </span><span class="lnt">22
+</span><span class="lnt">23
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">makePerson</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span> <span class="nx">age</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="kd">let</span> <span class="nx">_name</span> <span class="o">=</span> <span class="nx">name</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">  <span class="kd">let</span> <span class="nx">_age</span> <span class="o">=</span> <span class="nx">age</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">getName</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">      <span class="k">return</span> <span class="nx">_name</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="p">},</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">getAge</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">      <span class="k">return</span> <span class="nx">_age</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="p">},</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">setAge</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">newAge</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">      <span class="nx">_age</span> <span class="o">=</span> <span class="nx">newAge</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl">  <span class="p">};</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">person</span> <span class="o">=</span> <span class="nx">makePerson</span><span class="p">(</span><span class="s1">&#39;John&#39;</span><span class="p">,</span> <span class="mi">30</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">person</span><span class="p">.</span><span class="nx">getName</span><span class="p">());</span> <span class="c1">// John
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">person</span><span class="p">.</span><span class="nx">getAge</span><span class="p">());</span> <span class="c1">// 30
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">person</span><span class="p">.</span><span class="nx">setAge</span><span class="p">(</span><span class="mi">31</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">person</span><span class="p">.</span><span class="nx">getAge</span><span class="p">());</span> <span class="c1">// 31
-</span></span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">function</span> <span class="nx">makePerson</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span> <span class="nx">age</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">let</span> <span class="nx">_name</span> <span class="o">=</span> <span class="nx">name</span><span class="p">;</span>
+  <span class="kd">let</span> <span class="nx">_age</span> <span class="o">=</span> <span class="nx">age</span><span class="p">;</span>
+
+  <span class="k">return</span> <span class="p">{</span>
+    <span class="nx">getName</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="nx">_name</span><span class="p">;</span>
+    <span class="p">},</span>
+    <span class="nx">getAge</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="nx">_age</span><span class="p">;</span>
+    <span class="p">},</span>
+    <span class="nx">setAge</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">newAge</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">_age</span> <span class="o">=</span> <span class="nx">newAge</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">};</span>
+<span class="p">}</span>
+
+<span class="kr">const</span> <span class="nx">person</span> <span class="o">=</span> <span class="nx">makePerson</span><span class="p">(</span><span class="s1">&#39;John&#39;</span><span class="p">,</span> <span class="mi">30</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">person</span><span class="p">.</span><span class="nx">getName</span><span class="p">());</span> <span class="c1">// John
+</span><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">person</span><span class="p">.</span><span class="nx">getAge</span><span class="p">());</span> <span class="c1">// 30
+</span><span class="c1"></span><span class="nx">person</span><span class="p">.</span><span class="nx">setAge</span><span class="p">(</span><span class="mi">31</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">person</span><span class="p">.</span><span class="nx">getAge</span><span class="p">());</span> <span class="c1">// 31
+</span><span class="c1"></span>
+</code></pre></td></tr></table>
 </div>
 </div><p>这对于创建具有私有状态的对象非常有用，可以减少外部对内部状态的依赖和意外修改。比如在一个 Web 应用中，可能需要创建一个用户对象，这个对象需要保存用户的信息，但是我们不希望这些信息可以被外部直接修改，以防止数据被意外篡改。</p>
 <h3 id="2-创建模块">2. 创建模块</h3>
 <p>在 JavaScript 中，模块化可以帮助我们将代码划分为独立的功能块，每个模块有其私有的作用域，以便组织代码，避免全局命名空间污染，同时提高代码的可维护性和复用性。通过闭包，我们可以创建模块，其中的变量和函数默认是私有的，如果想要外部访问，需要显式地暴露接口。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -342,29 +350,29 @@
 </span><span class="lnt">15
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="k">const</span> <span class="n">myModule</span> <span class="o">=</span> <span class="p">(</span><span class="n">function</span><span class="p">()</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="n">let</span> <span class="n">_privateVar</span> <span class="o">=</span> <span class="s1">&#39;Hello World&#39;</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">  
-</span></span><span class="line"><span class="cl">  <span class="n">function</span> <span class="n">_privateMethod</span><span class="p">()</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">_privateVar</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">  <span class="p">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="n">publicMethod</span><span class="p">:</span> <span class="n">function</span><span class="p">()</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">      <span class="n">_privateMethod</span><span class="p">();</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl">  <span class="p">};</span>
-</span></span><span class="line"><span class="cl"><span class="p">})();</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">myModule</span><span class="o">.</span><span class="n">publicMethod</span><span class="p">();</span> <span class="o">//</span> <span class="err">输出</span><span class="p">:</span> <span class="n">Hello</span> <span class="ne">World</span>
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">const myModule = (function() {
+  let _privateVar = &#39;Hello World&#39;;
+  
+  function _privateMethod() {
+    console.log(_privateVar);
+  }
+
+  return {
+    publicMethod: function() {
+      _privateMethod();
+    }
+  };
+})();
+
+myModule.publicMethod(); // 输出: Hello World
+</code></pre></td></tr></table>
 </div>
 </div><p>这里，<code>myModule</code> 是一个具有公共方法 <code>publicMethod</code> 的对象，而 <code>_privateVar</code> 和 <code>_privateMethod</code> 都是只能在模块内部访问的私有成员。</p>
 <h3 id="3-在循环中使用闭包解决-var-问题">3. 在循环中使用闭包解决 var 问题</h3>
 <p>在循环中使用 <code>var</code> 声明变量时，由于 <code>var</code> 的作用域是函数作用域，循环结束后变量的值为最后一次迭代的值。通过闭包，我们可以为每次迭代创建一个新的作用域。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -372,17 +380,19 @@
 </span><span class="lnt">6
 </span><span class="lnt">7
 </span><span class="lnt">8
+</span><span class="lnt">9
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;=</span> <span class="mi">5</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">j</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">setTimeout</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">j</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">    <span class="p">},</span> <span class="nx">j</span> <span class="o">*</span> <span class="mi">1000</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">  <span class="p">})(</span><span class="nx">i</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span><span class="line"><span class="cl"><span class="c1">// 依次输出: 1, 2, 3, 4, 5
-</span></span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;=</span> <span class="mi">5</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+  <span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">j</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">setTimeout</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">j</span><span class="p">);</span>
+    <span class="p">},</span> <span class="nx">j</span> <span class="o">*</span> <span class="mi">1000</span><span class="p">);</span>
+  <span class="p">})(</span><span class="nx">i</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="c1">// 依次输出: 1, 2, 3, 4, 5
+</span><span class="c1"></span>
+</code></pre></td></tr></table>
 </div>
 </div><p>这里，通过创建一个立即执行函数表达式（IIFE），为每次循环创建了一个新的作用域，从而确保循环内部的延时函数能够访问到各自迭代的正确值。在实际开发中，经常需要在循环中进行异步操作，如设置超时、发送网络请求等。使用闭包可以确保异步操作中引用的变量值是正确的，而不是循环结束时的最终值。</p>
 <h2 id="闭包的问题">闭包的问题</h2>
@@ -403,7 +413,7 @@
 </ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -425,27 +435,27 @@
 </span><span class="lnt">20
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">attachListener</span><span class="p">(</span><span class="nx">element</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="kd">let</span> <span class="nx">someVar</span> <span class="o">=</span> <span class="s2">&#34;I am a variable&#34;</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">  
-</span></span><span class="line"><span class="cl">  <span class="nx">element</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;click&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="nx">handleClick</span><span class="p">()</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">someVar</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">    <span class="c1">// 执行一些操作
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="p">});</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">  <span class="c1">// 提供一个方法来移除监听器和清理变量
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="k">return</span> <span class="kd">function</span> <span class="nx">detach</span><span class="p">()</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">element</span><span class="p">.</span><span class="nx">removeEventListener</span><span class="p">(</span><span class="s1">&#39;click&#39;</span><span class="p">,</span> <span class="nx">handleClick</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">element</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span> <span class="c1">// 断开 DOM 元素的引用
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="p">};</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">// 使用闭包绑定事件
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">let</span> <span class="nx">detach</span> <span class="o">=</span> <span class="nx">attachListener</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;myElement&#39;</span><span class="p">));</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">// 当不再需要事件监听器时
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">detach</span><span class="p">();</span> <span class="c1">// 移除监听器和断开引用
-</span></span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">function</span> <span class="nx">attachListener</span><span class="p">(</span><span class="nx">element</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">let</span> <span class="nx">someVar</span> <span class="o">=</span> <span class="s2">&#34;I am a variable&#34;</span><span class="p">;</span>
+  
+  <span class="nx">element</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;click&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="nx">handleClick</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">someVar</span><span class="p">);</span>
+    <span class="c1">// 执行一些操作
+</span><span class="c1"></span>  <span class="p">});</span>
+
+  <span class="c1">// 提供一个方法来移除监听器和清理变量
+</span><span class="c1"></span>  <span class="k">return</span> <span class="kd">function</span> <span class="nx">detach</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">element</span><span class="p">.</span><span class="nx">removeEventListener</span><span class="p">(</span><span class="s1">&#39;click&#39;</span><span class="p">,</span> <span class="nx">handleClick</span><span class="p">);</span>
+    <span class="nx">element</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span> <span class="c1">// 断开 DOM 元素的引用
+</span><span class="c1"></span>  <span class="p">};</span>
+<span class="p">}</span>
+
+<span class="c1">// 使用闭包绑定事件
+</span><span class="c1"></span><span class="kd">let</span> <span class="nx">detach</span> <span class="o">=</span> <span class="nx">attachListener</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;myElement&#39;</span><span class="p">));</span>
+
+<span class="c1">// 当不再需要事件监听器时
+</span><span class="c1"></span><span class="nx">detach</span><span class="p">();</span> <span class="c1">// 移除监听器和断开引用
+</span></code></pre></td></tr></table>
 </div>
 </div><hr>
 <ol>
@@ -526,7 +536,7 @@
 
 
 
-<script type="text/javascript" src="/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js"></script>
+<script type="text/javascript" src="/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
   <script type="text/javascript">
     window.MathJax = {
       tex: {

@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.124.1 with theme even" />
+<meta name="generator" content="Hugo 0.74.3 with theme even" />
 
 
 <link rel="canonical" href="https://urchinzhou.com/post/react-%E9%98%B2%E6%AD%A2%E7%BB%84%E4%BB%B6%E9%87%8D%E6%96%B0%E6%B8%B2%E6%9F%93/" />
@@ -35,21 +35,27 @@
 
 
 
-<link href="/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
+<link href="/sass/main.min.2e81bbed97b8b282c1aeb57488cc71c8d8c8ec559f3931531bd396bf31e0d4dd.css" rel="stylesheet">
 
 
 
 <meta property="og:title" content="React 防止组件重新渲染" />
 <meta property="og:description" content="在React中，组件的重新渲染通常由状态（state）或属性（props）的变化触发。虽然React通过虚拟DOM和高效的对比算法（diff" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://urchinzhou.com/post/react-%E9%98%B2%E6%AD%A2%E7%BB%84%E4%BB%B6%E9%87%8D%E6%96%B0%E6%B8%B2%E6%9F%93/" /><meta property="article:section" content="post" />
+<meta property="og:url" content="https://urchinzhou.com/post/react-%E9%98%B2%E6%AD%A2%E7%BB%84%E4%BB%B6%E9%87%8D%E6%96%B0%E6%B8%B2%E6%9F%93/" />
 <meta property="article:published_time" content="2023-05-03T18:33:42+08:00" />
 <meta property="article:modified_time" content="2023-05-03T18:33:42+08:00" />
 <meta itemprop="name" content="React 防止组件重新渲染">
-<meta itemprop="description" content="在React中，组件的重新渲染通常由状态（state）或属性（props）的变化触发。虽然React通过虚拟DOM和高效的对比算法（diff"><meta itemprop="datePublished" content="2023-05-03T18:33:42+08:00" />
+<meta itemprop="description" content="在React中，组件的重新渲染通常由状态（state）或属性（props）的变化触发。虽然React通过虚拟DOM和高效的对比算法（diff">
+<meta itemprop="datePublished" content="2023-05-03T18:33:42+08:00" />
 <meta itemprop="dateModified" content="2023-05-03T18:33:42+08:00" />
 <meta itemprop="wordCount" content="1152">
-<meta itemprop="keywords" content="react,performance,frontend," /><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="React 防止组件重新渲染"/>
+
+
+
+<meta itemprop="keywords" content="react,performance,frontend," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="React 防止组件重新渲染"/>
 <meta name="twitter:description" content="在React中，组件的重新渲染通常由状态（state）或属性（props）的变化触发。虽然React通过虚拟DOM和高效的对比算法（diff"/>
 
 <!--[if lte IE 9]>
@@ -145,7 +151,7 @@
 <p>在类组件中，可以通过继承<code>React.PureComponent</code>而不是<code>React.Component</code>来减少不必要的渲染。<code>PureComponent</code>通过浅比较（shallow comparison）<code>props</code>和<code>state</code>来自动检查是否需要重新渲染组件。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -154,14 +160,14 @@
 </span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="line"><span class="cl"><span class="kr">import</span> <span class="nx">React</span><span class="p">,</span> <span class="p">{</span> <span class="nx">PureComponent</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;react&#39;</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kr">class</span> <span class="nx">MyComponent</span> <span class="kr">extends</span> <span class="nx">PureComponent</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="nx">render</span><span class="p">()</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;{</span><span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">message</span><span class="p">}&lt;/</span><span class="nt">div</span><span class="p">&gt;;</span>
-</span></span><span class="line"><span class="cl">  <span class="p">}</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-jsx" data-lang="jsx"><span class="kr">import</span> <span class="nx">React</span><span class="p">,</span> <span class="p">{</span> <span class="nx">PureComponent</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;react&#39;</span><span class="p">;</span>
+
+<span class="kr">class</span> <span class="nx">MyComponent</span> <span class="kr">extends</span> <span class="nx">PureComponent</span> <span class="p">{</span>
+  <span class="nx">render</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;{</span><span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">message</span><span class="p">}&lt;/</span><span class="nt">div</span><span class="p">&gt;;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
 </div><p>注意：<code>PureComponent</code>进行的是浅比较，所以如果<code>props</code>或<code>state</code>的结构比较复杂，可能需要其他策略。</p>
 <p>浅比较（Shallow Comparison）是指对两个对象的属性进行表层比较。在浅比较中，如果对象的所有属性值都相等（对于基本数据类型比较值，对于引用数据类型比较内存地址），那么这两个对象被认为是相等的。浅比较并不会递归比较对象的属性值中可能包含的对象或数组，即它不检查嵌套的对象或数组。</p>
@@ -169,21 +175,21 @@
 <p>对于函数组件，可以使用<code>React.memo</code>来避免不必要的渲染。<code>React.memo</code>是一个高阶组件，它类似于<code>PureComponent</code>，但用于函数组件，它也会对组件的<code>props</code>进行浅比较。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">MyComponent</span> <span class="o">=</span> <span class="nx">React</span><span class="p">.</span><span class="nx">memo</span><span class="p">(</span><span class="kd">function</span> <span class="nx">MyComponent</span><span class="p">(</span><span class="nx">props</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;{</span><span class="nx">props</span><span class="p">.</span><span class="nx">message</span><span class="p">}&lt;/</span><span class="nt">div</span><span class="p">&gt;;</span>
-</span></span><span class="line"><span class="cl"><span class="p">});</span>
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-jsx" data-lang="jsx"><span class="kr">const</span> <span class="nx">MyComponent</span> <span class="o">=</span> <span class="nx">React</span><span class="p">.</span><span class="nx">memo</span><span class="p">(</span><span class="kd">function</span> <span class="nx">MyComponent</span><span class="p">(</span><span class="nx">props</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;{</span><span class="nx">props</span><span class="p">.</span><span class="nx">message</span><span class="p">}&lt;/</span><span class="nt">div</span><span class="p">&gt;;</span>
+<span class="p">});</span>
+</code></pre></td></tr></table>
 </div>
 </div><h3 id="3-使用shouldcomponentupdate">3. 使用shouldComponentUpdate</h3>
 <p>在类组件中，可以通过定义<code>shouldComponentUpdate</code>方法来决定组件是否需要更新。此方法接受新的<code>props</code>和<code>state</code>作为参数，并返回一个布尔值，指示组件是否应该更新。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -195,23 +201,23 @@
 </span><span class="lnt">10
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="line"><span class="cl"><span class="kr">class</span> <span class="nx">MyComponent</span> <span class="kr">extends</span> <span class="nx">React</span><span class="p">.</span><span class="nx">Component</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="nx">shouldComponentUpdate</span><span class="p">(</span><span class="nx">nextProps</span><span class="p">,</span> <span class="nx">nextState</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="c1">// 自定义的比较逻辑
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">return</span> <span class="nx">nextProps</span><span class="p">.</span><span class="nx">message</span> <span class="o">!==</span> <span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">message</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">  <span class="p">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">  <span class="nx">render</span><span class="p">()</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;{</span><span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">message</span><span class="p">}&lt;/</span><span class="nt">div</span><span class="p">&gt;;</span>
-</span></span><span class="line"><span class="cl">  <span class="p">}</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-jsx" data-lang="jsx"><span class="kr">class</span> <span class="nx">MyComponent</span> <span class="kr">extends</span> <span class="nx">React</span><span class="p">.</span><span class="nx">Component</span> <span class="p">{</span>
+  <span class="nx">shouldComponentUpdate</span><span class="p">(</span><span class="nx">nextProps</span><span class="p">,</span> <span class="nx">nextState</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// 自定义的比较逻辑
+</span><span class="c1"></span>    <span class="k">return</span> <span class="nx">nextProps</span><span class="p">.</span><span class="nx">message</span> <span class="o">!==</span> <span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">message</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="nx">render</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;{</span><span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">message</span><span class="p">}&lt;/</span><span class="nt">div</span><span class="p">&gt;;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
 </div><h3 id="4-使用reactusememo和reactusecallback">4. 使用React.useMemo和React.useCallback</h3>
 <p>对于函数组件，可以使用<code>useMemo</code>和<code>useCallback</code>钩子来缓存计算结果和回调函数，避免在每次渲染时都重新计算或创建。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -223,24 +229,24 @@
 </span><span class="lnt">10
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="line"><span class="cl"><span class="kr">import</span> <span class="nx">React</span><span class="p">,</span> <span class="p">{</span> <span class="nx">useMemo</span><span class="p">,</span> <span class="nx">useCallback</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;react&#39;</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">MyComponent</span> <span class="o">=</span> <span class="p">({</span> <span class="nx">value</span> <span class="p">})</span> <span class="p">=&gt;</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="nx">expensiveResult</span> <span class="o">=</span> <span class="nx">useMemo</span><span class="p">(()</span> <span class="p">=&gt;</span> <span class="nx">computeExpensiveValue</span><span class="p">(</span><span class="nx">value</span><span class="p">),</span> <span class="p">[</span><span class="nx">value</span><span class="p">]);</span>
-</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="nx">handleClick</span> <span class="o">=</span> <span class="nx">useCallback</span><span class="p">(()</span> <span class="p">=&gt;</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Clicked&#39;</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">  <span class="p">},</span> <span class="p">[]);</span> <span class="c1">// 依赖列表为空，回调不会在重新渲染时改变
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
-</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="p">&lt;</span><span class="nt">button</span> <span class="na">onClick</span><span class="o">=</span><span class="p">{</span><span class="nx">handleClick</span><span class="p">}&gt;</span><span class="nx">Click</span> <span class="nx">me</span><span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;;</span>
-</span></span><span class="line"><span class="cl"><span class="p">};</span>
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-jsx" data-lang="jsx"><span class="kr">import</span> <span class="nx">React</span><span class="p">,</span> <span class="p">{</span> <span class="nx">useMemo</span><span class="p">,</span> <span class="nx">useCallback</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;react&#39;</span><span class="p">;</span>
+
+<span class="kr">const</span> <span class="nx">MyComponent</span> <span class="o">=</span> <span class="p">({</span> <span class="nx">value</span> <span class="p">})</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="kr">const</span> <span class="nx">expensiveResult</span> <span class="o">=</span> <span class="nx">useMemo</span><span class="p">(()</span> <span class="p">=&gt;</span> <span class="nx">computeExpensiveValue</span><span class="p">(</span><span class="nx">value</span><span class="p">),</span> <span class="p">[</span><span class="nx">value</span><span class="p">]);</span>
+  <span class="kr">const</span> <span class="nx">handleClick</span> <span class="o">=</span> <span class="nx">useCallback</span><span class="p">(()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Clicked&#39;</span><span class="p">);</span>
+  <span class="p">},</span> <span class="p">[]);</span> <span class="c1">// 依赖列表为空，回调不会在重新渲染时改变
+</span><span class="c1"></span>
+  <span class="k">return</span> <span class="p">&lt;</span><span class="nt">button</span> <span class="na">onClick</span><span class="o">=</span><span class="p">{</span><span class="nx">handleClick</span><span class="p">}&gt;</span><span class="nx">Click</span> <span class="nx">me</span><span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;;</span>
+<span class="p">};</span>
+</code></pre></td></tr></table>
 </div>
 </div><h3 id="5-避免在渲染方法中创建新的对象或函数">5. 避免在渲染方法中创建新的对象或函数</h3>
 <p>在类组件的<code>render</code>方法或函数组件中直接定义对象、数组或函数，会在每次渲染时创建新的引用，可能会触发子组件的不必要渲染。</p>
 <p>错误示例：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -249,14 +255,14 @@
 </span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">MyComponent</span> <span class="o">=</span> <span class="p">({</span> <span class="nx">value</span> <span class="p">})</span> <span class="p">=&gt;</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="nx">handleClick</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span> <span class="c1">// 每次渲染都会创建新的handleClick
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">value</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">  <span class="p">};</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="p">&lt;</span><span class="nt">ChildComponent</span> <span class="na">onClick</span><span class="o">=</span><span class="p">{</span><span class="nx">handleClick</span><span class="p">}</span> <span class="p">/&gt;;</span>
-</span></span><span class="line"><span class="cl"><span class="p">};</span>
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-jsx" data-lang="jsx"><span class="kr">const</span> <span class="nx">MyComponent</span> <span class="o">=</span> <span class="p">({</span> <span class="nx">value</span> <span class="p">})</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="kr">const</span> <span class="nx">handleClick</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span> <span class="c1">// 每次渲染都会创建新的handleClick
+</span><span class="c1"></span>    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">value</span><span class="p">);</span>
+  <span class="p">};</span>
+
+  <span class="k">return</span> <span class="p">&lt;</span><span class="nt">ChildComponent</span> <span class="na">onClick</span><span class="o">=</span><span class="p">{</span><span class="nx">handleClick</span><span class="p">}</span> <span class="p">/&gt;;</span>
+<span class="p">};</span>
+</code></pre></td></tr></table>
 </div>
 </div><p>正确做法是使用<code>useCallback</code>钩子缓存函数，以及将对象和数组等数据结构放在组件的状态中，或使用<code>useMemo</code>钩子缓存。</p>
 
@@ -333,7 +339,7 @@
 
 
 
-<script type="text/javascript" src="/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js"></script>
+<script type="text/javascript" src="/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
   <script type="text/javascript">
     window.MathJax = {
       tex: {

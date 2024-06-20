@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.124.1 with theme even" />
+<meta name="generator" content="Hugo 0.74.3 with theme even" />
 
 
 <link rel="canonical" href="https://urchinzhou.com/post/%E6%8C%87%E9%92%88/" />
@@ -35,21 +35,27 @@
 
 
 
-<link href="/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
+<link href="/sass/main.min.2e81bbed97b8b282c1aeb57488cc71c8d8c8ec559f3931531bd396bf31e0d4dd.css" rel="stylesheet">
 
 
 
 <meta property="og:title" content="一个野指针" />
 <meta property="og:description" content="1 2 3 //常见错误 int *a; *a = 12; 该代码段，声明了一个名为 a 的指针变量，之后将 12 存储在 a 所指向的空间中。 声明了变量 a，但未对其初始化，所以并不知道" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://urchinzhou.com/post/%E6%8C%87%E9%92%88/" /><meta property="article:section" content="post" />
+<meta property="og:url" content="https://urchinzhou.com/post/%E6%8C%87%E9%92%88/" />
 <meta property="article:published_time" content="2020-08-23T22:29:13+08:00" />
 <meta property="article:modified_time" content="2020-08-23T22:29:13+08:00" />
 <meta itemprop="name" content="一个野指针">
-<meta itemprop="description" content="1 2 3 //常见错误 int *a; *a = 12; 该代码段，声明了一个名为 a 的指针变量，之后将 12 存储在 a 所指向的空间中。 声明了变量 a，但未对其初始化，所以并不知道"><meta itemprop="datePublished" content="2020-08-23T22:29:13+08:00" />
+<meta itemprop="description" content="1 2 3 //常见错误 int *a; *a = 12; 该代码段，声明了一个名为 a 的指针变量，之后将 12 存储在 a 所指向的空间中。 声明了变量 a，但未对其初始化，所以并不知道">
+<meta itemprop="datePublished" content="2020-08-23T22:29:13+08:00" />
 <meta itemprop="dateModified" content="2020-08-23T22:29:13+08:00" />
 <meta itemprop="wordCount" content="410">
-<meta itemprop="keywords" content="c,pointer," /><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="一个野指针"/>
+
+
+
+<meta itemprop="keywords" content="c,pointer," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="一个野指针"/>
 <meta name="twitter:description" content="1 2 3 //常见错误 int *a; *a = 12; 该代码段，声明了一个名为 a 的指针变量，之后将 12 存储在 a 所指向的空间中。 声明了变量 a，但未对其初始化，所以并不知道"/>
 
 <!--[if lte IE 9]>
@@ -142,15 +148,15 @@
     <div class="post-content">
       <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="c1">//常见错误
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">int</span> <span class="o">*</span><span class="n">a</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="o">*</span><span class="n">a</span> <span class="o">=</span> <span class="mi">12</span><span class="p">;</span>
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-c" data-lang="c"><span class="c1">//常见错误
+</span><span class="c1"></span><span class="kt">int</span> <span class="o">*</span><span class="n">a</span><span class="p">;</span>
+<span class="o">*</span><span class="n">a</span> <span class="o">=</span> <span class="mi">12</span><span class="p">;</span>
+</code></pre></td></tr></table>
 </div>
 </div><p>该代码段，声明了一个名为 a 的指针变量，之后将 12 存储在 a 所指向的空间中。</p>
 <p>声明了变量 a，但未对其初始化，所以并不知道 a 所指向的具体位置，即数据 12 将存储于什么地方尚未可知。</p>
@@ -237,7 +243,7 @@
 
 
 
-<script type="text/javascript" src="/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js"></script>
+<script type="text/javascript" src="/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
   <script type="text/javascript">
     window.MathJax = {
       tex: {

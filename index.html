@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.124.1 with theme even" />
+<meta name="generator" content="Hugo 0.74.3 with theme even" />
 
 
 <link rel="canonical" href="https://urchinzhou.com/" />
@@ -37,7 +37,7 @@
 
 
 
-<link href="/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
+<link href="/sass/main.min.2e81bbed97b8b282c1aeb57488cc71c8d8c8ec559f3931531bd396bf31e0d4dd.css" rel="stylesheet">
 
 
 
@@ -45,8 +45,11 @@
 <meta property="og:description" content="Aries notebook" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://urchinzhou.com/" />
+<meta property="og:updated_time" content="2024-04-03T21:48:56+08:00" />
 <meta itemprop="name" content="Aries notebook">
-<meta itemprop="description" content="Aries notebook"><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Aries notebook"/>
+<meta itemprop="description" content="Aries notebook">
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Aries notebook"/>
 <meta name="twitter:description" content="Aries notebook"/>
 
 <!--[if lte IE 9]>
@@ -126,7 +129,7 @@
           <section id="posts" class="posts">
   <article class="post">
   <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/flex-shrink--flex-grow/">Flex Shrink &amp; Flex Grow</a></h1>
+    <h1 class="post-title"><a class="post-link" href="/post/flex-shrink-flex-grow/">Flex Shrink &amp; Flex Grow</a></h1>
     <div class="post-meta">
       <span class="post-time"> 2024-04-03 </span>
       <div class="post-category">
@@ -144,15 +147,15 @@
 <h3 id="语法">语法</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-css" data-lang="css"><span class="line"><span class="cl"><span class="p">.</span><span class="nc">item</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="k">flex-shrink</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">number</span><span class="o">&gt;</span><span class="p">;</span> <span class="c">/* 默认值是 1 */</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-css" data-lang="css"><span class="p">.</span><span class="nc">item</span> <span class="p">{</span>
+  <span class="k">flex-shrink</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">number</span><span class="o">&gt;</span><span class="p">;</span> <span class="c">/* 默认值是 1 */</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
 </div><ul>
 <li><code>&lt;number&gt;</code>: 是一个无单位的值，定义了flex项收缩的相对比率。默认值为<code>1</code>，表示flex项可以等比例收缩。如果设置为<code>0</code>，则表示flex项不会收缩。值越大，flex项收缩得越多。</li>
@@ -167,7 +170,7 @@
 <p>假设有一个flex容器和三个子项，其空间不足以容纳所有子项：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -184,22 +187,22 @@
 </span><span class="lnt">15
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-css" data-lang="css"><span class="line"><span class="cl"><span class="p">.</span><span class="nc">container</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="k">display</span><span class="p">:</span> <span class="kc">flex</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="p">.</span><span class="nc">item1</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="k">flex-shrink</span><span class="p">:</span> <span class="mi">1</span><span class="p">;</span> <span class="c">/* 默认值 */</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="p">.</span><span class="nc">item2</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="k">flex-shrink</span><span class="p">:</span> <span class="mi">2</span><span class="p">;</span> <span class="c">/* 在空间不足时，这个项会比 item1 收缩得更多 */</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="p">.</span><span class="nc">item3</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="k">flex-shrink</span><span class="p">:</span> <span class="mi">0</span><span class="p">;</span> <span class="c">/* 这个项不会收缩 */</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-css" data-lang="css"><span class="p">.</span><span class="nc">container</span> <span class="p">{</span>
+  <span class="k">display</span><span class="p">:</span> <span class="kc">flex</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="p">.</span><span class="nc">item1</span> <span class="p">{</span>
+  <span class="k">flex-shrink</span><span class="p">:</span> <span class="mi">1</span><span class="p">;</span> <span class="c">/* 默认值 */</span>
+<span class="p">}</span>
+
+<span class="p">.</span><span class="nc">item2</span> <span class="p">{</span>
+  <span class="k">flex-shrink</span><span class="p">:</span> <span class="mi">2</span><span class="p">;</span> <span class="c">/* 在空间不足时，这个项会比 item1 收缩得更多 */</span>
+<span class="p">}</span>
+
+<span class="p">.</span><span class="nc">item3</span> <span class="p">{</span>
+  <span class="k">flex-shrink</span><span class="p">:</span> <span class="mi">0</span><span class="p">;</span> <span class="c">/* 这个项不会收缩 */</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
 </div><p>在这个例子中，当容器空间不足以容纳所有子项时：</p>
 <ul>
@@ -217,15 +220,15 @@
 <h3 id="语法-1">语法</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-css" data-lang="css"><span class="line"><span class="cl"><span class="p">.</span><span class="nc">item</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="k">flex-grow</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">number</span><span class="o">&gt;</span><span class="p">;</span> <span class="c">/* 默认值是 0 */</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-css" data-lang="css"><span class="p">.</span><span class="nc">item</span> <span class="p">{</span>
+  <span class="k">flex-grow</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">number</span><span class="o">&gt;</span><span class="p">;</span> <span class="c">/* 默认值是 0 */</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
 </div><ul>
 <li><code>&lt;number&gt;</code>: 是一个无单位的值，定义了flex项增长的相对比率。默认值为<code>0</code>，表示flex项不会增长来填充额外的空间。如果所有子项的 <code>flex-grow</code> 值都为<code>0</code>，那么即使容器有额外的空间，子项也不会增长。</li>
@@ -240,7 +243,7 @@
 <p>假设有一个flex容器和三个子项，容器的空间大于所有子项正常所需的总空间：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -257,22 +260,22 @@
 </span><span class="lnt">15
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-css" data-lang="css"><span class="line"><span class="cl"><span class="p">.</span><span class="nc">container</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="k">display</span><span class="p">:</span> <span class="kc">flex</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="p">.</span><span class="nc">item1</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="k">flex-grow</span><span class="p">:</span> <span class="mi">1</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="p">.</span><span class="nc">item2</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="k">flex-grow</span><span class="p">:</span> <span class="mi">2</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="p">.</span><span class="nc">item3</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="k">flex-grow</span><span class="p">:</span> <span class="mi">0</span><span class="p">;</span> <span class="c">/* 这个项不会增长 */</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-css" data-lang="css"><span class="p">.</span><span class="nc">container</span> <span class="p">{</span>
+  <span class="k">display</span><span class="p">:</span> <span class="kc">flex</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="p">.</span><span class="nc">item1</span> <span class="p">{</span>
+  <span class="k">flex-grow</span><span class="p">:</span> <span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="p">.</span><span class="nc">item2</span> <span class="p">{</span>
+  <span class="k">flex-grow</span><span class="p">:</span> <span class="mi">2</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="p">.</span><span class="nc">item3</span> <span class="p">{</span>
+  <span class="k">flex-grow</span><span class="p">:</span> <span class="mi">0</span><span class="p">;</span> <span class="c">/* 这个项不会增长 */</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
 </div><p>在这个例子中，当容器有额外空间时：</p>
 <ul>
@@ -347,7 +350,7 @@
 
 
 
-<script type="text/javascript" src="/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js"></script>
+<script type="text/javascript" src="/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
   <script type="text/javascript">
     window.MathJax = {
       tex: {

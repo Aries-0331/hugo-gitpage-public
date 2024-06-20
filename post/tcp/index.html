@@ -17,7 +17,7 @@
 
 
 <meta name="author" content="" /><meta name="description" content="When reading the net/http code of golang, I was suddenly curious about the mechanism of tcp listen, then I googled and found this interesting Q&amp;amp;A - What happens when we say &amp;ldquo;listen to a port&amp;rdquo;? on StackOverflow.
-Q:When we start a server application, we always need to speicify the port number it listens to. But how is this &amp;ldquo;listening mechanism&amp;rdquo; implemented under the hood?
+ Q:When we start a server application, we always need to speicify the port number it listens to. But how is this &amp;ldquo;listening mechanism&amp;rdquo; implemented under the hood?
 My current imagination is like this:" /><meta name="keywords" content="Aries, blog, hugo" />
 
 
@@ -25,7 +25,7 @@ My current imagination is like this:" /><meta name="keywords" content="Aries, bl
 
 
 
-<meta name="generator" content="Hugo 0.124.1 with theme even" />
+<meta name="generator" content="Hugo 0.74.3 with theme even" />
 
 
 <link rel="canonical" href="https://urchinzhou.com/post/tcp/" />
@@ -37,27 +37,33 @@ My current imagination is like this:" /><meta name="keywords" content="Aries, bl
 
 
 
-<link href="/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
+<link href="/sass/main.min.2e81bbed97b8b282c1aeb57488cc71c8d8c8ec559f3931531bd396bf31e0d4dd.css" rel="stylesheet">
 
 
 
 <meta property="og:title" content="What happens when tcp listen to a port?" />
 <meta property="og:description" content="When reading the net/http code of golang, I was suddenly curious about the mechanism of tcp listen, then I googled and found this interesting Q&amp;A - What happens when we say &ldquo;listen to a port&rdquo;? on StackOverflow.
-Q:When we start a server application, we always need to speicify the port number it listens to. But how is this &ldquo;listening mechanism&rdquo; implemented under the hood?
+ Q:When we start a server application, we always need to speicify the port number it listens to. But how is this &ldquo;listening mechanism&rdquo; implemented under the hood?
 My current imagination is like this:" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://urchinzhou.com/post/tcp/" /><meta property="article:section" content="post" />
+<meta property="og:url" content="https://urchinzhou.com/post/tcp/" />
 <meta property="article:published_time" content="2020-06-29T18:24:09+08:00" />
 <meta property="article:modified_time" content="2020-06-29T18:24:09+08:00" />
 <meta itemprop="name" content="What happens when tcp listen to a port?">
 <meta itemprop="description" content="When reading the net/http code of golang, I was suddenly curious about the mechanism of tcp listen, then I googled and found this interesting Q&amp;A - What happens when we say &ldquo;listen to a port&rdquo;? on StackOverflow.
-Q:When we start a server application, we always need to speicify the port number it listens to. But how is this &ldquo;listening mechanism&rdquo; implemented under the hood?
-My current imagination is like this:"><meta itemprop="datePublished" content="2020-06-29T18:24:09+08:00" />
+ Q:When we start a server application, we always need to speicify the port number it listens to. But how is this &ldquo;listening mechanism&rdquo; implemented under the hood?
+My current imagination is like this:">
+<meta itemprop="datePublished" content="2020-06-29T18:24:09+08:00" />
 <meta itemprop="dateModified" content="2020-06-29T18:24:09+08:00" />
 <meta itemprop="wordCount" content="440">
-<meta itemprop="keywords" content="tcp," /><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="What happens when tcp listen to a port?"/>
+
+
+
+<meta itemprop="keywords" content="tcp," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="What happens when tcp listen to a port?"/>
 <meta name="twitter:description" content="When reading the net/http code of golang, I was suddenly curious about the mechanism of tcp listen, then I googled and found this interesting Q&amp;A - What happens when we say &ldquo;listen to a port&rdquo;? on StackOverflow.
-Q:When we start a server application, we always need to speicify the port number it listens to. But how is this &ldquo;listening mechanism&rdquo; implemented under the hood?
+ Q:When we start a server application, we always need to speicify the port number it listens to. But how is this &ldquo;listening mechanism&rdquo; implemented under the hood?
 My current imagination is like this:"/>
 
 <!--[if lte IE 9]>
@@ -186,7 +192,7 @@ My current imagination is like this:"/>
             <span class="prev-text nav-default">一个野指针</span>
             <span class="prev-text nav-mobile">Prev</span>
           </a>
-        <a class="next" href="/post/react-basic---components-and-props/">
+        <a class="next" href="/post/react-basic-components-and-props/">
             <span class="next-text nav-default">React Components and Props</span>
             <span class="next-text nav-mobile">Next</span>
             <i class="iconfont icon-right"></i>
@@ -244,7 +250,7 @@ My current imagination is like this:"/>
 
 
 
-<script type="text/javascript" src="/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js"></script>
+<script type="text/javascript" src="/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
   <script type="text/javascript">
     window.MathJax = {
       tex: {

@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.124.1 with theme even" />
+<meta name="generator" content="Hugo 0.74.3 with theme even" />
 
 
 <link rel="canonical" href="https://urchinzhou.com/" />
@@ -37,7 +37,7 @@
 
 
 
-<link href="/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
+<link href="/sass/main.min.2e81bbed97b8b282c1aeb57488cc71c8d8c8ec559f3931531bd396bf31e0d4dd.css" rel="stylesheet">
 
 
 
@@ -45,8 +45,11 @@
 <meta property="og:description" content="Aries notebook" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://urchinzhou.com/" />
+<meta property="og:updated_time" content="2024-04-03T21:48:56+08:00" />
 <meta itemprop="name" content="Aries notebook">
-<meta itemprop="description" content="Aries notebook"><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Aries notebook"/>
+<meta itemprop="description" content="Aries notebook">
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Aries notebook"/>
 <meta name="twitter:description" content="Aries notebook"/>
 
 <!--[if lte IE 9]>
@@ -126,9 +129,9 @@
           <section id="posts" class="posts">
   <article class="post">
   <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/react%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">React 设计模式</a></h1>
+    <h1 class="post-title"><a class="post-link" href="/post/batching-in-react/">Batching in React</a></h1>
     <div class="post-meta">
-      <span class="post-time"> 2024-01-11 </span>
+      <span class="post-time"> 2024-01-20 </span>
       
     </div>
   </header>
@@ -136,107 +139,32 @@
   <div class="post-content">
     
     <div class="post-summary">
-      <p>常见的 React 设计模式：</p>
-<h3 id="1-组件化">1. 组件化</h3>
-<p>将UI拆分成独立、可复用的组件是React开发的核心。每个组件只负责一部分的UI呈现，保持组件的职责单一。</p>
+      <h1 id="batching-in-react">Batching in React.</h1>
+<p>Batch updates in React are a mechanism to group multiple state updates into a single re-render for performance optimization. This helps in reducing the number of renders and thus improves performance, especially during complex state updates or when multiple updates happen in quick succession.</p>
+<h2 id="details-of-batch-updates-in-react">Details of Batch Updates in React</h2>
+<ol>
+<li><strong>Concept</strong>:
 <ul>
-<li><strong>原子设计</strong>：将UI拆分成最小单元（原子），然后组合成复杂的UI结构（分子和生物）。</li>
+<li>React batches state updates by default inside event handlers and lifecycle methods to avoid excessive re-renders.</li>
+<li>When multiple state updates occur within an event handler, React schedules a single re-render to reflect all the changes at once.</li>
 </ul>
-<h3 id="2-容器组件和展示组件">2. 容器组件和展示组件</h3>
-<p>这种模式通过将业务逻辑和UI呈现分离到两类不同的组件中来提高组件的复用性和可维护性。</p>
+</li>
+<li><strong>Mechanism</strong>:
 <ul>
-<li><strong>展示组件</strong>：关注于如何展示，通常只包含UI呈现逻辑。</li>
-<li><strong>容器组件</strong>：关注于如何工作，包含业务逻辑和数据处理。</li>
+<li>When a state update is triggered, React checks if it is currently batching updates.</li>
+<li>If batching is enabled, the updates are collected and processed together at the end of the event handler.</li>
+<li>If batching is not enabled (e.g., updates triggered from asynchronous callbacks like <code>setTimeout</code>), each update may result in a separate re-render.</li>
 </ul>
-<h3 id="3-高阶组件hoc">3. 高阶组件（HOC）</h3>
-<p>高阶组件是参数为组件，返回值为新组件的函数。HOC用于复用组件逻辑。</p>
+</li>
+</ol>
+<h2 id="react-code-for-batch-updates">React Code for Batch Updates</h2>
+<p>React&rsquo;s implementation of batch updates involves internal functions and mechanisms that manage the update lifecycle. Let&rsquo;s look at some relevant parts of the React source code to understand how it works.</p>
+<p><strong>Note</strong>: React codebase is large and complex. The following snippets are simplified for explanation.</p>
+<h3 id="batch-updates-in-react-17-and-earlier">Batch Updates in React 17 and earlier</h3>
+<p>In React 17 and earlier versions, React used a module called <code>ReactUpdates</code> for managing updates. The core of the batching mechanism is implemented in this module.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">withSubscription</span><span class="p">(</span><span class="nx">WrappedComponent</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="kr">class</span> <span class="kr">extends</span> <span class="nx">React</span><span class="p">.</span><span class="nx">Component</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="cm">/* ... */</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">render</span><span class="p">()</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">      <span class="k">return</span> <span class="p">&lt;</span><span class="nt">WrappedComponent</span> <span class="na">data</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">data</span><span class="p">}</span> <span class="p">{</span><span class="na">...this.props</span><span class="p">}</span> <span class="p">/&gt;;</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl">  <span class="p">};</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="4-函数作为子组件function-as-child-componentfacc">4. 函数作为子组件（Function as Child Component，FACC）</h3>
-<p>这种模式利用了React组件的<code>children</code>属性可以是任何类型，包括函数。这允许父组件向子组件传递数据和逻辑，而不是通过props。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">Mouse</span> <span class="na">render</span><span class="o">=</span><span class="p">{</span><span class="nx">mouse</span> <span class="p">=&gt;</span> <span class="p">(</span>
-</span></span><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nt">Cat</span> <span class="na">mouse</span><span class="o">=</span><span class="p">{</span><span class="nx">mouse</span><span class="p">}</span> <span class="p">/&gt;</span>
-</span></span><span class="line"><span class="cl"><span class="p">)}/&gt;</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="5-渲染道具render-props">5. 渲染道具（Render Props）</h3>
-<p>渲染道具是一种技术，通过一个函数prop（通常称为<code>render</code>），将组件的内部状态或逻辑传递给子组件。这与FACC非常相似，但更通用。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">DataProvider</span> <span class="na">render</span><span class="o">=</span><span class="p">{</span><span class="nx">data</span> <span class="p">=&gt;</span> <span class="p">(</span>
-</span></span><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;{</span><span class="nx">data</span><span class="p">.</span><span class="nx">title</span><span class="p">}&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
-</span></span><span class="line"><span class="cl"><span class="p">)}/&gt;</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="6-钩子hooks">6. 钩子（Hooks）</h3>
-<p>自React 16.8起，Hooks允许在无状态组件中使用状态和其他React特性，如<code>useState</code>和<code>useEffect</code>等。</p>
-<p><code>useState</code>允许函数组件拥有自己的状态。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="line"><span class="cl"><span class="kr">import</span> <span class="nx">React</span><span class="p">,</span> <span class="p">{</span> <span class="nx">useState</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;react&#39;</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">Counter</span><span class="p">()</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="p">[</span><span class="nx">count</span><span class="p">,</span> <span class="nx">setCount</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useState</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="p">(</span>
-</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
-</span></span><span class="line"><span class="cl">      <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span><span class="nx">You</span> <span class="nx">clicked</span> <span class="p">{</span><span class="nx">count</span><span class="p">}</span> <span class="nx">times</span><span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
-</span></span><span class="line"><span class="cl">      <span class="p">&lt;</span><span class="nt">button</span> <span class="na">onClick</span><span class="o">=</span><span class="p">{()</span> <span class="p">=&gt;</span> <span class="nx">setCount</span><span class="p">(</span><span class="nx">count</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)}&gt;</span><span class="nx">Click</span> <span class="nx">me</span><span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
-</span></span><span class="line"><span class="cl">    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-</span></span><span class="line"><span class="cl">  <span class="p">);</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p><code>useEffect</code>使得我们能够执行副作用操作，等同于类组件中的生命周期方法<code>componentDidMount</code>、<code>componentDidUpdate</code>和<code>componentWillUnmount</code>的组合。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -254,53 +182,123 @@
 </span><span class="lnt">16
 </span><span class="lnt">17
 </span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="line"><span class="cl"><span class="kr">import</span> <span class="nx">React</span><span class="p">,</span> <span class="p">{</span> <span class="nx">useState</span><span class="p">,</span> <span class="nx">useEffect</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;react&#39;</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">Example</span><span class="p">()</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="p">[</span><span class="nx">count</span><span class="p">,</span> <span class="nx">setCount</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useState</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">  <span class="c1">// 类似于componentDidMount 和 componentDidUpdate:
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="nx">useEffect</span><span class="p">(()</span> <span class="p">=&gt;</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="c1">// 更新文档的标题
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nb">document</span><span class="p">.</span><span class="nx">title</span> <span class="o">=</span> <span class="sb">`You clicked </span><span class="si">${</span><span class="nx">count</span><span class="si">}</span><span class="sb"> times`</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">  <span class="p">});</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="p">(</span>
-</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
-</span></span><span class="line"><span class="cl">      <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span><span class="nx">You</span> <span class="nx">clicked</span> <span class="p">{</span><span class="nx">count</span><span class="p">}</span> <span class="nx">times</span><span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
-</span></span><span class="line"><span class="cl">      <span class="p">&lt;</span><span class="nt">button</span> <span class="na">onClick</span><span class="o">=</span><span class="p">{()</span> <span class="p">=&gt;</span> <span class="nx">setCount</span><span class="p">(</span><span class="nx">count</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)}&gt;</span><span class="nx">Click</span> <span class="nx">me</span><span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
-</span></span><span class="line"><span class="cl">    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-</span></span><span class="line"><span class="cl">  <span class="p">);</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="c1">// Simplified version from React 17 source code
+</span><span class="c1"></span><span class="kd">let</span> <span class="nx">isBatchingUpdates</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">updateQueue</span> <span class="o">=</span> <span class="p">[];</span>
+
+<span class="kd">function</span> <span class="nx">batchedUpdates</span><span class="p">(</span><span class="nx">callback</span><span class="p">,</span> <span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">,</span> <span class="nx">c</span><span class="p">,</span> <span class="nx">d</span><span class="p">,</span> <span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+	<span class="kr">const</span> <span class="nx">alreadyBatchingUpdates</span> <span class="o">=</span> <span class="nx">isBatchingUpdates</span><span class="p">;</span>
+	<span class="nx">isBatchingUpdates</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+
+	<span class="c1">// Perform the callback (e.g., an event handler)
+</span><span class="c1"></span>	<span class="k">try</span> <span class="p">{</span>
+		<span class="k">return</span> <span class="nx">callback</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">,</span> <span class="nx">c</span><span class="p">,</span> <span class="nx">d</span><span class="p">,</span> <span class="nx">e</span><span class="p">);</span>
+	<span class="p">}</span> <span class="k">finally</span> <span class="p">{</span>
+		<span class="nx">isBatchingUpdates</span> <span class="o">=</span> <span class="nx">alreadyBatchingUpdates</span><span class="p">;</span>
+		<span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">isBatchingUpdates</span><span class="p">)</span> <span class="p">{</span>
+			<span class="c1">// Process the queued updates
+</span><span class="c1"></span>			<span class="nx">flushBatchedUpdates</span><span class="p">();</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">flushBatchedUpdates</span><span class="p">()</span> <span class="p">{</span>
+	<span class="c1">// Process all updates in the queue
+</span><span class="c1"></span>	<span class="k">while</span> <span class="p">(</span><span class="nx">updateQueue</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span> <span class="p">{</span>
+		<span class="kr">const</span> <span class="nx">update</span> <span class="o">=</span> <span class="nx">updateQueue</span><span class="p">.</span><span class="nx">shift</span><span class="p">();</span>
+		<span class="nx">update</span><span class="p">.</span><span class="nx">perform</span><span class="p">();</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
-</div><p><code>useContext</code>让我们能够在函数组件中使用React的Context API来实现跨组件的数据传递。</p>
+</div><p>In this simplified version:</p>
+<ul>
+<li><code>isBatchingUpdates</code> flag determines if React is currently batching updates.</li>
+<li><code>batchedUpdates</code> function enables batching by setting <code>isBatchingUpdates</code> to true, running the callback, and then flushing the queued updates.</li>
+<li><code>flushBatchedUpdates</code> processes the collected updates at the end of the batching period.</li>
+</ul>
+<h3 id="batch-updates-in-react-18-and-later">Batch Updates in React 18 and later</h3>
+<p>React 18 introduces a more sophisticated concurrency model with the new <code>ReactDOM.createRoot</code> API, which improves the ability to batch updates, especially in concurrent mode.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="line"><span class="cl"><span class="kr">import</span> <span class="nx">React</span><span class="p">,</span> <span class="p">{</span> <span class="nx">useContext</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;react&#39;</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">ThemeContext</span> <span class="o">=</span> <span class="nx">React</span><span class="p">.</span><span class="nx">createContext</span><span class="p">(</span><span class="s1">&#39;light&#39;</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">ThemedButton</span><span class="p">()</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="nx">theme</span> <span class="o">=</span> <span class="nx">useContext</span><span class="p">(</span><span class="nx">ThemeContext</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="p">&lt;</span><span class="nt">button</span> <span class="na">theme</span><span class="o">=</span><span class="p">{</span><span class="nx">theme</span><span class="p">}&gt;</span><span class="nx">I</span> <span class="nx">am</span> <span class="nx">styled</span> <span class="nx">by</span> <span class="nx">theme</span> <span class="nx">context</span><span class="o">!</span><span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;;</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="c1">// Simplified version from React 18 source code
+</span><span class="c1"></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">unstable_batchedUpdates</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&#34;react-dom&#34;</span><span class="p">;</span>
+
+<span class="kd">function</span> <span class="nx">batchedUpdates</span><span class="p">(</span><span class="nx">callback</span><span class="p">,</span> <span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">,</span> <span class="nx">c</span><span class="p">,</span> <span class="nx">d</span><span class="p">,</span> <span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+	<span class="nx">unstable_batchedUpdates</span><span class="p">(()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+		<span class="nx">callback</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">,</span> <span class="nx">c</span><span class="p">,</span> <span class="nx">d</span><span class="p">,</span> <span class="nx">e</span><span class="p">);</span>
+	<span class="p">});</span>
+<span class="p">}</span>
+
+<span class="c1">// Usage in an event handler
+</span><span class="c1"></span><span class="kd">function</span> <span class="nx">handleClick</span><span class="p">()</span> <span class="p">{</span>
+	<span class="nx">batchedUpdates</span><span class="p">(()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+		<span class="nx">setState1</span><span class="p">(</span><span class="nx">newState1</span><span class="p">);</span>
+		<span class="nx">setState2</span><span class="p">(</span><span class="nx">newState2</span><span class="p">);</span>
+	<span class="p">});</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
-</div><p>自定义钩子允许我们将组件逻辑提取到可重用的函数中。</p>
+</div><p>In this simplified version:</p>
+<ul>
+<li><code>unstable_batchedUpdates</code> is imported from <code>react-dom</code> and used to batch updates.</li>
+<li>It wraps the callback, ensuring that all state updates within the callback are batched together.</li>
+</ul>
+<h3 id="explanation-of-batch-updates">Explanation of Batch Updates</h3>
+<ol>
+<li><strong>Batched Updates</strong>:
+<ul>
+<li>React batches updates to minimize the number of re-renders.</li>
+<li>It ensures that multiple state updates within the same event handler are processed together, resulting in a single re-render.</li>
+</ul>
+</li>
+<li><strong>Event Handlers</strong>:
+<ul>
+<li>Inside event handlers, React batches updates automatically.</li>
+<li>This prevents excessive rendering during user interactions.</li>
+</ul>
+</li>
+<li><strong>Asynchronous Updates</strong>:
+<ul>
+<li>By default, updates triggered by asynchronous code (e.g., <code>setTimeout</code>, <code>fetch</code> callbacks) are not batched.</li>
+<li>In React 18, the <code>use</code> function and the automatic batching feature improve handling of asynchronous updates, allowing them to be batched more effectively.</li>
+</ul>
+</li>
+</ol>
+<h3 id="practical-example">Practical Example</h3>
+<p>Here’s an example demonstrating batched updates:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -324,53 +322,39 @@
 </span><span class="lnt">22
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="line"><span class="cl"><span class="kr">import</span> <span class="nx">React</span><span class="p">,</span> <span class="p">{</span> <span class="nx">useState</span><span class="p">,</span> <span class="nx">useEffect</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;react&#39;</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">useCounter</span><span class="p">(</span><span class="nx">initialCount</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="p">[</span><span class="nx">count</span><span class="p">,</span> <span class="nx">setCount</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useState</span><span class="p">(</span><span class="nx">initialCount</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">  <span class="nx">useEffect</span><span class="p">(()</span> <span class="p">=&gt;</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="nb">document</span><span class="p">.</span><span class="nx">title</span> <span class="o">=</span> <span class="sb">`Count: </span><span class="si">${</span><span class="nx">count</span><span class="si">}</span><span class="sb">`</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">  <span class="p">});</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="p">[</span><span class="nx">count</span><span class="p">,</span> <span class="nx">setCount</span><span class="p">];</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">Counter</span><span class="p">()</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="p">[</span><span class="nx">count</span><span class="p">,</span> <span class="nx">setCount</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useCounter</span><span class="p">();</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="p">(</span>
-</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
-</span></span><span class="line"><span class="cl">      <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;{</span><span class="nx">count</span><span class="p">}&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
-</span></span><span class="line"><span class="cl">      <span class="p">&lt;</span><span class="nt">button</span> <span class="na">onClick</span><span class="o">=</span><span class="p">{()</span> <span class="p">=&gt;</span> <span class="nx">setCount</span><span class="p">(</span><span class="nx">count</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)}&gt;</span><span class="nx">Increment</span><span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
-</span></span><span class="line"><span class="cl">    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-</span></span><span class="line"><span class="cl">  <span class="p">);</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kr">import</span> <span class="nx">React</span><span class="p">,</span> <span class="p">{</span> <span class="nx">useState</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&#34;react&#34;</span><span class="p">;</span>
+
+<span class="kd">function</span> <span class="nx">Counter</span><span class="p">()</span> <span class="p">{</span>
+	<span class="kr">const</span> <span class="p">[</span><span class="nx">count1</span><span class="p">,</span> <span class="nx">setCount1</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useState</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+	<span class="kr">const</span> <span class="p">[</span><span class="nx">count2</span><span class="p">,</span> <span class="nx">setCount2</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useState</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+
+	<span class="kd">function</span> <span class="nx">handleClick</span><span class="p">()</span> <span class="p">{</span>
+		<span class="nx">setCount1</span><span class="p">(</span><span class="nx">count1</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
+		<span class="nx">setCount2</span><span class="p">(</span><span class="nx">count2</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
+		<span class="c1">// Both updates are batched, resulting in a single re-render
+</span><span class="c1"></span>	<span class="p">}</span>
+
+	<span class="k">return</span> <span class="p">(</span>
+		<span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span>
+			<span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="nx">Count</span> <span class="mi">1</span><span class="o">:</span> <span class="p">{</span><span class="nx">count1</span><span class="p">}</span><span class="o">&lt;</span><span class="err">/p&gt;</span>
+			<span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="nx">Count</span> <span class="mi">2</span><span class="o">:</span> <span class="p">{</span><span class="nx">count2</span><span class="p">}</span><span class="o">&lt;</span><span class="err">/p&gt;</span>
+			<span class="o">&lt;</span><span class="nx">button</span> <span class="nx">onClick</span><span class="o">=</span><span class="p">{</span><span class="nx">handleClick</span><span class="p">}</span><span class="o">&gt;</span><span class="nx">Increment</span><span class="o">&lt;</span><span class="err">/button&gt;</span>
+		<span class="o">&lt;</span><span class="err">/div&gt;</span>
+	<span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kr">export</span> <span class="k">default</span> <span class="nx">Counter</span><span class="p">;</span>
+</code></pre></td></tr></table>
 </div>
-</div><p>React Hooks 不仅仅是一种语法糖，它们引入了一种全新的组件设计模式，使得状态和逻辑更容易在组件之间共享。通过自定义钩子，开发者可以构建高度复用的逻辑单元，从而使代码更加干净和模块化。这种模式减少了高阶组件（HOC）和渲染道具（Render Props）模式的需要，提供了一种更简单直观的方式来共享逻辑。</p>
-<h3 id="7-上下文contextapi">7. 上下文（Context）API</h3>
-<p>Context提供了一种在组件树中传递数据的方式，无需通过每层组件显式传递props。</p>
+</div><p>In this example, clicking the button will increment both <code>count1</code> and <code>count2</code>. Despite the two state updates, React will batch them together, resulting in a single re-render of the <code>Counter</code> component.</p>
+<h2 id="automatic-batching-in-react-18">Automatic Batching in React 18</h2>
+<p><strong>Automatic batching</strong> means that React will group multiple state updates into a single re-render, even if they occur in different contexts, such as asynchronous callbacks. This is a departure from earlier versions of React, where batching was primarily confined to event handlers.</p>
+<p>Consider the following example where state updates are triggered within a <code>setTimeout</code>:</p>
+<h3 id="react-17-behavior">React 17 Behavior</h3>
+<p>In React 17, each state update within an asynchronous callback would cause a separate re-render:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">UserContext.Provider</span> <span class="na">value</span><span class="o">=</span><span class="p">{</span><span class="nx">user</span><span class="p">}&gt;</span>
-</span></span><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nt">Component</span> <span class="p">/&gt;</span>
-</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">UserContext.Provider</span><span class="p">&gt;</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="8-受控组件和非受控组件">8. 受控组件和非受控组件</h3>
-<p>在React中处理表单输入时，受控组件通过React的状态来管理输入的值，而非受控组件则使用DOM本身的状态。</p>
-<h3 id="9-组件复合composition">9. 组件复合（Composition）</h3>
-<p>通过组合而非继承来构建组件之间的关系，以实现更灵活的代码复用。这通常涉及到将子组件作为props传递给父组件。</p>
-<p>假设我们有几个基础UI组件：<code>Button</code>、<code>Dialog</code>。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -385,29 +369,46 @@
 </span><span class="lnt">13
 </span><span class="lnt">14
 </span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="line"><span class="cl"><span class="c1">// Button 组件
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">function</span> <span class="nx">Button</span><span class="p">({</span> <span class="nx">children</span><span class="p">,</span> <span class="nx">onClick</span> <span class="p">})</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="p">(</span>
-</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">button</span> <span class="na">onClick</span><span class="o">=</span><span class="p">{</span><span class="nx">onClick</span><span class="p">}&gt;{</span><span class="nx">children</span><span class="p">}&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
-</span></span><span class="line"><span class="cl">  <span class="p">);</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">// Dialog 组件
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">function</span> <span class="nx">Dialog</span><span class="p">({</span> <span class="nx">children</span> <span class="p">})</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="p">(</span>
-</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">className</span><span class="o">=</span><span class="s">&#34;dialog&#34;</span><span class="p">&gt;</span>
-</span></span><span class="line"><span class="cl">      <span class="p">{</span><span class="nx">children</span><span class="p">}</span>
-</span></span><span class="line"><span class="cl">    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-</span></span><span class="line"><span class="cl">  <span class="p">);</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kr">import</span> <span class="nx">React</span><span class="p">,</span> <span class="p">{</span> <span class="nx">useState</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&#34;react&#34;</span><span class="p">;</span>
+
+<span class="kd">function</span> <span class="nx">Counter</span><span class="p">()</span> <span class="p">{</span>
+	<span class="kr">const</span> <span class="p">[</span><span class="nx">count1</span><span class="p">,</span> <span class="nx">setCount1</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useState</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+	<span class="kr">const</span> <span class="p">[</span><span class="nx">count2</span><span class="p">,</span> <span class="nx">setCount2</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useState</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+
+	<span class="kd">function</span> <span class="nx">handleAsyncUpdate</span><span class="p">()</span> <span class="p">{</span>
+		<span class="nx">setTimeout</span><span class="p">(()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+			<span class="nx">setCount1</span><span class="p">((</span><span class="nx">c</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">c</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span> <span class="c1">// Causes a re-render
+</span><span class="c1"></span>			<span class="nx">setCount2</span><span class="p">((</span><span class="nx">c</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">c</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span> <span class="c1">// Causes another re-render
+</span><span class="c1"></span>		<span class="p">},</span> <span class="mi">1000</span><span class="p">);</span>
+	<span class="p">}</span>
+
+	<span class="k">return</span> <span class="p">(</span>
+		<span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span>
+			<span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="nx">Count</span> <span class="mi">1</span><span class="o">:</span> <span class="p">{</span><span class="nx">count1</span><span class="p">}</span><span class="o">&lt;</span><span class="err">/p&gt;</span>
+			<span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="nx">Count</span> <span class="mi">2</span><span class="o">:</span> <span class="p">{</span><span class="nx">count2</span><span class="p">}</span><span class="o">&lt;</span><span class="err">/p&gt;</span>
+			<span class="o">&lt;</span><span class="nx">button</span> <span class="nx">onClick</span><span class="o">=</span><span class="p">{</span><span class="nx">handleAsyncUpdate</span><span class="p">}</span><span class="o">&gt;</span><span class="nx">Increment</span> <span class="nx">Async</span><span class="o">&lt;</span><span class="err">/button&gt;</span>
+		<span class="o">&lt;</span><span class="err">/div&gt;</span>
+	<span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kr">export</span> <span class="k">default</span> <span class="nx">Counter</span><span class="p">;</span>
+</code></pre></td></tr></table>
 </div>
-</div><p>现在，我们想要创建一个<code>WelcomeDialog</code>组件，它使用<code>Dialog</code>组件来展示欢迎信息，并且包含一个关闭按钮。</p>
+</div><h3 id="react-18-behavior">React 18 Behavior</h3>
+<p>In React 18, the same example will result in a single re-render due to automatic batching:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -418,37 +419,86 @@
 </span><span class="lnt"> 9
 </span><span class="lnt">10
 </span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">WelcomeDialog</span><span class="p">()</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="nx">handleClose</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="nx">alert</span><span class="p">(</span><span class="s1">&#39;Dialog will close now.&#39;</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">  
-</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="p">(</span>
-</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">Dialog</span><span class="p">&gt;</span>
-</span></span><span class="line"><span class="cl">      <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span><span class="nx">Welcome</span><span class="o">!</span><span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
-</span></span><span class="line"><span class="cl">      <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span><span class="nx">Thank</span> <span class="nx">you</span> <span class="k">for</span> <span class="nx">visiting</span> <span class="nx">our</span> <span class="nx">spacecraft</span><span class="o">!</span><span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
-</span></span><span class="line"><span class="cl">      <span class="p">&lt;</span><span class="nt">Button</span> <span class="na">onClick</span><span class="o">=</span><span class="p">{</span><span class="nx">handleClose</span><span class="p">}&gt;</span><span class="nx">Close</span><span class="p">&lt;/</span><span class="nt">Button</span><span class="p">&gt;</span>
-</span></span><span class="line"><span class="cl">    <span class="p">&lt;/</span><span class="nt">Dialog</span><span class="p">&gt;</span>
-</span></span><span class="line"><span class="cl">  <span class="p">);</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kr">import</span> <span class="nx">React</span><span class="p">,</span> <span class="p">{</span> <span class="nx">useState</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&#34;react&#34;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="nx">ReactDOM</span> <span class="nx">from</span> <span class="s2">&#34;react-dom/client&#34;</span><span class="p">;</span>
+
+<span class="kd">function</span> <span class="nx">Counter</span><span class="p">()</span> <span class="p">{</span>
+	<span class="kr">const</span> <span class="p">[</span><span class="nx">count1</span><span class="p">,</span> <span class="nx">setCount1</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useState</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+	<span class="kr">const</span> <span class="p">[</span><span class="nx">count2</span><span class="p">,</span> <span class="nx">setCount2</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useState</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+
+	<span class="kd">function</span> <span class="nx">handleAsyncUpdate</span><span class="p">()</span> <span class="p">{</span>
+		<span class="nx">setTimeout</span><span class="p">(()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+			<span class="nx">setCount1</span><span class="p">((</span><span class="nx">c</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">c</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span> <span class="c1">// Batched with the next update
+</span><span class="c1"></span>			<span class="nx">setCount2</span><span class="p">((</span><span class="nx">c</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">c</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span> <span class="c1">// Batched with the previous update
+</span><span class="c1"></span>		<span class="p">},</span> <span class="mi">1000</span><span class="p">);</span>
+	<span class="p">}</span>
+
+	<span class="k">return</span> <span class="p">(</span>
+		<span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span>
+			<span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="nx">Count</span> <span class="mi">1</span><span class="o">:</span> <span class="p">{</span><span class="nx">count1</span><span class="p">}</span><span class="o">&lt;</span><span class="err">/p&gt;</span>
+			<span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="nx">Count</span> <span class="mi">2</span><span class="o">:</span> <span class="p">{</span><span class="nx">count2</span><span class="p">}</span><span class="o">&lt;</span><span class="err">/p&gt;</span>
+			<span class="o">&lt;</span><span class="nx">button</span> <span class="nx">onClick</span><span class="o">=</span><span class="p">{</span><span class="nx">handleAsyncUpdate</span><span class="p">}</span><span class="o">&gt;</span><span class="nx">Increment</span> <span class="nx">Async</span><span class="o">&lt;</span><span class="err">/button&gt;</span>
+		<span class="o">&lt;</span><span class="err">/div&gt;</span>
+	<span class="p">);</span>
+<span class="p">}</span>
+
+<span class="c1">// Create a root to enable concurrent features and automatic batching
+</span><span class="c1"></span><span class="kr">const</span> <span class="nx">root</span> <span class="o">=</span> <span class="nx">ReactDOM</span><span class="p">.</span><span class="nx">createRoot</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&#34;root&#34;</span><span class="p">));</span>
+<span class="nx">root</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="o">&lt;</span><span class="nx">Counter</span> <span class="o">/&gt;</span><span class="p">);</span>
+</code></pre></td></tr></table>
 </div>
-</div><p>在这个例子中，<code>WelcomeDialog</code>组件通过将<code>Button</code>组件作为子组件传递给<code>Dialog</code>组件来复合它们。这展示了组件复合的基本思想：通过将子组件嵌入到父组件中来构建复杂的组件。</p>
-<h3 id="10-错误边界error-boundaries">10. 错误边界（Error Boundaries）</h3>
-<p>错误边界是React组件，它可以捕获其子组件树中JavaScript错误，记录这些错误，并显示一个备用UI。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">ErrorBoundary</span><span class="p">&gt;</span>
-</span></span><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nt">MyComponent</span> <span class="p">/&gt;</span>
-</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">ErrorBoundary</span><span class="p">&gt;</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>这些设计模式并不是孤立使用的，实际工作中需要灵活选择结合使用。</p>
+</div><p>In this example, even though the state updates happen within a <code>setTimeout</code>, React 18 batches them together and performs only one re-render after both state updates are applied.</p>
+<h3 id="benefits-of-automatic-batching">Benefits of Automatic Batching</h3>
+<ol>
+<li><strong>Improved Performance</strong>:
+<ul>
+<li>By reducing the number of re-renders, automatic batching significantly improves the performance of applications, especially those with frequent state updates.</li>
+</ul>
+</li>
+<li><strong>Consistency</strong>:
+<ul>
+<li>Developers do not need to worry about whether updates are happening synchronously or asynchronously. React handles batching consistently across different contexts.</li>
+</ul>
+</li>
+<li><strong>Simpler Code</strong>:
+<ul>
+<li>Automatic batching simplifies the mental model for developers. You no longer need to use special APIs or workarounds to ensure updates are batched in asynchronous code.</li>
+</ul>
+</li>
+</ol>
+<h2 id="additional-enhancements-in-react-18">Additional Enhancements in React 18</h2>
+<p>Alongside automatic batching, React 18 introduces other concurrent features that improve the user experience and performance:</p>
+<ol>
+<li><strong>Concurrent Rendering</strong>:
+<ul>
+<li>React 18 allows rendering to be interrupted and resumed, making it possible to handle complex updates without blocking the main thread.</li>
+</ul>
+</li>
+<li><strong>Transition API</strong>:
+<ul>
+<li>The new <code>startTransition</code> API lets developers mark updates as non-urgent, allowing React to prioritize important updates while deferring less critical ones.</li>
+</ul>
+</li>
+</ol>
+<h2 id="conclusion">Conclusion</h2>
+<p>Automatic batching in React 18 is a powerful feature that enhances performance by minimizing unnecessary re-renders. It extends batching behavior to asynchronous contexts, making state management more efficient and consistent.</p>
 
     </div>
     
@@ -512,7 +562,7 @@
 
 
 
-<script type="text/javascript" src="/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js"></script>
+<script type="text/javascript" src="/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
   <script type="text/javascript">
     window.MathJax = {
       tex: {

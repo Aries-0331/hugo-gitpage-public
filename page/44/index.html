@@ -45,7 +45,7 @@
 <meta property="og:description" content="Aries notebook" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://urchinzhou.com/" />
-<meta property="og:updated_time" content="2024-04-03T21:48:56+08:00" />
+<meta property="og:updated_time" content="2024-05-22T15:57:29+08:00" />
 <meta itemprop="name" content="Aries notebook">
 <meta itemprop="description" content="Aries notebook">
 <meta name="twitter:card" content="summary"/>
@@ -129,11 +129,11 @@
           <section id="posts" class="posts">
   <article class="post">
   <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/react-basic-components-and-props/">React Components and Props</a></h1>
+    <h1 class="post-title"><a class="post-link" href="/post/tcp/">What happens when tcp listen to a port?</a></h1>
     <div class="post-meta">
-      <span class="post-time"> 2020-02-05 </span>
+      <span class="post-time"> 2020-06-29 </span>
       <div class="post-category">
-        <a href="/%20categories/react/"> React </a>
+        <a href="/%20categories/tcp/ip/"> TCP/IP </a>
         </div>
     </div>
   </header>
@@ -141,288 +141,30 @@
   <div class="post-content">
     
     <div class="post-summary">
-      <h1 id="components">Components</h1>
-<h2 id="what-is-components">What is components?</h2>
-<p>Components are one of the core concepts of React. They are the foundation upon which we build user interfaces(UI) - UI building blocks.</p>
-<p>Taking traditional Web development as an example, HTML lets us create rich structured documents with its built-in set of tags like <code>&lt;h1&gt;</code> and <code>&lt;li&gt;</code>:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">article</span><span class="p">&gt;</span>
-  <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>My First Component<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
-  <span class="p">&lt;</span><span class="nt">ol</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>Components: UI Building Blocks<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>Defining a Component<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>Using a Component<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
-  <span class="p">&lt;/</span><span class="nt">ol</span><span class="p">&gt;</span>
-<span class="p">&lt;/</span><span class="nt">article</span><span class="p">&gt;</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>This markup combined with CSS for style, and then JavaScript for interactivity, lies behind every sidebar, avatar, modal, dropdown &ndash; every piece of UI we see on the Web.</p>
-<p>However, React lets us combine our markup, CSS and JavaScript into custom &ldquo;components&rdquo;, <strong>reusable UI elements for app</strong>. Just like with HTML tags, we can compose, order and nest components to design whole pages. For example, the react documentation page is make out of React components:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-react" data-lang="react"><span class="p">&lt;</span><span class="nt">PageLayout</span><span class="p">&gt;</span>
-  <span class="p">&lt;</span><span class="nt">NavigationHeader</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">SearchBar</span> <span class="p">/&gt;</span>
-    <span class="p">&lt;</span><span class="nt">Link</span> <span class="na">to</span><span class="o">=</span><span class="s">&#34;/docs&#34;</span><span class="p">&gt;</span><span class="nx">Docs</span><span class="p">&lt;/</span><span class="nt">Link</span><span class="p">&gt;</span>
-  <span class="p">&lt;/</span><span class="nt">NavigationHeader</span><span class="p">&gt;</span>
-  <span class="p">&lt;</span><span class="nt">Sidebar</span> <span class="p">/&gt;</span>
-  <span class="p">&lt;</span><span class="nt">PageContent</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">TableOfContents</span> <span class="p">/&gt;</span>
-    <span class="p">&lt;</span><span class="nt">DocumentationText</span> <span class="p">/&gt;</span>
-  <span class="p">&lt;/</span><span class="nt">PageContent</span><span class="p">&gt;</span>
-<span class="p">&lt;/</span><span class="nt">PageLayout</span><span class="p">&gt;</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>As projects grows, we will notice that many of our designs can be composed by reusing components we already wrote, or even jumpstart a project with the thousands of components shared by the React open source community like <a href="https://chakra-ui.com/">Chakra UI</a> and <a href="https://material-ui.com/">Material UI</a>.</p>
-<p>React puts interactivity first: <strong>a React component is a JavaScript function that you can sprinkle with markup</strong>.</p>
-<p><strong>Nesting and organizing</strong></p>
-<p>Components are regular JavaScript functions, so you can keep multiple components in the same file. This is convenient when components are relatively small or tightly related to each other.  We can define a component once, and then use it in as many places and as many times as we like.</p>
-<p><strong>Recap</strong></p>
+      <p>When reading the net/http code of golang, I was suddenly curious about the mechanism of tcp listen, then I googled and found this interesting Q&amp;A - <a href="https://stackoverflow.com/questions/4530187/what-happens-when-we-say-listen-to-a-port">What happens when we say &ldquo;listen to a port&rdquo;?</a> on StackOverflow.</p>
+<blockquote>
+<p>Q:When we start a server application, we always need to speicify the port number it listens to. But how is this &ldquo;listening mechanism&rdquo; implemented under the hood?</p>
+<p>My current <em>imagination</em> is like this:</p>
+<p>The operating system associate the port number with some buffer. The server application&rsquo;s responsibiliy is to monitor this buffer. If there&rsquo;s no data in this buffer, the server application&rsquo;s listen operation will just <strong>*block*</strong> the application.</p>
+<p>When some data arrives from the wire, the operating system will <strong>*know*</strong> that and then check the data and see if it is targeted at this port number. And then it will fill the <strong>*corresponding*</strong> buffer. And then OS will notify the blocked server application and the server application will get the data and continue to run.</p>
+<p>Question is:</p>
 <ul>
-<li>Components are reusable UI elements for app</li>
-<li>In a React app, every piece of UI is a component</li>
-<li>React components are regular JavaScript functions except:
+<li>If the above scenario is correct, how could the opearting system <strong>*know*</strong> there&rsquo;s data arriving from wire? It cannot be a busy polling. Is it some kind of interrupt-based mechanism?</li>
+<li>If there&rsquo;s too much data arriving and the buffer is not big enough, will there be data loss?</li>
+<li>Is the &ldquo;listen to a port&rdquo; operation really a blocking operation?</li>
+</ul>
+</blockquote>
+<p>The accepted answer is :</p>
+<blockquote>
+<p>There is <em>no buffer</em> that the application monitors. Instead, the application calls listen() at some point, and the OS remembers from then on that this application is interested in new connections to that port number. Only one application can indicate interest in a certain port at any time.</p>
+<p>The listen operation does <em>not block</em>. Instead, it returns right away. What may block is <a href="http://linux.die.net/man/2/accept"><code>accept()</code></a>. The system has a backlog of incoming connections (buffering the data that have been received), and returns one of the connections every time accept is called. accept doesn&rsquo;t transmit any data; the application must then do recv() calls on the accepted socket.</p>
+<p>As to your questions:</p>
 <ul>
-<li>Their names always begin with a capital letter</li>
-<li>They return JSX markup</li>
+<li>as others have said: hardware interrupts. The NIC takes the datagram completely off the wire, interrupts, and is assigned an address in memory to copy it to.</li>
+<li>for TCP, there will be no data loss, as there will always be sufficient memory during the communication. TCP has flow control, and the sender will stop sending before the receiver has no more memory. For UDP and new TCP connections, there can be data loss; the sender will typically get an error indication (as the system reserves memory to accept just one more datagram).</li>
+<li>see above: listen itself is not blocking; accept is.</li>
 </ul>
-</li>
-</ul>
-<h1 id="props">Props</h1>
-<h2 id="what-are-props">What are Props?</h2>
-<p>Props simply stands for properties.</p>
-<p>They are what make components reusable. Because they perform an essential function – they pass data from one component to another.  Basically, these props components are read-only components.</p>
-<p>Props act as a channel for component communication. Props are passed from parent to child and help your child access properties that made it into the parent&rsquo;s tree.</p>
-<h2 id="how-to-use-props">How to use props?</h2>
-<p>There are two ways to use props, without destructuring and with destructuring.</p>
-<p><strong>Using Props With Destructuring</strong></p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-react" data-lang="react"><span class="c1">//MyProducts.js
-</span><span class="c1"></span><span class="kr">import</span> <span class="nx">React</span> <span class="nx">from</span> <span class="s2">&#34;react&#34;</span><span class="p">;</span>
- 
-<span class="kd">function</span> <span class="nx">MyProducts</span><span class="p">(</span><span class="nx">props</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">return</span> <span class="p">(</span>
-    <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
-      <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;{</span><span class="nx">props</span><span class="p">.</span><span class="nx">name</span><span class="p">}&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
-      <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;{</span><span class="nx">props</span><span class="p">.</span><span class="nx">description</span><span class="p">}&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
-      <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;{</span><span class="nx">props</span><span class="p">.</span><span class="nx">price</span><span class="p">}&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
-    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-  <span class="p">);</span>
-<span class="p">}</span>
- 
-<span class="kr">export</span> <span class="k">default</span> <span class="nx">MyProducts</span><span class="p">;</span>
-</code></pre></td></tr></table>
-</div>
-</div><p><code>props</code> is an argument in function, we can access it by writing <code>props.name</code>, <code>props.price</code>, and <code>props.description</code>.</p>
-<p>Then we can render the product and pass some data to there three props in <code>App.js</code>. Props are passed in like HTML attributes.</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-react" data-lang="react"><span class="c1">//App.js
-</span><span class="c1"></span><span class="kr">import</span> <span class="s2">&#34;./App.css&#34;</span><span class="p">;</span>
-<span class="kr">import</span> <span class="nx">MyProducts</span> <span class="nx">from</span> <span class="s2">&#34;./MyProducts&#34;</span><span class="p">;</span>
-<span class="kd">function</span> <span class="nx">App</span><span class="p">()</span> <span class="p">{</span>
-  <span class="k">return</span> <span class="p">(</span>
-    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">className</span><span class="o">=</span><span class="s">&#34;App&#34;</span><span class="p">&gt;</span>
-      <span class="p">&lt;</span><span class="nt">MyProducts</span>
-        <span class="na">name</span><span class="o">=</span><span class="s">&#34;temitope&#34;</span>
-        <span class="na">description</span><span class="o">=</span><span class="s">&#34;the product has fantastic features&#34;</span>
-        <span class="na">price</span><span class="o">=</span><span class="p">{</span><span class="mi">1000</span><span class="p">}</span>
-      <span class="p">/&gt;</span>
-    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-  <span class="p">);</span>
-<span class="p">}</span>
- 
-<span class="kr">export</span> <span class="k">default</span> <span class="nx">App</span><span class="p">;</span>
-</code></pre></td></tr></table>
-</div>
-</div><p><strong>Using Props With Destructuring</strong></p>
-<p>Destructuring is a JavaScript feature that allows us to extract sections of data from an array or object.</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-react" data-lang="react"><span class="c1">//traditionally
-</span><span class="c1"></span><span class="kr">const</span> <span class="nx">todo</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&#34;bath&#34;</span><span class="p">,</span><span class="s2">&#34;sleep&#34;</span><span class="p">,</span><span class="s2">&#34;eat&#34;</span><span class="p">];</span>
-<span class="c1">// old way
-</span><span class="c1"></span><span class="kr">const</span> <span class="nx">firstTodo</span> <span class="o">=</span> <span class="nx">todo</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span><span class="c1">//bath
-</span><span class="c1"></span><span class="kr">const</span> <span class="nx">secondTodo</span> <span class="o">=</span> <span class="nx">todo</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span><span class="c1">//sleep
-</span><span class="c1"></span> 
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">firstTodo</span><span class="p">);</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">secondTodo</span><span class="p">);</span>
-
-<span class="c1">//destructuring offers a easier way to do so
-</span><span class="c1"></span><span class="kr">const</span> <span class="nx">todo</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&#34;bath&#34;</span><span class="p">,</span><span class="s2">&#34;sleep&#34;</span><span class="p">,</span><span class="s2">&#34;eat&#34;</span><span class="p">];</span>
- 
-<span class="c1">// destructuring
-</span><span class="c1"></span><span class="kr">const</span> <span class="p">[</span><span class="nx">firstTodo</span><span class="p">,</span> <span class="nx">secondTodo</span><span class="p">]</span> <span class="o">=</span> <span class="nx">todo</span><span class="p">;</span><span class="c1">// bath, sleep
-</span><span class="c1"></span> 
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">firstTodo</span><span class="p">);</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">secondTodo</span><span class="p">);</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>So in react, we can use destructuring to pull apart or unpack props, which lets us access props and use them more readable. Just like this:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-react" data-lang="react"><span class="kr">import</span> <span class="nx">React</span> <span class="nx">from</span> <span class="s2">&#34;react&#34;</span><span class="p">;</span>
- 
-<span class="kd">function</span> <span class="nx">MyProducts</span><span class="p">({</span> <span class="nx">name</span><span class="p">,</span> <span class="nx">description</span><span class="p">,</span> <span class="nx">price</span> <span class="p">})</span> <span class="p">{</span>
-  <span class="k">return</span> <span class="p">(</span>
-    <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
-      <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;{</span><span class="nx">name</span><span class="p">}&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
-      <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;{</span><span class="nx">description</span><span class="p">}&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
-      <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;{</span><span class="nx">price</span><span class="p">}&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
-    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-  <span class="p">);</span>
-<span class="p">}</span>
- 
-<span class="kr">export</span> <span class="k">default</span> <span class="nx">MyProducts</span><span class="p">;</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>And in this way, we can create another child component in which we can pass down the parent&rsquo;s attributes.</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-react" data-lang="react"><span class="kr">import</span> <span class="nx">React</span> <span class="nx">from</span> <span class="s2">&#34;react&#34;</span><span class="p">;</span>
- 
-<span class="kd">function</span> <span class="nx">AdditionalDescription</span><span class="p">([</span><span class="nx">name</span><span class="p">,</span> <span class="nx">description</span><span class="p">])</span> <span class="p">{</span>
-  <span class="k">return</span> <span class="p">(</span>
-  <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
-      <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;{</span><span class="nx">name</span><span class="p">}&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
-      <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;{</span><span class="nx">description</span><span class="p">}&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
-  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-  <span class="p">)</span>
-<span class="p">}</span>
- 
-<span class="kr">export</span> <span class="k">default</span> <span class="nx">AdditionalDescription</span><span class="p">;</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>Then render the <code>AdditionalDescription</code> in <code>App.js</code> and pass down some props to it:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-react" data-lang="react"><span class="p">&lt;</span><span class="nt">AdditionalDescription</span> <span class="na">name</span><span class="o">=</span><span class="p">{</span><span class="nx">name</span><span class="p">}</span> <span class="na">description</span><span class="o">=</span><span class="p">{</span><span class="nx">description</span><span class="p">}</span> <span class="p">/&gt;</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>So the child can take the props of the parent.</p>
-<h3 id="about-prop-drilling">About prop drilling?</h3>
-<p>Prop drilling is basically a situation when the same data is being sent at almost every level due to requirements in the final level.</p>
-<h3 id="why-not-to-use-prop-drilling">Why not to use prop drilling?</h3>
-<ol>
-<li><strong>Code Complexity:</strong> As components grow, prop drilling increases code complexity as it is difficult to track the flow of data through various components.</li>
-<li><strong>Reduced Maintainability:</strong> It will become very challenging to maintain the code with prop drilling. When changes are required in the data flow, you need to make changes in many components.</li>
-<li><strong>Performance Overhead:</strong> We have to pass props through unnecessary intermediary components which can impact performance.</li>
-<li><strong>Decreased Component Reusability:</strong> Components used in prop drilling become tightly coupled to the structure of the parent components, so it very difficult to use it on other parts of the application.</li>
-<li><strong>Increased Development Time:</strong> Prop drilling often requires additional planning to implement. This can slow down the development process, especially when the component hierarchies is complex.</li>
-</ol>
-<h3 id="how-to-avoid-prop-drilling">How to avoid prop drilling?</h3>
-<p>The problem with Prop Drilling is that whenever data from the Parent component will be needed, it would have to come from each level, Regardless of the fact that it is not needed there and simply needed in last.</p>
-<p>A better alternative to this is using <strong>useContext</strong> hook. The <strong>useContext</strong> hook is based on Context API and works on the mechanism of Provider and Consumer. Provider needs to wrap components inside Provider Components in which data have to be consumed. Then in those components, using the <strong>useContext</strong> hook that data needs to be consumed.</p>
+</blockquote>
 
     </div>
     

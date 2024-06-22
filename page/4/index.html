@@ -45,7 +45,7 @@
 <meta property="og:description" content="Aries notebook" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://urchinzhou.com/" />
-<meta property="og:updated_time" content="2024-04-03T21:48:56+08:00" />
+<meta property="og:updated_time" content="2024-05-22T15:57:29+08:00" />
 <meta itemprop="name" content="Aries notebook">
 <meta itemprop="description" content="Aries notebook">
 <meta name="twitter:card" content="summary"/>
@@ -129,11 +129,11 @@
           <section id="posts" class="posts">
   <article class="post">
   <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/seo/">SEO</a></h1>
+    <h1 class="post-title"><a class="post-link" href="/post/batching-in-react/">Batching in React</a></h1>
     <div class="post-meta">
-      <span class="post-time"> 2024-01-02 </span>
+      <span class="post-time"> 2024-01-20 </span>
       <div class="post-category">
-        <a href="/%20categories/web/"> Web </a>
+        <a href="/%20categories/react/"> React </a>
         </div>
     </div>
   </header>
@@ -141,52 +141,366 @@
   <div class="post-content">
     
     <div class="post-summary">
-      <p>搜索引擎优化（SEO）是一种提高网站在搜索引擎中的可见度的过程，使其更有可能吸引潜在客户和访问者。SEO主要关注提升网站在非付费搜索结果中的排名。SEO既是一种艺术也是一种科学，因为它既包括创造性的策略，也包括系统的实践。</p>
-<h3 id="seo的关键元素">SEO的关键元素</h3>
+      <h1 id="batching-in-react">Batching in React.</h1>
+<p>Batch updates in React are a mechanism to group multiple state updates into a single re-render for performance optimization. This helps in reducing the number of renders and thus improves performance, especially during complex state updates or when multiple updates happen in quick succession.</p>
+<h2 id="details-of-batch-updates-in-react">Details of Batch Updates in React</h2>
 <ol>
-<li><strong>关键词研究</strong>：找出目标受众在搜索引擎中搜索的词汇。关键词应该精确地反映你的网站内容和服务。</li>
-<li><strong>内容优化</strong>：创建高质量、相关性强的内容，确保内容围绕目标关键词构建。内容不仅要对搜索引擎友好，更重要的是要对用户有价值。</li>
-<li><strong>技术SEO</strong>：涉及网站的技术方面，以确保搜索引擎可以轻松地抓取和索引网站。这包括网站结构、URL结构、使用robots.txt文件和sitemap.xml文件等。</li>
-<li><strong>页面优化</strong>：确保每个页面的元素（如标题标签、元描述标签、ALT标签等）都被优化，以突出重要的关键词。</li>
-<li><strong>移动优化</strong>：随着移动搜索的增加，确保网站在移动设备上表现良好变得尤为重要。这包括响应式设计、加载速度优化等。</li>
-<li><strong>用户体验（UX）</strong>：提供良好的用户体验，包括网站的导航、页面加载速度、可用性和内容质量，这些因素都会影响网站的排名。</li>
-<li><strong>外链建设</strong>：获得来自其他网站的高质量链接。外链是搜索引擎用来衡量网站权威性的关键指标。</li>
-<li><strong>社交信号</strong>：虽然社交媒体直接影响排名的证据不足，但社交媒体活动可以提高内容的曝光率，间接影响SEO。</li>
+<li><strong>Concept</strong>:
+<ul>
+<li>React batches state updates by default inside event handlers and lifecycle methods to avoid excessive re-renders.</li>
+<li>When multiple state updates occur within an event handler, React schedules a single re-render to reflect all the changes at once.</li>
+</ul>
+</li>
+<li><strong>Mechanism</strong>:
+<ul>
+<li>When a state update is triggered, React checks if it is currently batching updates.</li>
+<li>If batching is enabled, the updates are collected and processed together at the end of the event handler.</li>
+<li>If batching is not enabled (e.g., updates triggered from asynchronous callbacks like <code>setTimeout</code>), each update may result in a separate re-render.</li>
+</ul>
+</li>
 </ol>
-<h3 id="最佳实践">最佳实践</h3>
-<h4 id="1-确保网站的可爬取性">1. 确保网站的可爬取性</h4>
-<p><strong>使用robots.txt文件</strong>：正确配置<code>robots.txt</code>文件来指示搜索引擎哪些页面应该被爬取，哪些不应该。</p>
-<p><strong>生成并提交网站地图</strong>：创建XML网站地图并通过Google Search Console等工具提交，帮助搜索引擎发现网站上的所有页面。</p>
-<h4 id="2-提高网站速度">2. 提高网站速度</h4>
-<p><strong>优化图片</strong>：压缩图片大小而不损失质量，使用现代格式如WebP。</p>
-<p><strong>减少HTTP请求</strong>：合并CSS和JavaScript文件，减少页面加载时的请求次数。</p>
-<p><strong>使用浏览器缓存</strong>：通过配置HTTP缓存头，使浏览器存储已加载资源的副本，减少未来请求的加载时间。</p>
-<p><strong>利用CDN</strong>：使用内容分发网络（CDN）可以减少资源的加载时间，特别是对于地理位置分散的访问者。</p>
-<h4 id="3-实现响应式设计">3. 实现响应式设计</h4>
+<h2 id="react-code-for-batch-updates">React Code for Batch Updates</h2>
+<p>React&rsquo;s implementation of batch updates involves internal functions and mechanisms that manage the update lifecycle. Let&rsquo;s look at some relevant parts of the React source code to understand how it works.</p>
+<p><strong>Note</strong>: React codebase is large and complex. The following snippets are simplified for explanation.</p>
+<h3 id="batch-updates-in-react-17-and-earlier">Batch Updates in React 17 and earlier</h3>
+<p>In React 17 and earlier versions, React used a module called <code>ReactUpdates</code> for managing updates. The core of the batching mechanism is implemented in this module.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="c1">// Simplified version from React 17 source code
+</span><span class="c1"></span><span class="kd">let</span> <span class="nx">isBatchingUpdates</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">updateQueue</span> <span class="o">=</span> <span class="p">[];</span>
+
+<span class="kd">function</span> <span class="nx">batchedUpdates</span><span class="p">(</span><span class="nx">callback</span><span class="p">,</span> <span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">,</span> <span class="nx">c</span><span class="p">,</span> <span class="nx">d</span><span class="p">,</span> <span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+	<span class="kr">const</span> <span class="nx">alreadyBatchingUpdates</span> <span class="o">=</span> <span class="nx">isBatchingUpdates</span><span class="p">;</span>
+	<span class="nx">isBatchingUpdates</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+
+	<span class="c1">// Perform the callback (e.g., an event handler)
+</span><span class="c1"></span>	<span class="k">try</span> <span class="p">{</span>
+		<span class="k">return</span> <span class="nx">callback</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">,</span> <span class="nx">c</span><span class="p">,</span> <span class="nx">d</span><span class="p">,</span> <span class="nx">e</span><span class="p">);</span>
+	<span class="p">}</span> <span class="k">finally</span> <span class="p">{</span>
+		<span class="nx">isBatchingUpdates</span> <span class="o">=</span> <span class="nx">alreadyBatchingUpdates</span><span class="p">;</span>
+		<span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">isBatchingUpdates</span><span class="p">)</span> <span class="p">{</span>
+			<span class="c1">// Process the queued updates
+</span><span class="c1"></span>			<span class="nx">flushBatchedUpdates</span><span class="p">();</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">flushBatchedUpdates</span><span class="p">()</span> <span class="p">{</span>
+	<span class="c1">// Process all updates in the queue
+</span><span class="c1"></span>	<span class="k">while</span> <span class="p">(</span><span class="nx">updateQueue</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span> <span class="p">{</span>
+		<span class="kr">const</span> <span class="nx">update</span> <span class="o">=</span> <span class="nx">updateQueue</span><span class="p">.</span><span class="nx">shift</span><span class="p">();</span>
+		<span class="nx">update</span><span class="p">.</span><span class="nx">perform</span><span class="p">();</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>In this simplified version:</p>
 <ul>
-<li><strong>使用媒体查询</strong>：确保你的网站在不同设备上都能良好展示。</li>
-<li><strong>优化布局</strong>：使内容在小屏设备上易于阅读，避免用户需要缩放或水平滚动。</li>
+<li><code>isBatchingUpdates</code> flag determines if React is currently batching updates.</li>
+<li><code>batchedUpdates</code> function enables batching by setting <code>isBatchingUpdates</code> to true, running the callback, and then flushing the queued updates.</li>
+<li><code>flushBatchedUpdates</code> processes the collected updates at the end of the batching period.</li>
 </ul>
-<h4 id="4-改善网站结构和url">4. 改善网站结构和URL</h4>
-<p><strong>简洁明了的URL</strong>：使用易于理解和描述内容的URL结构。</p>
-<p><strong>合理的站点架构</strong>：使网站的结构逻辑清晰，确保重要的页面不会埋得太深，一般来说，从主页到任何页面的点击次数不应超过三次。</p>
-<h4 id="5-提升网站安全性">5. 提升网站安全性</h4>
-<p><strong>使用HTTPS</strong>：Google已将HTTPS作为排名因素，确保你的网站使用安全的连接。</p>
-<h4 id="6-提高用户体验">6. 提高用户体验</h4>
-<p><strong>减少弹窗和干扰</strong>：过多的弹窗和广告会影响用户体验，从而间接影响SEO。</p>
-<p><strong>清晰的导航</strong>：确保网站有直观的导航菜单，帮助用户和搜索引擎了解和访问网站结构。</p>
-<h4 id="7-使用结构化数据标记">7. 使用结构化数据标记</h4>
-<p><strong>Schema标记</strong>：通过Schema.org提供的结构化数据，帮助搜索引擎理解页面内容，并可能在搜索结果中获得富摘要。</p>
-<h4 id="8-优化核心web指标core-web-vitals">8. 优化核心Web指标（Core Web Vitals）</h4>
-<p><strong>注意LCP、FID和CLS</strong>：这些是Google评估页面用户体验的三个关键指标，分别代表加载性能、交互性和视觉稳定性。</p>
-<h4 id="9-移动优先索引">9. 移动优先索引</h4>
-<p><strong>优先考虑移动端</strong>：由于Google已全面启用移动优先索引，确保你的网站在移动设备上也能提供良好的用户体验。</p>
-<h3 id="常见误区">常见误区</h3>
+<h3 id="batch-updates-in-react-18-and-later">Batch Updates in React 18 and later</h3>
+<p>React 18 introduces a more sophisticated concurrency model with the new <code>ReactDOM.createRoot</code> API, which improves the ability to batch updates, especially in concurrent mode.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="c1">// Simplified version from React 18 source code
+</span><span class="c1"></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">unstable_batchedUpdates</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&#34;react-dom&#34;</span><span class="p">;</span>
+
+<span class="kd">function</span> <span class="nx">batchedUpdates</span><span class="p">(</span><span class="nx">callback</span><span class="p">,</span> <span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">,</span> <span class="nx">c</span><span class="p">,</span> <span class="nx">d</span><span class="p">,</span> <span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+	<span class="nx">unstable_batchedUpdates</span><span class="p">(()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+		<span class="nx">callback</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">,</span> <span class="nx">c</span><span class="p">,</span> <span class="nx">d</span><span class="p">,</span> <span class="nx">e</span><span class="p">);</span>
+	<span class="p">});</span>
+<span class="p">}</span>
+
+<span class="c1">// Usage in an event handler
+</span><span class="c1"></span><span class="kd">function</span> <span class="nx">handleClick</span><span class="p">()</span> <span class="p">{</span>
+	<span class="nx">batchedUpdates</span><span class="p">(()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+		<span class="nx">setState1</span><span class="p">(</span><span class="nx">newState1</span><span class="p">);</span>
+		<span class="nx">setState2</span><span class="p">(</span><span class="nx">newState2</span><span class="p">);</span>
+	<span class="p">});</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>In this simplified version:</p>
 <ul>
-<li><strong>即时结果的期望</strong>：SEO是长期战略，通常需要数月时间才能看到显著的效果。</li>
-<li><strong>忽视内容质量</strong>：高质量的、原创的、对用户有价值的内容是SEO成功的关键。</li>
-<li><strong>忽略网站技术健康</strong>：网站的技术问题，如破损的链接、缓慢的加载速度等，可以严重影响SEO效果。</li>
+<li><code>unstable_batchedUpdates</code> is imported from <code>react-dom</code> and used to batch updates.</li>
+<li>It wraps the callback, ensuring that all state updates within the callback are batched together.</li>
 </ul>
+<h3 id="explanation-of-batch-updates">Explanation of Batch Updates</h3>
+<ol>
+<li><strong>Batched Updates</strong>:
+<ul>
+<li>React batches updates to minimize the number of re-renders.</li>
+<li>It ensures that multiple state updates within the same event handler are processed together, resulting in a single re-render.</li>
+</ul>
+</li>
+<li><strong>Event Handlers</strong>:
+<ul>
+<li>Inside event handlers, React batches updates automatically.</li>
+<li>This prevents excessive rendering during user interactions.</li>
+</ul>
+</li>
+<li><strong>Asynchronous Updates</strong>:
+<ul>
+<li>By default, updates triggered by asynchronous code (e.g., <code>setTimeout</code>, <code>fetch</code> callbacks) are not batched.</li>
+<li>In React 18, the <code>use</code> function and the automatic batching feature improve handling of asynchronous updates, allowing them to be batched more effectively.</li>
+</ul>
+</li>
+</ol>
+<h3 id="practical-example">Practical Example</h3>
+<p>Here’s an example demonstrating batched updates:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kr">import</span> <span class="nx">React</span><span class="p">,</span> <span class="p">{</span> <span class="nx">useState</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&#34;react&#34;</span><span class="p">;</span>
+
+<span class="kd">function</span> <span class="nx">Counter</span><span class="p">()</span> <span class="p">{</span>
+	<span class="kr">const</span> <span class="p">[</span><span class="nx">count1</span><span class="p">,</span> <span class="nx">setCount1</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useState</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+	<span class="kr">const</span> <span class="p">[</span><span class="nx">count2</span><span class="p">,</span> <span class="nx">setCount2</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useState</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+
+	<span class="kd">function</span> <span class="nx">handleClick</span><span class="p">()</span> <span class="p">{</span>
+		<span class="nx">setCount1</span><span class="p">(</span><span class="nx">count1</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
+		<span class="nx">setCount2</span><span class="p">(</span><span class="nx">count2</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
+		<span class="c1">// Both updates are batched, resulting in a single re-render
+</span><span class="c1"></span>	<span class="p">}</span>
+
+	<span class="k">return</span> <span class="p">(</span>
+		<span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span>
+			<span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="nx">Count</span> <span class="mi">1</span><span class="o">:</span> <span class="p">{</span><span class="nx">count1</span><span class="p">}</span><span class="o">&lt;</span><span class="err">/p&gt;</span>
+			<span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="nx">Count</span> <span class="mi">2</span><span class="o">:</span> <span class="p">{</span><span class="nx">count2</span><span class="p">}</span><span class="o">&lt;</span><span class="err">/p&gt;</span>
+			<span class="o">&lt;</span><span class="nx">button</span> <span class="nx">onClick</span><span class="o">=</span><span class="p">{</span><span class="nx">handleClick</span><span class="p">}</span><span class="o">&gt;</span><span class="nx">Increment</span><span class="o">&lt;</span><span class="err">/button&gt;</span>
+		<span class="o">&lt;</span><span class="err">/div&gt;</span>
+	<span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kr">export</span> <span class="k">default</span> <span class="nx">Counter</span><span class="p">;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>In this example, clicking the button will increment both <code>count1</code> and <code>count2</code>. Despite the two state updates, React will batch them together, resulting in a single re-render of the <code>Counter</code> component.</p>
+<h2 id="automatic-batching-in-react-18">Automatic Batching in React 18</h2>
+<p><strong>Automatic batching</strong> means that React will group multiple state updates into a single re-render, even if they occur in different contexts, such as asynchronous callbacks. This is a departure from earlier versions of React, where batching was primarily confined to event handlers.</p>
+<p>Consider the following example where state updates are triggered within a <code>setTimeout</code>:</p>
+<h3 id="react-17-behavior">React 17 Behavior</h3>
+<p>In React 17, each state update within an asynchronous callback would cause a separate re-render:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kr">import</span> <span class="nx">React</span><span class="p">,</span> <span class="p">{</span> <span class="nx">useState</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&#34;react&#34;</span><span class="p">;</span>
+
+<span class="kd">function</span> <span class="nx">Counter</span><span class="p">()</span> <span class="p">{</span>
+	<span class="kr">const</span> <span class="p">[</span><span class="nx">count1</span><span class="p">,</span> <span class="nx">setCount1</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useState</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+	<span class="kr">const</span> <span class="p">[</span><span class="nx">count2</span><span class="p">,</span> <span class="nx">setCount2</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useState</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+
+	<span class="kd">function</span> <span class="nx">handleAsyncUpdate</span><span class="p">()</span> <span class="p">{</span>
+		<span class="nx">setTimeout</span><span class="p">(()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+			<span class="nx">setCount1</span><span class="p">((</span><span class="nx">c</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">c</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span> <span class="c1">// Causes a re-render
+</span><span class="c1"></span>			<span class="nx">setCount2</span><span class="p">((</span><span class="nx">c</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">c</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span> <span class="c1">// Causes another re-render
+</span><span class="c1"></span>		<span class="p">},</span> <span class="mi">1000</span><span class="p">);</span>
+	<span class="p">}</span>
+
+	<span class="k">return</span> <span class="p">(</span>
+		<span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span>
+			<span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="nx">Count</span> <span class="mi">1</span><span class="o">:</span> <span class="p">{</span><span class="nx">count1</span><span class="p">}</span><span class="o">&lt;</span><span class="err">/p&gt;</span>
+			<span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="nx">Count</span> <span class="mi">2</span><span class="o">:</span> <span class="p">{</span><span class="nx">count2</span><span class="p">}</span><span class="o">&lt;</span><span class="err">/p&gt;</span>
+			<span class="o">&lt;</span><span class="nx">button</span> <span class="nx">onClick</span><span class="o">=</span><span class="p">{</span><span class="nx">handleAsyncUpdate</span><span class="p">}</span><span class="o">&gt;</span><span class="nx">Increment</span> <span class="nx">Async</span><span class="o">&lt;</span><span class="err">/button&gt;</span>
+		<span class="o">&lt;</span><span class="err">/div&gt;</span>
+	<span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kr">export</span> <span class="k">default</span> <span class="nx">Counter</span><span class="p">;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="react-18-behavior">React 18 Behavior</h3>
+<p>In React 18, the same example will result in a single re-render due to automatic batching:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kr">import</span> <span class="nx">React</span><span class="p">,</span> <span class="p">{</span> <span class="nx">useState</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&#34;react&#34;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="nx">ReactDOM</span> <span class="nx">from</span> <span class="s2">&#34;react-dom/client&#34;</span><span class="p">;</span>
+
+<span class="kd">function</span> <span class="nx">Counter</span><span class="p">()</span> <span class="p">{</span>
+	<span class="kr">const</span> <span class="p">[</span><span class="nx">count1</span><span class="p">,</span> <span class="nx">setCount1</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useState</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+	<span class="kr">const</span> <span class="p">[</span><span class="nx">count2</span><span class="p">,</span> <span class="nx">setCount2</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useState</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+
+	<span class="kd">function</span> <span class="nx">handleAsyncUpdate</span><span class="p">()</span> <span class="p">{</span>
+		<span class="nx">setTimeout</span><span class="p">(()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+			<span class="nx">setCount1</span><span class="p">((</span><span class="nx">c</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">c</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span> <span class="c1">// Batched with the next update
+</span><span class="c1"></span>			<span class="nx">setCount2</span><span class="p">((</span><span class="nx">c</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">c</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span> <span class="c1">// Batched with the previous update
+</span><span class="c1"></span>		<span class="p">},</span> <span class="mi">1000</span><span class="p">);</span>
+	<span class="p">}</span>
+
+	<span class="k">return</span> <span class="p">(</span>
+		<span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span>
+			<span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="nx">Count</span> <span class="mi">1</span><span class="o">:</span> <span class="p">{</span><span class="nx">count1</span><span class="p">}</span><span class="o">&lt;</span><span class="err">/p&gt;</span>
+			<span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="nx">Count</span> <span class="mi">2</span><span class="o">:</span> <span class="p">{</span><span class="nx">count2</span><span class="p">}</span><span class="o">&lt;</span><span class="err">/p&gt;</span>
+			<span class="o">&lt;</span><span class="nx">button</span> <span class="nx">onClick</span><span class="o">=</span><span class="p">{</span><span class="nx">handleAsyncUpdate</span><span class="p">}</span><span class="o">&gt;</span><span class="nx">Increment</span> <span class="nx">Async</span><span class="o">&lt;</span><span class="err">/button&gt;</span>
+		<span class="o">&lt;</span><span class="err">/div&gt;</span>
+	<span class="p">);</span>
+<span class="p">}</span>
+
+<span class="c1">// Create a root to enable concurrent features and automatic batching
+</span><span class="c1"></span><span class="kr">const</span> <span class="nx">root</span> <span class="o">=</span> <span class="nx">ReactDOM</span><span class="p">.</span><span class="nx">createRoot</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&#34;root&#34;</span><span class="p">));</span>
+<span class="nx">root</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="o">&lt;</span><span class="nx">Counter</span> <span class="o">/&gt;</span><span class="p">);</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>In this example, even though the state updates happen within a <code>setTimeout</code>, React 18 batches them together and performs only one re-render after both state updates are applied.</p>
+<h3 id="benefits-of-automatic-batching">Benefits of Automatic Batching</h3>
+<ol>
+<li><strong>Improved Performance</strong>:
+<ul>
+<li>By reducing the number of re-renders, automatic batching significantly improves the performance of applications, especially those with frequent state updates.</li>
+</ul>
+</li>
+<li><strong>Consistency</strong>:
+<ul>
+<li>Developers do not need to worry about whether updates are happening synchronously or asynchronously. React handles batching consistently across different contexts.</li>
+</ul>
+</li>
+<li><strong>Simpler Code</strong>:
+<ul>
+<li>Automatic batching simplifies the mental model for developers. You no longer need to use special APIs or workarounds to ensure updates are batched in asynchronous code.</li>
+</ul>
+</li>
+</ol>
+<h2 id="additional-enhancements-in-react-18">Additional Enhancements in React 18</h2>
+<p>Alongside automatic batching, React 18 introduces other concurrent features that improve the user experience and performance:</p>
+<ol>
+<li><strong>Concurrent Rendering</strong>:
+<ul>
+<li>React 18 allows rendering to be interrupted and resumed, making it possible to handle complex updates without blocking the main thread.</li>
+</ul>
+</li>
+<li><strong>Transition API</strong>:
+<ul>
+<li>The new <code>startTransition</code> API lets developers mark updates as non-urgent, allowing React to prioritize important updates while deferring less critical ones.</li>
+</ul>
+</li>
+</ol>
+<h2 id="conclusion">Conclusion</h2>
+<p>Automatic batching in React 18 is a powerful feature that enhances performance by minimizing unnecessary re-renders. It extends batching behavior to asynchronous contexts, making state management more efficient and consistent.</p>
 
     </div>
     

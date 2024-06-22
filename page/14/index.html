@@ -45,7 +45,7 @@
 <meta property="og:description" content="Aries notebook" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://urchinzhou.com/" />
-<meta property="og:updated_time" content="2024-04-03T21:48:56+08:00" />
+<meta property="og:updated_time" content="2024-05-22T15:57:29+08:00" />
 <meta itemprop="name" content="Aries notebook">
 <meta itemprop="description" content="Aries notebook">
 <meta name="twitter:card" content="summary"/>
@@ -129,11 +129,11 @@
           <section id="posts" class="posts">
   <article class="post">
   <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/react-%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86%E5%B8%B8%E7%94%A8%E7%AD%96%E7%95%A5/">React 状态管理常用策略</a></h1>
+    <h1 class="post-title"><a class="post-link" href="/post/mastering-chatgptcrafting-effective-prompt/">Mastering ChatGPT：Crafting Effective Prompt</a></h1>
     <div class="post-meta">
-      <span class="post-time"> 2023-01-09 </span>
+      <span class="post-time"> 2023-01-23 </span>
       <div class="post-category">
-        <a href="/%20categories/react/"> React </a>
+        <a href="/%20categories/notes/"> Notes </a>
         </div>
     </div>
   </header>
@@ -141,34 +141,17 @@
   <div class="post-content">
     
     <div class="post-summary">
-      <p>在 React 中，状态（State）是组件内部的数据结构，用于记录从挂载到卸载期间，可能会发生变化的数据。状态的更新会触发组件的重新渲染，因此合理地管理状态非常重要。</p>
-<p>React 原生的状态管理，主要通过 <code>useState</code>、<code>useEffect</code> 和 <code>Context API</code> 实现，三者分别应用于不同的场景：</p>
-<ul>
-<li>
-<p><strong>局部状态管理</strong>：使用<code>useState</code>（函数组件）或<code>this.state</code>（类组件）管理局部状态。适用于组件内部的状态逻辑，如表单输入、开关状态等。</p>
-</li>
-<li>
-<p><strong>生命周期和副作用</strong>：<code>useEffect</code>（函数组件）和生命周期方法（类组件）允许在状态更新时执行副作用操作，如数据获取、订阅或手动DOM操作。</p>
-</li>
-<li>
-<p><strong>跨组件状态共享</strong>：<code>Context API</code> 允许跨组件共享状态，而无需通过每个组件手动传递 <code>props</code>。适用于主题切换、用户认证等全局数据。</p>
-</li>
-</ul>
-<p>对于比较复杂的状态，建议还是引入外部库来集中管理状态，毕竟随着代码量增多，随处可见的 <code>useState</code> 很难处理，<code>Context API</code> 也很难维护，且容易出错，而引入外部库则能显著提升开发效率，将更多精力放在模块化和逻辑优化上。</p>
-<p>目前以 Redux 最为流行，另外 Mobx 和 zustand 也很受欢迎，社区普遍认为其相对于 Redux 而言，易用性和可维护性更好。以目前使用 Redux 的感受来看，有这三个优势：</p>
+      <p>Introduction: Engaging in conversations with AI models like ChatGPT can be an exciting and rewarding experience. However, achieving meaningful and accurate responses relies heavily on the quality of prompts provided. In this blog post, we will explore strategies for crafting excellent prompts that maximize the potential of ChatGPT and enhance the overall conversation. Let&rsquo;s dive in and unlock the power of effective prompts!</p>
 <ol>
-<li>单一数据源，且是树形结构，支持回溯，方便调试;</li>
-<li>有成熟的开发调试工具 redux devtools；</li>
-<li>有成熟的社区，一般遇到的疑难杂症，在社区通常都能找到解决方案；</li>
+<li>Be Clear and Specific: Clearly communicate your intention and provide specific context in your prompts. Avoid ambiguous or vague instructions that may confuse the model. The more precise your prompt is, the better ChatGPT can understand and generate accurate responses.</li>
+<li>Set the Conversation Tone: Establish the desired tone for the conversation by incorporating relevant instructions. Whether it&rsquo;s formal, casual, professional, or playful, guiding the AI with tone-specific prompts helps shape the response accordingly.</li>
+<li>Ask Direct Questions: To receive targeted answers, ask direct questions rather than making open-ended statements. ChatGPT is more likely to provide focused responses when prompted with specific inquiries. For instance, instead of saying &ldquo;Tell me about cats,&rdquo; ask &ldquo;What are the main characteristics of domestic cats?&rdquo;</li>
+<li>Provide Context and Constraints: Offering context and constraints helps narrow down the response and align it with your expectations. For example, if discussing a specific time period, include it in the prompt to ensure the AI understands the historical context.</li>
+<li>Iterate and Experiment: Crafting the perfect prompt may require iteration and experimentation. If initial responses are not meeting your expectations, refine your prompt, rephrase the question, or adjust the context. Iterative refinement allows you to fine-tune the conversation and achieve better outcomes.</li>
+<li>Utilize System and User Instructions: Leverage the capability of ChatGPT&rsquo;s system and user instructions. By using the system instruction, you can guide the model&rsquo;s behavior in a general sense. User instructions allow you to provide specific guidance for the current prompt. Utilize these instructions strategically to guide the conversation flow effectively.</li>
+<li>Use Examples and Formatting: When necessary, include examples or formatting instructions within your prompt to clarify the expected response format. For instance, if you want a bulleted list, mention it explicitly in your prompt or provide an example of the desired output.</li>
 </ol>
-<p>由于只使用过 Redux，因此很难和其他库进行对比，而 React 的状态管理库又是五花八门，实在是卷得很，要想逐一了解，学习成本实在太高，还是选择较为流行的一两个就好。不过无论采取什么方式管理 React 状态，其基本思路是一致的：</p>
-<ol>
-<li><strong>最小化状态</strong>：尽可能减少状态数量，仅将那些需要根据用户交互或时间变化而变化的数据作为状态。</li>
-<li><strong>单一数据源</strong>：尽可能让状态在组件树中有单一的“真实来源”，避免不同组件间的状态不一致。</li>
-<li><strong>提升状态</strong>：当多个组件需要共享状态时，将状态提升到它们共同的父组件中管理。</li>
-<li><strong>不可变数据</strong>：在更新状态时，避免直接修改状态，而是通过设置新的状态值来创建新的状态对象。</li>
-<li><strong>组件化和复用</strong>：通过封装管理自己状态的组件，实现逻辑的复用和分离。</li>
-</ol>
+<p>Conclusion: Mastering the art of writing excellent prompts is crucial to unlock the full potential of ChatGPT. By being clear, specific, and providing context, you can guide the AI model to generate accurate and relevant responses. Remember to iterate, experiment, and leverage system and user instructions to optimize your conversations. With practice and refinement, you can create engaging and meaningful interactions with ChatGPT.</p>
 
     </div>
     

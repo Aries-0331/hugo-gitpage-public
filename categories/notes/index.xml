@@ -6,10 +6,19 @@
     <description>Recent content in Notes on Aries notebook</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 23 Jan 2023 21:59:23 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 04 Jul 2024 14:44:07 +0800</lastBuildDate>
     
 	<atom:link href="https://urchinzhou.com/categories/notes/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>记一次社区问题反馈</title>
+      <link>https://urchinzhou.com/post/%E8%AE%B0%E4%B8%80%E6%AC%A1%E7%A4%BE%E5%8C%BA%E9%97%AE%E9%A2%98%E5%8F%8D%E9%A6%88/</link>
+      <pubDate>Thu, 04 Jul 2024 14:44:07 +0800</pubDate>
+      
+      <guid>https://urchinzhou.com/post/%E8%AE%B0%E4%B8%80%E6%AC%A1%E7%A4%BE%E5%8C%BA%E9%97%AE%E9%A2%98%E5%8F%8D%E9%A6%88/</guid>
+      <description>昨天在 NextJS 中接入 clerk/nextjs 的 &amp;lt;UserButton /&amp;gt; 组件时，发现一个常用的参数 afterSignOutUrl 被标为了 deprecated， 看实现是移到 &amp;lt;ClerkProvider /&amp;gt; 去了，便想着去查下版本信息，看是出于什么考量</description>
+    </item>
     
     <item>
       <title>Mastering ChatGPT：Crafting Effective Prompt</title>

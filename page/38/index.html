@@ -45,7 +45,7 @@
 <meta property="og:description" content="Aries notebook" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://urchinzhou.com/" />
-<meta property="og:updated_time" content="2024-05-22T15:57:29+08:00" />
+<meta property="og:updated_time" content="2024-07-04T14:44:07+08:00" />
 <meta itemprop="name" content="Aries notebook">
 <meta itemprop="description" content="Aries notebook">
 <meta name="twitter:card" content="summary"/>
@@ -129,9 +129,9 @@
           <section id="posts" class="posts">
   <article class="post">
   <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/%E5%85%B3%E4%BA%8E%E6%95%B0%E6%8D%AE%E5%88%86%E7%89%87%E4%B8%8E%E5%88%86%E6%AE%B5/">关于数据分片与分段</a></h1>
+    <h1 class="post-title"><a class="post-link" href="/post/%E7%B2%98%E5%8C%85%E9%97%AE%E9%A2%98/">粘包问题</a></h1>
     <div class="post-meta">
-      <span class="post-time"> 2021-04-27 </span>
+      <span class="post-time"> 2021-05-22 </span>
       <div class="post-category">
         <a href="/%20categories/tcp/ip/"> TCP/IP </a>
         </div>
@@ -141,10 +141,11 @@
   <div class="post-content">
     
     <div class="post-summary">
-      <p>链路层要求数据帧的长度最大值为 1500 字节，该特性被称为 MTU，即最大传输单元。当 IP 层的数据报大于 MTU 时，IP 层就需要进行分片，就是把数据报分成若干片，使每一片都小于 MTU。</p>
-<p>但是，对于采用 TCP 作为传输协议的数据而言，在 IP 层是不会分片的，因为 TCP 层有一个分段的特性 —— MSS，最大分段大小。为了达到最佳传输效能，TCP 在建立连接时会协商双方的 MSS 值，这个值通常是 1460（MTU1500 - IP包头20 - TCP包头20），对于大于 1460 的数据，当到达 TCP 层时便分段了，因此 IP 层就不用分片了。</p>
-<p>而 UDP 则会产生 IP 分片，因为没有类似于 TCP 的分段特性。</p>
-<p>分片发生在网络层，分段发生在传输层。</p>
+      <p>首先，<strong>粘包并不是 TCP 的问题</strong>。搜索引擎中列出的各种关于“TCP 粘包问题”的文章，所讲的其实是采用 TCP 传输数据的应用层协议设计不合理导致的粘包问题，并不是 TCP 的锅。</p>
+<p>TCP 是流协议，没有粘包这个概念。</p>
+<p>所谓粘包问题，是指发送方的多条消息在传输到接收方时，由于被拼接在一起而导致无法解析的情况。要解决这一问题，需要合理设计应用层协议，约定好消息边界，以便即使多条消息被拼接在一起，也能够按照协议找到消息边界从而正确解析。</p>
+<p>之所以很多人将粘包问题看作是 TCP 造成的，是因为“拼接”这一行为发生在 TCP 层。通过 TCP 发送和接收的数据，均为数据流格式。当应用层协议使用 TCP 协议传输数据时，TCP 协议很可能将应用层发送的消息分成多个包依次发送或将多条消息组合后发送，这就会出现接收方收到的一个数据段可能由多条消息组成，即粘包。</p>
+<p>而实际情况是，TCP 本就是基于字节流而不是消息包的协议，它保证的是字节流的次序到达，对于字节流的解析应该是由应用层协议来完成的，所以<strong>粘包问题，实际上描述的是“如何设计应用层协议”的问题</strong>。</p>
 
     </div>
     

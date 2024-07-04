@@ -45,7 +45,7 @@
 <meta property="og:description" content="Aries notebook" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://urchinzhou.com/" />
-<meta property="og:updated_time" content="2024-05-22T15:57:29+08:00" />
+<meta property="og:updated_time" content="2024-07-04T14:44:07+08:00" />
 <meta itemprop="name" content="Aries notebook">
 <meta itemprop="description" content="Aries notebook">
 <meta name="twitter:card" content="summary"/>
@@ -129,11 +129,11 @@
           <section id="posts" class="posts">
   <article class="post">
   <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/how_to_learn_new_programming_languages_and_frameworks_quickly/">How to learn new programming languages and frameworks quickly</a></h1>
+    <h1 class="post-title"><a class="post-link" href="/post/%E5%85%B3%E4%BA%8Egcc%E7%BC%96%E8%AF%91%E6%97%B6%E5%87%BD%E6%95%B0%E7%AC%A6%E5%8F%B7%E5%AF%BC%E5%87%BA%E7%9A%84%E9%97%AE%E9%A2%98/">关于gcc编译时函数符号导出的问题</a></h1>
     <div class="post-meta">
-      <span class="post-time"> 2020-12-21 </span>
+      <span class="post-time"> 2021-04-10 </span>
       <div class="post-category">
-        <a href="/%20categories/notes/"> Notes </a>
+        <a href="/%20categories/devtool/"> Devtool </a>
         </div>
     </div>
   </header>
@@ -141,39 +141,28 @@
   <div class="post-content">
     
     <div class="post-summary">
-      <blockquote>
-<p>An excerpt from <a href="https://www.quastor.org/p/how-whatsapp-scaled-to-1-billion">how-whatsapp-scaled-to-1-billion</a></p>
-</blockquote>
-<p><a href="https://news.ycombinator.com/item?id=28017289">This</a> is an interesting discussion on Hacker News for a process to learn new things quickly.</p>
-<p>Here are some of the top answers summarized.</p>
-<ul>
-<li>
-<p>For a new programming language, there are a couple of standard things you should try to implement.</p>
-<p>Write several programs where you</p>
-<ul>
-<li>Read/write to a file</li>
-<li>Turn a structured object into JSON</li>
-<li>Parse JSON into an object</li>
-<li>A basic script that can be run from the CLI, parses flags/args, reads stdin</li>
-<li>Send a HTTP request</li>
-<li>Implement a very basic web server</li>
-</ul>
-<p>When you’re doing these exercises, <strong>do not copy/paste any code</strong>.</p>
-<p>You should be typing out the code yourself.</p>
-</li>
-<li>
-<p>Try to bias towards reading (blogs, documentation, code, books, etc.) over watching video tutorials. Reading is a lot faster than watching video and you can be far more efficient with your time.</p>
-</li>
-<li>
-<p>A 3 step process for learning new frameworks is to divide it up into a week’s work (10 - 15 hour total commitment)</p>
-<ul>
-<li><em>Prepare</em> - Spend 1 hour Monday through Thursday reading documentation, books, and watching content. This way you’ll have time to sleep on the concepts.</li>
-<li><em>Plan</em> - On Friday, spend 1 hour preparing a small project idea for the weekend that will use all the concepts you learned over the week.</li>
-<li><em>Project</em> - Spend 4 - 6 hours building the project over the weekend.</li>
-</ul>
-</li>
-</ul>
-
+      <p>背景：在 Android P liblog 模块中增加一个功能，涉及外部函数调用。如在 <code>A.c</code> 中定义函数 <code>fun</code>，在 <code>A.h</code> 中声明函数 <code>fun</code>，在 <code>B.c</code> 中包含 <code>A.h</code> 后调用 <code>fun</code>，文件名、路径等均没有问题，但编译时会触发 <code>error:undefined reference to </code>。</p>
+<p>分析：函数显然是定义了的，提示未定义应该是出于某种原因未找到。后发现 <code>logprint.c</code> 文件中部分函数带有前缀 <code>LIBLOG_ABI_PUBLIC</code>，该宏定义为 <code>#define LIBLOG_ABI_PUBLIC __attribute__((visibility(&quot;default&quot;)))</code>，作用是设置符号的可见性属性，查看 liblog 的 Android.bp 文件，发现编译选项设置为</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c" data-lang="c"><span class="nl">cflags</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s">&#34;-Werror&#34;</span><span class="p">,</span>
+        <span class="s">&#34;-fvisibility=hidden&#34;</span><span class="p">,</span>
+  <span class="p">......</span>
+  <span class="p">]</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>可见性属性会覆盖编译时通过 <code>-fvisibility</code> 选项指定的值，<code>default</code> 可见性属性会使符号在所有情况下都被输出，<code>hidden</code> 可见性属性会隐藏相应的符号。</p>
+<p>结论：该模块在编译时，通过编译选项 <code>&quot;-fvisibility=hidden&quot;</code> 将符号的默认可见性属性设置为不可见，因此，对于源文件中没有显示声明为可见的函数或变量，无法被共享库的其它文件访问，从而导致编译时触发 <code>error:undefined reference to </code>，解决办法是将需要对外共享的函数、变量的可见性属性标识为 <code>default</code>。</p>
+<p>参考阅读：</p>
+<p><a href="https://my.huhoo.net/archives/2010/03/post_52.html">控制符号的可见性</a></p>
     </div>
     
   </div>

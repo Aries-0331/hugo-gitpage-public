@@ -45,7 +45,7 @@
 <meta property="og:description" content="Aries notebook" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://urchinzhou.com/" />
-<meta property="og:updated_time" content="2024-05-22T15:57:29+08:00" />
+<meta property="og:updated_time" content="2024-07-04T14:44:07+08:00" />
 <meta itemprop="name" content="Aries notebook">
 <meta itemprop="description" content="Aries notebook">
 <meta name="twitter:card" content="summary"/>
@@ -129,11 +129,11 @@
           <section id="posts" class="posts">
   <article class="post">
   <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/%E7%B2%98%E5%8C%85%E9%97%AE%E9%A2%98/">粘包问题</a></h1>
+    <h1 class="post-title"><a class="post-link" href="/post/%E5%85%B3%E4%BA%8Exlog%E5%8A%A0%E5%AF%86%E5%A4%84%E7%90%86%E5%88%86%E6%9E%90/">关于xlog加密处理分析</a></h1>
     <div class="post-meta">
-      <span class="post-time"> 2021-05-22 </span>
+      <span class="post-time"> 2021-05-28 </span>
       <div class="post-category">
-        <a href="/%20categories/tcp/ip/"> TCP/IP </a>
+        <a href="/%20categories/security/"> Security </a>
         </div>
     </div>
   </header>
@@ -141,11 +141,49 @@
   <div class="post-content">
     
     <div class="post-summary">
-      <p>首先，<strong>粘包并不是 TCP 的问题</strong>。搜索引擎中列出的各种关于“TCP 粘包问题”的文章，所讲的其实是采用 TCP 传输数据的应用层协议设计不合理导致的粘包问题，并不是 TCP 的锅。</p>
-<p>TCP 是流协议，没有粘包这个概念。</p>
-<p>所谓粘包问题，是指发送方的多条消息在传输到接收方时，由于被拼接在一起而导致无法解析的情况。要解决这一问题，需要合理设计应用层协议，约定好消息边界，以便即使多条消息被拼接在一起，也能够按照协议找到消息边界从而正确解析。</p>
-<p>之所以很多人将粘包问题看作是 TCP 造成的，是因为“拼接”这一行为发生在 TCP 层。通过 TCP 发送和接收的数据，均为数据流格式。当应用层协议使用 TCP 协议传输数据时，TCP 协议很可能将应用层发送的消息分成多个包依次发送或将多条消息组合后发送，这就会出现接收方收到的一个数据段可能由多条消息组成，即粘包。</p>
-<p>而实际情况是，TCP 本就是基于字节流而不是消息包的协议，它保证的是字节流的次序到达，对于字节流的解析应该是由应用层协议来完成的，所以<strong>粘包问题，实际上描述的是“如何设计应用层协议”的问题</strong>。</p>
+      <p>xlog 使用微型加密算法（TEA，Tiny Encryption Algorithm）对日志数据进行加密，使用 ECDH 密钥交换算法进行对称密钥的协商，对称密钥以数组形式存储在栈区，声明为 <code>LogCrypt</code> 类的私有字段。</p>
+<p>会话密钥长度与椭圆曲线参数相关，xlog 中使用 16 Bytes 密钥。</p>
+<h3 id="相关接口">相关接口</h3>
+<ul>
+<li>uECC_make_key ( client_pubkey, client_pri )
+<ul>
+<li>生成客户端公私钥对</li>
+</ul>
+</li>
+<li>uECC_shared_secret ( svr_pubkey, client_pri, secret )
+<ul>
+<li>根据服务端公钥与客户端私钥，运算出对称密钥 secret</li>
+</ul>
+</li>
+<li>__TeaEncrypt ( log, secret )
+<ul>
+<li>使用对称密钥加密日志</li>
+</ul>
+</li>
+</ul>
+<h3 id="协商流程">协商流程：</h3>
+<ol>
+<li><code>client</code> 调用 <code>uECC_make_key</code> 生成 pubKeyA 与 priKeyA；</li>
+<li><code>server</code> 调用 <code>uECC_make_key</code> 生成 pubKeyB 与 priKeyB；</li>
+<li><code>client</code> 获取<code>server</code> 公钥 <code>pubKeyB</code> ，调用 <code>uECC_shared_secret</code> 生成对称密钥 <code>secret</code>；（此处采用 ECDH 密钥交换算法）</li>
+<li><code>server</code> 获取<code>client</code> 公钥 <code>pubKeyA</code> ，调用 <code>uECC_shared_secret</code> 生成对称密钥 <code>secret</code>；</li>
+</ol>
+<h3 id="ecdh-密钥交换算法原理概述">ECDH 密钥交换算法原理概述</h3>
+<p>ECDH 基于 ECC 算法，ECC 是建立在基于椭圆曲线的离散对数问题上的密码体制，给定椭圆曲线上的一个点 P，一个整数 k，求解 Q = kP 很容易，但给定一个点 P、一个点Q，求解 k 很难。ECDH 便建立在该数学难题上。</p>
+<p>假设密钥协商的双方 Alice 和 Bob 共享公共参数 p、g 以及 ECDH 算法，以下场景可模拟交换流程（mod 表示取余运算）：</p>
+<ol>
+<li>Alice 生成私钥 a，通过公式 <code>g^a mod p = A</code> 生成公钥 A，并将 p、g、A 发送给 Bob；</li>
+<li>Bob 获得 p、g、A 后，生成自己的私钥 b，通过<code>g^b mod p = B</code> 生成公钥B，通过公式 <code>A^B mod p = K</code> 生成会话密钥（对称密钥）K，然后将公钥 B 发送给 Alice；</li>
+<li>Alice 获得 Bob 的公钥 B，通过 <code>B^a mod p = K</code> 生成会话密钥 K，至此，Alice 和 Bob 在未传递私钥 a、b 的情况下，完成了会话密钥协商。</li>
+</ol>
+<p>ECDH 不传输对称密钥，而是传输 ECC 椭圆曲线算法生成的公钥，然后通过收到的公钥结合自己的私钥，各自计算出共享的对称密钥，椭圆曲线保证了双方计算出的密钥一定是相同的，且第三方在不知道通信双方私钥的情况下，无法通过从信道中截获的信息反推出对称密钥。</p>
+<h3 id="代入数据">代入数据：</h3>
+<ol>
+<li>假定 p = 23，g = 5；</li>
+<li>Alice 生成私钥 a = 6，计算 A = g^a mod p = 5^6 mod 23 = 8；</li>
+<li>Bob 生成私钥 b = 15，计算 B = g^b mod p = 5^15 mod 23 = 19，计算 K = A^B mod p = 8^18 mod 23 = 2；</li>
+<li>Alice 计算 K&rsquo; = B^a mod p = 19^6 mod 23 = 2，K&rsquo; = K。</li>
+</ol>
 
     </div>
     

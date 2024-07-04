@@ -6,10 +6,19 @@
     <description>Recent content in Categories on Aries notebook</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 22 May 2024 15:57:29 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 04 Jul 2024 14:44:07 +0800</lastBuildDate>
     
 	<atom:link href="https://urchinzhou.com/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Notes</title>
+      <link>https://urchinzhou.com/categories/notes/</link>
+      <pubDate>Thu, 04 Jul 2024 14:44:07 +0800</pubDate>
+      
+      <guid>https://urchinzhou.com/categories/notes/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Security</title>
@@ -71,15 +80,6 @@
       <pubDate>Sun, 12 Mar 2023 22:15:12 +0800</pubDate>
       
       <guid>https://urchinzhou.com/categories/go/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Notes</title>
-      <link>https://urchinzhou.com/categories/notes/</link>
-      <pubDate>Mon, 23 Jan 2023 21:59:23 +0800</pubDate>
-      
-      <guid>https://urchinzhou.com/categories/notes/</guid>
       <description></description>
     </item>
     

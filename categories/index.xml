@@ -2,147 +2,147 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on Aries notebook</title>
-    <link>https://urchinzhou.com/categories/</link>
+    <link>https://arieszhou.xyz/categories/</link>
     <description>Recent content in Categories on Aries notebook</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Thu, 04 Jul 2024 14:44:07 +0800</lastBuildDate>
     
-	<atom:link href="https://urchinzhou.com/categories/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://arieszhou.xyz/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Notes</title>
-      <link>https://urchinzhou.com/categories/notes/</link>
+      <link>https://arieszhou.xyz/categories/notes/</link>
       <pubDate>Thu, 04 Jul 2024 14:44:07 +0800</pubDate>
       
-      <guid>https://urchinzhou.com/categories/notes/</guid>
+      <guid>https://arieszhou.xyz/categories/notes/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Security</title>
-      <link>https://urchinzhou.com/categories/security/</link>
+      <link>https://arieszhou.xyz/categories/security/</link>
       <pubDate>Wed, 22 May 2024 15:57:29 +0800</pubDate>
       
-      <guid>https://urchinzhou.com/categories/security/</guid>
+      <guid>https://arieszhou.xyz/categories/security/</guid>
       <description></description>
     </item>
     
     <item>
       <title>CSS</title>
-      <link>https://urchinzhou.com/categories/css/</link>
+      <link>https://arieszhou.xyz/categories/css/</link>
       <pubDate>Wed, 03 Apr 2024 21:48:56 +0800</pubDate>
       
-      <guid>https://urchinzhou.com/categories/css/</guid>
+      <guid>https://arieszhou.xyz/categories/css/</guid>
       <description></description>
     </item>
     
     <item>
       <title>JavaScript</title>
-      <link>https://urchinzhou.com/categories/javascript/</link>
+      <link>https://arieszhou.xyz/categories/javascript/</link>
       <pubDate>Wed, 03 Apr 2024 17:56:05 +0800</pubDate>
       
-      <guid>https://urchinzhou.com/categories/javascript/</guid>
+      <guid>https://arieszhou.xyz/categories/javascript/</guid>
       <description></description>
     </item>
     
     <item>
       <title>React</title>
-      <link>https://urchinzhou.com/categories/react/</link>
+      <link>https://arieszhou.xyz/categories/react/</link>
       <pubDate>Sat, 20 Jan 2024 11:34:29 +0800</pubDate>
       
-      <guid>https://urchinzhou.com/categories/react/</guid>
+      <guid>https://arieszhou.xyz/categories/react/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Web</title>
-      <link>https://urchinzhou.com/categories/web/</link>
+      <link>https://arieszhou.xyz/categories/web/</link>
       <pubDate>Tue, 02 Jan 2024 14:44:13 +0800</pubDate>
       
-      <guid>https://urchinzhou.com/categories/web/</guid>
+      <guid>https://arieszhou.xyz/categories/web/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Performance</title>
-      <link>https://urchinzhou.com/categories/performance/</link>
+      <link>https://arieszhou.xyz/categories/performance/</link>
       <pubDate>Wed, 03 May 2023 18:33:42 +0800</pubDate>
       
-      <guid>https://urchinzhou.com/categories/performance/</guid>
+      <guid>https://arieszhou.xyz/categories/performance/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Go</title>
-      <link>https://urchinzhou.com/categories/go/</link>
+      <link>https://arieszhou.xyz/categories/go/</link>
       <pubDate>Sun, 12 Mar 2023 22:15:12 +0800</pubDate>
       
-      <guid>https://urchinzhou.com/categories/go/</guid>
+      <guid>https://arieszhou.xyz/categories/go/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Linux</title>
-      <link>https://urchinzhou.com/categories/linux/</link>
+      <link>https://arieszhou.xyz/categories/linux/</link>
       <pubDate>Wed, 23 Mar 2022 13:28:32 +0800</pubDate>
       
-      <guid>https://urchinzhou.com/categories/linux/</guid>
+      <guid>https://arieszhou.xyz/categories/linux/</guid>
       <description></description>
     </item>
     
     <item>
       <title>HTML</title>
-      <link>https://urchinzhou.com/categories/html/</link>
+      <link>https://arieszhou.xyz/categories/html/</link>
       <pubDate>Thu, 25 Nov 2021 14:14:09 +0800</pubDate>
       
-      <guid>https://urchinzhou.com/categories/html/</guid>
+      <guid>https://arieszhou.xyz/categories/html/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Devtool</title>
-      <link>https://urchinzhou.com/categories/devtool/</link>
+      <link>https://arieszhou.xyz/categories/devtool/</link>
       <pubDate>Tue, 20 Jul 2021 15:19:14 +0800</pubDate>
       
-      <guid>https://urchinzhou.com/categories/devtool/</guid>
+      <guid>https://arieszhou.xyz/categories/devtool/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Android</title>
-      <link>https://urchinzhou.com/categories/android/</link>
+      <link>https://arieszhou.xyz/categories/android/</link>
       <pubDate>Thu, 17 Jun 2021 22:30:30 +0800</pubDate>
       
-      <guid>https://urchinzhou.com/categories/android/</guid>
+      <guid>https://arieszhou.xyz/categories/android/</guid>
       <description></description>
     </item>
     
     <item>
       <title>HTTPS</title>
-      <link>https://urchinzhou.com/categories/https/</link>
+      <link>https://arieszhou.xyz/categories/https/</link>
       <pubDate>Thu, 22 Oct 2020 22:28:02 +0800</pubDate>
       
-      <guid>https://urchinzhou.com/categories/https/</guid>
+      <guid>https://arieszhou.xyz/categories/https/</guid>
       <description></description>
     </item>
     
     <item>
       <title>C&#43;&#43;</title>
-      <link>https://urchinzhou.com/categories/c&#43;&#43;/</link>
+      <link>https://arieszhou.xyz/categories/c&#43;&#43;/</link>
       <pubDate>Sun, 23 Aug 2020 22:29:13 +0800</pubDate>
       
-      <guid>https://urchinzhou.com/categories/c&#43;&#43;/</guid>
+      <guid>https://arieszhou.xyz/categories/c&#43;&#43;/</guid>
       <description></description>
     </item>
     
     <item>
       <title>TCP/IP</title>
-      <link>https://urchinzhou.com/categories/tcp/ip/</link>
+      <link>https://arieszhou.xyz/categories/tcp/ip/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://urchinzhou.com/categories/tcp/ip/</guid>
+      <guid>https://arieszhou.xyz/categories/tcp/ip/</guid>
       <description></description>
     </item>
     

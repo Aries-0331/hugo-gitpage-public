@@ -2,30 +2,30 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Security on Aries notebook</title>
-    <link>https://urchinzhou.com/categories/security/</link>
+    <link>https://arieszhou.xyz/categories/security/</link>
     <description>Recent content in Security on Aries notebook</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Wed, 22 May 2024 15:57:29 +0800</lastBuildDate>
     
-	<atom:link href="https://urchinzhou.com/categories/security/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://arieszhou.xyz/categories/security/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>静态资源完整性校验</title>
-      <link>https://urchinzhou.com/post/%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90%E5%AE%8C%E6%95%B4%E6%80%A7%E6%A0%A1%E9%AA%8C/</link>
+      <link>https://arieszhou.xyz/post/%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90%E5%AE%8C%E6%95%B4%E6%80%A7%E6%A0%A1%E9%AA%8C/</link>
       <pubDate>Wed, 22 May 2024 15:57:29 +0800</pubDate>
       
-      <guid>https://urchinzhou.com/post/%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90%E5%AE%8C%E6%95%B4%E6%80%A7%E6%A0%A1%E9%AA%8C/</guid>
+      <guid>https://arieszhou.xyz/post/%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90%E5%AE%8C%E6%95%B4%E6%80%A7%E6%A0%A1%E9%AA%8C/</guid>
       <description>在前端开发中，静态资源的完整性校验可以防止资源被篡改或恶意修改，从而提高应用的安全性。通常，静态资源完整性校验通过在 HTML 文件中使用 Subresource Integrity (SRI) 实现。</description>
     </item>
     
     <item>
       <title>关于QUIC Crypto</title>
-      <link>https://urchinzhou.com/post/%E5%85%B3%E4%BA%8Equic-crypto/</link>
+      <link>https://arieszhou.xyz/post/%E5%85%B3%E4%BA%8Equic-crypto/</link>
       <pubDate>Mon, 04 Jul 2022 17:13:59 +0800</pubDate>
       
-      <guid>https://urchinzhou.com/post/%E5%85%B3%E4%BA%8Equic-crypto/</guid>
+      <guid>https://arieszhou.xyz/post/%E5%85%B3%E4%BA%8Equic-crypto/</guid>
       <description>&lt;h1 id=&#34;简要介绍&#34;&gt;简要介绍&lt;/h1&gt;
 &lt;p&gt;QUIC（Quick UDP Internet Connections）是一种默认加密的互联网传输协议，旨在提供安全、快速的 HTTP 传输，以替代 TCP 和 TLS。Google QUIC 的默认加密协议是自家的 QUIC Crypto。&lt;/p&gt;
 &lt;p&gt;QUIC 与 TCP 的根本不同在于默认提供安全传输的设计原则。最初的 QUIC 结合了 TCP 的三次握手以及 TLS 1.3 的握手，并将 TLS 的记录层数据帧格式替换为 QUIC 自己的，同时保留了 TLS 的握手消息。这种做法既保证了连接总是经过认证和加密的，同时使得初始连接建立速度更快。TCP 和 TLS1.3 完成握手需要两轮交互，而 QUIC 握手仅需一轮，如果客户端缓存了服务端的配置信息，那么甚至无需握手。&lt;/p&gt;
@@ -126,46 +126,46 @@
     
     <item>
       <title>关于加密和密码学的经验教训和误解</title>
-      <link>https://urchinzhou.com/post/%E5%85%B3%E4%BA%8E%E5%8A%A0%E5%AF%86%E5%92%8C%E5%AF%86%E7%A0%81%E5%AD%A6%E7%9A%84%E7%BB%8F%E9%AA%8C%E6%95%99%E8%AE%AD%E5%92%8C%E8%AF%AF%E8%A7%A3/</link>
+      <link>https://arieszhou.xyz/post/%E5%85%B3%E4%BA%8E%E5%8A%A0%E5%AF%86%E5%92%8C%E5%AF%86%E7%A0%81%E5%AD%A6%E7%9A%84%E7%BB%8F%E9%AA%8C%E6%95%99%E8%AE%AD%E5%92%8C%E8%AF%AF%E8%A7%A3/</link>
       <pubDate>Fri, 19 Nov 2021 15:25:18 +0800</pubDate>
       
-      <guid>https://urchinzhou.com/post/%E5%85%B3%E4%BA%8E%E5%8A%A0%E5%AF%86%E5%92%8C%E5%AF%86%E7%A0%81%E5%AD%A6%E7%9A%84%E7%BB%8F%E9%AA%8C%E6%95%99%E8%AE%AD%E5%92%8C%E8%AF%AF%E8%A7%A3/</guid>
+      <guid>https://arieszhou.xyz/post/%E5%85%B3%E4%BA%8E%E5%8A%A0%E5%AF%86%E5%92%8C%E5%AF%86%E7%A0%81%E5%AD%A6%E7%9A%84%E7%BB%8F%E9%AA%8C%E6%95%99%E8%AE%AD%E5%92%8C%E8%AF%AF%E8%A7%A3/</guid>
       <description>本文译自stackexchange 密码学是一个广泛复杂的主题，即使经验丰富的工程师在初步应用密码技术时也会犯错，而加密又是一个重要的行为，在</description>
     </item>
     
     <item>
       <title>密码应用基础知识</title>
-      <link>https://urchinzhou.com/post/%E5%AF%86%E7%A0%81%E5%BA%94%E7%94%A8%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</link>
+      <link>https://arieszhou.xyz/post/%E5%AF%86%E7%A0%81%E5%BA%94%E7%94%A8%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</link>
       <pubDate>Sun, 12 Sep 2021 22:25:17 +0800</pubDate>
       
-      <guid>https://urchinzhou.com/post/%E5%AF%86%E7%A0%81%E5%BA%94%E7%94%A8%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</guid>
+      <guid>https://arieszhou.xyz/post/%E5%AF%86%E7%A0%81%E5%BA%94%E7%94%A8%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</guid>
       <description>对称算法 加密密钥能够从解密密钥中推算出来，反过来也成立。在大多数对称算法中，加密解密密钥是相同的。这些算法也叫秘密密钥算法或单密钥算法，它要</description>
     </item>
     
     <item>
       <title>SQLCipher</title>
-      <link>https://urchinzhou.com/post/sqlcipher%E6%9B%BF%E4%BB%A3sqlite/</link>
+      <link>https://arieszhou.xyz/post/sqlcipher%E6%9B%BF%E4%BB%A3sqlite/</link>
       <pubDate>Tue, 13 Jul 2021 22:27:48 +0800</pubDate>
       
-      <guid>https://urchinzhou.com/post/sqlcipher%E6%9B%BF%E4%BB%A3sqlite/</guid>
+      <guid>https://arieszhou.xyz/post/sqlcipher%E6%9B%BF%E4%BB%A3sqlite/</guid>
       <description>SQLCipher 是基于 SQLite 的安全扩展，加解密行为对应用层透明，可使用标准 SQLite API 执行数据库操作，移植简单，以页为单位进行加解密操作，效率高，开销比 SQLite 多 5% 左右。 安</description>
     </item>
     
     <item>
       <title>关于xlog加密处理分析</title>
-      <link>https://urchinzhou.com/post/%E5%85%B3%E4%BA%8Exlog%E5%8A%A0%E5%AF%86%E5%A4%84%E7%90%86%E5%88%86%E6%9E%90/</link>
+      <link>https://arieszhou.xyz/post/%E5%85%B3%E4%BA%8Exlog%E5%8A%A0%E5%AF%86%E5%A4%84%E7%90%86%E5%88%86%E6%9E%90/</link>
       <pubDate>Fri, 28 May 2021 22:25:57 +0800</pubDate>
       
-      <guid>https://urchinzhou.com/post/%E5%85%B3%E4%BA%8Exlog%E5%8A%A0%E5%AF%86%E5%A4%84%E7%90%86%E5%88%86%E6%9E%90/</guid>
+      <guid>https://arieszhou.xyz/post/%E5%85%B3%E4%BA%8Exlog%E5%8A%A0%E5%AF%86%E5%A4%84%E7%90%86%E5%88%86%E6%9E%90/</guid>
       <description>xlog 使用微型加密算法（TEA，Tiny Encryption Algorithm）对日志数据进行加密，使用 ECDH 密钥交换算法进行对称密钥的协商，对称密钥以数组形式存储在</description>
     </item>
     
     <item>
       <title>TLS</title>
-      <link>https://urchinzhou.com/post/tls%E5%8D%8F%E8%AE%AE/</link>
+      <link>https://arieszhou.xyz/post/tls%E5%8D%8F%E8%AE%AE/</link>
       <pubDate>Sun, 02 Feb 2020 22:24:45 +0800</pubDate>
       
-      <guid>https://urchinzhou.com/post/tls%E5%8D%8F%E8%AE%AE/</guid>
+      <guid>https://arieszhou.xyz/post/tls%E5%8D%8F%E8%AE%AE/</guid>
       <description>TLS 协议的设计目标 构建一个安全传输层（Transport Layer Security），在基于连接的传输层（如 TCP）之上提供密码学安全，包括 机密性，信</description>
     </item>
     

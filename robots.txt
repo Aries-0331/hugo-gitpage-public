@@ -1,2 +1,2 @@
 User-agent: *
-Sitemap: https://urchinzhou.com/sitemap.xml
+Sitemap: https://arieszhou.xyz/sitemap.xml

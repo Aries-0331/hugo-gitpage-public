@@ -45,7 +45,7 @@
 <meta property="og:description" content="Aries notebook" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://arieszhou.xyz/" />
-<meta property="og:updated_time" content="2024-07-04T14:44:07+08:00" />
+<meta property="og:updated_time" content="2025-05-07T17:28:04+08:00" />
 <meta itemprop="name" content="Aries notebook">
 <meta itemprop="description" content="Aries notebook">
 <meta name="twitter:card" content="summary"/>
@@ -129,11 +129,11 @@
           <section id="posts" class="posts">
   <article class="post">
   <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90%E5%AE%8C%E6%95%B4%E6%80%A7%E6%A0%A1%E9%AA%8C/">静态资源完整性校验</a></h1>
+    <h1 class="post-title"><a class="post-link" href="/post/%E8%AE%B0%E4%B8%80%E6%AC%A1%E7%A4%BE%E5%8C%BA%E9%97%AE%E9%A2%98%E5%8F%8D%E9%A6%88/">记一次社区问题反馈</a></h1>
     <div class="post-meta">
-      <span class="post-time"> 2024-05-22 </span>
+      <span class="post-time"> 2024-07-04 </span>
       <div class="post-category">
-        <a href="/%20categories/security/"> Security </a>
+        <a href="/%20categories/notes/"> notes </a>
         </div>
     </div>
   </header>
@@ -141,138 +141,13 @@
   <div class="post-content">
     
     <div class="post-summary">
-      <p>在前端开发中，静态资源的完整性校验可以防止资源被篡改或恶意修改，从而提高应用的安全性。通常，静态资源完整性校验通过在 HTML 文件中使用 <code>Subresource Integrity (SRI)</code> 实现。SRI 允许浏览器在加载资源时验证资源的完整性。</p>
-<h3 id="什么是-srisubresource-integrity">什么是 SRI（Subresource Integrity）</h3>
-<p>SRI 是一种安全特性，通过为资源提供哈希值，浏览器在加载资源时可以验证资源是否未被篡改。</p>
-<h3 id="如何使用-sri">如何使用 SRI</h3>
-<h4 id="1-生成哈希值">1. 生成哈希值</h4>
-<p>要使用 SRI，首先需要为静态资源生成哈希值。可以使用 <code>openssl</code> 工具来生成这些哈希值。常见的哈希算法有 SHA-256、SHA-384 和 SHA-512。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">openssl dgst -sha384 -binary your-file.js <span class="p">|</span> openssl base64 -A
-</code></pre></td></tr></table>
-</div>
-</div><p>例如，对于一个名为 <code>main.js</code> 的文件，可以使用以下命令生成哈希值：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">openssl dgst -sha384 -binary main.js <span class="p">|</span> openssl base64 -A
-</code></pre></td></tr></table>
-</div>
-</div><h4 id="2-在-html-中使用-sri">2. 在 HTML 中使用 SRI</h4>
-<p>生成哈希值后，可以将其添加到 HTML 文件中对应的资源链接中。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-html" data-lang="html"><span class="cp">&lt;!DOCTYPE html&gt;</span>
-<span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&#34;en&#34;</span><span class="p">&gt;</span>
-<span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&#34;UTF-8&#34;</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&#34;viewport&#34;</span> <span class="na">content</span><span class="o">=</span><span class="s">&#34;width=device-width, initial-scale=1.0&#34;</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Document<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&#34;stylesheet&#34;</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;styles.css&#34;</span> <span class="na">integrity</span><span class="o">=</span><span class="s">&#34;sha384-&lt;generated-hash-value&gt;&#34;</span> <span class="na">crossorigin</span><span class="o">=</span><span class="s">&#34;anonymous&#34;</span><span class="p">&gt;</span>
-<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
-<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;main.js&#34;</span> <span class="na">integrity</span><span class="o">=</span><span class="s">&#34;sha384-&lt;generated-hash-value&gt;&#34;</span> <span class="na">crossorigin</span><span class="o">=</span><span class="s">&#34;anonymous&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
-<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
-<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
-</code></pre></td></tr></table>
-</div>
-</div><h4 id="3-自动化生成-sri-哈希值">3. 自动化生成 SRI 哈希值</h4>
-<p>对于大型项目，手动生成和管理 SRI 哈希值可能不现实，可以使用一些工具和插件来自动化这个过程。</p>
-<h5 id="使用-sri-hash-工具">使用 <code>sri-hash</code> 工具</h5>
-<p><code>sri-hash</code> 是一个方便的命令行工具，可以自动生成 SRI 哈希值。</p>
-<p>安装：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">npm install -g sri-hash
-</code></pre></td></tr></table>
-</div>
-</div><p>使用：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">sri-hash main.js
-</code></pre></td></tr></table>
-</div>
-</div><h5 id="使用-webpack-插件">使用 <code>webpack</code> 插件</h5>
-<p>如果使用 <code>webpack</code> 进行项目构建，可以使用 <code>webpack-subresource-integrity</code> 插件来自动生成和注入 SRI 哈希值。</p>
-<p>安装：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">npm install webpack-subresource-integrity --save-dev
-</code></pre></td></tr></table>
-</div>
-</div><p>在 <code>webpack</code> 配置中使用：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-js" data-lang="js"><span class="kr">const</span> <span class="nx">SriPlugin</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;webpack-subresource-integrity&#39;</span><span class="p">);</span>
-
-<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="c1">// 其他配置...
-</span><span class="c1"></span>  <span class="nx">output</span><span class="o">:</span> <span class="p">{</span>
-    <span class="nx">crossOriginLoading</span><span class="o">:</span> <span class="s1">&#39;anonymous&#39;</span>
-  <span class="p">},</span>
-  <span class="nx">plugins</span><span class="o">:</span> <span class="p">[</span>
-    <span class="k">new</span> <span class="nx">SriPlugin</span><span class="p">({</span>
-      <span class="nx">hashFuncNames</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;sha256&#39;</span><span class="p">,</span> <span class="s1">&#39;sha384&#39;</span><span class="p">],</span>
-      <span class="nx">enabled</span><span class="o">:</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">NODE_ENV</span> <span class="o">===</span> <span class="s1">&#39;production&#39;</span><span class="p">,</span>
-    <span class="p">}),</span>
-  <span class="p">],</span>
-<span class="p">};</span>
-</code></pre></td></tr></table>
-</div>
-</div><h4 id="4-验证-sri-功能">4. 验证 SRI 功能</h4>
-<p>完成上述配置后，部署应用并加载页面时，可以在浏览器开发者工具中查看网络请求。如果资源的哈希值不匹配，浏览器将拒绝加载该资源，并在控制台中显示错误信息。</p>
-<h3 id="注意事项">注意事项</h3>
-<ol>
-<li><strong>跨域资源</strong>：如果资源是跨域的，需要确保资源服务器设置了 CORS 头，以允许跨域请求。</li>
-<li><strong>缓存</strong>：确保生成 SRI 哈希值时资源是最终版本，避免由于缓存导致的哈希值不匹配问题。</li>
-<li><strong>兼容性</strong>：并非所有浏览器都支持 SRI，主要支持现代浏览器。</li>
-</ol>
-<p>通过上述步骤，可以有效地在前端实现静态资源的完整性校验，提高应用的安全性。</p>
+      <p>昨天在 NextJS 中接入 clerk/nextjs 的 <code>&lt;UserButton /&gt;</code> 组件时，发现一个常用的参数 <code>afterSignOutUrl</code> 被标为了 <code>deprecated</code>，</p>
+<p><img src="/images/clerk_shortcut.png" alt="img"></p>
+<p>看实现是移到 <code>&lt;ClerkProvider /&gt;</code> 去了，便想着去查下版本信息，看是出于什么考量这么改，结果发现官方文档没有更新。</p>
+<p>翻了一下 Clerk 项目的 repo 发现 <a href="https://discord.com/channels/856971667393609759/858011152133783584">Discord</a> 频道还算活跃，在里面反馈了一下这个问题，也就没再管了。</p>
+<p>没想到的是很快就有回复了，</p>
+<p><img src="/images/clerk_shortcut2.png" alt="img"></p>
+<p>类似 Clerk 这种迭代很快的开源项目，似乎维护文档更新是个比较麻烦的事情。这种实现与文档不一致的情况不是第一次遇到了，以往的较为常见的情况是，发现问题的开发者，根据项目规范自己开 issue 提 pr，像这次能在 Discord 频道里直接反馈给代码维护人员，并且不需要自己去看提交规范，还是挺方便的。</p>
 
     </div>
     
@@ -319,7 +194,7 @@
   <span class="copyright-year">
     &copy; 
     2020 - 
-    2024<span class="heart"><i class="iconfont icon-heart"></i></span><span></span>
+    2025<span class="heart"><i class="iconfont icon-heart"></i></span><span></span>
   </span>
 </div>
 

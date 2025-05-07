@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>Aries notebook</title>
+  <title>Case Censitive in Different Filesystem - Aries notebook</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -16,7 +16,12 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="" /><meta name="description" content="Aries notebook" /><meta name="keywords" content="Aries, blog, hugo" />
+<meta name="author" content="" /><meta name="description" content="The issue likely stems from a case sensitivity mismatch between your local development environment and Vercel&amp;rsquo;s build environment. Here&amp;rsquo;s a more detailed explanation of why this happens:
+Case Sensitivity in Filesystems   Local Development Environment
+:
+ macOS and Windows: These operating systems typically use case-insensitive filesystems by default. This means that they treat NavBar.jsx and navbar.jsx as the same file.    Vercel Build Environment
+:
+ Unix-based Systems: Vercel uses a Unix-based system for its build environment, which is case-sensitive." /><meta name="keywords" content="Aries, blog, hugo" />
 
 
 
@@ -26,9 +31,7 @@
 <meta name="generator" content="Hugo 0.74.3 with theme even" />
 
 
-<link rel="canonical" href="https://arieszhou.xyz/" />
-  <link href="https://arieszhou.xyz/index.xml" rel="alternate" type="application/rss+xml" title="Aries notebook" />
-  <link href="https://arieszhou.xyz/index.xml" rel="feed" type="application/rss+xml" title="Aries notebook" />
+<link rel="canonical" href="https://arieszhou.xyz/post/case-censitive-in-different-filesystem/" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -41,16 +44,39 @@
 
 
 
-<meta property="og:title" content="Aries notebook" />
-<meta property="og:description" content="Aries notebook" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://arieszhou.xyz/" />
-<meta property="og:updated_time" content="2025-05-07T17:28:04+08:00" />
-<meta itemprop="name" content="Aries notebook">
-<meta itemprop="description" content="Aries notebook">
+<meta property="og:title" content="Case Censitive in Different Filesystem" />
+<meta property="og:description" content="The issue likely stems from a case sensitivity mismatch between your local development environment and Vercel&rsquo;s build environment. Here&rsquo;s a more detailed explanation of why this happens:
+Case Sensitivity in Filesystems   Local Development Environment
+:
+ macOS and Windows: These operating systems typically use case-insensitive filesystems by default. This means that they treat NavBar.jsx and navbar.jsx as the same file.    Vercel Build Environment
+:
+ Unix-based Systems: Vercel uses a Unix-based system for its build environment, which is case-sensitive." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://arieszhou.xyz/post/case-censitive-in-different-filesystem/" />
+<meta property="article:published_time" content="2025-05-07T17:28:04+08:00" />
+<meta property="article:modified_time" content="2025-05-07T17:28:04+08:00" />
+<meta itemprop="name" content="Case Censitive in Different Filesystem">
+<meta itemprop="description" content="The issue likely stems from a case sensitivity mismatch between your local development environment and Vercel&rsquo;s build environment. Here&rsquo;s a more detailed explanation of why this happens:
+Case Sensitivity in Filesystems   Local Development Environment
+:
+ macOS and Windows: These operating systems typically use case-insensitive filesystems by default. This means that they treat NavBar.jsx and navbar.jsx as the same file.    Vercel Build Environment
+:
+ Unix-based Systems: Vercel uses a Unix-based system for its build environment, which is case-sensitive.">
+<meta itemprop="datePublished" content="2025-05-07T17:28:04+08:00" />
+<meta itemprop="dateModified" content="2025-05-07T17:28:04+08:00" />
+<meta itemprop="wordCount" content="319">
+
+
+
+<meta itemprop="keywords" content="" />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Aries notebook"/>
-<meta name="twitter:description" content="Aries notebook"/>
+<meta name="twitter:title" content="Case Censitive in Different Filesystem"/>
+<meta name="twitter:description" content="The issue likely stems from a case sensitivity mismatch between your local development environment and Vercel&rsquo;s build environment. Here&rsquo;s a more detailed explanation of why this happens:
+Case Sensitivity in Filesystems   Local Development Environment
+:
+ macOS and Windows: These operating systems typically use case-insensitive filesystems by default. This means that they treat NavBar.jsx and navbar.jsx as the same file.    Vercel Build Environment
+:
+ Unix-based Systems: Vercel uses a Unix-based system for its build environment, which is case-sensitive."/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -126,21 +152,22 @@
     <main id="main" class="main">
       <div class="content-wrapper">
         <div id="content" class="content">
-          <section id="posts" class="posts">
-  <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/case-censitive-in-different-filesystem/">Case Censitive in Different Filesystem</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2025-05-07 </span>
-      <div class="post-category">
-        <a href="/%20categories/notes/"> notes </a>
-        </div>
-    </div>
-  </header>
-  
-  <div class="post-content">
+          <article class="post">
     
-    <div class="post-summary">
+    <header class="post-header">
+      <h1 class="post-title">Case Censitive in Different Filesystem</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2025-05-07 </span>
+        <div class="post-category">
+            <a href="/categories/notes/"> notes </a>
+            </div>
+        
+      </div>
+    </header>
+
+    
+    <div class="post-content">
       <p>The issue likely stems from a case sensitivity mismatch between your local development environment and Vercel&rsquo;s build environment. Here&rsquo;s a more detailed explanation of why this happens:</p>
 <h3 id="case-sensitivity-in-filesystems"><strong>Case Sensitivity in Filesystems</strong></h3>
 <ol>
@@ -176,20 +203,26 @@
 <p>The error occurred because of a mismatch in case sensitivity between your local development environment and Vercel’s build environment. Renaming the file to match the case exactly as used in the import statements resolved the issue. This highlights the importance of maintaining consistent naming conventions and being mindful of case sensitivity when developing and deploying applications.</p>
 
     </div>
-    
-  </div>
-</article>
-  </section>
 
-<nav class="pagination">
-  
-  <a class="next" href="/page/2/">
-    <span class="next-text">Next</span>
-    <i class="iconfont icon-right"></i>
-  </a>
-</nav>
+    
+<footer class="post-footer">
+      
+      <nav class="post-nav">
+        
+        <a class="next" href="/post/%E8%AE%B0%E4%B8%80%E6%AC%A1%E7%A4%BE%E5%8C%BA%E9%97%AE%E9%A2%98%E5%8F%8D%E9%A6%88/">
+            <span class="next-text nav-default">记一次社区问题反馈</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
         </div>
         
+
+  
+
+  
 
       </div>
     </main>

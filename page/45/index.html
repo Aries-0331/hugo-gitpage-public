@@ -45,7 +45,7 @@
 <meta property="og:description" content="Aries notebook" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://arieszhou.xyz/" />
-<meta property="og:updated_time" content="2024-07-04T14:44:07+08:00" />
+<meta property="og:updated_time" content="2025-05-07T17:28:04+08:00" />
 <meta itemprop="name" content="Aries notebook">
 <meta itemprop="description" content="Aries notebook">
 <meta name="twitter:card" content="summary"/>
@@ -129,11 +129,11 @@
           <section id="posts" class="posts">
   <article class="post">
   <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/tcp/">What happens when tcp listen to a port?</a></h1>
+    <h1 class="post-title"><a class="post-link" href="/post/%E6%8C%87%E9%92%88/">一个野指针</a></h1>
     <div class="post-meta">
-      <span class="post-time"> 2020-06-29 </span>
+      <span class="post-time"> 2020-08-23 </span>
       <div class="post-category">
-        <a href="/%20categories/tcp/ip/"> TCP/IP </a>
+        <a href="/%20categories/c&#43;&#43;/"> C&#43;&#43; </a>
         </div>
     </div>
   </header>
@@ -141,30 +141,30 @@
   <div class="post-content">
     
     <div class="post-summary">
-      <p>When reading the net/http code of golang, I was suddenly curious about the mechanism of tcp listen, then I googled and found this interesting Q&amp;A - <a href="https://stackoverflow.com/questions/4530187/what-happens-when-we-say-listen-to-a-port">What happens when we say &ldquo;listen to a port&rdquo;?</a> on StackOverflow.</p>
-<blockquote>
-<p>Q:When we start a server application, we always need to speicify the port number it listens to. But how is this &ldquo;listening mechanism&rdquo; implemented under the hood?</p>
-<p>My current <em>imagination</em> is like this:</p>
-<p>The operating system associate the port number with some buffer. The server application&rsquo;s responsibiliy is to monitor this buffer. If there&rsquo;s no data in this buffer, the server application&rsquo;s listen operation will just <strong>*block*</strong> the application.</p>
-<p>When some data arrives from the wire, the operating system will <strong>*know*</strong> that and then check the data and see if it is targeted at this port number. And then it will fill the <strong>*corresponding*</strong> buffer. And then OS will notify the blocked server application and the server application will get the data and continue to run.</p>
-<p>Question is:</p>
+      <div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c" data-lang="c"><span class="c1">//常见错误
+</span><span class="c1"></span><span class="kt">int</span> <span class="o">*</span><span class="n">a</span><span class="p">;</span>
+<span class="o">*</span><span class="n">a</span> <span class="o">=</span> <span class="mi">12</span><span class="p">;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>该代码段，声明了一个名为 a 的指针变量，之后将 12 存储在 a 所指向的空间中。</p>
+<p>声明了变量 a，但未对其初始化，所以并不知道 a 所指向的具体位置，即数据 12 将存储于什么地方尚未可知。</p>
+<p>声明一个指向整型的指针，不会创建用于存储整型值的内存空间。</p>
+<p>对于该代码段可能造成的结果：</p>
 <ul>
-<li>If the above scenario is correct, how could the opearting system <strong>*know*</strong> there&rsquo;s data arriving from wire? It cannot be a busy polling. Is it some kind of interrupt-based mechanism?</li>
-<li>If there&rsquo;s too much data arriving and the buffer is not big enough, will there be data loss?</li>
-<li>Is the &ldquo;listen to a port&rdquo; operation really a blocking operation?</li>
+<li>报错</li>
 </ul>
-</blockquote>
-<p>The accepted answer is :</p>
-<blockquote>
-<p>There is <em>no buffer</em> that the application monitors. Instead, the application calls listen() at some point, and the OS remembers from then on that this application is interested in new connections to that port number. Only one application can indicate interest in a certain port at any time.</p>
-<p>The listen operation does <em>not block</em>. Instead, it returns right away. What may block is <a href="http://linux.die.net/man/2/accept"><code>accept()</code></a>. The system has a backlog of incoming connections (buffering the data that have been received), and returns one of the connections every time accept is called. accept doesn&rsquo;t transmit any data; the application must then do recv() calls on the accepted socket.</p>
-<p>As to your questions:</p>
+<p>若 a 的初始值是非法地址，则赋值语句将会报错，从而终止程序。在 UNIX 系统上，这种错误通常为“段错误（segmentation fault）”、“段违例（segmentation violation）”或“内存错误（memory fault）”。<strong>提示程序在试图访问一个并未分配给程序的内存位置。</strong></p>
 <ul>
-<li>as others have said: hardware interrupts. The NIC takes the datagram completely off the wire, interrupts, and is assigned an address in memory to copy it to.</li>
-<li>for TCP, there will be no data loss, as there will always be sufficient memory during the communication. TCP has flow control, and the sender will stop sending before the receiver has no more memory. For UDP and new TCP connections, there can be data loss; the sender will typically get an error indication (as the system reserves memory to accept just one more datagram).</li>
-<li>see above: listen itself is not blocking; accept is.</li>
+<li>不报错</li>
 </ul>
-</blockquote>
+<p>若 a 的初始值刚好是一个合法的地址，则该地址的原值被新的赋值语句所覆盖，虽然你并无意修改该地址的值。这种情况下导致的错误很难发现，因为引发错误的代码大概率与原本用于操作被修改值的代码毫不相干。因此，<strong>在对指针进行间接访问之前，务必确保指针变量已被初始化。</strong></p>
 
     </div>
     
@@ -211,7 +211,7 @@
   <span class="copyright-year">
     &copy; 
     2020 - 
-    2024<span class="heart"><i class="iconfont icon-heart"></i></span><span></span>
+    2025<span class="heart"><i class="iconfont icon-heart"></i></span><span></span>
   </span>
 </div>
 

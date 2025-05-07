@@ -45,7 +45,7 @@
 <meta property="og:description" content="Aries notebook" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://arieszhou.xyz/" />
-<meta property="og:updated_time" content="2024-07-04T14:44:07+08:00" />
+<meta property="og:updated_time" content="2025-05-07T17:28:04+08:00" />
 <meta itemprop="name" content="Aries notebook">
 <meta itemprop="description" content="Aries notebook">
 <meta name="twitter:card" content="summary"/>
@@ -129,11 +129,11 @@
           <section id="posts" class="posts">
   <article class="post">
   <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/https%E4%B8%8Ehttp/">HTTPS与HTTP</a></h1>
+    <h1 class="post-title"><a class="post-link" href="/post/%E9%85%8D%E7%BD%AE%E5%A4%9A%E4%B8%AAgit%E4%BB%93%E5%BA%93%E7%9A%84ssh%E6%9D%83%E9%99%90/">在新环境中配置多 Git 仓库的 ssh 权限</a></h1>
     <div class="post-meta">
-      <span class="post-time"> 2020-10-22 </span>
+      <span class="post-time"> 2020-11-11 </span>
       <div class="post-category">
-        <a href="/%20categories/https/"> HTTPS </a>
+        <a href="/%20categories/devtool/"> Devtool </a>
         </div>
     </div>
   </header>
@@ -141,19 +141,55 @@
   <div class="post-content">
     
     <div class="post-summary">
-      <blockquote>
-<p>概念上理清 HTTPS 与 HTTP 的区别。</p>
-</blockquote>
-<p>在<a href="https://zh.wikipedia.org/wiki/TCP/IP%E5%8D%8F%E8%AE%AE%E6%97%8F">互联网协议套件</a>中，将网络协议分为四层，从下至上依次为<strong>链路层-网络层-传输层-应用层</strong>，HTTP 属于应用层协议。中文名为超文本传输协议，其设计初衷是为了传输 HTML 页面。</p>
-<p>HTTP 主要规定了客户端和服务器之间的通信格式，并不涉及数据包的传输，传输依赖于 TCP/IP 协议。</p>
-<p>简单理解就是，将需要传递的数据按照 HTTP 的要求格式化（<em>挖坑，数据格式</em>），然后剩下的交给协议栈中的 TCP/IP 层。</p>
-<p>因此基于 HTTP 协议的数据传输，其发送阶段的数据处理流程为，应用层格式化，TCP 封装，IP 封装，过程中不涉及数据的加解密，数据为明文形式传输。</p>
-<p>而 HTTPS 就是在这一流程基础上增加了安全性功能。通常可以这么理解 HTTPS， HTTPS = HTTP over TLS。（<em>由于安全问题，普遍已经抛弃 SSL，因此这里就直接按 TLS 写了</em>）</p>
-<p>TLS 表示传输层安全，从 SSL 演进而来，属于应用层与 TCP 层之间的一个协议，其目的是为互联网通信提供安全及数据完整性保障（挖坑，数据完整性），说白了就是确保数据加密传输，以及确保如果数据被篡改了，接收方能察觉到。</p>
-<p>那么 TLS 做了什么？</p>
-<p>由于要实现数据加解密，因此 TLS 要实现数据的对称加密，不用非对称加密主要是考虑到性能问题。</p>
-<p>通信双方进行数据的对称加密传输前，需要验证对端的身份，即身份认证，这一点 TLS 通过数字证书来实现（<em>挖坑，实现原理</em>）。</p>
-<p>因此基于 HTTPS 协议的数据传输，其发送阶段的数据处理流程为，应用层格式化，TLS 封装，TCP 封装，IP 封装，相较于 HTTP，流程中增加了 TLS 的处理，包括身份认证、数据加解密等。</p>
+      <h1 id="配置多个-git-仓库的-ssh-权限">配置多个 Git 仓库的 ssh 权限</h1>
+<ol>
+<li>跳转至 ssh 配置路径，通常默认为 <code>~/.ssh</code></li>
+<li>创建 ssh 密钥对，按照提示创建文件名（eg:repo1-deploy-key、repo2-deploy-key），简易命令用 <code>./ssh-keygen</code> 即可，默认创建 rsa 密钥对，也可以通过参数自定义，例如 <code>./ssh-keygen -t ed25519  -C  username</code> 等</li>
+<li>eval <code>ssh-agent -s</code></li>
+<li>ssh-add repo1-deploy-key repo2-deploy-key</li>
+<li>复制 filename.pub 中的内容</li>
+<li>粘贴至 Git 仓库的 Settings&ndash;Deploy Keys&ndash;Add deploy key 中</li>
+<li>修改<code>~/.ssh/config</code>，参考如下</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">Host repo1.github.com
+        HostName github.com
+        AddKeysToAgent yes
+        IdentityFile ~/.ssh/repo1-deploy-key
+
+Host repo2.github.com
+        HostName github.com
+        AddKeysToAgent yes
+        IdentityFile ~/.ssh/blog-repo
+</code></pre></td></tr></table>
+</div>
+</div><ol start="8">
+<li>分别修改 repo1、repo2 目录下 <code>.git/config</code> 中的 url，参考如下</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="c1">//url = git@github.com:username/repo1.git
+</span><span class="c1"></span><span class="n">url</span> <span class="o">=</span> <span class="n">git</span><span class="err">@</span><span class="n">repo1</span><span class="p">.</span><span class="n">github</span><span class="p">.</span><span class="nl">com</span><span class="p">:</span><span class="n">username</span><span class="o">/</span><span class="n">repo1</span><span class="p">.</span><span class="n">git</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="failed-to-connect-to-githubcom-port-443-timed-out">Failed to connect to github.com port 443: Timed out</h2>
+<p>将 .git/config 文件中的 https url 修改为 Git 仓库的 ssh rul。</p>
 
     </div>
     
@@ -200,7 +236,7 @@
   <span class="copyright-year">
     &copy; 
     2020 - 
-    2024<span class="heart"><i class="iconfont icon-heart"></i></span><span></span>
+    2025<span class="heart"><i class="iconfont icon-heart"></i></span><span></span>
   </span>
 </div>
 

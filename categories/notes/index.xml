@@ -1,15 +1,29 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Notes on Aries notebook</title>
+    <title>notes on Aries notebook</title>
     <link>https://arieszhou.xyz/categories/notes/</link>
-    <description>Recent content in Notes on Aries notebook</description>
+    <description>Recent content in notes on Aries notebook</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 04 Jul 2024 14:44:07 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 07 May 2025 17:28:04 +0800</lastBuildDate>
     
 	<atom:link href="https://arieszhou.xyz/categories/notes/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Case Censitive in Different Filesystem</title>
+      <link>https://arieszhou.xyz/post/case-censitive-in-different-filesystem/</link>
+      <pubDate>Wed, 07 May 2025 17:28:04 +0800</pubDate>
+      
+      <guid>https://arieszhou.xyz/post/case-censitive-in-different-filesystem/</guid>
+      <description>The issue likely stems from a case sensitivity mismatch between your local development environment and Vercel&amp;rsquo;s build environment. Here&amp;rsquo;s a more detailed explanation of why this happens:
+Case Sensitivity in Filesystems   Local Development Environment
+:
+ macOS and Windows: These operating systems typically use case-insensitive filesystems by default. This means that they treat NavBar.jsx and navbar.jsx as the same file.    Vercel Build Environment
+:
+ Unix-based Systems: Vercel uses a Unix-based system for its build environment, which is case-sensitive.</description>
+    </item>
     
     <item>
       <title>记一次社区问题反馈</title>

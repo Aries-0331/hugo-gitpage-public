@@ -19,9 +19,7 @@
       <guid>https://arieszhou.xyz/post/case-censitive-in-different-filesystem/</guid>
       <description>The issue likely stems from a case sensitivity mismatch between your local development environment and Vercel&amp;rsquo;s build environment. Here&amp;rsquo;s a more detailed explanation of why this happens:
 Case Sensitivity in Filesystems   Local Development Environment
-:
  macOS and Windows: These operating systems typically use case-insensitive filesystems by default. This means that they treat NavBar.jsx and navbar.jsx as the same file.    Vercel Build Environment
-:
  Unix-based Systems: Vercel uses a Unix-based system for its build environment, which is case-sensitive.</description>
     </item>
     

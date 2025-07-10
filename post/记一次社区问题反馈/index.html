@@ -53,7 +53,7 @@
 
 
 
-<meta itemprop="keywords" content="" />
+<meta itemprop="keywords" content="community," />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="记一次社区问题反馈"/>
 <meta name="twitter:description" content="昨天在 NextJS 中接入 clerk/nextjs 的 &lt;UserButton /&gt; 组件时，发现一个常用的参数 afterSignOutUrl 被标为了 deprecated， 看实现是移到 &lt;ClerkProvider /&gt; 去了，便想着去查下版本信息，看是出于什么考量"/>
@@ -95,6 +95,8 @@
         <li class="mobile-menu-item">Home</li>
       </a><a href="/post/">
         <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
       </a><a href="/categories/">
         <li class="mobile-menu-item">Categories</li>
       </a>
@@ -121,6 +123,8 @@
         <a class="menu-item-link" href="/">Home</a>
       </li><li class="menu-item">
         <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
       </li><li class="menu-item">
         <a class="menu-item-link" href="/categories/">Categories</a>
       </li>
@@ -160,7 +164,9 @@
 
     
 <footer class="post-footer">
-      
+      <div class="post-tags">
+          <a href="/tags/community/">community</a>
+          </div>
       <nav class="post-nav">
         <a class="prev" href="/post/case-censitive-in-different-filesystem/">
             <i class="iconfont icon-left"></i>

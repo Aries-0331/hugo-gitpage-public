@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ssh on Aries notebook</title>
+    <link>https://arieszhou.xyz/tags/ssh/</link>
+    <description>Recent content in ssh on Aries notebook</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 11 Nov 2020 16:21:12 +0800</lastBuildDate>
+    
+	<atom:link href="https://arieszhou.xyz/tags/ssh/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>在新环境中配置多 Git 仓库的 ssh 权限</title>
+      <link>https://arieszhou.xyz/post/%E9%85%8D%E7%BD%AE%E5%A4%9A%E4%B8%AAgit%E4%BB%93%E5%BA%93%E7%9A%84ssh%E6%9D%83%E9%99%90/</link>
+      <pubDate>Wed, 11 Nov 2020 16:21:12 +0800</pubDate>
+      
+      <guid>https://arieszhou.xyz/post/%E9%85%8D%E7%BD%AE%E5%A4%9A%E4%B8%AAgit%E4%BB%93%E5%BA%93%E7%9A%84ssh%E6%9D%83%E9%99%90/</guid>
+      <description>配置多个 Git 仓库的 ssh 权限 跳转至 ssh 配置路径，通常默认为 ~/.ssh 创建 ssh 密钥对，按照提示创建文件名（eg:repo1-deploy-key、repo2-d</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,15 +1,43 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Web on Aries notebook</title>
+    <title>web on Aries notebook</title>
     <link>https://arieszhou.xyz/categories/web/</link>
-    <description>Recent content in Web on Aries notebook</description>
+    <description>Recent content in web on Aries notebook</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 02 Jan 2024 14:44:13 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 22 May 2024 15:57:29 +0800</lastBuildDate>
     
 	<atom:link href="https://arieszhou.xyz/categories/web/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>静态资源完整性校验</title>
+      <link>https://arieszhou.xyz/post/%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90%E5%AE%8C%E6%95%B4%E6%80%A7%E6%A0%A1%E9%AA%8C/</link>
+      <pubDate>Wed, 22 May 2024 15:57:29 +0800</pubDate>
+      
+      <guid>https://arieszhou.xyz/post/%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90%E5%AE%8C%E6%95%B4%E6%80%A7%E6%A0%A1%E9%AA%8C/</guid>
+      <description>在前端开发中，静态资源的完整性校验可以防止资源被篡改或恶意修改，从而提高应用的安全性。通常，静态资源完整性校验通过在 HTML 文件中使用 Subresource Integrity (SRI) 实现。</description>
+    </item>
+    
+    <item>
+      <title>Flex Shrink &amp; Flex Grow</title>
+      <link>https://arieszhou.xyz/post/flex-shrink-flex-grow/</link>
+      <pubDate>Wed, 03 Apr 2024 21:48:56 +0800</pubDate>
+      
+      <guid>https://arieszhou.xyz/post/flex-shrink-flex-grow/</guid>
+      <description>flex-shrink flex-shrink 是 CSS Flexbox 布局中的一个属性，它定义了当父容器的空间不足以容纳所有子项时，子项（flex项）如何收缩。简而言之，flex-shrink 控制了f</description>
+    </item>
+    
+    <item>
+      <title>Batching in React</title>
+      <link>https://arieszhou.xyz/post/batching-in-react/</link>
+      <pubDate>Sat, 20 Jan 2024 11:34:29 +0800</pubDate>
+      
+      <guid>https://arieszhou.xyz/post/batching-in-react/</guid>
+      <description>Batching in React. Batch updates in React are a mechanism to group multiple state updates into a single re-render for performance optimization. This helps in reducing the number of renders and thus improves performance, especially during complex state updates or when multiple updates happen in quick succession.
+Details of Batch Updates in React  Concept:  React batches state updates by default inside event handlers and lifecycle methods to avoid excessive re-renders.</description>
+    </item>
     
     <item>
       <title>SEO</title>
@@ -21,12 +49,113 @@
     </item>
     
     <item>
+      <title>CSS Units</title>
+      <link>https://arieszhou.xyz/post/css-units/</link>
+      <pubDate>Mon, 19 Jun 2023 11:07:43 +0800</pubDate>
+      
+      <guid>https://arieszhou.xyz/post/css-units/</guid>
+      <description>Recommendations    Media Recommended Occasional use Infrequent use Not recommended     Screen em, rem, % px ch, ex, vw, vh, vmin, vmax cm, mm, in, pt, pc   Print em, rem, % cm, mm, in, pt, pc ch, ex px, vw, vh, vmin, vmax    Relative Units rem The rem unit in CSS stands for &amp;ldquo;root em&amp;rdquo;. It is a relative unit of measurement that is relative to the font size of the root element.</description>
+    </item>
+    
+    <item>
+      <title>React 防止组件重新渲染</title>
+      <link>https://arieszhou.xyz/post/react-%E9%98%B2%E6%AD%A2%E7%BB%84%E4%BB%B6%E9%87%8D%E6%96%B0%E6%B8%B2%E6%9F%93/</link>
+      <pubDate>Wed, 03 May 2023 18:33:42 +0800</pubDate>
+      
+      <guid>https://arieszhou.xyz/post/react-%E9%98%B2%E6%AD%A2%E7%BB%84%E4%BB%B6%E9%87%8D%E6%96%B0%E6%B8%B2%E6%9F%93/</guid>
+      <description>在React中，组件的重新渲染通常由状态（state）或属性（props）的变化触发。虽然React通过虚拟DOM和高效的对比算法（diff</description>
+    </item>
+    
+    <item>
       <title>SVG 与 Canvas</title>
       <link>https://arieszhou.xyz/post/svg-%E4%B8%8E-canvas/</link>
       <pubDate>Wed, 29 Mar 2023 14:38:32 +0800</pubDate>
       
       <guid>https://arieszhou.xyz/post/svg-%E4%B8%8E-canvas/</guid>
       <description>SVG（Scalable Vector Graphics）和Canvas是两种主要的 Web 技术，用于在网页上绘制图形，但它们在使用方式、性能和适用场景上有所不</description>
+    </item>
+    
+    <item>
+      <title>前端性能优化常用策略</title>
+      <link>https://arieszhou.xyz/post/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E5%B8%B8%E7%94%A8%E7%AD%96%E7%95%A5/</link>
+      <pubDate>Sat, 25 Mar 2023 10:48:29 +0800</pubDate>
+      
+      <guid>https://arieszhou.xyz/post/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E5%B8%B8%E7%94%A8%E7%AD%96%E7%95%A5/</guid>
+      <description>最佳实践： 资源压缩和合并：使用工具（如Webpack）压缩JavaScript、CSS和图片文件，减少文件大小，提高加载速度。合并资源减少H</description>
+    </item>
+    
+    <item>
+      <title>React 状态管理常用策略</title>
+      <link>https://arieszhou.xyz/post/react-%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86%E5%B8%B8%E7%94%A8%E7%AD%96%E7%95%A5/</link>
+      <pubDate>Mon, 09 Jan 2023 12:01:36 +0800</pubDate>
+      
+      <guid>https://arieszhou.xyz/post/react-%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86%E5%B8%B8%E7%94%A8%E7%AD%96%E7%95%A5/</guid>
+      <description>在 React 中，状态（State）是组件内部的数据结构，用于记录从挂载到卸载期间，可能会发生变化的数据。状态的更新会触发组件的重新渲染，因此合理地管</description>
+    </item>
+    
+    <item>
+      <title>React Router</title>
+      <link>https://arieszhou.xyz/post/react-router/</link>
+      <pubDate>Fri, 06 May 2022 14:31:14 +0800</pubDate>
+      
+      <guid>https://arieszhou.xyz/post/react-router/</guid>
+      <description>React Router 是一个用于React的路由库，它允许我们在React应用中实现客户端路由。这意味着用户可以在不重新加载页面的情况下导航到不同的URL，同</description>
+    </item>
+    
+    <item>
+      <title>懒加载</title>
+      <link>https://arieszhou.xyz/post/%E6%87%92%E5%8A%A0%E8%BD%BD/</link>
+      <pubDate>Wed, 30 Mar 2022 10:09:28 +0800</pubDate>
+      
+      <guid>https://arieszhou.xyz/post/%E6%87%92%E5%8A%A0%E8%BD%BD/</guid>
+      <description>懒加载（Lazy Loading），也称为延迟加载，是 Web 开发中常用的优化技术。其基本原理是延迟加载页面上的资源（如图片、脚本、样式表等），直到</description>
+    </item>
+    
+    <item>
+      <title>React 设计模式</title>
+      <link>https://arieszhou.xyz/post/react%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</link>
+      <pubDate>Tue, 11 Jan 2022 14:55:46 +0800</pubDate>
+      
+      <guid>https://arieszhou.xyz/post/react%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</guid>
+      <description>常见的 React 设计模式： 1. 组件化 将UI拆分成独立、可复用的组件是React开发的核心。每个组件只负责一部分的UI呈现，保持组件的职责单一。 原子设计</description>
+    </item>
+    
+    <item>
+      <title>虚拟Dom</title>
+      <link>https://arieszhou.xyz/post/%E8%99%9A%E6%8B%9Fdom/</link>
+      <pubDate>Fri, 07 Jan 2022 14:19:18 +0800</pubDate>
+      
+      <guid>https://arieszhou.xyz/post/%E8%99%9A%E6%8B%9Fdom/</guid>
+      <description>虚拟DOM（Virtual DOM）是一个编程概念，其中UI的表示形式保持在内存中，并通过某种库（如React）与“真实”的DOM（Docum</description>
+    </item>
+    
+    <item>
+      <title>Dom</title>
+      <link>https://arieszhou.xyz/post/dom/</link>
+      <pubDate>Thu, 25 Nov 2021 14:14:09 +0800</pubDate>
+      
+      <guid>https://arieszhou.xyz/post/dom/</guid>
+      <description>DOM（文档对象模型 Document Object Model）是一个跨平台和语言独立的接口，允许程序和脚本动态地访问和更新文档的内容、结构和样式。DOM将HTML和X</description>
+    </item>
+    
+    <item>
+      <title>如何理解平均负载</title>
+      <link>https://arieszhou.xyz/post/%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3%E5%B9%B3%E5%9D%87%E8%B4%9F%E8%BD%BD/</link>
+      <pubDate>Sun, 01 Aug 2021 22:05:40 +0800</pubDate>
+      
+      <guid>https://arieszhou.xyz/post/%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3%E5%B9%B3%E5%9D%87%E8%B4%9F%E8%BD%BD/</guid>
+      <description>平均负载不仅包括正在使用 CPU 的进程，还包括等待 CPU 和等待 I/O 的进程。 什么是平均负载 通常我们使用 top 或 uptime 命令，来查看系统负载情况时，都会关注 load average 这一参</description>
+    </item>
+    
+    <item>
+      <title>React Components and Props</title>
+      <link>https://arieszhou.xyz/post/react-basic-components-and-props/</link>
+      <pubDate>Wed, 05 Feb 2020 15:58:02 +0800</pubDate>
+      
+      <guid>https://arieszhou.xyz/post/react-basic-components-and-props/</guid>
+      <description>Components What is components? Components are one of the core concepts of React. They are the foundation upon which we build user interfaces(UI) - UI building blocks.
+Taking traditional Web development as an example, HTML lets us create rich structured documents with its built-in set of tags like &amp;lt;h1&amp;gt; and &amp;lt;li&amp;gt;:
+1 2 3 4 5 6 7 8  &amp;lt;article&amp;gt; &amp;lt;h1&amp;gt;My First Component&amp;lt;/h1&amp;gt; &amp;lt;ol&amp;gt; &amp;lt;li&amp;gt;Components: UI Building Blocks&amp;lt;/li&amp;gt; &amp;lt;li&amp;gt;Defining a Component&amp;lt;/li&amp;gt; &amp;lt;li&amp;gt;Using a Component&amp;lt;/li&amp;gt; &amp;lt;/ol&amp;gt; &amp;lt;/article&amp;gt;   This markup combined with CSS for style, and then JavaScript for interactivity, lies behind every sidebar, avatar, modal, dropdown &amp;ndash; every piece of UI we see on the Web.</description>
     </item>
     
   </channel>

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>react on Aries notebook</title>
+    <link>https://arieszhou.xyz/tags/react/</link>
+    <description>Recent content in react on Aries notebook</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 07 May 2025 17:28:04 +0800</lastBuildDate>
+    
+	<atom:link href="https://arieszhou.xyz/tags/react/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Case Censitive in Different Filesystem</title>
+      <link>https://arieszhou.xyz/post/case-censitive-in-different-filesystem/</link>
+      <pubDate>Wed, 07 May 2025 17:28:04 +0800</pubDate>
+      
+      <guid>https://arieszhou.xyz/post/case-censitive-in-different-filesystem/</guid>
+      <description>The issue likely stems from a case sensitivity mismatch between your local development environment and Vercel&amp;rsquo;s build environment. Here&amp;rsquo;s a more detailed explanation of why this happens:
+Case Sensitivity in Filesystems   Local Development Environment
+ macOS and Windows: These operating systems typically use case-insensitive filesystems by default. This means that they treat NavBar.jsx and navbar.jsx as the same file.    Vercel Build Environment
+ Unix-based Systems: Vercel uses a Unix-based system for its build environment, which is case-sensitive.</description>
+    </item>
+    
+    <item>
+      <title>Batching in React</title>
+      <link>https://arieszhou.xyz/post/batching-in-react/</link>
+      <pubDate>Sat, 20 Jan 2024 11:34:29 +0800</pubDate>
+      
+      <guid>https://arieszhou.xyz/post/batching-in-react/</guid>
+      <description>Batching in React. Batch updates in React are a mechanism to group multiple state updates into a single re-render for performance optimization. This helps in reducing the number of renders and thus improves performance, especially during complex state updates or when multiple updates happen in quick succession.
+Details of Batch Updates in React  Concept:  React batches state updates by default inside event handlers and lifecycle methods to avoid excessive re-renders.</description>
+    </item>
+    
+    <item>
+      <title>React 防止组件重新渲染</title>
+      <link>https://arieszhou.xyz/post/react-%E9%98%B2%E6%AD%A2%E7%BB%84%E4%BB%B6%E9%87%8D%E6%96%B0%E6%B8%B2%E6%9F%93/</link>
+      <pubDate>Wed, 03 May 2023 18:33:42 +0800</pubDate>
+      
+      <guid>https://arieszhou.xyz/post/react-%E9%98%B2%E6%AD%A2%E7%BB%84%E4%BB%B6%E9%87%8D%E6%96%B0%E6%B8%B2%E6%9F%93/</guid>
+      <description>在React中，组件的重新渲染通常由状态（state）或属性（props）的变化触发。虽然React通过虚拟DOM和高效的对比算法（diff</description>
+    </item>
+    
+    <item>
+      <title>React 状态管理常用策略</title>
+      <link>https://arieszhou.xyz/post/react-%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86%E5%B8%B8%E7%94%A8%E7%AD%96%E7%95%A5/</link>
+      <pubDate>Mon, 09 Jan 2023 12:01:36 +0800</pubDate>
+      
+      <guid>https://arieszhou.xyz/post/react-%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86%E5%B8%B8%E7%94%A8%E7%AD%96%E7%95%A5/</guid>
+      <description>在 React 中，状态（State）是组件内部的数据结构，用于记录从挂载到卸载期间，可能会发生变化的数据。状态的更新会触发组件的重新渲染，因此合理地管</description>
+    </item>
+    
+    <item>
+      <title>React Router</title>
+      <link>https://arieszhou.xyz/post/react-router/</link>
+      <pubDate>Fri, 06 May 2022 14:31:14 +0800</pubDate>
+      
+      <guid>https://arieszhou.xyz/post/react-router/</guid>
+      <description>React Router 是一个用于React的路由库，它允许我们在React应用中实现客户端路由。这意味着用户可以在不重新加载页面的情况下导航到不同的URL，同</description>
+    </item>
+    
+    <item>
+      <title>React 设计模式</title>
+      <link>https://arieszhou.xyz/post/react%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</link>
+      <pubDate>Tue, 11 Jan 2022 14:55:46 +0800</pubDate>
+      
+      <guid>https://arieszhou.xyz/post/react%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</guid>
+      <description>常见的 React 设计模式： 1. 组件化 将UI拆分成独立、可复用的组件是React开发的核心。每个组件只负责一部分的UI呈现，保持组件的职责单一。 原子设计</description>
+    </item>
+    
+    <item>
+      <title>React Components and Props</title>
+      <link>https://arieszhou.xyz/post/react-basic-components-and-props/</link>
+      <pubDate>Wed, 05 Feb 2020 15:58:02 +0800</pubDate>
+      
+      <guid>https://arieszhou.xyz/post/react-basic-components-and-props/</guid>
+      <description>Components What is components? Components are one of the core concepts of React. They are the foundation upon which we build user interfaces(UI) - UI building blocks.
+Taking traditional Web development as an example, HTML lets us create rich structured documents with its built-in set of tags like &amp;lt;h1&amp;gt; and &amp;lt;li&amp;gt;:
+1 2 3 4 5 6 7 8  &amp;lt;article&amp;gt; &amp;lt;h1&amp;gt;My First Component&amp;lt;/h1&amp;gt; &amp;lt;ol&amp;gt; &amp;lt;li&amp;gt;Components: UI Building Blocks&amp;lt;/li&amp;gt; &amp;lt;li&amp;gt;Defining a Component&amp;lt;/li&amp;gt; &amp;lt;li&amp;gt;Using a Component&amp;lt;/li&amp;gt; &amp;lt;/ol&amp;gt; &amp;lt;/article&amp;gt;   This markup combined with CSS for style, and then JavaScript for interactivity, lies behind every sidebar, avatar, modal, dropdown &amp;ndash; every piece of UI we see on the Web.</description>
+    </item>
+    
+  </channel>
+</rss>

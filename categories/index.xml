@@ -21,128 +21,47 @@
     </item>
     
     <item>
-      <title>Security</title>
-      <link>https://arieszhou.xyz/categories/security/</link>
-      <pubDate>Wed, 22 May 2024 15:57:29 +0800</pubDate>
-      
-      <guid>https://arieszhou.xyz/categories/security/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>CSS</title>
-      <link>https://arieszhou.xyz/categories/css/</link>
-      <pubDate>Wed, 03 Apr 2024 21:48:56 +0800</pubDate>
-      
-      <guid>https://arieszhou.xyz/categories/css/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>JavaScript</title>
-      <link>https://arieszhou.xyz/categories/javascript/</link>
-      <pubDate>Wed, 03 Apr 2024 17:56:05 +0800</pubDate>
-      
-      <guid>https://arieszhou.xyz/categories/javascript/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>React</title>
-      <link>https://arieszhou.xyz/categories/react/</link>
-      <pubDate>Sat, 20 Jan 2024 11:34:29 +0800</pubDate>
-      
-      <guid>https://arieszhou.xyz/categories/react/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Web</title>
+      <title>web</title>
       <link>https://arieszhou.xyz/categories/web/</link>
-      <pubDate>Tue, 02 Jan 2024 14:44:13 +0800</pubDate>
+      <pubDate>Wed, 22 May 2024 15:57:29 +0800</pubDate>
       
       <guid>https://arieszhou.xyz/categories/web/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Performance</title>
-      <link>https://arieszhou.xyz/categories/performance/</link>
-      <pubDate>Wed, 03 May 2023 18:33:42 +0800</pubDate>
+      <title>languages</title>
+      <link>https://arieszhou.xyz/categories/languages/</link>
+      <pubDate>Wed, 03 Apr 2024 17:56:05 +0800</pubDate>
       
-      <guid>https://arieszhou.xyz/categories/performance/</guid>
+      <guid>https://arieszhou.xyz/categories/languages/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Go</title>
-      <link>https://arieszhou.xyz/categories/go/</link>
-      <pubDate>Sun, 12 Mar 2023 22:15:12 +0800</pubDate>
+      <title>security</title>
+      <link>https://arieszhou.xyz/categories/security/</link>
+      <pubDate>Mon, 04 Jul 2022 17:13:59 +0800</pubDate>
       
-      <guid>https://arieszhou.xyz/categories/go/</guid>
+      <guid>https://arieszhou.xyz/categories/security/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Linux</title>
-      <link>https://arieszhou.xyz/categories/linux/</link>
+      <title>cs</title>
+      <link>https://arieszhou.xyz/categories/cs/</link>
       <pubDate>Wed, 23 Mar 2022 13:28:32 +0800</pubDate>
       
-      <guid>https://arieszhou.xyz/categories/linux/</guid>
+      <guid>https://arieszhou.xyz/categories/cs/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>HTML</title>
-      <link>https://arieszhou.xyz/categories/html/</link>
-      <pubDate>Thu, 25 Nov 2021 14:14:09 +0800</pubDate>
-      
-      <guid>https://arieszhou.xyz/categories/html/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Devtool</title>
-      <link>https://arieszhou.xyz/categories/devtool/</link>
+      <title>git</title>
+      <link>https://arieszhou.xyz/categories/git/</link>
       <pubDate>Tue, 20 Jul 2021 15:19:14 +0800</pubDate>
       
-      <guid>https://arieszhou.xyz/categories/devtool/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Android</title>
-      <link>https://arieszhou.xyz/categories/android/</link>
-      <pubDate>Thu, 17 Jun 2021 22:30:30 +0800</pubDate>
-      
-      <guid>https://arieszhou.xyz/categories/android/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>HTTPS</title>
-      <link>https://arieszhou.xyz/categories/https/</link>
-      <pubDate>Thu, 22 Oct 2020 22:28:02 +0800</pubDate>
-      
-      <guid>https://arieszhou.xyz/categories/https/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>C&#43;&#43;</title>
-      <link>https://arieszhou.xyz/categories/c&#43;&#43;/</link>
-      <pubDate>Sun, 23 Aug 2020 22:29:13 +0800</pubDate>
-      
-      <guid>https://arieszhou.xyz/categories/c&#43;&#43;/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>TCP/IP</title>
-      <link>https://arieszhou.xyz/categories/tcp/ip/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://arieszhou.xyz/categories/tcp/ip/</guid>
+      <guid>https://arieszhou.xyz/categories/git/</guid>
       <description></description>
     </item>
     

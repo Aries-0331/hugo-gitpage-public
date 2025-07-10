@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>reading on Aries notebook</title>
+    <link>https://arieszhou.xyz/tags/reading/</link>
+    <description>Recent content in reading on Aries notebook</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 06 Jan 2020 22:24:19 +0800</lastBuildDate>
+    
+	<atom:link href="https://arieszhou.xyz/tags/reading/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>善用阅读技巧 检视阅读</title>
+      <link>https://arieszhou.xyz/post/%E5%96%84%E7%94%A8%E9%98%85%E8%AF%BB%E6%8A%80%E5%B7%A7-%E6%A3%80%E8%A7%86%E9%98%85%E8%AF%BB/</link>
+      <pubDate>Mon, 06 Jan 2020 22:24:19 +0800</pubDate>
+      
+      <guid>https://arieszhou.xyz/post/%E5%96%84%E7%94%A8%E9%98%85%E8%AF%BB%E6%8A%80%E5%B7%A7-%E6%A3%80%E8%A7%86%E9%98%85%E8%AF%BB/</guid>
+      <description>检视阅读（inspectional reading），强调在有限的时间内完成阅读。 初次接触这一概念，是在莫提默·艾德勒所写的《如何阅读一本书》</description>
+    </item>
+    
+  </channel>
+</rss>

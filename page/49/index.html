@@ -133,11 +133,11 @@
           <section id="posts" class="posts">
   <article class="post">
   <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/%E5%96%84%E7%94%A8%E9%98%85%E8%AF%BB%E6%8A%80%E5%B7%A7-%E6%A3%80%E8%A7%86%E9%98%85%E8%AF%BB/">善用阅读技巧 检视阅读</a></h1>
+    <h1 class="post-title"><a class="post-link" href="/post/tls%E5%8D%8F%E8%AE%AE/">TLS</a></h1>
     <div class="post-meta">
-      <span class="post-time"> 2020-01-06 </span>
+      <span class="post-time"> 2020-02-02 </span>
       <div class="post-category">
-        <a href="/%20categories/notes/"> notes </a>
+        <a href="/%20categories/cs/"> cs </a>
         </div>
     </div>
   </header>
@@ -145,27 +145,183 @@
   <div class="post-content">
     
     <div class="post-summary">
-      <p>检视阅读（inspectional reading），强调在有限的时间内完成阅读。</p>
-<p>初次接触这一概念，是在莫提默·艾德勒所写的《如何阅读一本书》。作者从阅读技巧层面，将阅读划分为四个层次，检视阅读属于其中的第二层。</p>
+      <h2 id="tls-协议的设计目标">TLS 协议的设计目标</h2>
+<p><strong>构建一个安全传输层（Transport Layer Security）</strong>，在基于连接的传输层（如 TCP）之上提供密码学安全，包括</p>
+<ol>
+<li>机密性，信息加密传输，无法被窃听</li>
+<li>完整性，信息一旦被篡改，通信双方可感知</li>
+<li>认证，通信双方防止身份被冒充</li>
+</ol>
+<h2 id="tls-的历史">TLS 的历史</h2>
 <ul>
-<li>第一层被称为<strong>基础阅读</strong>（elementary reading），是指脱离文盲程度，能够从字面意义上完成阅读动作，基本上小学阶段即可达到这一层次。</li>
-<li>第三层被称为<strong>分析阅读</strong>（analytical reading），相较前两层而言，更优质、更系统，摆脱了时间的限制，旨在追求抓住整本书的内容，直到彻底内化。</li>
-<li>第四层，也是最高层次的阅读，被称为<strong>主题阅读</strong>（syntopical reading），此时的目标已经不再针对于一本书，而是围绕一个主题，开展调研式的阅读。与其称之为阅读，不如说是「研究」更为贴切。</li>
+<li>1995: SSL 2.0，由 Netscape（美国网景公司）提出，设计有缺陷，很快废弃。</li>
+<li>1996: SSL 3.0，开始流行。2015 年被证实不安全，已禁用。</li>
+<li>1999: TLS 1.0，互联网标准化组织 ISOC 接替网景公司，发布了 SSL 的升级版 TLS 1.0 版。</li>
+<li>2006: TLS 1.1，修复部分漏洞。</li>
+<li>2008: TLS 1.2，增进安全性，2011 年不再兼容 SSL。</li>
+<li>2018: TLS 1.3，支持 0-rtt，大幅增进安全性，砍掉了 aead 之外的加密方式。</li>
 </ul>
-<p>检视阅读相较于基础阅读多了时间上的要求，比如「速读」「略读」等，都属于检视阅读的范畴，大部分成年人所采取的阅读技巧便是如此。但是掌握这一技巧的人，大多并不会充分利用这一技巧，包括我自己，在有意识地学习阅读技巧之前，对于自己所掌握并常用的技能，并没有很好地运用，从而导致阅读很低效。</p>
-<p><strong>为什么这样讲？</strong></p>
-<p>我曾经面对很多“大部头”书籍总是无法完整地读下去，甚至第一次读了十几页放弃后，过阵子再拿起来从头读几页，又放弃，是因为我下意识地使用了检视阅读的方式，却没有贯彻检视阅读的思想。</p>
-<p><strong>什么意思呢？</strong></p>
-<p>检视阅读的核心在于，在有限的时间内通读一遍。而九年义务教育教导我们，遇到不认识的字要查、遇到不懂的知识要问，所以当我们阅读时，碰到晦涩的概念停一下，碰到不认识的字停一下，碰到不认识的人再停一下，无法流畅地阅读，很容易导致，读着读着发觉读不下去。读了周五的忘了周一的，完了返回去看，半个月下来发现还在读第一章，备受挫折 orz&hellip;&hellip;</p>
-<p><strong>那么相对合理的策略是什么？</strong></p>
-<p>很简单，遇到生僻字不着急查，先跳过去，遇到陌生的概念，简单联系一下上下文，能推测就推测，推测不出来也先跳过去，以读下去为第一要务。目标是终点，而不是重点。</p>
-<p>这个过程就好比“取其精华去其糟粕”的反向操作，将「糟粕」视为初次阅读的目标和收益，先获取容易获取的部分，然后再考虑剩下的。</p>
-<p>一本书的内容，不可能全部是晦涩难懂的概念，总会有与我们的理解力齐平的部分，而这部分通常散落在整本书的各个角落，粗犷地勾勒出整本书的轮廓，让我们在读完后能够大致想象出这本书的框架。</p>
-<p>说到这里，应该很容易联想到目录、简介、序&hellip;&hellip;这些以往被我们习惯性忽略的内容。而这恰恰是以检视阅读作为常用阅读技巧的我们，所应该重视的内容。</p>
-<p>研究目录页，就相当于出发旅行前先看一下地图，具有指导性意义。简介也并不是无关紧要的，事实是，大部分的作者都会在简介或序言花费大量精力去雕琢，因为这是整本书中，唯一一处只能用精炼的语言概括自己作品内容，却又必须覆盖全面的地方。</p>
-<p>如果找来一本曾经完整读过且内容熟悉的书，看看它的序言，同时回忆书本内容，想必会不免惊叹于作者言语的精炼、措辞的精确以及架构的清晰，这种感受在阅读论述类书籍时尤为明显，如《娱乐至死》等。</p>
-<p>因此，如果你意识到自己惯用的阅读方式为速读、略读，那么要注意避开寻根究底的”阅读陷阱“，秉承五柳先生不求甚解的精神，放心大胆地读下去。哪怕一遍下来只收获百分之三十，也好过颗粒无收。而如果连一遍顺利的检视阅读都没完成，就更别提什么深入理解了。</p>
-<p>《如何阅读一本书》这本书，能够很好地帮助我们改善阅读技巧，提高阅读效率，并逐步形成自己的方法论，有兴趣的朋友可以找来看看，相信会有所收获。</p>
+<p>一般所说的 ssl，指的就是 TLS，目前大多指 1.2 版本。</p>
+<h2 id="密码算法相关概念">密码算法相关概念</h2>
+<p>密码学通信协议也是分层构造，大致可以分为四层：</p>
+<ol>
+<li>最底层，基础算法原语的实现，例如：aes、rsa、md5、sha256、ecdh&hellip;&hellip;</li>
+<li>第二层，是搭配参数后，符合密码学标准的算法，包括块加密算法、流加密算法、签名算法、非对称加密算法、MAC 算法等，例如：aes-128-cbc-pkcs7</li>
+<li>第三层，把多种标准算法组合而成的半成品组件，例如：对称加密传输组件（aes-128-cbc + hmac-sha256）、认证密钥协商算法（rsassa-OAEP + ecdh-secp256r1）、数字信封（rsaes-oaep + aes-cbc-128 + hmac-sha256）、密钥扩展算法（ PRF - sha256）&hellip;&hellip;</li>
+<li>最上层，各种组件拼装而成的成品密码学协议/软件，例如：tls 协议、ssh 协议、iMessage 协议、bitcoin 协议&hellip;&hellip;</li>
+</ol>
+<p>从上面分层的角度来看，TLS 大致由 3 个组件拼成：</p>
+<ul>
+<li>对称加密传输组件</li>
+<li>认证密钥协商组件</li>
+<li>密钥扩展组件</li>
+</ul>
+<p>这些组件可拆分为 5 类算法，在 TLS 中，这 5 类算法组合在一起，称为一个 CipherSuite：</p>
+<ul>
+<li>认证算法</li>
+<li>加密算法</li>
+<li>消息认证码算法（MAC）</li>
+<li>密钥交换算法</li>
+<li>密钥衍生算法</li>
+</ul>
+<h2 id="tls-协议分层">TLS 协议分层</h2>
+<p>TLS 主要用于加密数据传输，其主体是一个对称加密传输组件，而为了给这个组件生成通信双方共享的密钥，需要一个认证密钥协商组件，因此，TLS 协议主体有两个：</p>
+<ul>
+<li>record 协议，负责对称加密</li>
+<li>handshake 协议，负责认证密钥协商</li>
+</ul>
+<p>以及三个辅助协议：</p>
+<ul>
+<li>changecipher spec 协议，用于通知对端从 handshake 切换到 record</li>
+<li>alert 协议，通知各种返回码</li>
+<li>application data 协议，把 http 等应用层的数据流传入 record 层做处理并传输</li>
+</ul>
+<p>这种 <strong>认证密钥协商 + 对称加密传输</strong> 的结构，是大多数加密通信协议的通用结构。</p>
+<h3 id="record-协议">record 协议</h3>
+<p>record 协议负责应用数据的对称加密传输，占据 TLS 连接的大部分流量。</p>
+<p>主要过程分 4 步：数据分块 —— 数据压缩 —— 加密和完整性保护 —— 添加消息头</p>
+<p><a href="https://imgtu.com/i/6jIavQ"><img src="https://z3.ax1x.com/2021/03/26/6jIavQ.md.png" alt="6jIavQ.md.png"></a></p>
+<h3 id="handshake-协议">handshake 协议</h3>
+<p>handshake 协议的主要作用在于，产生 SecurityParameters 并提供给 record 协议，TLS 1.3 相对于 TLS 1.2 做出的最大修改，体现在握手协议，TLS 1.2 握手的总体流程：</p>
+<ul>
+<li>客户端和服务端协商 TLS 协议版本号和一个 Cipher Suite</li>
+<li>认证对端身份（ https 中一般是客户端认证服务端的身份）</li>
+<li>使用密钥协商算法生成共享的 master secret</li>
+</ul>
+<p>握手流程如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c" data-lang="c">      <span class="n">Client</span>                                               <span class="n">Server</span>
+
+      <span class="n">ClientHello</span>                  <span class="o">--------&gt;</span>
+                                                      <span class="n">ServerHello</span>
+                                                     <span class="n">Certificate</span><span class="o">*</span>
+                                               <span class="n">ServerKeyExchange</span><span class="o">*</span>
+                                              <span class="n">CertificateRequest</span><span class="o">*</span>
+                                   <span class="o">&lt;--------</span>      <span class="n">ServerHelloDone</span>
+      <span class="n">Certificate</span><span class="o">*</span>
+      <span class="n">ClientKeyExchange</span>
+      <span class="n">CertificateVerify</span><span class="o">*</span>
+      <span class="p">[</span><span class="n">ChangeCipherSpec</span><span class="p">]</span>
+      <span class="n">Finished</span>                     <span class="o">--------&gt;</span>
+                                               <span class="p">[</span><span class="n">ChangeCipherSpec</span><span class="p">]</span>
+                                   <span class="o">&lt;--------</span>             <span class="n">Finished</span>
+      <span class="n">Application</span> <span class="n">Data</span>             <span class="o">&lt;-------&gt;</span>     <span class="n">Application</span> <span class="n">Data</span>
+
+      <span class="c1">//*表示可选的消息，或根据上下文在某些情况下会发送的消息
+</span></code></pre></td></tr></table>
+</div>
+</div><p>握手过程的主要行为：</p>
+<ul>
+<li>交换 Hello 消息，协商出算法、交换 random 值等；</li>
+<li>交换必要的密码学参数，以便 client 和 server 协商出 premaster secret；</li>
+<li>交换证书和密码学参数，以便 client 和 server 做身份认证；</li>
+<li>根据 premaster secret 和交换的 random 值，生成共享的 master secret；</li>
+<li>把 SecurityParameters 提供给 record 层；</li>
+<li>client 和 server 确认对端得出了相同的 SecurityParameters，且握手过程的数据没有被篡改；</li>
+</ul>
+<p><strong>TLS 1.2 需要两次数据往返（ 2-RTT ）才能完成握手。</strong></p>
+<h2 id="tls-13-的主要变化">TLS 1.3 的主要变化</h2>
+<h3 id="更快的速度">更快的速度</h3>
+<p>TLS 1.3 完整握手流程：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c" data-lang="c">          <span class="n">Client</span>                                               <span class="n">Server</span>
+
+          <span class="n">ClientHello</span>
+          <span class="o">+</span> <span class="n">key_share</span>               <span class="o">--------&gt;</span>
+                                                          <span class="n">ServerHello</span>
+                                                          <span class="o">+</span> <span class="n">key_share</span>
+                                                <span class="p">{</span><span class="n">EncryptedExtensions</span><span class="p">}</span>
+                                                <span class="p">{</span><span class="n">CertificateRequest</span><span class="o">*</span><span class="p">}</span>
+                                                       <span class="p">{</span><span class="n">Certificate</span><span class="o">*</span><span class="p">}</span>
+                                                 <span class="p">{</span><span class="n">CertificateVerify</span><span class="o">*</span><span class="p">}</span>
+                                                           <span class="p">{</span><span class="n">Finished</span><span class="p">}</span>
+                                    <span class="o">&lt;--------</span>     <span class="p">[</span><span class="n">Application</span> <span class="n">Data</span><span class="o">*</span><span class="p">]</span>
+          <span class="p">{</span><span class="n">Certificate</span><span class="o">*</span><span class="p">}</span>
+          <span class="p">{</span><span class="n">CertificateVerify</span><span class="o">*</span><span class="p">}</span>
+          <span class="p">{</span><span class="n">Finished</span><span class="p">}</span>                <span class="o">--------&gt;</span>
+                                    <span class="o">&lt;--------</span>      <span class="p">[</span><span class="n">NewSessionTicket</span><span class="p">]</span>
+          <span class="p">[</span><span class="n">Application</span> <span class="n">Data</span><span class="p">]</span>        <span class="o">&lt;-------&gt;</span>      <span class="p">[</span><span class="n">Application</span> <span class="n">Data</span><span class="p">]</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>主要分 3 个阶段</p>
+<ul>
+<li>密钥交换，建立共享密钥数据并选择密码参数（该阶段后所有数据都会被加密）</li>
+<li>Server 参数，建立其它握手参数（Client 是否被认证、应用层协议支持等）</li>
+<li>认证：认证 Server（并选择性认证 Client），提供密钥确认和握手完整性校验</li>
+</ul>
+<p>可以看出，TLS 1.3 只需一次往返（ 1-RTT ）即可完成握手，相比 TLS 1.2 握手时间减半，以访问移动端网站为例，访问效率可能会提高将近 100ms。</p>
+<p>实现思路：砍掉 TLS1.2 的各种算法支持，只保留少量协商算法，并采取缓存方式，将密钥交换的协商并入第一个 RTT，从而将整个交互降到 1-RTT。</p>
+<h3 id="更强的安全性">更强的安全性</h3>
+<p>TLS 1.2 为了考虑兼容性，保留了对 SSL 2.0/3.0 时期许多加密算法和组件的支持，使得 TLS 1.2 具有高度可配置特性，也意味着许多不熟悉 TLS1.2 的人配置出脆弱的站点。</p>
+<p>TL3 1.3 在 1.2 的基础上，删除了不安全的加密算法，如：</p>
+<ul>
+<li>RSA 密钥传输 —— 不支持前向安全性</li>
+<li>CBC 模式密码 —— 被证实存在漏洞，易受攻击</li>
+<li>RC4 流密码 —— 在 https 中使用不安全</li>
+<li>SHA-1 哈希函数 —— 建议使用 SHA-2</li>
+<li>各种自定义 DH 组件 —— 被证实存在漏洞，易受攻击</li>
+</ul>
 
     </div>
     
@@ -178,7 +334,10 @@
     <i class="iconfont icon-left"></i>
     <span class="prev-text">Prev</span>
   </a>
-  
+  <a class="next" href="/page/50/">
+    <span class="next-text">Next</span>
+    <i class="iconfont icon-right"></i>
+  </a>
 </nav>
         </div>
         

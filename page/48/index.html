@@ -133,11 +133,11 @@
           <section id="posts" class="posts">
   <article class="post">
   <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/tls%E5%8D%8F%E8%AE%AE/">TLS</a></h1>
+    <h1 class="post-title"><a class="post-link" href="/post/react-basic-components-and-props/">React Components and Props</a></h1>
     <div class="post-meta">
-      <span class="post-time"> 2020-02-02 </span>
+      <span class="post-time"> 2020-02-05 </span>
       <div class="post-category">
-        <a href="/%20categories/cs/"> cs </a>
+        <a href="/%20categories/web/"> web </a>
         </div>
     </div>
   </header>
@@ -145,183 +145,288 @@
   <div class="post-content">
     
     <div class="post-summary">
-      <h2 id="tls-协议的设计目标">TLS 协议的设计目标</h2>
-<p><strong>构建一个安全传输层（Transport Layer Security）</strong>，在基于连接的传输层（如 TCP）之上提供密码学安全，包括</p>
-<ol>
-<li>机密性，信息加密传输，无法被窃听</li>
-<li>完整性，信息一旦被篡改，通信双方可感知</li>
-<li>认证，通信双方防止身份被冒充</li>
-</ol>
-<h2 id="tls-的历史">TLS 的历史</h2>
-<ul>
-<li>1995: SSL 2.0，由 Netscape（美国网景公司）提出，设计有缺陷，很快废弃。</li>
-<li>1996: SSL 3.0，开始流行。2015 年被证实不安全，已禁用。</li>
-<li>1999: TLS 1.0，互联网标准化组织 ISOC 接替网景公司，发布了 SSL 的升级版 TLS 1.0 版。</li>
-<li>2006: TLS 1.1，修复部分漏洞。</li>
-<li>2008: TLS 1.2，增进安全性，2011 年不再兼容 SSL。</li>
-<li>2018: TLS 1.3，支持 0-rtt，大幅增进安全性，砍掉了 aead 之外的加密方式。</li>
-</ul>
-<p>一般所说的 ssl，指的就是 TLS，目前大多指 1.2 版本。</p>
-<h2 id="密码算法相关概念">密码算法相关概念</h2>
-<p>密码学通信协议也是分层构造，大致可以分为四层：</p>
-<ol>
-<li>最底层，基础算法原语的实现，例如：aes、rsa、md5、sha256、ecdh&hellip;&hellip;</li>
-<li>第二层，是搭配参数后，符合密码学标准的算法，包括块加密算法、流加密算法、签名算法、非对称加密算法、MAC 算法等，例如：aes-128-cbc-pkcs7</li>
-<li>第三层，把多种标准算法组合而成的半成品组件，例如：对称加密传输组件（aes-128-cbc + hmac-sha256）、认证密钥协商算法（rsassa-OAEP + ecdh-secp256r1）、数字信封（rsaes-oaep + aes-cbc-128 + hmac-sha256）、密钥扩展算法（ PRF - sha256）&hellip;&hellip;</li>
-<li>最上层，各种组件拼装而成的成品密码学协议/软件，例如：tls 协议、ssh 协议、iMessage 协议、bitcoin 协议&hellip;&hellip;</li>
-</ol>
-<p>从上面分层的角度来看，TLS 大致由 3 个组件拼成：</p>
-<ul>
-<li>对称加密传输组件</li>
-<li>认证密钥协商组件</li>
-<li>密钥扩展组件</li>
-</ul>
-<p>这些组件可拆分为 5 类算法，在 TLS 中，这 5 类算法组合在一起，称为一个 CipherSuite：</p>
-<ul>
-<li>认证算法</li>
-<li>加密算法</li>
-<li>消息认证码算法（MAC）</li>
-<li>密钥交换算法</li>
-<li>密钥衍生算法</li>
-</ul>
-<h2 id="tls-协议分层">TLS 协议分层</h2>
-<p>TLS 主要用于加密数据传输，其主体是一个对称加密传输组件，而为了给这个组件生成通信双方共享的密钥，需要一个认证密钥协商组件，因此，TLS 协议主体有两个：</p>
-<ul>
-<li>record 协议，负责对称加密</li>
-<li>handshake 协议，负责认证密钥协商</li>
-</ul>
-<p>以及三个辅助协议：</p>
-<ul>
-<li>changecipher spec 协议，用于通知对端从 handshake 切换到 record</li>
-<li>alert 协议，通知各种返回码</li>
-<li>application data 协议，把 http 等应用层的数据流传入 record 层做处理并传输</li>
-</ul>
-<p>这种 <strong>认证密钥协商 + 对称加密传输</strong> 的结构，是大多数加密通信协议的通用结构。</p>
-<h3 id="record-协议">record 协议</h3>
-<p>record 协议负责应用数据的对称加密传输，占据 TLS 连接的大部分流量。</p>
-<p>主要过程分 4 步：数据分块 —— 数据压缩 —— 加密和完整性保护 —— 添加消息头</p>
-<p><a href="https://imgtu.com/i/6jIavQ"><img src="https://z3.ax1x.com/2021/03/26/6jIavQ.md.png" alt="6jIavQ.md.png"></a></p>
-<h3 id="handshake-协议">handshake 协议</h3>
-<p>handshake 协议的主要作用在于，产生 SecurityParameters 并提供给 record 协议，TLS 1.3 相对于 TLS 1.2 做出的最大修改，体现在握手协议，TLS 1.2 握手的总体流程：</p>
-<ul>
-<li>客户端和服务端协商 TLS 协议版本号和一个 Cipher Suite</li>
-<li>认证对端身份（ https 中一般是客户端认证服务端的身份）</li>
-<li>使用密钥协商算法生成共享的 master secret</li>
-</ul>
-<p>握手流程如下：</p>
+      <h1 id="components">Components</h1>
+<h2 id="what-is-components">What is components?</h2>
+<p>Components are one of the core concepts of React. They are the foundation upon which we build user interfaces(UI) - UI building blocks.</p>
+<p>Taking traditional Web development as an example, HTML lets us create rich structured documents with its built-in set of tags like <code>&lt;h1&gt;</code> and <code>&lt;li&gt;</code>:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-c" data-lang="c">      <span class="n">Client</span>                                               <span class="n">Server</span>
-
-      <span class="n">ClientHello</span>                  <span class="o">--------&gt;</span>
-                                                      <span class="n">ServerHello</span>
-                                                     <span class="n">Certificate</span><span class="o">*</span>
-                                               <span class="n">ServerKeyExchange</span><span class="o">*</span>
-                                              <span class="n">CertificateRequest</span><span class="o">*</span>
-                                   <span class="o">&lt;--------</span>      <span class="n">ServerHelloDone</span>
-      <span class="n">Certificate</span><span class="o">*</span>
-      <span class="n">ClientKeyExchange</span>
-      <span class="n">CertificateVerify</span><span class="o">*</span>
-      <span class="p">[</span><span class="n">ChangeCipherSpec</span><span class="p">]</span>
-      <span class="n">Finished</span>                     <span class="o">--------&gt;</span>
-                                               <span class="p">[</span><span class="n">ChangeCipherSpec</span><span class="p">]</span>
-                                   <span class="o">&lt;--------</span>             <span class="n">Finished</span>
-      <span class="n">Application</span> <span class="n">Data</span>             <span class="o">&lt;-------&gt;</span>     <span class="n">Application</span> <span class="n">Data</span>
-
-      <span class="c1">//*表示可选的消息，或根据上下文在某些情况下会发送的消息
-</span></code></pre></td></tr></table>
-</div>
-</div><p>握手过程的主要行为：</p>
-<ul>
-<li>交换 Hello 消息，协商出算法、交换 random 值等；</li>
-<li>交换必要的密码学参数，以便 client 和 server 协商出 premaster secret；</li>
-<li>交换证书和密码学参数，以便 client 和 server 做身份认证；</li>
-<li>根据 premaster secret 和交换的 random 值，生成共享的 master secret；</li>
-<li>把 SecurityParameters 提供给 record 层；</li>
-<li>client 和 server 确认对端得出了相同的 SecurityParameters，且握手过程的数据没有被篡改；</li>
-</ul>
-<p><strong>TLS 1.2 需要两次数据往返（ 2-RTT ）才能完成握手。</strong></p>
-<h2 id="tls-13-的主要变化">TLS 1.3 的主要变化</h2>
-<h3 id="更快的速度">更快的速度</h3>
-<p>TLS 1.3 完整握手流程：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-c" data-lang="c">          <span class="n">Client</span>                                               <span class="n">Server</span>
-
-          <span class="n">ClientHello</span>
-          <span class="o">+</span> <span class="n">key_share</span>               <span class="o">--------&gt;</span>
-                                                          <span class="n">ServerHello</span>
-                                                          <span class="o">+</span> <span class="n">key_share</span>
-                                                <span class="p">{</span><span class="n">EncryptedExtensions</span><span class="p">}</span>
-                                                <span class="p">{</span><span class="n">CertificateRequest</span><span class="o">*</span><span class="p">}</span>
-                                                       <span class="p">{</span><span class="n">Certificate</span><span class="o">*</span><span class="p">}</span>
-                                                 <span class="p">{</span><span class="n">CertificateVerify</span><span class="o">*</span><span class="p">}</span>
-                                                           <span class="p">{</span><span class="n">Finished</span><span class="p">}</span>
-                                    <span class="o">&lt;--------</span>     <span class="p">[</span><span class="n">Application</span> <span class="n">Data</span><span class="o">*</span><span class="p">]</span>
-          <span class="p">{</span><span class="n">Certificate</span><span class="o">*</span><span class="p">}</span>
-          <span class="p">{</span><span class="n">CertificateVerify</span><span class="o">*</span><span class="p">}</span>
-          <span class="p">{</span><span class="n">Finished</span><span class="p">}</span>                <span class="o">--------&gt;</span>
-                                    <span class="o">&lt;--------</span>      <span class="p">[</span><span class="n">NewSessionTicket</span><span class="p">]</span>
-          <span class="p">[</span><span class="n">Application</span> <span class="n">Data</span><span class="p">]</span>        <span class="o">&lt;-------&gt;</span>      <span class="p">[</span><span class="n">Application</span> <span class="n">Data</span><span class="p">]</span>
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">article</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>My First Component<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">ol</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>Components: UI Building Blocks<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>Defining a Component<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>Using a Component<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">ol</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">article</span><span class="p">&gt;</span>
 </code></pre></td></tr></table>
 </div>
-</div><p>主要分 3 个阶段</p>
+</div><p>This markup combined with CSS for style, and then JavaScript for interactivity, lies behind every sidebar, avatar, modal, dropdown &ndash; every piece of UI we see on the Web.</p>
+<p>However, React lets us combine our markup, CSS and JavaScript into custom &ldquo;components&rdquo;, <strong>reusable UI elements for app</strong>. Just like with HTML tags, we can compose, order and nest components to design whole pages. For example, the react documentation page is make out of React components:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-react" data-lang="react"><span class="p">&lt;</span><span class="nt">PageLayout</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">NavigationHeader</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">SearchBar</span> <span class="p">/&gt;</span>
+    <span class="p">&lt;</span><span class="nt">Link</span> <span class="na">to</span><span class="o">=</span><span class="s">&#34;/docs&#34;</span><span class="p">&gt;</span><span class="nx">Docs</span><span class="p">&lt;/</span><span class="nt">Link</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">NavigationHeader</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">Sidebar</span> <span class="p">/&gt;</span>
+  <span class="p">&lt;</span><span class="nt">PageContent</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">TableOfContents</span> <span class="p">/&gt;</span>
+    <span class="p">&lt;</span><span class="nt">DocumentationText</span> <span class="p">/&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">PageContent</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">PageLayout</span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>As projects grows, we will notice that many of our designs can be composed by reusing components we already wrote, or even jumpstart a project with the thousands of components shared by the React open source community like <a href="https://chakra-ui.com/">Chakra UI</a> and <a href="https://material-ui.com/">Material UI</a>.</p>
+<p>React puts interactivity first: <strong>a React component is a JavaScript function that you can sprinkle with markup</strong>.</p>
+<p><strong>Nesting and organizing</strong></p>
+<p>Components are regular JavaScript functions, so you can keep multiple components in the same file. This is convenient when components are relatively small or tightly related to each other.  We can define a component once, and then use it in as many places and as many times as we like.</p>
+<p><strong>Recap</strong></p>
 <ul>
-<li>密钥交换，建立共享密钥数据并选择密码参数（该阶段后所有数据都会被加密）</li>
-<li>Server 参数，建立其它握手参数（Client 是否被认证、应用层协议支持等）</li>
-<li>认证：认证 Server（并选择性认证 Client），提供密钥确认和握手完整性校验</li>
-</ul>
-<p>可以看出，TLS 1.3 只需一次往返（ 1-RTT ）即可完成握手，相比 TLS 1.2 握手时间减半，以访问移动端网站为例，访问效率可能会提高将近 100ms。</p>
-<p>实现思路：砍掉 TLS1.2 的各种算法支持，只保留少量协商算法，并采取缓存方式，将密钥交换的协商并入第一个 RTT，从而将整个交互降到 1-RTT。</p>
-<h3 id="更强的安全性">更强的安全性</h3>
-<p>TLS 1.2 为了考虑兼容性，保留了对 SSL 2.0/3.0 时期许多加密算法和组件的支持，使得 TLS 1.2 具有高度可配置特性，也意味着许多不熟悉 TLS1.2 的人配置出脆弱的站点。</p>
-<p>TL3 1.3 在 1.2 的基础上，删除了不安全的加密算法，如：</p>
+<li>Components are reusable UI elements for app</li>
+<li>In a React app, every piece of UI is a component</li>
+<li>React components are regular JavaScript functions except:
 <ul>
-<li>RSA 密钥传输 —— 不支持前向安全性</li>
-<li>CBC 模式密码 —— 被证实存在漏洞，易受攻击</li>
-<li>RC4 流密码 —— 在 https 中使用不安全</li>
-<li>SHA-1 哈希函数 —— 建议使用 SHA-2</li>
-<li>各种自定义 DH 组件 —— 被证实存在漏洞，易受攻击</li>
+<li>Their names always begin with a capital letter</li>
+<li>They return JSX markup</li>
 </ul>
+</li>
+</ul>
+<h1 id="props">Props</h1>
+<h2 id="what-are-props">What are Props?</h2>
+<p>Props simply stands for properties.</p>
+<p>They are what make components reusable. Because they perform an essential function – they pass data from one component to another.  Basically, these props components are read-only components.</p>
+<p>Props act as a channel for component communication. Props are passed from parent to child and help your child access properties that made it into the parent&rsquo;s tree.</p>
+<h2 id="how-to-use-props">How to use props?</h2>
+<p>There are two ways to use props, without destructuring and with destructuring.</p>
+<p><strong>Using Props With Destructuring</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-react" data-lang="react"><span class="c1">//MyProducts.js
+</span><span class="c1"></span><span class="kr">import</span> <span class="nx">React</span> <span class="nx">from</span> <span class="s2">&#34;react&#34;</span><span class="p">;</span>
+ 
+<span class="kd">function</span> <span class="nx">MyProducts</span><span class="p">(</span><span class="nx">props</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="p">(</span>
+    <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;{</span><span class="nx">props</span><span class="p">.</span><span class="nx">name</span><span class="p">}&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;{</span><span class="nx">props</span><span class="p">.</span><span class="nx">description</span><span class="p">}&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;{</span><span class="nx">props</span><span class="p">.</span><span class="nx">price</span><span class="p">}&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+  <span class="p">);</span>
+<span class="p">}</span>
+ 
+<span class="kr">export</span> <span class="k">default</span> <span class="nx">MyProducts</span><span class="p">;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><code>props</code> is an argument in function, we can access it by writing <code>props.name</code>, <code>props.price</code>, and <code>props.description</code>.</p>
+<p>Then we can render the product and pass some data to there three props in <code>App.js</code>. Props are passed in like HTML attributes.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-react" data-lang="react"><span class="c1">//App.js
+</span><span class="c1"></span><span class="kr">import</span> <span class="s2">&#34;./App.css&#34;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="nx">MyProducts</span> <span class="nx">from</span> <span class="s2">&#34;./MyProducts&#34;</span><span class="p">;</span>
+<span class="kd">function</span> <span class="nx">App</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="p">(</span>
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">className</span><span class="o">=</span><span class="s">&#34;App&#34;</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">MyProducts</span>
+        <span class="na">name</span><span class="o">=</span><span class="s">&#34;temitope&#34;</span>
+        <span class="na">description</span><span class="o">=</span><span class="s">&#34;the product has fantastic features&#34;</span>
+        <span class="na">price</span><span class="o">=</span><span class="p">{</span><span class="mi">1000</span><span class="p">}</span>
+      <span class="p">/&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+  <span class="p">);</span>
+<span class="p">}</span>
+ 
+<span class="kr">export</span> <span class="k">default</span> <span class="nx">App</span><span class="p">;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><strong>Using Props With Destructuring</strong></p>
+<p>Destructuring is a JavaScript feature that allows us to extract sections of data from an array or object.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-react" data-lang="react"><span class="c1">//traditionally
+</span><span class="c1"></span><span class="kr">const</span> <span class="nx">todo</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&#34;bath&#34;</span><span class="p">,</span><span class="s2">&#34;sleep&#34;</span><span class="p">,</span><span class="s2">&#34;eat&#34;</span><span class="p">];</span>
+<span class="c1">// old way
+</span><span class="c1"></span><span class="kr">const</span> <span class="nx">firstTodo</span> <span class="o">=</span> <span class="nx">todo</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span><span class="c1">//bath
+</span><span class="c1"></span><span class="kr">const</span> <span class="nx">secondTodo</span> <span class="o">=</span> <span class="nx">todo</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span><span class="c1">//sleep
+</span><span class="c1"></span> 
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">firstTodo</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">secondTodo</span><span class="p">);</span>
+
+<span class="c1">//destructuring offers a easier way to do so
+</span><span class="c1"></span><span class="kr">const</span> <span class="nx">todo</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&#34;bath&#34;</span><span class="p">,</span><span class="s2">&#34;sleep&#34;</span><span class="p">,</span><span class="s2">&#34;eat&#34;</span><span class="p">];</span>
+ 
+<span class="c1">// destructuring
+</span><span class="c1"></span><span class="kr">const</span> <span class="p">[</span><span class="nx">firstTodo</span><span class="p">,</span> <span class="nx">secondTodo</span><span class="p">]</span> <span class="o">=</span> <span class="nx">todo</span><span class="p">;</span><span class="c1">// bath, sleep
+</span><span class="c1"></span> 
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">firstTodo</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">secondTodo</span><span class="p">);</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>So in react, we can use destructuring to pull apart or unpack props, which lets us access props and use them more readable. Just like this:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-react" data-lang="react"><span class="kr">import</span> <span class="nx">React</span> <span class="nx">from</span> <span class="s2">&#34;react&#34;</span><span class="p">;</span>
+ 
+<span class="kd">function</span> <span class="nx">MyProducts</span><span class="p">({</span> <span class="nx">name</span><span class="p">,</span> <span class="nx">description</span><span class="p">,</span> <span class="nx">price</span> <span class="p">})</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="p">(</span>
+    <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;{</span><span class="nx">name</span><span class="p">}&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;{</span><span class="nx">description</span><span class="p">}&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;{</span><span class="nx">price</span><span class="p">}&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+  <span class="p">);</span>
+<span class="p">}</span>
+ 
+<span class="kr">export</span> <span class="k">default</span> <span class="nx">MyProducts</span><span class="p">;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>And in this way, we can create another child component in which we can pass down the parent&rsquo;s attributes.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-react" data-lang="react"><span class="kr">import</span> <span class="nx">React</span> <span class="nx">from</span> <span class="s2">&#34;react&#34;</span><span class="p">;</span>
+ 
+<span class="kd">function</span> <span class="nx">AdditionalDescription</span><span class="p">([</span><span class="nx">name</span><span class="p">,</span> <span class="nx">description</span><span class="p">])</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="p">(</span>
+  <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;{</span><span class="nx">name</span><span class="p">}&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;{</span><span class="nx">description</span><span class="p">}&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+  <span class="p">)</span>
+<span class="p">}</span>
+ 
+<span class="kr">export</span> <span class="k">default</span> <span class="nx">AdditionalDescription</span><span class="p">;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>Then render the <code>AdditionalDescription</code> in <code>App.js</code> and pass down some props to it:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-react" data-lang="react"><span class="p">&lt;</span><span class="nt">AdditionalDescription</span> <span class="na">name</span><span class="o">=</span><span class="p">{</span><span class="nx">name</span><span class="p">}</span> <span class="na">description</span><span class="o">=</span><span class="p">{</span><span class="nx">description</span><span class="p">}</span> <span class="p">/&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>So the child can take the props of the parent.</p>
+<h3 id="about-prop-drilling">About prop drilling?</h3>
+<p>Prop drilling is basically a situation when the same data is being sent at almost every level due to requirements in the final level.</p>
+<h3 id="why-not-to-use-prop-drilling">Why not to use prop drilling?</h3>
+<ol>
+<li><strong>Code Complexity:</strong> As components grow, prop drilling increases code complexity as it is difficult to track the flow of data through various components.</li>
+<li><strong>Reduced Maintainability:</strong> It will become very challenging to maintain the code with prop drilling. When changes are required in the data flow, you need to make changes in many components.</li>
+<li><strong>Performance Overhead:</strong> We have to pass props through unnecessary intermediary components which can impact performance.</li>
+<li><strong>Decreased Component Reusability:</strong> Components used in prop drilling become tightly coupled to the structure of the parent components, so it very difficult to use it on other parts of the application.</li>
+<li><strong>Increased Development Time:</strong> Prop drilling often requires additional planning to implement. This can slow down the development process, especially when the component hierarchies is complex.</li>
+</ol>
+<h3 id="how-to-avoid-prop-drilling">How to avoid prop drilling?</h3>
+<p>The problem with Prop Drilling is that whenever data from the Parent component will be needed, it would have to come from each level, Regardless of the fact that it is not needed there and simply needed in last.</p>
+<p>A better alternative to this is using <strong>useContext</strong> hook. The <strong>useContext</strong> hook is based on Context API and works on the mechanism of Provider and Consumer. Provider needs to wrap components inside Provider Components in which data have to be consumed. Then in those components, using the <strong>useContext</strong> hook that data needs to be consumed.</p>
 
     </div>
     

@@ -58,6 +58,34 @@
   </url>
   
   <url>
+    <loc>https://arieszhou.xyz/tags/d3/</loc>
+    <lastmod>2025-03-10T14:20:16+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://arieszhou.xyz/tags/data-visualization/</loc>
+    <lastmod>2025-03-10T14:20:16+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://arieszhou.xyz/categories/web/</loc>
+    <lastmod>2025-03-10T14:20:16+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://arieszhou.xyz/post/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96%E4%B8%8Ed3%E7%AC%94%E8%AE%B0/</loc>
+    <lastmod>2025-03-10T14:20:16+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://arieszhou.xyz/tags/community/</loc>
     <lastmod>2024-07-04T14:44:07+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -80,13 +108,6 @@
   
   <url>
     <loc>https://arieszhou.xyz/tags/web/</loc>
-    <lastmod>2024-05-22T15:57:29+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://arieszhou.xyz/categories/web/</loc>
     <lastmod>2024-05-22T15:57:29+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>

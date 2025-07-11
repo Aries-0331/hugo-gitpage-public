@@ -133,9 +133,9 @@
           <section id="posts" class="posts">
   <article class="post">
   <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/go-package-gorilla-mux/">Go Package - gorilla mux</a></h1>
+    <h1 class="post-title"><a class="post-link" href="/post/go-basic-interface-as-parameter-to-function/">Go Basic - Interface as Parameter to Function</a></h1>
     <div class="post-meta">
-      <span class="post-time"> 2023-02-22 </span>
+      <span class="post-time"> 2023-03-01 </span>
       <div class="post-category">
         <a href="/%20categories/languages/"> languages </a>
         </div>
@@ -145,21 +145,62 @@
   <div class="post-content">
     
     <div class="post-summary">
-      <p>Gorilla/mux is a popular package in the Go ecosystem that simplifies routing and URL matching for HTTP services. It offers a rich set of features and allows developers to define custom routes, handle variables, and leverage middleware for enhanced functionality. With gorilla/mux, you can build scalable and maintainable web applications with ease.</p>
-<p>Main Usage of gorilla/mux:</p>
-<ol>
-<li>Routing: Gorilla/mux enables you to define powerful and dynamic routes by leveraging patterns, placeholders, and regular expressions. Create RESTful APIs, handle different HTTP methods, and efficiently route requests to the appropriate handlers.</li>
-<li>URL Parameters: Easily extract parameters from URLs using gorilla/mux&rsquo;s built-in functionality. Capture variables from the URL path and use them within your handlers to customize behavior based on user input.</li>
-<li>Middleware: Extend your application&rsquo;s functionality by incorporating middleware with gorilla/mux. Apply authentication, logging, error handling, or any custom logic to requests and responses at various stages of the request processing pipeline.</li>
-<li>Subrouters: Gorilla/mux allows the creation of subrouters, enabling logical grouping of routes and middleware. This modular approach promotes code organization and reusability, making your application easier to maintain.</li>
-</ol>
-<p>Application Scenarios:</p>
-<ol>
-<li>RESTful APIs: With its flexible routing capabilities, gorilla/mux is an excellent choice for building RESTful APIs. Define resource endpoints, handle different HTTP verbs, and implement CRUD (Create, Read, Update, Delete) operations efficiently.</li>
-<li>Web Applications: Gorilla/mux is well-suited for developing web applications of any scale. It provides a solid foundation for handling URL routing, middleware integration, and parameter extraction, making it ideal for building user-friendly and robust web experiences.</li>
-<li>Microservices: As Go gains popularity in the realm of microservices, gorilla/mux emerges as a go-to package for handling routing within a distributed architecture. Its simplicity, performance, and flexibility make it an excellent choice for building microservices that communicate via HTTP.</li>
-</ol>
-<p>By utilizing gorilla/mux, you can easily define routes, handle URL parameters, incorporate middleware, and create subrouters. Whether you&rsquo;re building RESTful APIs, web applications, or microservices, gorilla/mux provides the necessary tools to create efficient and maintainable code.</p>
+      <blockquote>
+<p><a href="https://stackoverflow.com/questions/20314604/go-syntax-and-interface-as-parameter-to-function">https://stackoverflow.com/questions/20314604/go-syntax-and-interface-as-parameter-to-function</a></p>
+</blockquote>
+<p>Go uses interfaces for generalization of types. So if you want a function that takes a specific interface you write</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-golang" data-lang="golang"><span class="kd">func</span> <span class="nf">MyFunction</span><span class="p">(</span><span class="nx">t</span> <span class="nx">SomeInterface</span><span class="p">)</span> <span class="p">{</span><span class="o">...</span><span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>Every type that satisfies <code>SomeInterface</code> can be passed to <code>MyFunction</code>.</p>
+<p>Now, <code>SomeInterface</code> can look like this:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-golang" data-lang="golang"><span class="kd">type</span> <span class="nx">SomeInterface</span> <span class="kd">interface</span> <span class="p">{</span>
+    <span class="nf">SomeFunction</span><span class="p">()</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>To satisfy <code>SomeInterface</code>, the type implementing it must implement <code>SomeFunction()</code>.</p>
+<p>If you, however, require an empty interface (<code>interface{}</code>) the object does not need to implement any method to be passed to the function:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-golang" data-lang="golang"><span class="kd">func</span> <span class="nf">MyFunction</span><span class="p">(</span><span class="nx">t</span> <span class="kd">interface</span><span class="p">{})</span> <span class="p">{</span> <span class="o">...</span> <span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>This function above will take every type as <a href="http://golang.org/ref/spec#Interface_types">all types implement the empty interface</a>.</p>
+<h3 id="getting-the-type-back">Getting the type back</h3>
+<p>Now that you can have every possible type, the question is how to get the type back that was actually put in before. The empty interface does not provide any methods, thus you can&rsquo;t call anything on such a value.</p>
+<p>For this you need type assertions: let the runtime check whether there is type X in value Y and convert it to that type if so.</p>
+<p>Example:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-golang" data-lang="golang"><span class="kd">func</span> <span class="nf">MyFunction</span><span class="p">(</span><span class="nx">t</span> <span class="kd">interface</span><span class="p">{})</span> <span class="p">{</span>
+    <span class="nx">v</span><span class="p">,</span> <span class="nx">ok</span> <span class="o">:=</span> <span class="nx">t</span><span class="p">.(</span><span class="nx">SomeConcreteType</span><span class="p">)</span>
+    <span class="c1">// ...
+</span><span class="c1"></span><span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>In this example the input parameter <code>t</code> is asserted to be of type <code>SomeConcreteType</code>. If <code>t</code> is in fact of type <code>SomeConcreteType</code>, <code>v</code> will hold the instance of that type and <code>ok</code> will be true. Otherwise, <code>ok</code> will be false. See <a href="http://golang.org/ref/spec#Type_assertions">the spec on type assertions</a> for details.</p>
 
     </div>
     

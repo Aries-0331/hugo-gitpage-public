@@ -133,11 +133,11 @@
           <section id="posts" class="posts">
   <article class="post">
   <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/go-package-gorm/">Go Package - gorm</a></h1>
+    <h1 class="post-title"><a class="post-link" href="/post/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E5%B8%B8%E7%94%A8%E7%AD%96%E7%95%A5/">前端性能优化常用策略</a></h1>
     <div class="post-meta">
-      <span class="post-time"> 2023-03-12 </span>
+      <span class="post-time"> 2023-03-25 </span>
       <div class="post-category">
-        <a href="/%20categories/languages/"> languages </a>
+        <a href="/%20categories/web/"> web </a>
         </div>
     </div>
   </header>
@@ -145,21 +145,26 @@
   <div class="post-content">
     
     <div class="post-summary">
-      <p>GORM is a popular Object-Relational Mapping (ORM) package for Go, designed to simplify database operations and improve developer productivity. It provides a robust and expressive API for interacting with various databases, including PostgreSQL, MySQL, SQLite, and more. With GORM, you can focus on your application&rsquo;s logic while it handles the complexities of database management.</p>
-<p>Main Usage of GORM:</p>
+      <p>最佳实践：</p>
 <ol>
-<li>Model Definition: GORM allows you to define models, which are Go structs representing database tables. By leveraging struct tags, you can specify table names, column names, data types, constraints, and relationships with other models. GORM automates the mapping between these models and database tables, eliminating manual SQL queries.</li>
-<li>CRUD Operations: GORM simplifies database operations with its intuitive API. Perform Create, Read, Update, and Delete (CRUD) operations effortlessly using GORM&rsquo;s methods. Insert records, retrieve data based on conditions, update existing records, and delete data from the database with ease.</li>
-<li>Querying: GORM provides a powerful query builder that enables you to construct complex database queries using a chainable syntax. Leverage conditions, aggregations, joins, sorting, and pagination to retrieve the exact data you need from your database. GORM&rsquo;s query builder abstracts away the underlying SQL, making it easier to write and maintain complex queries.</li>
-<li>Relationships and Associations: GORM simplifies working with relationships between database tables. Define associations like one-to-one, one-to-many, and many-to-many relationships in your models using struct tags. GORM handles the necessary join queries and provides convenient methods to access related data.</li>
+<li><strong>资源压缩和合并</strong>：使用工具（如Webpack）压缩JavaScript、CSS和图片文件，减少文件大小，提高加载速度。合并资源减少HTTP请求。</li>
+<li><strong>利用浏览器缓存</strong>：通过设置合理的缓存策略（如Cache-Control头），利用浏览器缓存减少重复资源的下载。</li>
+<li><strong>代码拆分和懒加载</strong>：将代码分割成按需加载的块，减少初始加载时间。特别是对于单页应用（SPA），按路由拆分代码。</li>
+<li><strong>使用CDN</strong>：内容分发网络（CDN）可以将资源缓存于全球的多个节点，使用户能够从最近的服务器加载资源，减少延迟。</li>
+<li><strong>优化图片</strong>：使用适当的图片格式（如WebP），根据显示需要调整图片大小，实现图片懒加载。</li>
+<li><strong>减少重排和重绘</strong>：优化CSS选择器，避免使用复杂的选择器。减少DOM操作，合并多次操作为一次批处理。</li>
+<li><strong>异步加载第三方资源</strong>：如社交分享按钮、评论系统等，避免阻塞页面渲染。</li>
 </ol>
-<p>Application Scenarios:</p>
-<ol>
-<li>Web Applications: GORM is well-suited for building web applications that require efficient database interactions. Whether you&rsquo;re building an e-commerce platform, a content management system, or a social media application, GORM&rsquo;s simplicity and performance make it an excellent choice for managing your application&rsquo;s data layer.</li>
-<li>Microservices: As Go gains popularity in microservice architectures, GORM proves to be a valuable tool for managing database interactions in distributed systems. Use GORM to handle data storage and retrieval across different microservices, ensuring consistency and efficiency in your overall architecture.</li>
-<li>Data-Driven APIs: GORM&rsquo;s ease of use and powerful query builder make it ideal for developing data-driven APIs. Retrieve data based on user-defined filters, perform aggregations, and efficiently handle large datasets with GORM&rsquo;s optimized database operations. Build robust APIs that deliver data seamlessly to your frontend or other consuming applications.</li>
-</ol>
-<p>Conclusion: GORM simplifies database interactions in Go applications, enabling developers to focus on business logic rather than database management. By utilizing GORM&rsquo;s model definition, CRUD operations, querying capabilities, and support for relationships, you can streamline database interactions and improve productivity. Whether you&rsquo;re building web applications, microservices, or data-driven APIs, GORM empowers you to handle database operations efficiently and effectively.</p>
+<p>注意事项：</p>
+<ul>
+<li><strong>性能测试</strong>：定期使用工具（如Google PageSpeed Insights、Lighthouse）进行性能测试，确保优化措施有效。</li>
+<li><strong>响应式图片</strong>：根据设备尺寸和分辨率提供不同大小的图片，避免在小屏幕设备上下载大图。</li>
+<li><strong>减少JavaScript执行时间</strong>：避免长时间运行的脚本，使用Web Workers处理复杂计算。</li>
+<li><strong>忽视图片优化</strong>：未经压缩或格式不当的图片是页面加载缓慢的常见原因。</li>
+<li><strong>过度优化</strong>：过度优化可能会增加维护成本，有时候微小的性能提升不值得复杂的优化措施。</li>
+<li><strong>未优化字体加载</strong>：Web 字体是现代网页常用的美化手段，但未优化的字体文件会显著影响页面的可视化加载时间。</li>
+<li><strong>忽略移动设备</strong>：不考虑移动设备的性能和网络条件，可能导致在这些设备上体验极差的应用或网站。</li>
+</ul>
 
     </div>
     

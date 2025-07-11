@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>Aries notebook</title>
+  <title>数据可视化与D3笔记 - Aries notebook</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -16,7 +16,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="" /><meta name="description" content="Aries notebook" /><meta name="keywords" content="Aries, blog, hugo" />
+<meta name="author" content="" /><meta name="description" content="可视化基础 主要概念 数据处理：在可视化之前，需要对数据进行清洗、转换和聚合，以确保数据的准确性和可展示性。 数据映射：将数据属性与视觉通道（如颜" /><meta name="keywords" content="Aries, blog, hugo" />
 
 
 
@@ -26,9 +26,7 @@
 <meta name="generator" content="Hugo 0.74.3 with theme even" />
 
 
-<link rel="canonical" href="https://arieszhou.xyz/" />
-  <link href="https://arieszhou.xyz/index.xml" rel="alternate" type="application/rss+xml" title="Aries notebook" />
-  <link href="https://arieszhou.xyz/index.xml" rel="feed" type="application/rss+xml" title="Aries notebook" />
+<link rel="canonical" href="https://arieszhou.xyz/post/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96%E4%B8%8Ed3%E7%AC%94%E8%AE%B0/" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -41,16 +39,24 @@
 
 
 
-<meta property="og:title" content="Aries notebook" />
-<meta property="og:description" content="Aries notebook" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://arieszhou.xyz/" />
-<meta property="og:updated_time" content="2025-05-07T17:28:04+08:00" />
-<meta itemprop="name" content="Aries notebook">
-<meta itemprop="description" content="Aries notebook">
+<meta property="og:title" content="数据可视化与D3笔记" />
+<meta property="og:description" content="可视化基础 主要概念 数据处理：在可视化之前，需要对数据进行清洗、转换和聚合，以确保数据的准确性和可展示性。 数据映射：将数据属性与视觉通道（如颜" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://arieszhou.xyz/post/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96%E4%B8%8Ed3%E7%AC%94%E8%AE%B0/" />
+<meta property="article:published_time" content="2025-03-10T14:20:16+08:00" />
+<meta property="article:modified_time" content="2025-03-10T14:20:16+08:00" />
+<meta itemprop="name" content="数据可视化与D3笔记">
+<meta itemprop="description" content="可视化基础 主要概念 数据处理：在可视化之前，需要对数据进行清洗、转换和聚合，以确保数据的准确性和可展示性。 数据映射：将数据属性与视觉通道（如颜">
+<meta itemprop="datePublished" content="2025-03-10T14:20:16+08:00" />
+<meta itemprop="dateModified" content="2025-03-10T14:20:16+08:00" />
+<meta itemprop="wordCount" content="1746">
+
+
+
+<meta itemprop="keywords" content="D3,Data Visualization," />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Aries notebook"/>
-<meta name="twitter:description" content="Aries notebook"/>
+<meta name="twitter:title" content="数据可视化与D3笔记"/>
+<meta name="twitter:description" content="可视化基础 主要概念 数据处理：在可视化之前，需要对数据进行清洗、转换和聚合，以确保数据的准确性和可展示性。 数据映射：将数据属性与视觉通道（如颜"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -130,21 +136,22 @@
     <main id="main" class="main">
       <div class="content-wrapper">
         <div id="content" class="content">
-          <section id="posts" class="posts">
-  <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96%E4%B8%8Ed3%E7%AC%94%E8%AE%B0/">数据可视化与D3笔记</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2025-03-10 </span>
-      <div class="post-category">
-        <a href="/%20categories/web/"> web </a>
-        </div>
-    </div>
-  </header>
-  
-  <div class="post-content">
+          <article class="post">
     
-    <div class="post-summary">
+    <header class="post-header">
+      <h1 class="post-title">数据可视化与D3笔记</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2025-03-10 </span>
+        <div class="post-category">
+            <a href="/categories/web/"> web </a>
+            </div>
+        
+      </div>
+    </header>
+
+    
+    <div class="post-content">
       <h1 id="可视化基础">可视化基础</h1>
 <h2 id="主要概念">主要概念</h2>
 <ul>
@@ -216,23 +223,33 @@
 </ul>
 
     </div>
-    
-  </div>
-</article>
-  </section>
 
-<nav class="pagination">
-  <a class="prev" href="/">
-    <i class="iconfont icon-left"></i>
-    <span class="prev-text">Prev</span>
-  </a>
-  <a class="next" href="/page/3/">
-    <span class="next-text">Next</span>
-    <i class="iconfont icon-right"></i>
-  </a>
-</nav>
+    
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/d3/">D3</a>
+          <a href="/tags/data-visualization/">Data Visualization</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/case-censitive-in-different-filesystem/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">Case Censitive in Different Filesystem</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        <a class="next" href="/post/%E8%AE%B0%E4%B8%80%E6%AC%A1%E7%A4%BE%E5%8C%BA%E9%97%AE%E9%A2%98%E5%8F%8D%E9%A6%88/">
+            <span class="next-text nav-default">记一次社区问题反馈</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
         </div>
         
+
+  
+
+  
 
       </div>
     </main>

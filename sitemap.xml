@@ -673,4 +673,28 @@
     <priority>0.5</priority>
   </url>
   
+  <url>
+    <loc>https://arieszhou.xyz/post/chrome-extension-cross-context-communication/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://arieszhou.xyz/tags/chrome/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://arieszhou.xyz/tags/debug/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://arieszhou.xyz/tags/extension/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
 </urlset>

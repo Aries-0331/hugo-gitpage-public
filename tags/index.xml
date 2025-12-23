@@ -335,5 +335,32 @@
       <description></description>
     </item>
     
+    <item>
+      <title>chrome</title>
+      <link>https://arieszhou.xyz/tags/chrome/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://arieszhou.xyz/tags/chrome/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>debug</title>
+      <link>https://arieszhou.xyz/tags/debug/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://arieszhou.xyz/tags/debug/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>extension</title>
+      <link>https://arieszhou.xyz/tags/extension/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://arieszhou.xyz/tags/extension/</guid>
+      <description></description>
+    </item>
+    
   </channel>
 </rss>

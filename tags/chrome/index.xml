@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>chrome on Aries notebook</title>
+    <link>https://arieszhou.xyz/tags/chrome/</link>
+    <description>Recent content in chrome on Aries notebook</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    
+	<atom:link href="https://arieszhou.xyz/tags/chrome/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>A Debugging Analysis: When Chrome Extension Storage Events Don&#39;t Propagate</title>
+      <link>https://arieszhou.xyz/post/chrome-extension-cross-context-communication/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://arieszhou.xyz/post/chrome-extension-cross-context-communication/</guid>
+      <description>TL;DR This article documents a case study in Chrome extension development where chrome.storage.onChanged events failed to propagate from background service workers to options pages, preventing UI updates. Through systematic debugging, I identified a cross-context communication edge case and implemented a hybrid event-polling solution. While Chrome&amp;rsquo;s official documentation presents storage events as reliable, this analysis suggests defensive programming practices are essential for critical state synchronization.
+Introduction During the development of a Chrome extension requiring synchronization between background service workers and options page UI, I encountered a subtle but critical issue: storage events silently failed to notify the options page of state changes, despite the data being successfully written to chrome.</description>
+    </item>
+    
+  </channel>
+</rss>
